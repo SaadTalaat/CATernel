@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CATernel
 -=-=-=-=-
 	CATernel is a 32-bit protected mode functioning Kernel. so far for the x86 archs.
@@ -28,3 +29,6 @@ Notes
 	- This is a CATReloaded Software Project
 	- http://catreloaded.net
 	- if you faced any problem in the code or whatever you can get on IRC (Freenode) channel #CATReloaded and ask
+=======
+test
+>>>>>>> 46cb9fc4cd1d5fd7afc65b42c817da59aa2753e5
