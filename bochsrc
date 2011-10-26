@@ -1,14 +1,19 @@
 ####### Name : Saad Talaat Saad ##########
 ####### Co-operation : CATReloaded #######
-megs: 32
 romimage: file=$BXSHARE/BIOS-bochs-latest
+#cpu: count=1,ips=10000000
+megs: 32
 vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
-vga: extension=vbe
+vga: extension=none
 floppya: 1_44=kern/boot/boot, status=inserted
-#ata0-master: type=disk, mode=flat, path="boot", cylinders=100, heads=10, spt=10
+ata0:enabled=1,ioaddr1=0x1f0,ioaddr2=0x3f0,irq=14
+#ata0-master: type=disk, mode=flat, path="kern/boot/boot", cylinders=306, heads=4, spt=17,translation=none
 boot: a
+clock: sync=realtime, time0=local
+floppy_bootsig_check:disabled=0
 log:bochs.log
 mouse: enabled=0
+parport1: enabled=1, file="/dev/stdout"
 vga_update_interval: 150000
 i440fxsupport: enabled=1
 #debug: action=report

@@ -13,10 +13,10 @@ main(void)
 	struct proghdr *p,*p2;	// program headers;
 	
 	readseg((uint32_t) ELFHDR,SECTOR*8,0); // Load kernel from disk to memory
-	
+	/* initialize magic to the first for characters of ELF MAGIC signature */
 	magic = ELFHDR->magic[0]+ELFHDR->magic[1]+ELFHDR->magic[2]+ELFHDR->magic[3];
 
-	if(magic != ELF_MAGIC) //Check if the kernel is ELF file format
+	if(magic != ELF_MAGIC) //Check if the kernel is ELF file format, if it doesn't match get the hell out
 		goto getout;
 
 	p=(struct proghdr *) ( (uint8_t *) ELFHDR+ ELFHDR->phroff); // Load program segments
@@ -24,6 +24,7 @@ main(void)
 
 	for (; p < p2 ; p++)
 	{
+		//LOAD THEM INTO MEMORY	
 		readseg(p->vaddr,p->memsz,p->offset);
 	}
 

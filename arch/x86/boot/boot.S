@@ -16,7 +16,7 @@ start:
 	movsw
 	movw %di,%bp
 	movb $0x8,%cl
-	
+
 A20.1:
 	inb     $0x64,%al
         testb   $0x2,%al
@@ -47,6 +47,7 @@ protseg:
 	call main
 spin:
 	jmp spin
+.p2align 2
 gdt_table:
 	.word gdt-gdt_end-1
 	.long gdt
@@ -55,7 +56,4 @@ gdt:
 	.byte 0xff,0xff,0,0,0,0x92,0xCF,0
 	.byte 0xff,0xff,0,0,0,0x9A,0xCF,0
 gdt_end:
-
-
-
 
