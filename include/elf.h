@@ -42,7 +42,8 @@
 #define V_VERSION_CURRENT 1
 #define V_VERSION_NUM 2
 typedef struct elfhdr{
-	uint8_t magic[MAGIC_LEN];	// the elf magic number	
+	uint32_t magic;		
+	uint8_t magic2[MAGIC_LEN-4];	// the elf magic number	
 	uint16_t type;			// File type (EXEC/RELOC..etc)
 	uint16_t machine;		// Machine type
 	uint32_t version;		// Version

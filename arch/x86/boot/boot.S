@@ -1,5 +1,17 @@
 .global start
 .set Load,0x7c00
+
+#print:
+#        movw $debug,%si
+#        movw %si,%ax 
+#        testb $0x0,%al 
+#        je return
+#        movb $0x0E,%ah
+#        movw $0x7,%bx 
+#        int $0x10 
+#        jmp print
+#return:
+#	ret
 start:
 	.code16
 	cld
@@ -45,6 +57,7 @@ protseg:
 	movw %ax,%fs
 	movw %ax,%gs
 	call main
+#	jmp print
 spin:
 	jmp spin
 .p2align 2
