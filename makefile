@@ -2,13 +2,15 @@ OBJDIR = kern
 OBJ = boot.o main.o
 CC = gcc
 LD = ld
+DD = dd
 OBJCOPY = objcopy
 OBJDIRS := kern/boot
 OBJDIRS2 := kern/boot
 KERNDIR := kern/kernel
 OBJS := $(OBJDIR)/boot/boot.o $(OBJDIR)/boot/main.o
-KERN_OBJS := $(OBJDIR)/kernel/Reattach.o
+KERN_OBJFILES := $(OBJDIR)/kernel/Reattach.o $(OBJDIR)/kernel/work_it_out.o
 CC_OPTIONS= -I include
+
 include arch/makefile
 include kernel/makefile
 #$(OBJDIR)/boot/boot:$(OBJS)
@@ -28,6 +30,8 @@ always:
 $(OBJDIR):
 	mkdir $@	
 	mkdir $(OBJDIRS)
-.PHONY: clean all
+.PHONY: clean all install
+install:$(OBJDIR)/kernel/CATernel.img
+
 clean:
 	rm -rf $(OBJDIR)

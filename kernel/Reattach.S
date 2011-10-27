@@ -17,7 +17,7 @@ _start:
 get_to_work:
 	xor %ebp,%ebp			#Clear the Frame pointer
 	mov $kern_stack_end,%esp	# Load stack pointer with the kernel stack address
-	#call work_it_out
+	call work_it_out
 # Virtual Page Table
 #############################################################################
 .data
