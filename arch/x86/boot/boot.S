@@ -56,7 +56,7 @@ protseg:
 	movw %ax,%es
 	movw %ax,%fs
 	movw %ax,%gs
-	call main
+	call cmain
 #	jmp print
 spin:
 	jmp spin

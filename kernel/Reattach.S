@@ -6,9 +6,11 @@
 	.global _start
 
 _start:
+	#jmp spin2
 	movw 	$1234,0x472		#soft reboot
 	lgdt 	(gdt_table-KERNEL_ADDR)		#Load GDT register
 	mov 	$DATA_SEG,%eax		#Load all\
+	mov	$0x2,%si
 	mov 	%ax,%ds			# Segment registers\
 	mov 	%ax,%ss			# with the \
 	mov 	%ax,%es			# data segment descriptor value
@@ -18,6 +20,8 @@ get_to_work:
 	xor %ebp,%ebp			#Clear the Frame pointer
 	mov $kern_stack_end,%esp	# Load stack pointer with the kernel stack address
 	call work_it_out
+spin2:
+	jmp spin2
 # Virtual Page Table
 #############################################################################
 .data

@@ -53,5 +53,10 @@ static inline void insw(void *addr,int cnt,int port){
                         "d" (port), "0" (addr),"1" (cnt):
                         "memory","cc");
 }
-
+static inline void cli(void){
+	__asm __volatile("cli");
+}
+static inline void sti(void){
+	__asm __volatile("sti");
+}
 #endif

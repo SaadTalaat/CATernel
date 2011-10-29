@@ -1,7 +1,8 @@
 #include <types.h>
-;
-int
-work_it_out(void){
+#include <cmos.h>
 
-	return 12;
+void
+work_it_out(void){
+	//cmos_get_day()
+	while(1);
 }

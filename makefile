@@ -8,11 +8,12 @@ OBJDIRS := kern/boot
 OBJDIRS2 := kern/boot
 KERNDIR := kern/kernel
 OBJS := $(OBJDIR)/boot/boot.o $(OBJDIR)/boot/main.o
-KERN_OBJFILES := $(OBJDIR)/kernel/Reattach.o $(OBJDIR)/kernel/work_it_out.o
-CC_OPTIONS= -I include
+CC_OPTIONS = -I include -Wformat -Werror -Wunused -Wunreachable-code
+KERN_CFILES = $(wildcard kernel/*.c)
+#KERN_OBJFILES = $($(KERN_CFILES):.c=.o)
 
-include arch/makefile
 include kernel/makefile
+include arch/makefile
 #$(OBJDIR)/boot/boot:$(OBJS)
 #	$(LD) -N -e start -Ttext 0x7c00 -o $(OBJDIRS)/boot $^
 #	$(OBJCOPY) -S -O binary $(OBJDIRS)/boot
