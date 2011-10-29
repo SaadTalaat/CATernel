@@ -1,53 +1,65 @@
 #include <memvals.h>
+
+#define	RELOC(x) ((x) - KERNEL_ADDR)
+.set CODE_SEG,0x8
+.set DATA_SEG,0x10
+#define FLAGS ((1<<0) | (1<<1))
+#define CHECKSUM (-( 0x1BADB002 + FLAGS))
+
 .text
-.set CODE_SEG,0x8	#If you gave the gdt table at th end of the page a look you'll find that code segment desc is 0x8
-.set DATA_SEG,0x10	#Same goes for data segment desc
+jmp _start
+# The Multiboot header
+.align 4
+.long 0x1BADB002
+.long FLAGS
+.long CHECKSUM
 
-	.global _start
-
+.global		_start
 _start:
-	#jmp spin2
-	movw 	$1234,0x472		#soft reboot
-	lgdt 	(gdt_table-KERNEL_ADDR)		#Load GDT register
-	mov 	$DATA_SEG,%eax		#Load all\
-	mov	$0x2,%si
-	mov 	%ax,%ds			# Segment registers\
-	mov 	%ax,%ss			# with the \
-	mov 	%ax,%es			# data segment descriptor value
-	ljmp	$CODE_SEG,$get_to_work	#Make a far jump to go to protected mode
+	movw	$0x1234,0x472			# soft-reboot
+	lgdt	RELOC(gdt_table)		# Load the GDT Register
+	movl	$DATA_SEG, %eax			# Load the Data Segment
+	movw	%ax,%ds				# Copy Data Segment
+	movw	%ax,%es				
+	movw	%ax,%ss				
+	ljmp	$CODE_SEG,$get_to_work		# Do a far jump to go to protected mode
 
 get_to_work:
-	xor %ebp,%ebp			#Clear the Frame pointer
-	mov $kern_stack_end,%esp	# Load stack pointer with the kernel stack address
-	call work_it_out
-spin2:
-	jmp spin2
+	xor	%ebp,%ebp			# Clear the frame pointer
+	movl	$(kernel_stack_end),%esp		# Load the stack into the stack pointer
+	call	work_it_out
+
+spin:	
+	jmp	spin
+
 # Virtual Page Table
-#############################################################################
+############################################################################
 .data
-	#SETUP THE VIRTUAL PAGE TABLE
-	.global virtpgt
-	.set virtpgt,VIRTPGT	
-	.global virtpgd
-	.set virtpgd,(VIRTPGT + (VIRTPGT >> 10))
+	.global	virtpgt
+	.set	virtpgt, VIRTPGT
+	.global	virtpgd
+	.set	virtpgd, (VIRTPGT + (VIRTPGT>>10))
+
 
 # Kernel Stack
-#############################################################################
-	.p2align PAGELG		#Will Pad the allocation to 0x1000 byte
-	.global kern_stack
-kern_stack:
-	.space	KERNEL_STACK
-	.global kern_stack_end
-kern_stack_end:
-# Global Descriptor table
+############################################################################
+	.p2align	PAGELG		# Will pad allocation to 0x1000 byte
+	.global		kernel_stack
+kernel_stack:
+	.space		KERNEL_STACK
+	.global		kernel_stack_end
+kernel_stack_end:
+
+#Global Descriptor table
 #############################################################################
 #YOU REALLY NEED TO READ THE MEMVALS HEADER BEFORE TRYING TO UNDERSTAND THIS
-.p2align 2 #Pad alloc by 4
+	.p2align	2		# pad alloc by 4
 gdt_table:
-        .word gdt-gdt_end-1
-        .long gdt-KERNEL_ADDR 	#Map the gdt table
+	.word gdt-gdt_end-1
+	.long RELOC(gdt)
 gdt:
-        .long 0,0
-	SEGMENT(0xFFFFFFFF,-KERNEL_ADDR,SEGACS_RW|SEGACS_X) 	#Make a code segment desc
-	SEGMENT(0xFFFFFFFF,-KERNEL_ADDR,SEGACS_RW)		#Make a data segment desc
+	.long 0,0
+	SEGMENT(0xffffffff,-KERNEL_ADDR, SEGACS_RW|SEGACS_X)	# code seg
+	SEGMENT(0xffffffff,-KERNEL_ADDR, SEGACS_RW)	# data seg
 gdt_end:
+

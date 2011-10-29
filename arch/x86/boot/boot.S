@@ -1,6 +1,6 @@
-.global start
 .set Load,0x7c00
-
+.set CODE_SEG,0x8
+.set DATA_SEG,0x10
 #print:
 #        movw $debug,%si
 #        movw %si,%ax 
@@ -12,22 +12,24 @@
 #        jmp print
 #return:
 #	ret
+.global start
 start:
 	.code16
+	cli
 	cld
 	xorw %ax,%ax
-	movw %ax,%ss
 	movw %ax,%ds
 	movw %ax,%es
+	movw %ax,%ss
 
-	movw $Load,%sp
-	movw %si,%sp
-	movw $start,%di
-	movw $0x100,%cx
-	rep
-	movsw
-	movw %di,%bp
-	movb $0x8,%cl
+	movw $start,%sp
+#	movw %si,%sp
+#	movw $start,%di
+#	movw $0x100,%cx
+#	rep
+#	movsw
+#	movw %di,%bp
+#	movb $CODE_SEG,%cl
 
 A20.1:
 	inb     $0x64,%al
@@ -39,18 +41,18 @@ A20.2:
 	inb 	$0x64,%al
 	testb 	$0x2,%al
 	jnz 	A20.2
-	movb 	$0xd1,%al
+	movb 	$0xdf,%al
 	outb	%al,$0x60
 switch_mode:
 	lgdt 	gdt_table
 	mov 	%cr0,%eax
 	orl 	$1,%eax
 	mov 	%eax,%cr0
-	ljmp 	$0x10,$protseg
+	ljmp 	$CODE_SEG,$protseg
 
 protseg:
 	.code32
-	movw $8,%ax
+	movw $DATA_SEG,%ax
 	movw %ax,%ds
 	movw %ax,%ss
 	movw %ax,%es
@@ -66,7 +68,7 @@ gdt_table:
 	.long gdt
 gdt:
 	.long 0,0
-	.byte 0xff,0xff,0,0,0,0x92,0xCF,0
 	.byte 0xff,0xff,0,0,0,0x9A,0xCF,0
+	.byte 0xff,0xff,0,0,0,0x92,0xCF,0
 gdt_end:
 

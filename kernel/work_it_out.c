@@ -3,6 +3,6 @@
 
 void
 work_it_out(void){
-	//cmos_get_day()
+	cmos_get_day();
 	while(1);
 }

@@ -16,9 +16,12 @@ mouse: enabled=0
 parport1: enabled=1, file="/dev/stdout"
 vga_update_interval: 150000
 i440fxsupport: enabled=1
-gdbstub: enabled=0, port=5022, text_base=0, data_base=0, bss_base=0
-#debug: action=report
-#debugger_log: debugger.log
+#gdbstub: enabled=0, port=5022, text_base=0, data_base=0, bss_base=0
+display_library: x
+#magic_break:enable=1
+debug_symbols: file=kern/kernel/CATernel.sym
+#debugger:enable=1, action=report
+debugger_log: debugger.log
 #panic: action=ask
 #error: action=report
 #info: action=report

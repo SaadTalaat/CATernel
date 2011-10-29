@@ -1,0 +1,15 @@
+00000008 a CODE_SEG
+00000010 a DATA_SEG
+efc00000 A virtpgt
+effbf000 A virtpgd
+f0100014 T _start
+f0100036 t get_to_work
+f0100042 t spin
+f0100044 T work_it_out
+f0100054 T cmos_get_seconds
+f010007f T cmos_get_day
+f0101000 D kernel_stack
+f0109000 d gdt_table
+f0109000 D kernel_stack_end
+f0109006 d gdt
+f010901e d gdt_end

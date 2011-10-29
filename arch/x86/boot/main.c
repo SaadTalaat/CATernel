@@ -17,15 +17,14 @@ cmain(void)
 	/* initialize magic to the first for characters of ELF MAGIC signature */
 //	magic = ELFHDR->magic[0]+ELFHDR->magic[1]+ELFHDR->magic[2]+ELFHDR->magic[3];
 	if( ELFHDR->magic != ELF_MAGIC ) //Check if the kernel is ELF file format, if it doesn't match get the hell out
-	{	
+		goto getout;	
 	//	__asm __volatile("movl %%eax,%%esi" ::"a" (ELFHDR->magic));	
 		/*__asm __volatile("movl %%eax,%%ebx" ::"a"(ELFHDR->magic ));
 		__asm __volatile("movl %%eax,%%esi" ::"a"(  ));
 		__asm __volatile("movl %%eax,%%ebp" ::"a"(  ));
 		__asm __volatile("movl %%eax,%%ebx" ::"a"(  ));*/
-		goto getout;
 		
-	}
+	
 
 	p=(struct proghdr *) ( (uint8_t *) ELFHDR+ ELFHDR->phroff); // Load program segments
 	p2= p + ELFHDR->phrnum;
@@ -33,14 +32,12 @@ cmain(void)
 //	__asm __volatile("movl %%eax,%%edi" ::"a" ((p->memsz)));
 //	while(1);
 	for (; p < p2 ; p++)
-	{
 		//LOAD THEM INTO MEMORY	
 		readseg(p->vaddr,p->memsz,p->offset);
-	}
-//	__asm __volatile("movl %%eax,%%esi" ::"a" (*((unsigned int*)((ELFHDR->entry & 0xffffff)))));
+//	__asm __volatile("movl %%eax,%%esi" ::"a" ((*(uint32_t *)(0x10000c))));
+	__asm __volatile("jmp	%%eax"::"a" ( (uint32_t *)((ELFHDR->entry)&0xffffff)));
 	while(1);
-	//((void (*)(void)) (ELFHDR->entry & 0xffffff))();
-
+//	((void (*)(void)) (ELFHDR->entry & 0xffffff))();
 getout:
 	outw(0x8A00,0x8A00);
 	outw(0x8E00,0x8A00);
@@ -60,13 +57,13 @@ readseg(uint32_t va,uint32_t count,uint32_t offset)
 	end_va = va + count;	
 	va &= ~(SECTOR -1);
 	offset = (offset/SECTOR)+1;
-	if( va == 0x10000){
+/*	if( va == 0x10000){
 		offset +=1;
 	}
-	
+*/	
 	while(va < end_va) {
 		readsect((uint8_t *)va,offset);
-		va+=SECTOR;
+		va += SECTOR;
 		offset++;
 	}	
 }
@@ -80,7 +77,7 @@ readsect(void *dst,uint32_t offset)
 	outb(offset,0x1F3); 	// sector number
 	outb(offset >> 8 ,0x1F4); //Cylinder Low
 	outb(offset >> 16,0x1F5); //Cylinder High
-	outb(offset >> 24,0x1F6); 
+	outb( (offset >> 24) | (0xE0),0x1F6); 
 	outb(0x20,0x1F7);	//Read sectors with a retry
 	waitdisk();
 	

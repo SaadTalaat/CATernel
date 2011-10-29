@@ -33,14 +33,14 @@
 #define SEGACS_X	0x8	/* The Executable flag */
 #define SEGACS_D	0x4	/* growing down segment for data segments and means that this segments can be
 					Executed from the user applications "Low Privilege" */
-
+#define SEGACS_USR	0x60
 /* This is a shitty MACRO to make segment descriptor you pass the limit and base address and SEGACS_* for type
  * And you get the descriptor. Don't try to trace this code. it might piss your calculator off! */
 
 #define SEGMENT(limit,base,access) \
-	.word  ((limit) & 0xFFFF),((base) & 0xffff);\
-	.byte ( (base) & 0xff),( access & 0x90) \
-		,(0xC0 | (( ( (limit) >> 12 )&0xf) )), (( (base) >> 24) & 0xff)
+	.word  ((((limit)>>12) & 0xFFFF)),((base) & 0xffff);\
+	.byte ( ((base)>>16) & 0xff),( (access) | 0x90) \
+		,(0xC0 | (( ( (limit) >> 28 )&0xf) )), (( (base) >> 24) & 0xff)
 
 
 /********************************* Memory addresses Constants *****************************************************/

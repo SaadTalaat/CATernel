@@ -16,6 +16,7 @@ $(OBJDIR)/kernel/Reattach.o:kernel/Reattach.S
 
 $(OBJDIR)/kernel/kernel:$(OBJDIR)/kernel/Reattach.o $(KERN_OBJFILES)
 	$(LD)  -T kernel/script.ld -nostdlib -o $@ $^
+	nm -n $@ > kern/kernel/CATernel.sym
 
 $(OBJDIR)/kernel/CATernel.img:$(OBJDIR)/boot/boot $(OBJDIR)/kernel/kernel
 	$(DD) if=/dev/zero of=$@~ count\=10000

@@ -1,0 +1,18 @@
+Next at t=0
+(0) [0x00000000fffffff0] f000:fff0 (a DATA_SEG+fffe0): jmp far f000:e05b         ; ea5be000f0
+<bochs:1> c
+Next at t=2351324000
+(0) [0x000000000010004f] 0008:f010004f (a DATA_SEG+10003f): jmp .-2 (0x0010004f)      ; ebfe
+<bochs:2> r
+eax: 0x00000029 41
+ecx: 0x00000070 112
+edx: 0x00000071 113
+ebx: 0x00010074 65652
+esp: 0xf0108ff0 -267350032
+ebp: 0xf0108ff8 -267350024
+esi: 0x00010074 65652
+edi: 0x0000ffac 65452
+eip: 0xf010004f
+eflags 0x00000887: id vip vif ac vm rf nt IOPL=0 OF df if tf SF zf af PF CF
+<bochs:3> q
+(0).[2351324000] [0x000000000010004f] 0008:f010004f (a DATA_SEG+10003f): jmp .-2 (0x0010004f)      ; ebfe
