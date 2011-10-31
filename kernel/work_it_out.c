@@ -3,6 +3,8 @@
 
 void
 work_it_out(void){
-	cmos_get_day();
+	cmos_set_power_stat(STAT_CAL_HR24);
+	cmos_get_time(RTC_HOUR);
+		
 	while(1);
 }

@@ -6,8 +6,8 @@ f0100014 T _start
 f0100036 t get_to_work
 f0100042 t spin
 f0100044 T work_it_out
-f0100054 T cmos_get_seconds
-f010007f T cmos_get_day
+f0100064 T cmos_set_power_stat
+f01000d0 T cmos_get_time
 f0101000 D kernel_stack
 f0109000 d gdt_table
 f0109000 D kernel_stack_end
