@@ -25,8 +25,6 @@ uint8_t update , New_Stat;
  outb(RTC_STATUS_B,CMOS_INDEXPORT);
  outb(New_Stat,CMOS_DATAPORT);//write the new status to the port.
 
- outb(RTC_STATUS_B,CMOS_INDEXPORT);
- New_Stat=inb(CMOS_DATAPORT);
  return New_Stat;
  //for debugging the function will be void later.
 	
