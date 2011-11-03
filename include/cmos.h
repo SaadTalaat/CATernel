@@ -22,6 +22,21 @@
 #define RTC_YEAR	0x9
 #define RTC_STATUS_A	0xA	/* the RTC Status register A */
 #define RTC_STATUS_B	0xB	/* the RTC Status register B */
+
+
+#define STAT_RUN	0x7F     //values to be used in the Masking of the RTC_STATUS_B
+#define STAT_HALT       0x80  
+#define STAT_PER_INTR   0x40
+#define STAT_ALRM_INTR  0x20
+#define STAT_UPDT_INTR  0x10
+#define STAT_SQRWV_INTR 0x08
+#define STAT_CAL_BIN	0x04
+#define STAT_CAL_BCD	0xFB     
+#define STAT_CAL_HR24   0x02
+#define STAT_CAL_HR12   0xFD     
+#define STAT_DAY_LGHT   0x01
+
+
 #define RTC_STATUS_C	0xC
 #define RTC_STATUS_D	0xD
 #define RTC_STATUS_E	0xE	/* RTC diagnostic register E */
