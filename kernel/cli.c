@@ -39,7 +39,7 @@ console_getc(void){
 		return c;
 	}
 	return 0;
-	}
+}
 
 void 
 console_putc(int c){

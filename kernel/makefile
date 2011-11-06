@@ -1,12 +1,12 @@
 OBJDIRS += kern/kernel
-KERN_CFILES = kernel/work_it_out.c kernel/cmos.c
+KERN_CFILES = $(wildcard kernel/*.c)
 #KERN_OBJFILES = $(($(OBJDIR)/$(KERN_CFILES)):%.c=%.o)
 KERN_OBJFILES = $(foreach obj,$(KERN_CFILES),$(OBJDIR)/$(obj:%.c=%.o))
 #$(KERN_OBJFILES):$(KERN_CFILES)
 OBJDIR =kern
 $(OBJDIR)/kernel/%.o: kernel/%.c | $(OBJDIR)/kernel/Reattach.o
-	@echo $(KERN_OBJFILES)
-	$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
+	@echo $(CC) $@ from $<
+	@$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
 
 #$(OBJDIR)/kernel/work_it_out.o:kernel/work_it_out.c
 #$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<

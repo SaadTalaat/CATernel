@@ -1,3 +1,8 @@
+/*
+ * Saad Talaat
+ * CATReloaded (C) Copyrights 2011
+ * http://catreloaded.net
+ */
 #ifndef _ASM_X86_X86_H
 #define _ASM_X86_X86_H
 

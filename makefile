@@ -8,7 +8,7 @@ OBJDIRS := kern/boot
 OBJDIRS2 := kern/boot
 KERNDIR := kern/kernel
 OBJS := $(OBJDIR)/boot/boot.o $(OBJDIR)/boot/main.o
-CC_OPTIONS = -I include -Wformat -Werror -Wunused -Wunreachable-code
+CC_OPTIONS = -I include -Wformat -Werror -Wunreachable-code
 KERN_CFILES = $(wildcard kernel/*.c)
 #KERN_OBJFILES = $($(KERN_CFILES):.c=.o)
 

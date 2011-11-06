@@ -1,3 +1,8 @@
+/* 
+ * Saad Talaat
+ * CATReloaded (C) Copyrights 2011
+ * http://catreloaded.net
+ */
 #ifndef _CATERNEL_ELF_H
 #define _CATERNEL_ELF_H
 /* Start of Magic Definitions */

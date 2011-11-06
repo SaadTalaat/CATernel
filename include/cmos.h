@@ -1,5 +1,5 @@
-/* Author: Saad Talaat
- * CATReloaded Team
+/* Menna Essa
+ * CATReloaded (C) Copyrights 2011
  * http://catreloaded.net
  */
 #ifndef _CATERNEL_CMOS_H_

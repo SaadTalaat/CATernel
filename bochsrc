@@ -5,7 +5,7 @@ romimage: file=$BXSHARE/BIOS-bochs-latest
 megs: 32
 vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
 vga: extension=none
-#floppya: 1_44=kern/kernel/image.img, status=inserted
+#floppya: 1_44=kern/boot/boot, status=inserted
 ata0:enabled=1,ioaddr1=0x1f0,ioaddr2=0x3f0,irq=14
 ata0-master: type=disk, mode=flat, path="kern/kernel/CATernel.img", cylinders=100, heads=10, spt=10
 boot: disk

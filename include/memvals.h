@@ -1,6 +1,6 @@
 /*
- * Author: Saad Talaat
- * CATReloaded Team
+ * Saad Talaat
+ * CATReloaded (C) Copyrights 2011
  * http://catreloaded.net
  */
 
