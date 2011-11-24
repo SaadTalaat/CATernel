@@ -1,0 +1,1 @@
+Make a way to make a Descriptor table in C to re initalize the segment registers after activating the paging.
