@@ -34,12 +34,14 @@ start:
 A20.1:
 	inb     $0x64,%al
         testb   $0x2,%al
+#	cmovz	$0xd1,%al
         jnz     A20.1
         movb    $0xd1,%al
         outb    %al,$0x64
 A20.2:
 	inb 	$0x64,%al
 	testb 	$0x2,%al
+#	cmovz	$0xdf,%al
 	jnz 	A20.2
 	movb 	$0xdf,%al
 	outb	%al,$0x60
@@ -58,6 +60,10 @@ protseg:
 	movw %ax,%es
 	movw %ax,%fs
 	movw %ax,%gs
+	xor %eax,%eax
+#	mov $0x1, %eax
+#	CPUID
+#	jmp spin
 	call cmain
 #	jmp print
 spin:

@@ -17,6 +17,16 @@ typedef long long	int64_t;
 
 typedef uint64_t 	uintmax_t;
 typedef int64_t		intmax_t;
-/******** Module thingies **********/
 
+//Rounding operations
+#define ROUND_DOWN(x,y)			\
+({					\
+	uint32_t z = (uint32_t)(x);	\
+	(typeof(x)) (z - z % (y));	\
+})
+#define ROUND_UP(x,y) \
+({\
+	uint32_t z = (uint32_t)(y);\
+	(typeof(x)) (ROUND_DOWN(x,y) + y);\
+})
 #endif

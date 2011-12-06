@@ -15,6 +15,5 @@ work_it_out(void){
 	console_init();
 	printk("CATernel is booting up...\n");
 	bootup();
-	cmos_get_time(RTC_MONTH);
 //	play();
 }

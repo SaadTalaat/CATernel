@@ -37,19 +37,19 @@
 #define STAT_DAY_LGHT   0x01
 
 
-#define RTC_STATUS_C	0xC
-#define RTC_STATUS_D	0xD
-#define RTC_STATUS_E	0xE	/* RTC diagnostic register E */
-#define RTC_STATUS_F	0xF	/* RTC Shut-down status register F */
-#define RTC_STATUS_10	0x10	/* RTC DRIVER TYPE for A: and B: register */
-#define RTC_FIXED_DISK	0x12	/* RTC Fixed disk drive type for drive 0 and drive 1 register */
-#define RTC_EQUIP_BYTE	0x14	/* RTC Equip byte */
-#define RTC_SYSBASE_LSB	0x15	/* LSB of System base memory in Kilo byte*/
-#define RTC_SYSBASE_MSB	0x16	/* MSB of ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#define RTC_EXTMEM_LSB	0x17	/* LSB of total extended memory in Kilo byte */
-#define RTC_EXTMEM_MSB	0x18	/* MSB of ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-#define RTC_DRIVE_C	0x19	/* Drive C extention type */
-#define RTC_DRIVE_D	0x1A	/* Drive D extention type */
+#define CMOS_STATUS_C	0xC
+#define CMOS_STATUS_D	0xD
+#define CMOS_STATUS_E	0xE	/* RTC diagnostic register E */
+#define CMOS_STATUS_F	0xF	/* RTC Shut-down status register F */
+#define CMOS_STATUS_10	0x10	/* RTC DRIVER TYPE for A: and B: register */
+#define CMOS_FIXED_DISK	0x12	/* RTC Fixed disk drive type for drive 0 and drive 1 register */
+#define CMOS_EQUIP_BYTE	0x14	/* RTC Equip byte */
+#define CMOS_SYSBASE_LSB	0x15	/* LSB of System base memory in Kilo byte*/
+#define CMOS_SYSBASE_MSB	0x16	/* MSB of ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#define CMOS_EXTMEM_LSB	0x17	/* LSB of total extended memory in Kilo byte */
+#define CMOS_EXTMEM_MSB	0x18	/* MSB of ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#define CMOS_DRIVE_C	0x19	/* Drive C extention type */
+#define CMOS_DRIVE_D	0x1A	/* Drive D extention type */
 
 /* functions */
 //uint8_t cmos_get_seconds(void);

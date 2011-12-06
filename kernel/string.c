@@ -20,3 +20,11 @@ memcopy(void *dst, const void *src, uint32_t count){
 	return dst2;
 
 }
+void*
+memset(void *ptr,int c,uint32_t count){
+	char *ptr2;
+	ptr2 = ptr;
+	while(count--)
+		*ptr2++ =c;
+	return ptr;
+}

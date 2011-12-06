@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <video.h>
 #include <cmos.h>
+#include <x86.h>
+#include <cpuid.h>
 void play(void);
 void
 time_print(void){
@@ -23,10 +25,11 @@ time_print(void){
 }
 void
 bootup(void){
-//	cursor_position = 0;
-//	cga_set_pos(cursor_position);
-//	printk("%s",boot_str);	
+	char ch,*pch;
+	int i;
 	time_print();
+	scan_memory();
+	setup_mem_x86_32();
 	play();
 }
 void

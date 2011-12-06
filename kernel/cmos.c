@@ -16,7 +16,7 @@ uint8_t update , New_Stat;
 	}	
 	cli();	
  	outb(RTC_STATUS_B,CMOS_INDEXPORT);
-        New_Stat=inb(CMOS_DATAPORT); //read initial state
+	New_Stat=inb(CMOS_DATAPORT); //read initial state
  //those 3 sets the respective bit to there so we mask with AND
  if(stat==STAT_RUN || stat==STAT_CAL_BCD || stat==STAT_CAL_HR12) 
 	  New_Stat &= stat;
@@ -32,10 +32,25 @@ uint8_t update , New_Stat;
 
 
 //Get RTC Values
+uint32_t
+cmos_get_reg(uint8_t value){
+	uint32_t val;
+	uint8_t update;
+	//check status
+	while(update == 0x80){
+	outb(RTC_STATUS_A,CMOS_INDEXPORT);
+	update = inb(CMOS_DATAPORT);
+	}
+	cli();
+	//get the value 
+	outb(value,CMOS_INDEXPORT);
+	val = inb(CMOS_DATAPORT);
+	return val;
+}
 uint8_t
 cmos_get_time(uint8_t value) //value holds whether it's day,month,seconds,etc..
 {
-        uint8_t time;
+	uint8_t time;
 	uint8_t update;
 	//check status
 	while(update == 0x80){
@@ -48,5 +63,3 @@ cmos_get_time(uint8_t value) //value holds whether it's day,month,seconds,etc..
 	time = inb(CMOS_DATAPORT);
 	return time;
 }
-
-

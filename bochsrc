@@ -2,7 +2,7 @@
 ####### Co-operation : CATReloaded #######
 romimage: file=$BXSHARE/BIOS-bochs-latest
 #cpu: count=1,ips=10000000
-megs: 32
+megs: 128
 vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
 vga: extension=none
 #floppya: 1_44=kern/boot/boot, status=inserted

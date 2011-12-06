@@ -7,7 +7,6 @@
 #define _ASM_X86_X86_H
 
 #include <types.h>
-;
 static __inline void outb(uint8_t data,int port)
 {
         __asm __volatile("outb %0,%w1" : : "a" (data), "d" (port));
@@ -63,5 +62,69 @@ static inline void cli(void){
 }
 static inline void sti(void){
 	__asm __volatile("sti");
+}
+static inline void
+write_cr0(uint32_t value)
+{
+	asm volatile("movl %0,%%cr0"::"r" (value));
+}
+static inline uint32_t
+read_cr0(void)
+{
+	uint32_t value;
+	asm volatile("movl %%cr0,%0":"=r" (value));
+	return value;
+}
+static inline void
+write_cr1(uint32_t value)
+{
+        asm volatile("movl %0,%%cr1"::"r" (value));
+}
+static inline uint32_t
+read_cr1(void)
+{
+        uint32_t value;
+        asm volatile("movl %%cr1,%0":"=r" (value));
+        return value;
+}
+static inline void
+write_cr2(uint32_t value)
+{
+        asm volatile("movl %0,%%cr2"::"r" (value));
+}
+static inline uint32_t
+read_cr2(void)
+{
+        uint32_t value;
+        asm volatile("movl %%cr2,%0":"=r" (value));
+        return value;
+}
+static inline void
+write_cr3(uint32_t value)
+{
+        asm volatile("movl %0,%%cr3"::"r" (value));
+}
+static inline uint32_t
+read_cr3(void)
+{
+        uint32_t value;
+        asm volatile("movl %%cr3,%0":"=r" (value));
+        return value;
+}
+static inline void
+write_cr4(uint32_t value)
+{
+        asm volatile("movl %0,%%cr4"::"r" (value));
+}
+static inline uint32_t
+read_cr4(void)
+{
+        uint32_t value;
+        asm volatile("movl %%cr4,%0":"=r" (value));
+        return value;
+}
+static inline void cpuid()
+{
+	asm("CPUID");
 }
 #endif

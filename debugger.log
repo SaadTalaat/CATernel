@@ -1,7 +1,44 @@
 Next at t=0
 (0) [0x00000000fffffff0] f000:fff0 (a DATA_SEG+fffe0): jmp far f000:e05b         ; ea5be000f0
 <bochs:1> c
-Next at t=1914531147
-(0) [0x0000000000100081] 0008:f0100081 (a DATA_SEG+100071): pop ebx                   ; 5b
-<bochs:2> q
-(0).[1914531147] [0x0000000000100081] 0008:f0100081 (a DATA_SEG+100071): pop ebx                   ; 5b
+(0).[2209573440] ??? (physical address not available)
+Next at t=2209573441
+(0) [0x00000000fffffff0] f000:fff0 (a DATA_SEG+fffe0): jmp far f000:e05b         ; ea5be000f0
+<bochs:2> s
+Next at t=2209573442
+(0) [0x00000000000fe05b] f000:e05b (a DATA_SEG+fe04b): xor ax, ax                ; 31c0
+<bochs:3> r
+eax: 0x00000000 0
+ecx: 0x00000000 0
+edx: 0x00000000 0
+ebx: 0x00000000 0
+esp: 0x00000000 0
+ebp: 0x00000000 0
+esi: 0x00000000 0
+edi: 0x00000000 0
+eip: 0x0000e05b
+eflags 0x00000002: id vip vif ac vm rf nt IOPL=0 of df if tf sf zf af pf cf
+<bochs:4> c
+(0).[2693349900] ??? (physical address not available)
+Next at t=2693349901
+(0) [0x00000000fffffff0] f000:fff0 (a DATA_SEG+fffe0): jmp far f000:e05b         ; ea5be000f0
+<bochs:5> r
+eax: 0x00000000 0
+ecx: 0x00000000 0
+edx: 0x00000000 0
+ebx: 0x00000000 0
+esp: 0x00000000 0
+ebp: 0x00000000 0
+esi: 0x00000000 0
+edi: 0x00000000 0
+eip: 0x0000fff0
+eflags 0x00000002: id vip vif ac vm rf nt IOPL=0 of df if tf sf zf af pf cf
+<bochs:6> c
+(0).[3177489611] ??? (physical address not available)
+Next at t=3177489612
+(0) [0x00000000fffffff0] f000:fff0 (a DATA_SEG+fffe0): jmp far f000:e05b         ; ea5be000f0
+<bochs:7> c
+Next at t=3656312002
+(0) [0x00000000000f08ed] f000:08ed (a DATA_SEG+f08dd): mov ax, 0x046c            ; b86c04
+<bochs:8> q
+(0).[3656312002] [0x00000000000f08ed] f000:08ed (a DATA_SEG+f08dd): mov ax, 0x046c            ; b86c04
