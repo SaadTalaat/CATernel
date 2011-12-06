@@ -45,12 +45,46 @@
 
 /********************************* Memory addresses Constants *****************************************************/
 
+#define EXTMEM	0x100000
 #define PAGESZ	0x1000		// Page size
 #define PAGELG	0xC		// Page Shift which is log2 PAGESZ "to be used in memory allocation alignment"
 #define PAGECNT	0x400		// Each Page table has 1024 Page enteries
 #define PAGETSZ (PAGESZ*PAGECNT)// Page Table size
 #define KERNEL_ADDR 0xF0000000	// Kernel Physical memory
 #define KERNEL_STACK PAGESZ*8	// Kernel Stack size
-#define VIRTPGT	(KERNEL_ADDR-PAGETSZ) 	// Virtual page table address is just after the kernel and before the stack
+#define VIRTPGT	(KERNEL_ADDR - PAGETSZ) 	// Virtual page table address is just after the kernel and before the stack
 #define KERNEL_STACK_TOP VIRTPGT	// Stack top address
+/*** user definitions ***/
+#define USERSTART	(VIRTPGT - PAGETSZ)
+#define USERVIRTPGT     (USERSTART - PAGETSZ)
+#define USERPAGES	(USERVIRTPGT - PAGETSZ)
+#define USEREND		(USERPAGES - PAGETSZ)
+#define USERSTACK_END	(USEREND - (2*(PAGESZ)))
 
+/*** Physical address ***/
+#define PA(va)({\
+	uint32_t pa = (uint32_t) va;\
+	pa-KERNEL_ADDR;\
+})
+
+/** Paging **/
+// We are using 32 bit paging
+#define DIROFF(x)	(( ((uint32_t) (x)) >> 22) & 0x3FF)
+#define TBLOFF(x)	(( ((uint32_t) (x)) >> 12) & 0x3FF)
+
+// Least significant 12 bit are flags
+#define PAGE_PRESENT	0x1
+#define PAGE_WRITABLE	0x2
+#define PAGE_USER	0x4
+#define PAGE_WTHROUGH	0x8
+#define PAGE_CDISABLE	0x10
+#define PAGE_ACCESSED	0x20
+#define PAGE_DIRTY	0x40
+#define PAGE_PAGESZ	0x80
+
+
+/* Sizes */
+
+#define KB	0x400
+#define	MB	KB*KB
+#define GB	MB*KB
