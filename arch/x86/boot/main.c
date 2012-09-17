@@ -35,10 +35,10 @@ cmain(void)
 		//LOAD THEM INTO MEMORY	
 		readseg(p->vaddr,p->memsz,p->offset);
 //	__asm __volatile("movl %%eax,%%esi" ::"a" ((*(uint32_t *)(0x10000c))));
-        __asm __volatile("jmp   %%eax"::"a" ( (uint32_t *)((ELFHDR->entry)&0xffffff)));
+//        __asm __volatile("jmp   %%eax"::"a" ( (uint32_t *)((ELFHDR->entry)&0xffffff)));
 
-	while(1);
-//	((void (*)(void)) (ELFHDR->entry & 0xffffff))();
+//	while(1);
+	((void (*)(void)) (ELFHDR->entry & 0xffffff))();
 getout:
 	outw(0x8A00,0x8A00);
 	outw(0x8E00,0x8A00);
