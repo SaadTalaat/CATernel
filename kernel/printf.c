@@ -142,6 +142,8 @@ precision_process:
 				func((int)'x',count);
 				num = (unsigned long long) (uint32_t) va_arg(ap, void*);
 				base = 16;
+				width = 8;
+				padc = '0';
 				goto number;
 number:
 				ksprintkn(func,count,num,base,width,padc);

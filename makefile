@@ -10,6 +10,7 @@ KERNDIR := kern/kernel
 OBJS := $(OBJDIR)/boot/boot.o $(OBJDIR)/boot/main.o
 CC_OPTIONS = -I include -Wformat -Werror -Wunreachable-code
 KERN_CFILES = $(wildcard kernel/*.c)
+KARCH = x86
 #KERN_OBJFILES = $($(KERN_CFILES):.c=.o)
 
 include kernel/makefile
@@ -29,8 +30,9 @@ all: $(OBJDIRS2)
 always:
 	@:
 $(OBJDIR):
+	@echo $(OBJDIRS)
 	mkdir $@	
-	mkdir $(OBJDIRS)
+	mkdir -p $(OBJDIRS)
 .PHONY: clean all install
 install:$(OBJDIR)/kernel/CATernel.img
 

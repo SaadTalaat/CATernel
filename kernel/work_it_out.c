@@ -3,6 +3,9 @@
 #include <video.h>
 #include <cli.h>
 #include <stdio.h>
+#include <test.h>
+
+
 void
 work_it_out(void){
 //	cga_init();

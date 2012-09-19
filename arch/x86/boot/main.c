@@ -1,5 +1,5 @@
-#include <x86.h>
-#include <elf.h>
+#include <arch/x86/x86.h>
+#include <arch/x86/elf.h>
 
 #define SECTOR 512
 #define ELFHDR ((struct elfhdr *) 0x10000)

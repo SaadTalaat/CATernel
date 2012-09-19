@@ -14,9 +14,13 @@ typedef char 		int8_t;
 typedef int 		int32_t;
 typedef short 		int16_t;
 typedef long long	int64_t;
-
+typedef unsigned int 	size_t;
 typedef uint64_t 	uintmax_t;
 typedef int64_t		intmax_t;
+
+//Addresses
+typedef uint32_t	paddr_t;
+typedef uint32_t	vaddr_t;
 
 //Rounding operations
 #define ROUND_DOWN(x,y)			\

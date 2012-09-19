@@ -1,10 +1,21 @@
+include kernel/arch/makefile.inc
+
+ARCH_OBJSA = $(addsuffix .o, $(basename $(ARCH_SOURCES)))
+ARCH_OBJS = $(foreach obj, $(ARCH_OBJSA), $(OBJDIR)/$(obj:%.c=%.o))
 OBJDIRS += kern/kernel
 KERN_CFILES = $(wildcard kernel/*.c)
 #KERN_OBJFILES = $(($(OBJDIR)/$(KERN_CFILES)):%.c=%.o)
 KERN_OBJFILES = $(foreach obj,$(KERN_CFILES),$(OBJDIR)/$(obj:%.c=%.o))
 #$(KERN_OBJFILES):$(KERN_CFILES)
 OBJDIR =kern
+GCC_LIB = $(shell $(CC) -print-libgcc-file-name)
+
 $(OBJDIR)/kernel/%.o: kernel/%.c | $(OBJDIR)/kernel/Reattach.o
+	@echo $(CC) $@ from $<
+	@$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
+
+$(OBJDIR)/kernel/arch/$(KARCH)/%/%.o:kernel/arch/$(KARCH)/%/%.c
+	@echo $(ARCH_OBJS) $(ARCH_SOURCES)
 	@echo $(CC) $@ from $<
 	@$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
 
@@ -14,8 +25,8 @@ $(OBJDIR)/kernel/%.o: kernel/%.c | $(OBJDIR)/kernel/Reattach.o
 $(OBJDIR)/kernel/Reattach.o:kernel/Reattach.S
 	$(CC) -nostdinc $(CC_OPTIONS) -c -o $@ $<
 
-$(OBJDIR)/kernel/kernel:$(OBJDIR)/kernel/Reattach.o $(KERN_OBJFILES)
-	$(LD)  -T kernel/script.ld -nostdlib -o $@ $^
+$(OBJDIR)/kernel/kernel:$(OBJDIR)/kernel/Reattach.o $(KERN_OBJFILES) $(ARCH_OBJS)
+	$(LD)  -o $@ -T kernel/script.ld -nostdlib $(GCC_LIB) $^
 	nm -n $@ > kern/kernel/CATernel.sym
 
 $(OBJDIR)/kernel/CATernel.img:$(OBJDIR)/boot/boot $(OBJDIR)/kernel/kernel

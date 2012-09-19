@@ -3,9 +3,29 @@
 #include <stdio.h>
 #include <video.h>
 #include <cmos.h>
-#include <x86.h>
+#include <arch/x86/x86.h>
 #include <cpuid.h>
+#include <test.h>
 void play(void);
+static const char* error_panic = NULL;
+void
+_panic_(const char *file, int nline, const char *fmt, ...){
+        va_list ap;
+        if(error_panic == NULL)
+                goto panic_end;
+        error_panic = fmt;
+
+        va_start(ap, fmt);
+        printk("kernel panic at %s:%d:",file,nline);
+        vprintk(fmt, ap);
+        printk("\n");
+        va_end(ap);
+
+        panic_end:
+                while(1);
+
+
+}
 void
 time_print(void){
 	char *Month[12]={"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
@@ -28,8 +48,11 @@ bootup(void){
 	char ch,*pch;
 	int i;
 	time_print();
+//	scan_memory();
+//	setup_mem_x86_32();
 	scan_memory();
-	setup_mem_x86_32();
+	x86_setup_memory();
+	printk("Playing\n");
 	play();
 }
 void

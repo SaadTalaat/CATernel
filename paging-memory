@@ -1,0 +1,33 @@
+
+
+
+
+	--------------------------> 0xFFFFFFFF
+	|	KERN VIRT	|
+	--------------------------> 0xF0000000	Kernel Virtual memory
+	|	VIRT PGT	|
+	--------------------------> 0xEFC00000	Kernel Virtual Page Table/ Kernel Stack top
+	|	KERN STACK	|
+	--------------------------> 0xEFBF8000	Kernel Stack start
+	|	FAULT STK	|
+	--------------------------> 0xEF800000	Start of Kernel PGTBL, But faults (not addressable)
+	|	USER VIRTPGT	|
+	--------------------------> 0xEF4000000	User Virtual Page Table
+	|	USER PAGES	|
+	--------------------------> 0xEF0000000	The Pages structure (struct Page *pages)
+	|	USER STACK	|
+	--------------------------> 0xEEC00000	Start of User space
+	|	/////////	|
+	|	/////////	|
+	-------------------------
+	|	KERN PHY	|
+	--------------------------> 0x00100000	Kernel Physical memory
+	|	/////////	|
+	-------------------------
+	|	CGA BUFFER	|
+	--------------------------> 0x000A0000	CGA Buffer
+	|	/////////	|
+	--------------------------> 0x0000E2E8	END of IO Ports
+	|	IO PORTS	|
+	--------------------------> 0x00000000	MEMORY START
+

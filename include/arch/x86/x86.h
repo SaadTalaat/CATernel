@@ -127,4 +127,10 @@ static inline void cpuid()
 {
 	asm("CPUID");
 }
+static inline void
+invlpg(void *addr)
+{
+        __asm __volatile("invlpg (%0)" : : "r" (addr) : "memory");
+}
+
 #endif

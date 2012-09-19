@@ -3,7 +3,7 @@
  * CATReloaded (C) Copyrights 2011
  * http://catreloaded.net
  */
-#include <x86.h>
+#include <arch/x86/x86.h>
 #include <types.h>
 #include <video.h>
 #include <memvals.h>
