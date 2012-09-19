@@ -33,8 +33,8 @@ $(OBJDIR):
 	@echo $(OBJDIRS)
 	mkdir $@	
 	mkdir -p $(OBJDIRS)
-.PHONY: clean all install
-install:$(OBJDIR)/kernel/CATernel.img
+.PHONY: clean all image
+image:$(OBJDIR)/kernel/CATernel.img
 
 clean:
 	rm -rf $(OBJDIR)
