@@ -4,14 +4,14 @@
  * http://catreloaded.net
  */
 /**
- * a boot time queue is a macro coded queue
+ * a boot time list is a macro coded list
  * to provide ability to make sequential
- * queues at boot time.
+ * lists at boot time.
  */
 #ifndef _CATERNEL_BOOT_LIST_H_
 #define _CATERNEL_BOOT_LIST_H_
 
-/* a head is the first element of queue
+/* a head is the first element of list
  * and it would be global variable with
  * only an element head
  */
@@ -31,7 +31,7 @@
 		struct type **prev;\
 	}
 
-/** Functions of the Queue, first,next, insert, empty..etc */
+/** Functions of the list, first,next, insert, empty..etc */
 
 #define LIST_EMPTY(xhead)	((xhead)->first == NULL)
 
@@ -44,7 +44,7 @@
 
 #define LIST_NEXT(element,field)	((element)->field.next)
 
-/** For each loop on teh queue */
+/** For each loop on teh list */
 #define LIST_FOREACH(var, head, field)\
 	for ((var) = LIST_FIRST((head));\
 	(var);\

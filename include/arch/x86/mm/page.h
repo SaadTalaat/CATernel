@@ -131,17 +131,6 @@ va2pa(pde_t *pgdir, void *va){
 		return ~0;
 	}
 	return (pte[PGTBLX(va)] & ~0xFFF);
-/*					 
-	pte_t *pte;		     
-	pgdir = &pgdir[PGDIRX(va)];     
-	if( !( (*(pgdir)) & PAGE_PRESENT))   
-		return ( (paddr_t) ~0x0);	  
-
-	pte = ( (pte_t *) PA2KA( (*pgdir & ~0xFFF)));	
-	if(!( (*((uint32_t *) pte+PGTBLX(va))) & PAGE_PRESENT))	 
-		return ( (paddr_t) ~0x0);      			    
-	return *((paddr_t *) &pte[PGTBLX(va)]);       
-*/
 }
 
 /*
