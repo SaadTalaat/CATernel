@@ -144,34 +144,7 @@ x86_pgdir_find(pde_t *pgdir, const void *va, int allocate)
 	panic("Page find couldn't nor find, or allocate a page\n");
 	return NULL;
 
-/*	struct Page *p;
-	uint32_t pde_i;
-	pde_t pde = pgdir[PGDIRX(va)];
-	pte_t *pgtbl;
 	
-	if( pde & PAGE_PRESENT)
-	{
-		pgtbl = (pte_t *) PA2KA(pde & ~0xFFF);
-		return &pgtbl[ PGTBLX(va)];
-	}
-	
-	if( allocate == 0)
-		return NULL;
-
-	if(x86_page_alloc(&p) < 0)
-		return NULL;
-	p->ref = 1;
-	pgtbl = (pte_t *) pagetopa(p);
-	paddr_t tbladdr = (paddr_t) pgtbl;
-
-	pde_i = (tbladdr | PAGE_WRITABLE | PAGE_PRESENT | PAGE_USER);
-	pde = *((pde_t *) &pde_i);
-	pgdir[PGDIRX(va)] = pde;
-	printk("TABLE %p\n", tbladdr);
-	memset(PA2KA(tbladdr), 0, sizeof( PAGESZ));
-	
-	return PA2KA((paddr_t) (pgtbl+ PGTBLX(va)));
-*/
 }
 
 /*
@@ -210,7 +183,27 @@ x86_page_remove(pde_t* pgdir, void* va)
 int
 x86_page_insert(pde_t *pgdir, struct Page *page, void* va, uint32_t perm)
 {
-	pte_t *pte = x86_pgdir_find(pgdir, va, 0);
+
+	pte_t *pte = x86_pgdir_find(pgdir, va, 1);
+	if(pte == NULL)
+		return -1;
+
+	if( *((uint32_t *) pte) & PAGE_PRESENT)
+	{
+		if(PTD_ADDR(*((uint32_t *)pte)) != pagetopa(page))
+			x86_page_remove(pgdir, va);
+		else
+			page->ref--;
+
+	}
+
+	*((uint32_t *) pte) = pagetopa(page) | perm | PAGE_PRESENT;
+	page->ref++;
+	invlpg(page);
+	return 0;
+
+/*
+	pte_t *pte = x86_pgdir_find(pgdir, va, 1);
 	
 	if( pte == NULL)
 		return -1;
@@ -231,6 +224,7 @@ x86_page_insert(pde_t *pgdir, struct Page *page, void* va, uint32_t perm)
 	*((uint32_t *) pte) |= perm;
 	*((uint32_t *) &pgdir[PGDIRX(va)]) |= perm;
 	return 0;
+*/
 }
 
 void
@@ -244,7 +238,6 @@ map_segment_page(pde_t *pgdir, vaddr_t linear, size_t size,
 		//printk("Calling pgdir_find with va %x\n", count+linear);
 		pte =(uint32_t *) x86_pgdir_find(pgdir, (void *) (linear+count), 1);
 		*pte = (physical+count) | PAGE_PRESENT | perm;
-		//printk("%p %x\n", pte, *pte);
 	}
 
 

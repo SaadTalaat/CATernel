@@ -2,6 +2,7 @@ include kernel/arch/makefile.inc
 
 ARCH_OBJSA = $(addsuffix .o, $(basename $(ARCH_SOURCES)))
 ARCH_OBJS = $(foreach obj, $(ARCH_OBJSA), $(OBJDIR)/$(obj:%.c=%.o))
+
 OBJDIRS += kern/kernel
 KERN_CFILES = $(wildcard kernel/*.c)
 #KERN_OBJFILES = $(($(OBJDIR)/$(KERN_CFILES)):%.c=%.o)
@@ -15,9 +16,15 @@ $(OBJDIR)/kernel/%.o: kernel/%.c | $(OBJDIR)/kernel/Reattach.o
 	@$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
 
 $(OBJDIR)/kernel/arch/$(KARCH)/%/%.o:kernel/arch/$(KARCH)/%/%.c
-	@echo $(ARCH_OBJS) $(ARCH_SOURCES)
 	@echo $(CC) $@ from $<
 	@$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
+
+$(OBJDIR)/kernel/arch/$(KARCH)/%.o:kernel/arch/$(KARCH)/%.c
+	@echo $(CC) $@ from $<
+	@$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
+
+$(OBJDIR)/kernel/arch/$(KARCH)/%.o:kernel/arch/$(KARCH)/%.S
+	$(CC) -nostdinc $(CC_OPTIONS) -c -o $@ $<
 
 #$(OBJDIR)/kernel/work_it_out.o:kernel/work_it_out.c
 #$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<

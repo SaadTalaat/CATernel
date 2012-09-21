@@ -17,6 +17,7 @@ typedef long long	int64_t;
 typedef unsigned int 	size_t;
 typedef uint64_t 	uintmax_t;
 typedef int64_t		intmax_t;
+typedef uint32_t	reg_t;
 
 //Addresses
 typedef uint32_t	paddr_t;

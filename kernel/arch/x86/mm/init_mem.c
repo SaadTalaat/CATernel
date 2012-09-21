@@ -10,6 +10,8 @@
 #include <string.h>
 #include <arch/x86/processor.h>
 #include <arch/x86/mm/page.h>
+#include <arch/x86/interrupt.h>
+
 /*
  * Global variables
  */
@@ -18,6 +20,7 @@ static uint32_t mem_base, ext_base;	// Base of memory, base of extended memory
 char* next_free = 0;
 static uint32_t alloc_lock = 0;
 extern struct Page *pages;
+
 /*
  * New global descriptor table
  * Since paging is on, 
@@ -41,13 +44,19 @@ struct Segdesc catgdt[] = {
 	
 	//TSS Segment
 	[5] = SEG_NULL
-
+	
 
 };
 
 struct Gdtdesc gdtdesc ={
 	sizeof(catgdt)-1,
 	(unsigned long) catgdt
+
+};
+
+Idtdesc idtdesc = {
+	(256*sizeof(gatedesc))-1,
+	(unsigned long) idt
 
 };
 
@@ -62,7 +71,6 @@ scan_memory(void){
 
 	mem_base = ROUND_DOWN(x86_read_mem_size(CMOS_SYSBASE_LSB)*KB, PAGESZ);
 	ext_base = ROUND_DOWN(x86_read_mem_size(CMOS_EXTMEM_LSB)*KB, PAGESZ);
-
 	// is there memory extension?
 	if( ext_base) // max address is the last address in extended mem
 		max_addr = ext_base + EXTMEM;
@@ -75,7 +83,7 @@ scan_memory(void){
 
 	printk("[*] Memory Base = 0x%x\n", mem_base);
 	printk("[*] Extended Memory Base = 0x%x\n", ext_base);
-	printk("[*] Memory size avalible = 0x%x KB\n", (max_addr - mem_base)/KB);
+	printk("[*] Memory size avalible = 0x%d KB\n", (max_addr)/KB);
 	printk("[*] Addressable pages = 0x%x pages\n", page_count);
 	alloc_lock = 0;
 }
@@ -113,6 +121,7 @@ x86_setup_memory(void)
 	cr3 = KA2PA( *((uint32_t **)&pgdir) );
 	global_cr3 = cr3;
 	cr0 = read_cr0();
+
 	/*
 	 * CR0 Flags to set:
 	 * - Since we'll activate paging CR0_PG will do
@@ -139,6 +148,7 @@ x86_setup_memory(void)
 	
 	pages =  allocate( (sizeof(struct Page)*page_count), PAGESZ);
 	printk("[*] Pages list allocated at %p\n", pages);
+	printk("[*] Page entry size %d\n", sizeof(struct Page));
 	x86_paging_init();
 	
 	// map the user space memory to pages
@@ -184,6 +194,8 @@ x86_setup_memory(void)
 	 * kernel space, set first page to the mapped before
 	 * kernel pages table.
 	 */
+	printk("%x %p %p\n", pgdir[PGDIRX(KERNEL_ADDR)], pgdir[PGTBLX(KERNEL_ADDR)],
+			PA2KA(PTD_ADDR(pgdir[PGDIRX(KERNEL_ADDR)])));
 	pgdir[0] = pgdir[PGDIRX(KERNEL_ADDR)];
 	
 	// write cr3 with the page directory address
@@ -224,4 +236,12 @@ x86_setup_memory(void)
 	// to avoid errornous mapping remove the 1st entry
 	pgdir[0] = 0;
 	write_cr3(cr3);
+	idt_init();
+	asm volatile("lidt idtdesc");
+	printk("IDT TAble %p\n", idt);
+extern void (int_generic) (void);
+	printk("intr vector %p\n", &int_generic);
+	asm("xchg %bx,%bx");
+	asm("ljmp %0, $2f\n 2:\n" :: "i" (0x18));
+	asm volatile("INT %0" :: "i" (0xe));
 }
