@@ -1,7 +1,0 @@
-Next at t=0
-(0) [0x00000000fffffff0] f000:fff0 (a DATA_SEG+fffe0): jmp far f000:e05b         ; ea5be000f0
-<bochs:1> c
-Next at t=261277264
-(0) [0x0000000000100088] 0008:f0100088 (T console_interrupt+7): push ebx                  ; 53
-<bochs:2> exit
-(0).[261277264] [0x0000000000100088] 0008:f0100088 (T console_interrupt+7): push ebx                  ; 53

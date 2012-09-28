@@ -1,0 +1,20 @@
+it's important to know that the project was given the name CATernel 5 month ago, since you'll find this name
+frequently mentioned. I've attached the documentation of the kernel, and to be more frank It's just the documentation of
+the boot-up process and the HOW-TO for it.
+
+It is kinda hard to explain the limitations commercial kernels do on a hardware as intel, and long. To make it breif and
+direct. The extra implementation the kernel [CATernel] would do starts from supporting intel facilities based on the hard-
+ware driven impelementation(1). Starting from the Paging supported facility by intel through multi-processor management
+to supporting the MMX technology and SIMD processing [maybe] even MIMD processing. moreover intel compatibility and a full
+Virtualization support. supporting flexibility for Optimization is also a big plus, since intel arch is mainly well designed to
+make any additions fit in with no expensive changes to a software.
+
+However, relating the core kernel implementation it should follow standards for Scheduling and Race conditions..etc.
+and a monolithic kernel is the goal of this project. the Only changes might be about the Device and system calls in-
+terface. the kernel is meant to be tightly related and to have ultimate transparency to the hardware level to achieve the
+best performance.
+
+This is the long term plan of the project. Many many plan B[s] might take place in the process. 
+
+==========================================
+(1) Unlike other commercial kernels that apply software driven paging.
