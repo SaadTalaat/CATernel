@@ -60,7 +60,7 @@ extern gatedesc idt[];
 #define GATE_INT32	0xE
 #define	GATE_TRAP32	0xF
 
-#define IDT_ENTRIES	0x100
+#define IDT_ENTRIES	64
 
 /*
  * Macros to fill out Gate descriptors
