@@ -1,0 +1,82 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-09-22T03:29:12+02:00
+
+====== 6.3.1- Initalizing Paging ======
+Created Saturday 22 September 2012
+
+Now since you've got what it takes to understand paging. applying them is another story.
+in an abstract way,
+
+* Allocate and clear a [page size] for page directory.
+* we create a pages data structure to keep track of allocated and free pages.
+* Initalize structures.
+* map important/working physical segmants to linear addresses
+* trigger paging.
+
+
+**Allocating/Clearing Page Directory :-**
+we use the boot time allocation scheme to allocate 4096 bytes of memory right after the kernel
+LOAD segment and clear it. and to provide access to page table for both user and supervisor to
+access the page directory by making it recursively refernce itself when a virtual page table addr
+is used. in our case, VIRTPGT, USERVIRTPGT. which lie in 0xEFC00000 , 0xEF400000 repectively..
+so for those page numbers/linear addreses to refer to page directory itself we map it to itself
+by this line.
+	pgdir[PGDIRX(VIRTPGT)] = KA2PA(VIRTPGT) | PAGE_PRESENT | PAGE_WRITABLE;
+and the index of this entry is 3BF. it looks in bochs like this.
+
+{{../../../images/Screenshot from 2012-09-22 03:52:36.png}}
+this will be used in the future in kernel mode/user mode.
+
+
+**Pages data structure**
+What first comes in your mind if you need to detect whether there's a free page or not is to scan the
+page directory and table and detect free pages and search whether the page you want to map lies
+between those free pages or not. this would create a MASSIVE overhead. But a better way to do this
+is to create a linked lists, of Pages structures or whatever it might be called, it's not actually page
+structures but it's a (struct Page list) this is a simple backward linkedlist entry with a pointer to previous
+element and a value field, in our case this field is called ref which indicates how many pointers or procs
+refer to that page of course if it's allocated. if this ref field is 0 it makes this page free to use. and this
+is how it looks in memory.
+
+
+{{../../../images/Screenshot from 2012-09-22 04:12:48.png}}
+
+**Initalizing structures.**
+
+after setting up the environment, we start to initalize page directories and tables. and since we need to be
+still operating after paging activation we need to put entries for both Kernel code and stack so after paging
+is active the same addresses would be translated to same physical position.
+
+in steps way,
+we map the whole memory into pages and start filling out the free pages list. this can be done by a loop. but
+there's a memory we need to mark used that has the ACPI system calls and Memory mapped I/O [[[../6.1_-_Scanning_Memory.txt|Section 6.1]]]
+plus the kernel code/stack segments are also in use, so those we need to mark used as well.
+
+after filling the free pages list. memory mapping procedure should be supported to map physical segments
+to virtual addresses in runtime.
+This is the map_segment_page function. to provide such a function we need other functionalities, Like
+the ability to find and create a page table at a specific position, and insert or remove a page. and allocate
+a page.
+
+a simple page allocation and freeing functions is to simply remove and add a page member to the free pages
+global list.
+
+to insert and remove pages you need to be able to locate and create new Page dir Entries that are dependent
+ on the virtual address. for this x86_pgdir_find function is defined, it takes the virtual address which's PDE is
+desired to be found or created. the function first checks if this entry already exist, if yes a PDE is returned.
+(it is refered in the code as PTE since it references the table, however it's called PDE in intel manuals) if not
+it is created if desired.
+
+to remove or insert a page directory entry to a page directory other two functions were defined, removal
+function uses a lookup function to determine the existance of PDE, then it executes a detach funtion that
+determine whether there's processes that are still using this page or not, if not page is freed. then the pte
+is set to NULL or 0 and TLB is updated.
+to insert a page, the function first checks if there's a PDE/PTE refering to this page or the creatability of
+PDE/PTE refering to this page, if the page already is refered. if yes it's freed and reallocated.
+but we won't be using these functions ATM.
+
+at this point
+mapping a segment of memory to virtual memory is trivial, for each page of the segment you insert a PDE
+and and a PTE that refer to this VA and an opposing PA, this makes the PTE random.
+

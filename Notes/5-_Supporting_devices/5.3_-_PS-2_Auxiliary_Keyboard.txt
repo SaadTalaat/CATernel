@@ -1,0 +1,99 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-09-20T21:10:14+02:00
+
+====== 5.3 - PS-2 Auxiliary Keyboard ======
+Created Thursday 20 September 2012
+
+
+Illustrating how keyboard I/O works will take much much time! and space..you only need to know how it works since the keyboard is already supported.
+if you navigated to our CATernel/kernel/kbc.c you will find the keyboard driver that we are using. First we define some of the special keys.
+
+_{#define ESCODE  (1<<6)
+#define CTL     (1<<1)
+#define SHIFT   (1<<0)
+#define ALT     (1<<2)
+#define CAPSLOCK (1<<3)
+#define NUMLOCK  (1<<4)
+#define SCROLLLOCK (1<<5)}
+
+
+Then we define some of the scancodes we'll need you can see all the scancodes here.
+then we map our normal and shifted and ctrled scancodes with their scancode values. try this link
+to read from the keyboard we use our kbc_data function, we first check the status port if there is data in the output buffer or not.
+This is the PS/2 Keyboard status register specs 
+
+_{0064	r	KB controller read status (ISA, EISA)
+		 bit 7 = 1 parity error on transmission from keyboard
+		 bit 6 = 1 receive timeout
+		 bit 5 = 1 transmit timeout
+		 bit 4 = 0 keyboard inhibit
+		 bit 3 = 1 data in input register is command
+			 0 data in input register is data
+		 bit 2	 system flag status: 0=power up or reset  1=selftest OK
+		 bit 1 = 1 input buffer full (input 60/64 has data for 8042)
+		 bit 0 = 1 output buffer full (output 60 has data for system)}
+
+ and these are some constants from our kbc.h header. 
+_{#define KBC_DATAIN      0x01    /** New Data in buffer **/
+#define KBC_FULLBUF     0x02    /** Buffer is full **/
+#define KBC_REBOOT      0x04    /** soft reboot **/
+#define KBC_COMMAND     0x08    /** data in output register is a command **/
+#define KBC_SECLOCK     0x10    /** Security lock engaged **/
+#define KBC_TTIMEOUT    0x20    /** transmission timeout error **/
+#define KBC_RTIMEOUT    0x40    /** recieve timeout error **/
+#define KBC_PARITY      0x80    /** Parity error **/}
+
+in our kbc_data function we check if the bit 0 if set or not .if it is set we continue, and read the data buffer.
+then we check if the code we read is and Escaped scancode or if the key is released. and if it was escaped scancode. specify the character and the CAPS.
+But how do we actually read in the console? - we read via a buffer and written character counter and read character counter
+
+_{void
+console_interrupt(int (*intr)(void)){
+        int c;
+        while ((c = (*intr)()) != -1){
+                if(c==0)
+                        continue;
+                cons.buf[cons.wpos++] = c;
+                if(cons.wpos == MAXBUFSIZE)
+                        cons.wpos=0;
+        }
+
+}}
+
+this function reads recived characters from the paramter function to the buffer..as long as the paramter function returns something!
+In our kbc.c the interrupt function is
+
+_{void
+kbc_interrupt(void)
+{
+        console_interrupt(kbc_data);
+}
+}
+ which executes the previous function giving kbc_data as paramter function. so when you want to read a character you just do this interrupt and read the buffer.
+
+_{int
+console_getc(void){
+        int c;
+        kbc_interrupt();
+        if (cons.rpos != cons.wpos){
+                c = cons.buf[cons.rpos++];
+                if(cons.rpos == MAXBUFSIZE)
+                        cons.rpos=0;
+                return c;
+        }
+        return 0;
+}}
+
+this executes the interrupt and if a character was read the function returns it.
+but of course you need to wait for the user to input the character.
+
+_{int
+getchar(void){
+        int ch;
+        while((ch=console_getc()) == 0);
+        return ch;
+
+}
+}
+ There!! that's how you get a character from a user!

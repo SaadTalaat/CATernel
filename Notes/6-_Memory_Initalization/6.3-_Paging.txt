@@ -1,0 +1,62 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-09-21T01:39:43+02:00
+
+====== 6.3- Paging ======
+Created Friday 21 September 2012
+
+
+As mentioned in the previous section, we had about 4000 Pages avaliable.
+But before we discuss how we initalize paging in CATernel we better start by defining how it should be done.
+
+According to Intel Manual Volume 3 - System programming. 4.3 - 32-bit Paging.
+
+You can address up to 4GB page addresses at anytime, which gives you the ability to address 4GB or physical addresses.
+also there's two types of paging, 4KByte Pages and 4Mb Pages[extended paging]. of course we won't be doing the 4MB
+Paging at least for now.
+
+addressing 4KBytes Pages is done by having a page directory and page tables. the page directory stores the addresses of
+page tables and the linear address offset.
+Theoratically, It's easy to understand by using charts.
+
+**Linear Address**
+this linear address can be considered to be an index driven address, in another words, It has completely nothing to do with
+actual memory or physical memory except for the offset part.
+Linear address consists from. 
+						{{../../images/LinearAddress.jpg}}
+
+in 4KByte Paging, and since we refer to 4Kbyte sized page which is 2^13 it means we can offset with FFF into the page. from 
+0xFFFFF000 to 0xFFFFFFFF for example. the other [12,21] bits indicate the index of the page in the page table. and If I havent
+mentioned.
+[32-bit KByte] Page directory contains an array of PDEs (Page Directory entries) which contain the permission of the page table
+and the address of the page table.
+[32-bit KByte] Page Table contains an array of PTEs (Page Table entries) which contain page permissions and phyiscal address of
+the page.
+both Page Tables and Page Directories take up a page size of memory which means they contain 1024 entries of PDEs and PTEs.
+
+once we obtained the phyiscal address of the page, the offset in the linear address is added up to the physical page to refer
+to the exact address the linear address refers to. and of Course all this is done by the MMU.
+
+a 32-bit KByte Paging PDE would be like this.
+		[0,11] Page Table Permissions and Ignored bits.
+		[12,31] Page Table address.
+
+of course the Page table won't need more than 20 bits to store it's address since it's (page) sized.
+
+a 32-bit KByte Paging PTE would be like this.
+		[0,11] Page permissions
+		[12,31] Page physical address
+
+the permissions of the PDE is almost the same of the permissons of the PTE. PDE Permissons:
+		[0]	First bit must be always 1 which marks page as (Present), if it's not set the entry is ignored.
+		[1] R/W permissions, If bit is cleared no write operations are allowed
+		[2]	U/S, it indicates whether the page/page table belongs to user of supervisor (ring 0,3). if it's 
+			cleared, it means it belongs to supervisor which forbids access from CPL =3
+		[3] WT, Write through flag it indicates the memory type used to access this page either
+			write back caching or write through caching.
+		[4] CD, it indicates if this page is cachable or not, if set it's not cachable.
+		[5] A, Accessed flag refers to whether a software accessed this page or not.
+		[6] D, Dirty flag is set if a software did a write operation to this page.
+		[7] PS, Page size flags if set it means we're using 4MByte paging, if not it's 4KB paging
+		[8] G, if set it means that the directory translation is Global. we shall refer to it later.
+

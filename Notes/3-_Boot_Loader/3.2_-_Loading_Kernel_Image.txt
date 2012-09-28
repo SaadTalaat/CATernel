@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-09-20T20:36:07+02:00
+
+====== 3.2 - Loading Kernel Image ======
+Created Thursday 20 September 2012
+
+Our kernel image is an elf binary formatted. so what you really need before reading this is a deep knowledge of ELF. I've wrote the elf.h header which you can find in CATernel/include/elf.h to make it easier for us to read our kernel. But I will give you an ELF crash course here.

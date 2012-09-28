@@ -1,0 +1,110 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-09-20T20:49:53+02:00
+
+====== 4- Kernel Fetching ======
+Created Thursday 20 September 2012
+
+ After Loading our kernel into memory we have to setup our memory layout. check our this code .
+
+
+#include 
+
+#define	RELOC(x) ((x) - KERNEL_ADDR)
+.set CODE_SEG,0x8
+.set DATA_SEG,0x10
+#define FLAGS ((1<<0) | (1<<1))
+#define CHECKSUM (-( 0x1BADB002 + FLAGS))
+
+.text
+jmp _start
+# The Multiboot header
+.align 4
+.long 0x1BADB002
+.long FLAGS
+.long CHECKSUM
+
+.global		_start
+_start:
+	movw	$0x1234,0x472			# soft-reboot
+	lgdt	RELOC(gdt_table)		# Load the GDT Register
+	movl	$DATA_SEG, %eax			# Load the Data Segment
+	movw	%ax,%ds				# Copy Data Segment
+	movw	%ax,%es				
+	movw	%ax,%ss				
+	ljmp	$CODE_SEG,$get_to_work		# Do a far jump to go to protected mode
+
+get_to_work:
+	xor	%ebp,%ebp			# Clear the frame pointer
+	movl	$(kernel_stack_end),%esp		# Load the stack into the stack pointer
+	call	work_it_out
+
+spin:	
+	jmp	spin
+
+# Virtual Page Table
+############################################################################
+.data
+	.global	virtpgt
+	.set	virtpgt, VIRTPGT
+	.global	virtpgd
+	.set	virtpgd, (VIRTPGT + (VIRTPGT>>10))
+
+
+# Kernel Stack
+############################################################################
+	.p2align	PAGELG		# Will pad allocation to 0x1000 byte
+	.global		kernel_stack
+kernel_stack:
+	.space		KERNEL_STACK
+	.global		kernel_stack_end
+kernel_stack_end:
+
+#Global Descriptor table
+#############################################################################
+#YOU REALLY NEED TO READ THE MEMVALS HEADER BEFORE TRYING TO UNDERSTAND THIS
+	.p2align	2		# pad alloc by 4
+gdt_table:
+	.word gdt-gdt_end-1
+	.long RELOC(gdt)
+gdt:
+	.long 0,0
+	SEGMENT(0xffffffff,-KERNEL_ADDR, SEGACS_RW|SEGACS_X)	# code seg
+	SEGMENT(0xffffffff,-KERNEL_ADDR, SEGACS_RW)	# data seg
+gdt_end:
+
+
+
+ Of course you need to look into the included header. anyway let's skip the code now and look into the layout. first we set the address of virtpgt this is the address of the start of the data segment which we will use as a virtual page table. then the virtpgd which we will use as the virtual page directory.
+
+then we need to set the stack up. we put it after the virtual page directory, yet we will pad the allocation for a 2^0x1000 alignment. that will give the stack enough space to work!
+
+finally we setup our gdt table.
+if you tried objdump(ing) the kernel you will find that the stack is big enough!..well that's what I got! 
+
+
+_{f0101000 <kernel_stack>	:
+	...
+
+f0109000 <kernel_stack_end>:
+f0109000:	e7 ff                	out    %eax,$0xff
+f0109002:	06                   	push   %es
+f0109003:	90                   	nop
+f0109004:	10 00                	adc    %al,(%eax)
+
+f0109006 <gdt>:
+	...
+f010900e:	ff                   	(bad)  
+f010900f:	ff 00                	incl   (%eax)
+f0109011:	00 00                	add    %al,(%eax)
+f0109013:	9a cf 10 ff ff 00 00 	lcall  $0x0,$0xffff10cf
+f010901a:	00 92 cf 10 00 00    	add    %dl,0x10cf(%edx)
+
+f010901e <gdt_end>:}
+
+You see we've got enought space for stack.Now let's move back to the code..!
+First we make a soft-reboot then we load the GDT table at it's address+f0000000h !
+Umm, remember in our main.c boot sector we jumped at ELFHDR->entry & 0xfffffff, we masked the entry so actually now we are working on address 0x100000
+so we just load the gdt table from the virtual address. then we reload the data segment and stack segment..etc with the data segment descriptor index. and we make the old far jump again to reload the code segment register, and initiate the frame pointer and stack pointer and get to work! and our kernel starts!
+Anyway, you might have been asking all the way down till here, what are those FLAGS and CHECKSUM and that 0x1BADB002!
+try reading this article about MBRs and how to fetch a kernel ( [[http://wiki.osdev.org/Bare_Bones|Bare Bones]] ). 

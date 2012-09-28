@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-09-22T05:06:34+02:00
+
+====== 6.3.2 Paging activation ======
+Created Saturday 22 September 2012
+
+to activate paging we need to first map the pages array so we can still access it via the same VA,
+also we need to map the kernel stack and the kernel code. a kernel code mapping for instance
+looks like this:-
+	map_segment_page(pgdir,  KERNEL_ADDR, 0x10000000, 0, PAGE_PRESENT | PAGE_WRITABLE);
+
+this maps virtual address 0xF0000000 to 0xFFFFFFFF to the pages from 0 to 0xFFFFFFF. let's do
+this manually
+
+we're not treating the 0xF0000000 anymore as segment base, but as a page number. which's PDE 
+Index = 3C0 which means the entry's offset from pgdir base is 3C0*4 = F00, let's check that in the
+bochs debugger.
+
+{{../../../images/Screenshot from 2012-09-22 05:14:05.png}}
+
+as you might notice the PDE is marked **Accessed **since it's already executing. now let's read the Page table, 
+the 0x03ffdXXX refer to the physical address of page table, and since it's in the 0 ~ 0x10000000 kernel addr
+space we'll just add a FXXXXXXX to it.
+{{../../../images/Screenshot from 2012-09-22 05:21:10.png}}
+as you see Pages are sequentially there as PTEs.
+
+evantually, we load pgdir address to cr3 and trigger paging on CR0. after we set the first PDE as the Kernel codes PE.
+since after paging the 1st PDE is loaded. then we reset segment table to full 4GB memory since we're able to
+convert 4GB of linear addresses to physical addresses. and a far jump is done to the same code it perserve
+the excusion of the code after removing the page directory[0]. and for the CS to get updated..

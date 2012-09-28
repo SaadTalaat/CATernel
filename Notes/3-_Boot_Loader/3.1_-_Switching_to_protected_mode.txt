@@ -1,0 +1,66 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-09-20T20:30:32+02:00
+
+====== 3.1 - Switching to protected mode ======
+Created Thursday 20 September 2012
+
+.set Load,0x7c00 	#The code start address
+.set CODE_SEG,0x8 	#the code Segment descriptor in the GDT
+.set DATA_SEG,0x10 	# the Data segment descriptor in the GDT
+
+.global start
+start:
+	.code16 		#since we are in real mode
+	cli 			#disable interrupts
+	cld 			#clear the direction flag
+	xorw %ax,%ax	#clear the ax register
+	movw %ax,%ds	#clear the data segment register
+	movw %ax,%es	#clear the extra segment register
+	movw %ax,%ss	#clear the stack segment register
+
+	movw $start,%sp	#set the stack pointer to the bootsector stack
+#Here starts the A20 Gate enabling procedures
+A20.1:
+	inb     $0x64,%al
+    testb   $0x2,%al
+    jnz     A20.1
+    movb    $0xd1,%al
+	outb    %al,$0x64
+A20.2:
+	inb 	$0x64,%al
+	testb 	$0x2,%al
+	jnz 	A20.2
+	movb 	$0xdf,%al
+	outb	%al,$0x60
+
+switch_mode:
+	lgdt 	gdt_table	# Load the global descriptor register
+	mov 	%cr0,%eax 	# Load the control register 0 into eax
+	orl 	$1,%eax		# set the protected mode flag
+	mov 	%eax,%cr0	# reset the control register 0
+	ljmp 	$CODE_SEG,$protseg	#make a far jump to modify the Code segment
+#here we are working on protected mode
+protseg:
+	.code32				#since we are working on protected mode
+	movw $DATA_SEG,%ax	#move the data segment value to ax
+	movw %ax,%ds		#set the data segment to data segment value at the gdt table
+	movw %ax,%ss		# same
+	movw %ax,%es		# same
+	movw %ax,%fs		# same
+	movw %ax,%gs		# same
+	call cmain			# call our kernel loader
+#if failed just keep looping
+spin:
+	jmp spin
+.p2align 2	#force a 4 byte alignment
+gdt_table:
+	.word gdt-gdt_end-1	#gdt table size....mostly 0x17
+	.long gdt			#gdt address
+gdt:
+	.long 0,0							#Null segment
+	.byte 0xff,0xff,0,0,0,0x9A,0xCF,0	#Code segment
+	.byte 0xff,0xff,0,0,0,0x92,0xCF,0	#Data segment
+gdt_end:}
+
+the instructions till setting the bootsector stack explains itself I think. On the mov $start,%sp instruction you set the start of the stack address since we are gonna start pushing and poping on our kernel loader. 

@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-09-28T04:46:53+02:00
+
+====== 7.2- Dummy Interrupts and Exception handler ======
+Created Friday 28 September 2012
+
+For the sake of prototyping, There was a dummy exception and interrupts handler created under a generic name for 
+both as Interrupt.(c/h).
+
+an Impact of an exception or interrupt is to look for the Interrupt vector function in the Interrupt Descriptor Tabe [IDT].
+IDT initialization takes us to fill the 256 IDT entries with a generic interrupt function. on most cases this function indica-
+tes that the interrupt does not exist. But however since all Kernels name this kind of interrupts issued by an external
+resource by "trap" which is of course the valid name for it, we use the name trap(void) for the generic trap function.
+
+This is an initial dummy function to test the functionality of traps, such a vector has no impact at all on the interrupt
+itself. since it fixes nothing at this point there will be an eternal switching between the caller and the kernel since 
+interrupt will be executed forever, without being handle.
+testing the generic interrupt vector is done by issuing a soft INT <n>.
+
+**Backend**
+
+The gatedesc structure
+	Our initial gate descriptor structure is more like the one in HelenOS, although i find it to be almost useless, since
+	We won't be really using the args, reserved. And it's time consuming executing an assignment statement for every
+	member of type,dpl and present bit.
+	Such a structure is implem
+ented in both Linux/Minix as a one type_dpl_present field. We shall save this for later.
+
+IDT initialization
+	Interrupt descriptor table initialization is done by setting all the 256 entries of IDT to the generic trap vector
+	unlike all kernels which identify an indexed handler by GAS to every interrupt. we use a generic function.
+	Of course this is to be changed later on.
+
+trapframes
+	to provide an informative and effective switching between caller and interrupt vector, trapframe holds info
+	about variants of caller environment. such a frame in Minix for instance holds( vector, error code, eip, cs, eflags, esp, ss)
+	in Linux all resgisters exist which is the same as HelenOS, although order is different.
+	

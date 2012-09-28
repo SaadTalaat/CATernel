@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-09-27T06:10:43+02:00
+
+====== 6.A- Segmentation ======
+Created Thursday 27 September 2012
+
+
+In CATernel we use segmentation effectively on pure segmentation. and we only use the Global descriptor table. we use segmentation in re-mapping the kernel physical address into a virtual address, and maintain the 32-bit addresses.
+A global descriptor table is used for the OS level/ring 0 to locate its Code/Data/TSS segments. other tasks use the Local descriptor Table [LDT] which differs from a task to another.
+Like *Nix and WinXP we only use Paging to have protection and addresses virtualization. once paging is activated, we set GDT selectors base address to 0 with MAX memory limit. since we don't need longer addresses like protected mode.
+**But, **It's intended to have full power of intel MM like in OS/2
