@@ -40,7 +40,7 @@ time_print(void){
         printk("20%x",(uint32_t) cmos_get_time(RTC_YEAR));
         printk(" %d",month);
         printk(", %x",(uint32_t) cmos_get_time(RTC_DAY_MONTH));
-	printk(" %s\n",Day[cmos_get_time(RTC_DAY_WEEK)]); 
+	printk(" %s\n",Day[cmos_get_time(RTC_DAY_WEEK)-1]);
 
 }
 void
