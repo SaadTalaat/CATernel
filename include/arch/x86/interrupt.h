@@ -81,11 +81,11 @@ extern gatedesc idt[];
 	uint32_t	UniqueCounterName;	\
 	for(UniqueCounterName = 0; UniqueCounterName < cnt; UniqueCounterName++)	\
 		extern ;
-
-#define VECTOR_INDEX(cnt)	vector_0#cnt
 */
+#define VECTOR_INDEX(cnt)	vector_##cnt
+
 #define GATE_OFFSET(gate, vector)\
-	(gate).offset_0_15 = (uint32_t) ((vector) & 0xffff);\
-	(gate).offset_16_31= (uint32_t) ((vector) >> 16);
+	(gate).offset_0_15 = (uint32_t) (((uint32_t) vector) & 0xffff);\
+	(gate).offset_16_31= (uint32_t) (((uint32_t) vector) >> 16);
 
 #endif
