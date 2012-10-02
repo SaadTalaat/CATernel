@@ -20,7 +20,7 @@ $(OBJDIR)/kernel/arch/$(KARCH)/%/%.o:kernel/arch/$(KARCH)/%/%.c
 	@$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
 
 $(OBJDIR)/kernel/arch/$(KARCH)/%.o:kernel/arch/$(KARCH)/%.c
-	@echo $(CC) $@ from $<
+	
 	@$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
 
 $(OBJDIR)/kernel/arch/$(KARCH)/%.o:kernel/arch/$(KARCH)/%.S
@@ -28,6 +28,10 @@ $(OBJDIR)/kernel/arch/$(KARCH)/%.o:kernel/arch/$(KARCH)/%.S
 
 #$(OBJDIR)/kernel/work_it_out.o:kernel/work_it_out.c
 #$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
+
+#new
+#$(OBJDIR)/kernel/init_elf.o:kernel/proc/init_elf.c
+#	$(CC) -nostdinc $(CC_OPTIONS) -c -o $@ $<
 
 $(OBJDIR)/kernel/Reattach.o:kernel/Reattach.S
 	$(CC) -nostdinc $(CC_OPTIONS) -c -o $@ $<
@@ -40,4 +44,6 @@ $(OBJDIR)/kernel/CATernel.img:$(OBJDIR)/boot/boot $(OBJDIR)/kernel/kernel
 	$(DD) if=/dev/zero of=$@~ count\=10000
 	$(DD) if=$(OBJDIR)/boot/boot of=$@~ conv\=notrunc
 	$(DD) if=$(OBJDIR)/kernel/kernel of=$@~ conv\=notrunc seek\=1
+	$(DD) if=/dev/zero of=$@~ count\=4096 conv\=notrunc seek\=118
+	$(DD) if=kernel/proc/init_elf of=$@~ conv\=notrunc seek\=126
 	mv $@~ $@

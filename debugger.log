@@ -1,0 +1,8 @@
+Next at t=0
+(0) [0x00000000fffffff0] f000:fff0 (a DATA_SEG+fffe0): jmp far f000:e05b         ; ea5be000f0
+c
+(0) Magic breakpoint
+Next at t=1644443156
+(0) [0x0000000000103123] 0008:00000000f0103123 (T x86_setup_memory+2fd): jmp far 0018:f010312a     ; ea2a3110f01800
+q
+(0).[1644443156] [0x0000000000103123] 0008:00000000f0103123 (T x86_setup_memory+2fd): jmp far 0018:f010312a     ; ea2a3110f01800

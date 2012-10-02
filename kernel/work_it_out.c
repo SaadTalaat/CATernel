@@ -4,6 +4,7 @@
 #include <cli.h>
 #include <stdio.h>
 #include <test.h>
+#include <init.h>
 
 
 void

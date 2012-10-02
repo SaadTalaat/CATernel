@@ -238,10 +238,9 @@ x86_setup_memory(void)
 	write_cr3(cr3);
 	idt_init();
 	asm volatile("lidt idtdesc");
-	printk("IDT TAble %p\n", idt);
-extern void (int_generic) (void);
-	printk("intr vector %p\n", &int_generic);
+//	printk("IDT TAble %p\n", idt);
 	asm("xchg %bx,%bx");
-	asm("ljmp %0, $2f\n 2:\n" :: "i" (0x18));
-	asm volatile("INT %0" :: "i" (0xe));
+//	asm("ljmp %0, $2f\n 2:\n" :: "i" (0x18));
+//	asm volatile("INT %0" :: "i" (0xe));
+	Init_userspace();
 }

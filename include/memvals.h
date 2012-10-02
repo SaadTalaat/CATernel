@@ -97,6 +97,7 @@ struct Gdtdesc{
 #define USERSTART	(USERPAGES - PAGETSZ)
 #define USERSTACK_END	(USEREND - (2*(PAGESZ)))
 
+#define USERSPACESTART 0XEEC00000
 /*** Physical address ***/
 #define PA(va)({\
 	uint32_t pa = (uint32_t) va;\
