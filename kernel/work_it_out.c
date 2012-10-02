@@ -4,6 +4,7 @@
 #include <cli.h>
 #include <stdio.h>
 #include <test.h>
+#include <init.h>
 
 
 void
@@ -18,5 +19,6 @@ work_it_out(void){
 	console_init();
 	printk("CATernel is booting up...\n");
 	bootup();
+	Init_userspace();
 //	play();
 }
