@@ -7,7 +7,7 @@ ENTRY(main)
 
 SECTIONS
 {
-	. = 0xA0000000;
+	. = 0xA0002000;
 	.text : {
 		*(.text .stub .text.* .gnu.linkonce.t.*)
 	}
