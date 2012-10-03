@@ -13,7 +13,28 @@
  * Declare our IDT with 255 width interrupts.
  */
 gatedesc idt[64];
-
+char *x86_exception_names[] ={
+	"Divide Error #DE",
+	"Debug",
+	"NMI",
+	"Breakpoint #BP",
+	"Overflow #OV",
+	"Bound Range Exceeded #BR",
+	"Undefined Opcode",
+	"Device not avalible",
+	"Double fault",
+	"Coprocessor segment overrun",
+	"Invalid TSS",
+	"Segment not present",
+	"Stack Segment Fault",
+	"General Protection",
+	"Page Fault",
+	"\0",
+	"x87 FPU error",
+	"Alignment Mask",
+	"Machine Check",
+	"SIMD exception"
+	};
 extern int_generic;
 void
 trap(void){
@@ -134,7 +155,23 @@ interrupt_init(void){
 }
 
 void
-map_exception(cpu_state_t cpu_state, int int_index){
-	printk("Mapper Exectued\n");
+map_exception(uint32_t int_index, cpu_state_t *cpu_state){
+	printk("================= Exception =================\n");
+	printk("%s\n", x86_exception_names[int_index]);
+	printk("Error Code = %x\n", cpu_state->error_code);
+	printk("============ Current CPU State ==============\n");
+	printk("Segment Registers :-\n");
+	printk("\tCS=%p, DS=%p\n",cpu_state->cs , cpu_state->ds );
+	printk("\tES=%p, FS=%p\n",cpu_state->es , cpu_state->fs);
+	printk("\tGS=%p, SS=%p\n",cpu_state->ss , cpu_state->gs);
+	printk("GPR Regisers :-\n");
+	printk("\tEAX=%p, EBX=%p, ECX=%p, EDX=%p\n",
+			cpu_state->eax, cpu_state->ebx, cpu_state->ecx, cpu_state->edx);
+	printk("\tEDI=%p, ESI=%p, EBP=%p, ESP=%p\n",
+			cpu_state->edi, cpu_state->esi, cpu_state->o_ebp, cpu_state->esp);
+	printk("\tEFLAGS = %p\n", cpu_state->eflags);
+	printk("Current Instruction:-\n");
+	printk("\tEIP=%p\n",cpu_state->eip);
+	while(1);
 	return;
 }

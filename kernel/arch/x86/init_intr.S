@@ -21,7 +21,7 @@
  * Intel Manuals Software developer guide Volume 3
  *	6.15 Exception and interrupt references
  */
-#define EXCEPTION_ERROR_CODE_MASK	0x00027d000
+#define EXCEPTION_ERROR_CODE_MASK	0x000027d00
 
 /*
  * define indexes of registers for the cpu state
@@ -80,7 +80,7 @@ vector_\i:
 	
 
 	/* This works like an interrupt mapper */
-	.if	\i - 32
+	.iflt	\i - 32
 		.if (1<< \i) & EXCEPTION_ERROR_CODE_MASK
 			subl	$0, %esp
 		.else
@@ -129,7 +129,6 @@ vector_\i:
 
 	push %esp
 	push $(\i)
-
 	call map_exception
 
 	addl $16,%esp
