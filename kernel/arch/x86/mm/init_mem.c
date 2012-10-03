@@ -38,9 +38,9 @@ struct Segdesc catgdt[] = {
 	//kernel data segment
 	[2] = SEGMENT(0xffffffff, 0, SEGACS_RW),
 	// user code segment
-	[3] = SEGMENT(0, 0xffffffff, SEGACS_RW | SEGACS_USR | SEGACS_X),
+	[3] = SEGMENT(0xffffffff, 0xA0000000, SEGACS_RW | SEGACS_USR | SEGACS_X),
 	// user data segment
-	[4] = SEGMENT(0, 0xffffffff, SEGACS_RW | SEGACS_USR),
+	[4] = SEGMENT(0xffffffff, 0x0, SEGACS_RW | SEGACS_USR),
 	
 	//TSS Segment
 	[5] = SEG_NULL

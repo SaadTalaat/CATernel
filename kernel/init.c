@@ -10,11 +10,11 @@ extern struct Segdesc catgdt[];
 
 void Init_userspace(void)
 {
-	map_segment_page(global_pgdir, 0xA0000000, 0x10000000 , 0x3000000 , PAGE_PRESENT | PAGE_USER);
-	asm("xchg %bx,%bx");
+	map_segment_page(global_pgdir, 0xA0000000, 0x1000000 , 0x10000000 , PAGE_PRESENT | PAGE_USER | PAGE_WRITABLE);
+//	asm("xchg %bx,%bx");
 	struct proghdr *p,*p2;	// program headers;	
-	readseg((uint32_t) 0xA0000000,SECTOR*8,0/*SECTOR*126*/); // Load init elf from disk to memory
-        asm("xchg %bx,%bx");
+	readseg((uint32_t) 0xA0000000,SECTOR*8,SECTOR*125); // Load init elf from disk to memor
+//        asm("xchg %bx,%bx");
 	printk("reading elf\n");
 
 	if( ELFHDR->magic != ELF_MAGIC ) //Check if the kernel is ELF file format, if it doesn't match get the hell out
@@ -23,17 +23,20 @@ void Init_userspace(void)
 		return;
 	}
 	printk("Reading prog hdrs\n");
-        asm("xchg %bx,%bx");
+//        asm("xchg %bx,%bx");
 	p=(struct proghdr *) ( (uint8_t *) ELFHDR+ ELFHDR->phroff); // Load program segments
 	p2= p + ELFHDR->phrnum;
 	for (; p < p2 ; p++)
 		readseg(p->vaddr,p->memsz,p->offset);
 	//((void (*)(void)) (ELFHDR->entry & 0xffffff))();
 	//asm("ljmp %0, %1 " ::  "i"(0x18),"a"(ELFHDR->entry));
-	        asm("xchg %bx,%bx");
+//	        asm("xchg %bx,%bx");
 	printk("Jumping\n");
-	asm("ljmp %0, %1 " ::  "i"(0x18),"i"(0xA0000000));
+//	asm("ljmp %0,$3f\n3:\n" :: "i" (0x18));
+//	((void (*)(void)) (ELFHDR->entry & 0xffffff))();
 
+	asm("ljmp %0,$3f\n3:\n" :: "i" (0x18 |3));
+	while(1);
 
 	return;	
 	
