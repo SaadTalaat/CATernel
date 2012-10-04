@@ -133,4 +133,16 @@ invlpg(void *addr)
         __asm __volatile("invlpg (%0)" : : "r" (addr) : "memory");
 }
 
+static inline void
+write_tr(uint16_t selector)
+{
+	asm volatile("ltr %0" :: "r" (selector));
+}
+static inline uint32_t
+read_esp(void)
+{
+	uint32_t value;
+	asm volatile("movl %%esp,%0":"=r" (value));
+	return value;
+}
 #endif

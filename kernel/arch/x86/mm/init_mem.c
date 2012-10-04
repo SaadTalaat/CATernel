@@ -11,7 +11,7 @@
 #include <arch/x86/processor.h>
 #include <arch/x86/mm/page.h>
 #include <arch/x86/interrupt.h>
-
+#include <arch/x86/cpu_state.h>
 /*
  * Global variables
  */
@@ -42,7 +42,7 @@ struct Segdesc catgdt[] = {
 	// user data segment
 	[4] = SEGMENT(0xffffffff, 0x0, SEGACS_RW | SEGACS_USR),
 	
-	//TSS Segment
+	//TSS Segment initalized as empty
 	[5] = SEG_NULL
 	
 
@@ -60,6 +60,7 @@ Idtdesc idtdesc = {
 
 };
 
+tss_t	tss;
 
 static uint32_t
 x86_read_mem_size(int x){
@@ -109,6 +110,19 @@ allocate(uint32_t n,uint32_t align){
 	return v;
 }
 
+void
+init_tss(void){
+	tss_t *ltss = &tss;
+	
+	ltss->ss0 = 0x10;
+	catgdt[5] = (struct Segdesc) SEG_TSS((uint32_t)(ltss+ TSS_SIZE-1),(uint32_t) ltss, TSS_PRESENT |
+						TSS_DPL_KERNEL | TASK_INACTIVE,
+						TSS_AVL | TSS_GRANULARITY);
+	ltss->iomap_base = TSS_SIZE;
+	ltss->esp0	= read_esp();
+	write_tr(0x28);	
+
+}
 void
 x86_setup_memory(void)
 {
@@ -242,5 +256,6 @@ x86_setup_memory(void)
 	asm("xchg %bx,%bx");
 //	asm("ljmp %0, $2f\n 2:\n" :: "i" (0x18));
 //	asm volatile("INT %0" :: "i" (0xe));
+	init_tss();
 	Init_userspace();
 }
