@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-10-04T01:21:09+02:00
+
+====== B- Problems Faced ======
+Created Thursday 04 October 2012
+
+***EARLIER PROBLEM*****
+
+4th of October 2012
+**On User envirnoment initialization:-**
+	Mainly we initialize a user envirnoment at this point to test how effective interrupts are when issued from a user space. the way
+	we did a user space is to simply put another elf image on the disk shifted by several sectors from kernel and load it into memory
+	and jump to it just like we did on boot sector. a far jump with user code segment. But we faced several problems.
+	1- We forgot to put a writable permission on the page to be able to load data from disk to memory. But such a behaviour is not 
+		 acceptable. since a code segment shouldn't be writable.
+	2- We forgot to provide a Ring 3 (SEG|3) Or to a user segment
+	3- We did depend on a staticly compiled/linked elf as user env.
+	
+	Goals are:
+		1- to be able to load code into memory without writeable permission, ofc this can be done by disabling writing to page after 
+		loading the code, but this should be the role of LDT later.
+		2- to be able to switch to user mode. which can be done only by [[http://wiki.osdev.org/Getting_to_Ring_3#Entering_Ring_3|"Fooling the x86 cpu"]]
+		3- Provide a data structure with processes operating.
