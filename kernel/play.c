@@ -5,7 +5,9 @@
 #include <cmos.h>
 #include <arch/x86/x86.h>
 #include <cpuid.h>
+#include <proc/proc.h>
 #include <test.h>
+
 void play(void);
 static const char* error_panic = NULL;
 void
@@ -47,6 +49,13 @@ void
 bootup(void){
 	char ch,*pch;
 	int i;
+	/***********************************
+	 *** INITIATION OF BATCH USERMODE!!
+	 *** THIS IS TEMPORARY
+	 ***********************************/
+	proc_t *trial;
+	
+
 	time_print();
 //	scan_memory();
 //	setup_mem_x86_32();

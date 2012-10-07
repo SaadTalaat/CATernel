@@ -12,6 +12,8 @@
 #include <arch/x86/mm/page.h>
 #include <arch/x86/interrupt.h>
 #include <arch/x86/cpu_state.h>
+#include <proc/proc.h>
+
 /*
  * Global variables
  */
@@ -20,7 +22,7 @@ static uint32_t mem_base, ext_base;	// Base of memory, base of extended memory
 char* next_free = 0;
 static uint32_t alloc_lock = 0;
 extern struct Page *pages;
-
+//extern struct proc *proc_table;
 /*
  * New global descriptor table
  * Since paging is on, 
@@ -38,7 +40,7 @@ struct Segdesc catgdt[] = {
 	//kernel data segment
 	[2] = SEGMENT(0xffffffff, 0, SEGACS_RW),
 	// user code segment
-	[3] = SEGMENT(0xffffffff, 0xA0000000, SEGACS_RW | SEGACS_USR | SEGACS_X),
+	[3] = SEGMENT(0xffffffff, 0x000000, SEGACS_RW | SEGACS_USR | SEGACS_X),
 	// user data segment
 	[4] = SEGMENT(0xffffffff, 0x0, SEGACS_RW | SEGACS_USR),
 	
@@ -115,12 +117,12 @@ init_tss(void){
 	tss_t *ltss = &tss;
 	
 	ltss->ss0 = 0x10;
-	catgdt[5] = (struct Segdesc) SEG_TSS((uint32_t)(ltss+ TSS_SIZE-1),(uint32_t) ltss, TSS_PRESENT |
+	catgdt[5] = (struct Segdesc) SEGMENT_TSS((uint32_t)(ltss+ TSS_SIZE-1),(uint32_t) ltss, TSS_PRESENT |
 						TSS_DPL_KERNEL | TASK_INACTIVE,
 						TSS_AVL | TSS_GRANULARITY);
 	ltss->iomap_base = TSS_SIZE;
 	ltss->esp0	= read_esp();
-	write_tr(0x28);	
+	write_tr(0x2B);	
 
 }
 void
@@ -142,8 +144,8 @@ x86_setup_memory(void)
 	 * - Since we'll be operating using page tables
 	 *	and in user space, refering to non-aligned
 	 *	addresses is not allowed.
-	 * - Remove the ability to write readonly pages
-	 * - since no x87 fpu remove fpu error reporting ability
+	 * - Removle the ability to write readonly pages
+	 * - since no x87 fpu removle fpu error reporting ability
 	 * - make sure we're in Protected mode
 	 * - no write back caching.
 	 */
@@ -161,8 +163,8 @@ x86_setup_memory(void)
 	printk("[*] user VIRTPGT page directory = %x\n", pgdir[PGDIRX(USERVIRTPGT)]);
 	
 	pages =  allocate( (sizeof(struct Page)*page_count), PAGESZ);
+	proc_table = allocate( PROC_TABLE_SIZE, PAGESZ);
 	printk("[*] Pages list allocated at %p\n", pages);
-	printk("[*] Page entry size %d\n", sizeof(struct Page));
 	x86_paging_init();
 	
 	// map the user space memory to pages
@@ -170,12 +172,13 @@ x86_setup_memory(void)
 				PAGE_PRESENT | PAGE_USER);
 	printk("[*] Mapped segment [%p, %p] to virtual segment %p\n",
 			KA2PA(pages), KA2PA(pages)+PAGETSZ, USERPAGES);
-
-
+	printk("[*] Proc size = %d\n", PROC_TABLE_SIZE);
+	map_segment_page(pgdir, (vaddr_t) PROC_LIST, PROC_TABLE_SIZE, (paddr_t) KA2PA(proc_table),
+				PAGE_PRESENT | PAGE_USER);
 	// map the kernel stack to pages
 	map_segment_page(pgdir, (vaddr_t) KERNEL_STACK_TOP - KERNEL_STACK,
 			KERNEL_STACK, (paddr_t) KA2PA(kernel_stack),
-			PAGE_PRESENT | PAGE_WRITABLE);
+			PAGE_PRESENT | PAGE_WRITABLE | PAGE_USER) ;
 	printk("[*] Mapped segment [%p, %p] to virtual segment %p\n",
 			KA2PA(kernel_stack),
 			KA2PA(kernel_stack) + KERNEL_STACK,
@@ -185,20 +188,24 @@ x86_setup_memory(void)
 	// referenced
 	map_segment_page(pgdir, (vaddr_t) KERNEL_STACK_TOP - PAGETSZ,
 				PAGETSZ - KERNEL_STACK, 0x0, 
-				PAGE_PRESENT );
+				PAGE_PRESENT | PAGE_USER);
 	printk("[*] Mapped segment [%p, %p] to virtual segment %p\n",
 			0x0,0x0a,
 			KERNEL_STACK_TOP - KERNEL_STACK);
 
 	// map the kernel space to pages
 	map_segment_page(pgdir, (vaddr_t) KERNEL_ADDR, 0x10000000, 0,
-				PAGE_PRESENT | PAGE_WRITABLE);
+				PAGE_PRESENT | PAGE_WRITABLE | PAGE_USER);
 
 	printk("[*] Mapped segment [%p, %p] to virtual segment %p\n",
 			0x0, 0x10000000,
 			KERNEL_ADDR);
 
-	// No mapped user space so far
+	printk("[8888] STACK START %p STACK END %p\n", USERSTART , USERSTART - PAGETSZ);
+/*	map_segment_page(pgdir, (vaddr_t) USERSTART - PAGESZ, 2*PAGETSZ,
+			0x19000000, PAGE_PRESENT | PAGE_USER | PAGE_WRITABLE);
+
+*/	// No mapped user space so far
 
 	x86_test_pgdir();
 
@@ -247,15 +254,32 @@ x86_setup_memory(void)
 	asm volatile("ljmp %0, $1f\n 1:\n" :: "i" (0x8));
 	asm volatile("lldt %%ax" :: "a" (0x0));
 	printk("[*] New global descriptor table set\n");
-	// to avoid errornous mapping remove the 1st entry
+	// to avoid errornous mapping removle the 1st entry
 	pgdir[0] = 0;
 	write_cr3(cr3);
 	idt_init();
 	asm volatile("lidt idtdesc");
-//	printk("IDT TAble %p\n", idt);
+
+	init_tss();
+//	write_tr(0x2B);
 	asm("xchg %bx,%bx");
+	asm volatile("	\
+		movw $0x23, %ax;	\
+		movw %ax,%ds;	\
+		movw %ax,%es;	\
+		movw %ax,%fs;	\
+		movw %ax,%gs;	\
+		movl %esp,%eax;	\
+		pushl $0x23;	\
+		pushl %eax;	\
+		pushf;		\
+		pushl $0x1b;	\
+		pushl $6f;	\
+		iret;		\
+		6:		\
+		xchg %bx,%bx");
+//	printk("IDT TAble %p\n", idt);
+//	asm("xchg %bx,%bx");
 //	asm("ljmp %0, $2f\n 2:\n" :: "i" (0x18));
 //	asm volatile("INT %0" :: "i" (0xe));
-	init_tss();
-	Init_userspace();
 }

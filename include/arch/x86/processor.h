@@ -35,4 +35,26 @@
 
 /* Control Register 8 flags */
 #define X86_CR8_TPR	0x0000000F	/* Task Priority Register */
+
+/* EFLAGS */
+
+#define FLAG_CF	0x1
+#define	FLAG_PF	0x4
+#define FLAG_AF	0x10
+#define FLAG_ZF	0x40
+#define FLAG_SF	0x80
+#define FLAG_TF	0x100
+#define FLAG_IF	0x200
+#define FLAG_DF	0x400
+#define FLAG_OF	0x800
+#define FLAG_IOPL	0x1000
+#define FLAG_NT	0x2000
+#define FLAG_RF	0x4000
+#define FLAG_VM	0x8000
+#define FLAG_AC	0x10000
+#define FLAG_VIF 0x20000
+#define FLAG_VIP 0x40000
+#define FLAG_ID	0x80000
+
+
 #endif /* _CATERNEL_PROCESSOR_H_ */

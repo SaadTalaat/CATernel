@@ -308,6 +308,8 @@ x86_test_pgdir(void){
 		case PGDIRX(USERVIRTPGT):
 		case PGDIRX(KERNEL_STACK_TOP -1):
 		case PGDIRX(USERPAGES):
+		case PGDIRX(PROC_LIST):
+//		case PGDIRX(USERSTART):
 			assert( *((uint32_t *) &pgdir[count]) );
 			break;
 		default:

@@ -20,18 +20,18 @@
  */
 typedef struct{
 
-	        /*
-         * Pointers
-         */
-        reg_t   ebp_frame;
-        reg_t   eip_frame;
-        /*
-         * Segment registers
-         */
-        reg_t   gs;
-        reg_t   fs;
-        reg_t   es;
-        reg_t   ds;
+		/*
+	 * Pointers
+	 */
+	reg_t   ebp_frame;
+	reg_t   eip_frame;
+	/*
+	 * Segment registers
+	 */
+	reg_t   gs;
+	reg_t   fs;
+	reg_t   es;
+	reg_t   ds;
 
 	/*
 	 * GP registers
@@ -64,6 +64,26 @@ typedef struct{
  * Task-State Segment 
  * packed to avoid #PF during switching
  */
+typedef struct{
+
+	reg_t   edi;
+	reg_t   esi;
+	reg_t   ebp;
+	reg_t   esp;
+	reg_t   ebx;
+	reg_t   edx;
+	reg_t   ecx;
+	reg_t   eax;
+
+} gpr_regs_t;
+
+typedef struct{
+	reg_t   gs;
+	reg_t   fs;
+	reg_t   es;
+	reg_t   ds;
+
+} seg_regs_t;
 
 typedef struct{
 	uint16_t prelink, _rsrvd1;
@@ -121,7 +141,7 @@ typedef struct {
 #define TSS_PRESENT	0x80
 #define TSS_GRANULARITY 0x8
 
-#define SEG_TSS(limit, base, type, flags)\
+#define SEGMENT_TSS(limit, base, type, flags)\
 	(struct Segdesc)\
 	{	\
 	(((limit)>>12) & 0xffff),	\

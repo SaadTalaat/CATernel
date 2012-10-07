@@ -94,10 +94,12 @@ struct Gdtdesc{
 #define USEREND		(VIRTPGT - PAGETSZ)
 #define USERVIRTPGT     (USEREND - PAGETSZ)
 #define USERPAGES	(USERVIRTPGT - PAGETSZ)
-#define USERSTART	(USERPAGES - PAGETSZ)
-#define USERSTACK_END	(USEREND - (2*(PAGESZ)))
+#define PROC_LIST	(USERPAGES - PAGETSZ)
+#define USERSTART	(PROC_LIST)
+#define USERSTACK_TOP	(USERSTART - 2*PAGESZ)
+//#define USERSTACK_END	(U - (2 * PAGESZ))
 
-#define USERSPACESTART 0XEEC00000
+#define USERSPACESTART 0XEE800000
 /*** Physical address ***/
 #define PA(va)({\
 	uint32_t pa = (uint32_t) va;\
