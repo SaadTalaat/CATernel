@@ -138,7 +138,11 @@ idt_init(void){
 	GATE_OFFSET(idt[61],&vector_61);
 	GATE_OFFSET(idt[62],&vector_62);
 	GATE_OFFSET(idt[63],&vector_63);
-
+	printk("[*] Interrupt descriptor table initialized\n\tIrqs Lower than 63 ignored.\n");
+	for(count = 64; count<256; count++)
+	{
+		GATE_OFFSET(idt[count],&int_generic);
+	}
 
 }
 

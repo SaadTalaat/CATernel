@@ -78,7 +78,7 @@ typedef struct proghdr{
 	uint32_t flags;
 	uint32_t align;
 } prohdr;
-
+#define PRG_LOAD	1
 typedef struct sechdr{
 	uint32_t name;
 	uint32_t type;

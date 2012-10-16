@@ -55,20 +55,6 @@
 .global int_generic
 
 int_generic:
-	pushl	$0
-	pushl	$14
-	pushl	%ds
-	pushl	%es
-	pushal
-	movl	$16,%eax
-	movw	%ax,%ds
-	pushl	%esp
-	call 	trap
-	addl	$4, %esp
-	popal
-	popl 	%es
-	popl	%ds
-	addl	$8,%esp
 	iret
 .global save_regs
 save_regs:

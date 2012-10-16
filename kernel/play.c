@@ -61,6 +61,7 @@ bootup(void){
 //	setup_mem_x86_32();
 	scan_memory();
 	x86_setup_memory();
+	init_proc();
 	printk("Playing\n");
 	play();
 }

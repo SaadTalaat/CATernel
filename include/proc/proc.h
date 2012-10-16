@@ -35,7 +35,7 @@ typedef struct proc {
 	uint32_t	cr3;
 	uint32_t	preempted;
 	uint32_t	dequeqed;
-	char 		proc_name[MAX_PROC_NAME];
+//	char 		proc_name[MAX_PROC_NAME];
 	LIST_ENTRY(proc)	link;
 } proc_t;
 

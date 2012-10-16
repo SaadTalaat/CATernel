@@ -22,6 +22,8 @@ static uint32_t mem_base, ext_base;	// Base of memory, base of extended memory
 char* next_free = 0;
 static uint32_t alloc_lock = 0;
 extern struct Page *pages;
+extern proc_t *proc_table;
+
 //extern struct proc *proc_table;
 /*
  * New global descriptor table
@@ -259,11 +261,10 @@ x86_setup_memory(void)
 	write_cr3(cr3);
 	idt_init();
 	asm volatile("lidt idtdesc");
-
 	init_tss();
 //	write_tr(0x2B);
 	asm("xchg %bx,%bx");
-	asm volatile("	\
+/*	asm volatile("	\
 		movw $0x23, %ax;	\
 		movw %ax,%ds;	\
 		movw %ax,%es;	\
@@ -278,6 +279,7 @@ x86_setup_memory(void)
 		iret;		\
 		6:		\
 		xchg %bx,%bx");
+	*/
 //	printk("IDT TAble %p\n", idt);
 //	asm("xchg %bx,%bx");
 //	asm("ljmp %0, $2f\n 2:\n" :: "i" (0x18));

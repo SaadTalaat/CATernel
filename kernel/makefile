@@ -3,8 +3,9 @@ include kernel/arch/makefile.inc
 ARCH_OBJSA = $(addsuffix .o, $(basename $(ARCH_SOURCES)))
 ARCH_OBJS = $(foreach obj, $(ARCH_OBJSA), $(OBJDIR)/$(obj:%.c=%.o))
 
-OBJDIRS += kern/kernel
+OBJDIRS += kern/kernel kern/kernel/proc
 KERN_CFILES = $(wildcard kernel/*.c)
+KERN_CFILES += $(wildcard kernel/proc/*.c)
 #KERN_OBJFILES = $(($(OBJDIR)/$(KERN_CFILES)):%.c=%.o)
 KERN_OBJFILES = $(foreach obj,$(KERN_CFILES),$(OBJDIR)/$(obj:%.c=%.o))
 #$(KERN_OBJFILES):$(KERN_CFILES)
@@ -23,7 +24,7 @@ $(OBJDIR)/kernel/proc/init_elf.o:kernel/proc/init_elf.c
 	@mkdir kern/kernel/proc
 	@$(CC) -nostdinc $(CC_OPTIONS) -Os -c -o $@ $<
 
-$(OBJDIR)/kernel/proc/init_elf:$(OBJDIR)/kernel/proc/init_elf.o
+$(OBJDIR)/kernel/tmp/init_elf:$(OBJDIR)/kernel/proc/init_elf.o
 	@$(LD)  -o $@ -T kernel/proc/script.ld -nostdlib $^
 
 $(OBJDIR)/kernel/arch/$(KARCH)/%/%.o:kernel/arch/$(KARCH)/%/%.c
@@ -57,6 +58,5 @@ $(OBJDIR)/kernel/CATernel.img:$(OBJDIR)/boot/boot $(OBJDIR)/kernel/kernel
 	$(DD) if=/dev/zero of=$@~ count\=10000
 	$(DD) if=$(OBJDIR)/boot/boot of=$@~ conv\=notrunc
 	$(DD) if=$(OBJDIR)/kernel/kernel of=$@~ conv\=notrunc seek\=1
-	$(DD) if=/dev/zero of=$@~ count\=4096 conv\=notrunc seek\=118
-	$(DD) if=kernel/proc/init_elf of=$@~ conv\=notrunc seek\=126
+	$(DD) if=kernel/tmp/init_elf of=$@~ conv\=notrunc seek\=$(shell stat -c%b kern/kernel/kernel)
 	mv $@~ $@

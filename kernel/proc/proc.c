@@ -49,6 +49,69 @@ init_proc_table(void){
 }
 
 
+uint32_t
+create_proc(proc_t **proc_s)
+{
+	proc_t *proc;
+	struct Page *page;
+	int count;
+	proc = LIST_FIRST(&empty_procs);
+	x86_page_alloc(&page);
+	pde_t *pgdir = pagetova(page);
+	memset(pgdir, 0, PAGESZ);
+	proc->cr3 = KA2PA(pgdir);
+	proc->page_directory = pagetova(page);
+	
+	// Copy vas from current page dir
+	for(count=PGDIRX(USERSTART);count < 1024; count++)
+		proc->page_directory[count] = global_pgdir[count];
+
+	proc->page_directory[PGDIRX(VIRTPGT)] = proc->cr3 | PAGE_PRESENT | PAGE_WRITABLE;
+	proc->page_directory[PGDIRX(USERVIRTPGT)] = proc->cr3 | PAGE_PRESENT | PAGE_USER;
+
+	proc->esp	=	USERSTACK_TOP - 50;
+	proc->cs	=	SEG_USERCODE | 3;
+	proc->ss	=	SEG_USERDATA | 3;
+	proc->proc_id	= proc- proc_table;
+	LIST_REMOVE(proc,link);
+	*proc_s = proc;
+	return 0;
+}
+uint32_t
+proc_alloc_mem(proc_t *proc, void *va, uint32_t len){
+	uint32_t base, thunk;
+	struct Page *page;
+	
+	x86_page_alloc(&page);
+	/* Calc base memory */
+	base = ROUND_DOWN((uint32_t) va, PAGESZ);
+	thunk = ROUND_UP((uint32_t) (len, PGOFF((uint32_t)va)), PAGESZ);
+
+	int count;
+	for (count= 0; count <thunk; count+=PAGESZ)
+		x86_page_insert(proc->page_directory, page, (void *) base+count,
+					PAGE_USER | PAGE_WRITABLE);
+
+
+}
+uint32_t
+init_proc0()
+{
+	proc_t *proc0;
+	create_proc(&proc0);
+	printk("PROG AT %p\n", proc0->cr3);
+	elf_load_to_proc(proc0, 512*127);
+	write_cr3(proc0->cr3);
+	switch_address_space(proc0);
+
+	/* Not reachable */
+}
+void
+init_proc(void)
+{
+	init_proc_table();
+	init_proc0();
+}
 void
 switch_address_space(proc_t *proc_to_run){
 	/*
@@ -57,7 +120,7 @@ switch_address_space(proc_t *proc_to_run){
 	 *      2- set the cpu state to what the proc indicates
 	 *      3- issue an iret
 	 */
-	printk("frame at %p\n", proc_to_run);
+	printk("eip =  %p\n", proc_to_run->eip);
 	proc_to_run->seg_regs.fs = 0x23;
 	proc_to_run->seg_regs.es = 0x23;
 	proc_to_run->seg_regs.gs = 0x23;
