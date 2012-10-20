@@ -14,16 +14,12 @@ readseg(uint32_t va,uint32_t count,uint32_t offset)
 	uint32_t end_va;
 //	__//asm __volatile("movl %%edi,%%ebx" ::"b"((uint32_t)offset));
 	va &= 0xFFFFFFFF;
-	printk("VA = %p\n", va);
 	//asm("xchg %bx,%bx");
 	end_va = va + count;
-	printk("end VA = %p\n", end_va);
         //asm("xchg %bx,%bx");
 	va &= ~(SECTOR -1);
-        printk("VA2 = %p\n", va);
         //asm("xchg %bx,%bx");
 	offset = (offset/SECTOR)+1;
-	printk("Off = %p\n", offset);
         //asm("xchg %bx,%bx");
 /*	if( va == 0x10000){
 		offset +=1;

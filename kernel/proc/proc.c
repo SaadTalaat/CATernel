@@ -11,6 +11,8 @@ extern pde_t *global_pgdir;
 struct Proc_List	empty_procs;
 
 proc_t *proc_table;
+struct Proc_Lifo	Lifo;
+
 void
 init_proc_table(void){
 	/*
@@ -21,7 +23,8 @@ init_proc_table(void){
 	int 	c,count;
 	proc_t	*i_proc;
 	LIST_INIT(&empty_procs);
-	
+	LIFO_INIT(&Lifo);
+
 	/*
 	 * Initate all processes slots to empty.
 	 */
@@ -30,7 +33,7 @@ init_proc_table(void){
 		i_proc->gpr_regs = (gpr_regs_t){0,0,0,0,0,0,0,0};
 		i_proc->seg_regs = (seg_regs_t){0,0,0,0};
 		i_proc->proc_status = PROC_EMPTY;
-		i_proc->proc_id	= 0;
+		i_proc->proc_id	= count;
 		i_proc->preempted = 0;
 		i_proc->dequeqed = 0;
 		i_proc->eip	= 0;
@@ -99,7 +102,6 @@ init_proc0()
 {
 	proc_t *proc0;
 	create_proc(&proc0);
-	printk("PROG AT %p\n", proc0->cr3);
 	elf_load_to_proc(proc0, 512*127);
 	write_cr3(proc0->cr3);
 	switch_address_space(proc0);
@@ -110,7 +112,27 @@ void
 init_proc(void)
 {
 	init_proc_table();
+	test_lifo();
 	init_proc0();
+}
+void
+test_lifo(void){
+	proc_t *proc_out;
+	LIFO_PUSH(&Lifo, &proc_table[0], q_link);
+	LIFO_PUSH(&Lifo, &proc_table[1], q_link);
+	LIFO_PUSH(&Lifo, &proc_table[2], q_link);
+	LIFO_PUSH(&Lifo, &proc_table[3], q_link);
+	proc_out = LIFO_POP(&Lifo, q_link);
+	assert(proc_out->proc_id == 3);
+	proc_out = LIFO_POP(&Lifo, q_link);
+	assert(proc_out->proc_id == 2);
+	proc_out = LIFO_POP(&Lifo, q_link);
+	assert(proc_out->proc_id == 1);
+	proc_out = LIFO_POP(&Lifo, q_link);
+	assert(proc_out->proc_id == 0);
+	printk("[*] TEST: LIFO Queue test passed..\n");
+	return;
+
 }
 void
 switch_address_space(proc_t *proc_to_run){
@@ -120,7 +142,6 @@ switch_address_space(proc_t *proc_to_run){
 	 *      2- set the cpu state to what the proc indicates
 	 *      3- issue an iret
 	 */
-	printk("eip =  %p\n", proc_to_run->eip);
 	proc_to_run->seg_regs.fs = 0x23;
 	proc_to_run->seg_regs.es = 0x23;
 	proc_to_run->seg_regs.gs = 0x23;

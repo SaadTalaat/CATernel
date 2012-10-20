@@ -11,7 +11,7 @@
 #define _CATERNEL_PROC_H_
 #include <arch/x86/cpu_state.h>
 #include <memvals.h>
-#include <structs/linkedlist.h>
+#include <structs/queue.h>
 #include <arch/x86/mm/page.h>
 
 #define MAX_PROCS	256
@@ -37,6 +37,7 @@ typedef struct proc {
 	uint32_t	dequeqed;
 //	char 		proc_name[MAX_PROC_NAME];
 	LIST_ENTRY(proc)	link;
+	LIFO_ENTRY(proc)	q_link;
 } proc_t;
 
 #define PROC_TABLE_SIZE	ROUND_UP(MAX_PROCS * sizeof(struct proc), PAGESZ)
@@ -46,7 +47,7 @@ typedef struct proc {
  *
  */
 LIST_HEAD(Proc_List, proc);
-
+LIFO_HEAD(Proc_Lifo, proc);
 /* Process Table */
 extern proc_t *proc_table;
 
@@ -54,4 +55,5 @@ void init_proc_table(void);
 void switch_address_space(proc_t*);
 uint32_t proc_setup(proc_t **);
 uint32_t proc_setup_mem(proc_t *);
+void test_lifo(void);
 #endif

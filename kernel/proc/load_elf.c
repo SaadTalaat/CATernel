@@ -14,7 +14,6 @@ elf_load_to_proc(proc_t *proc, uint32_t offset)
 	struct Page *page;
 	x86_page_alloc(&page);
 
-	printk("PGIDR %x\n", proc->cr3);
 //	x86_pgdir_find(proc->page_directory, (void *)(0xA0000000), 1);
 	x86_page_insert(proc->page_directory, page, (void *) 0xA0000000, PAGE_USER | PAGE_WRITABLE); 
 	write_cr3(proc->cr3);
@@ -28,7 +27,6 @@ elf_load_to_proc(proc_t *proc, uint32_t offset)
 	{
 		if( p1->type == PRG_LOAD)
 		{
-				printk("P! VA %p\n", p1->vaddr);
 				proc_alloc_mem(proc, p1->vaddr, p1->memsz);
 				readseg(p1->vaddr,p1->memsz, p1->offset + offset);
 		}
