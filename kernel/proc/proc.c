@@ -11,7 +11,7 @@ extern pde_t *global_pgdir;
 struct Proc_List	empty_procs;
 
 proc_t *proc_table;
-struct Proc_Lifo	Lifo;
+struct Proc_Lifo	running_procs;
 
 void
 init_proc_table(void){
@@ -23,7 +23,7 @@ init_proc_table(void){
 	int 	c,count;
 	proc_t	*i_proc;
 	LIST_INIT(&empty_procs);
-	LIFO_INIT(&Lifo);
+	LIFO_INIT(&running_procs);
 
 	/*
 	 * Initate all processes slots to empty.
@@ -103,8 +103,8 @@ init_proc0()
 	proc_t *proc0;
 	create_proc(&proc0);
 	elf_load_to_proc(proc0, 512*127);
-	write_cr3(proc0->cr3);
-	switch_address_space(proc0);
+	//write_cr3(proc0->cr3);
+	//switch_address_space(proc0);
 
 	/* Not reachable */
 }
@@ -118,17 +118,17 @@ init_proc(void)
 void
 test_lifo(void){
 	proc_t *proc_out;
-	LIFO_PUSH(&Lifo, &proc_table[0], q_link);
-	LIFO_PUSH(&Lifo, &proc_table[1], q_link);
-	LIFO_PUSH(&Lifo, &proc_table[2], q_link);
-	LIFO_PUSH(&Lifo, &proc_table[3], q_link);
-	proc_out = LIFO_POP(&Lifo, q_link);
+	LIFO_PUSH(&running_procs, &proc_table[0], q_link);
+	LIFO_PUSH(&running_procs, &proc_table[1], q_link);
+	LIFO_PUSH(&running_procs, &proc_table[2], q_link);
+	LIFO_PUSH(&running_procs, &proc_table[3], q_link);
+	proc_out = LIFO_POP(&running_procs, q_link);
 	assert(proc_out->proc_id == 3);
-	proc_out = LIFO_POP(&Lifo, q_link);
+	proc_out = LIFO_POP(&running_procs, q_link);
 	assert(proc_out->proc_id == 2);
-	proc_out = LIFO_POP(&Lifo, q_link);
+	proc_out = LIFO_POP(&running_procs, q_link);
 	assert(proc_out->proc_id == 1);
-	proc_out = LIFO_POP(&Lifo, q_link);
+	proc_out = LIFO_POP(&running_procs, q_link);
 	assert(proc_out->proc_id == 0);
 	printk("[*] TEST: LIFO Queue test passed..\n");
 	return;
@@ -148,6 +148,7 @@ switch_address_space(proc_t *proc_to_run){
 	proc_to_run->seg_regs.ds = 0x23;
 	asm("xchg %bx,%bx");
 //	asm volatile("cli");
+	LIFO_PUSH(&running_procs, proc_to_run, q_link);
 	asm volatile("movl %0,%%esp":: "g" (proc_to_run) : "memory");
 
 	asm volatile("popal");

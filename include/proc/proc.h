@@ -50,6 +50,7 @@ LIST_HEAD(Proc_List, proc);
 LIFO_HEAD(Proc_Lifo, proc);
 /* Process Table */
 extern proc_t *proc_table;
+extern struct Proc_Lifo running_procs;
 
 void init_proc_table(void);
 void switch_address_space(proc_t*);

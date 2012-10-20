@@ -11,7 +11,7 @@
 #define _CATERNEL_X86_INTERRUPT_H_
 #include <types.h>
 #include <memvals.h>
-
+#include <arch/x86/cpu_state.h>
 
 /* Gate descriptors as defined by
  * Intel Manuals.
@@ -88,4 +88,25 @@ extern gatedesc idt[];
 	(gate).offset_0_15 = (uint32_t) (((uint32_t) vector) & 0xffff);\
 	(gate).offset_16_31= (uint32_t) (((uint32_t) vector) >> 16);
 
+
+#define GP	13
+#define PF	14
+/* PAGE FAULT ERROR CODE */
+#define PF_VIOLATION	0x1
+#define PF_NOT_PRESENT	~PF_VIOLATION
+#define PF_ON_WRITE	0x2
+#define PF_ON_READ	~PF_ON_WRITE
+#define PF_FROM_USER	0x4
+#define PF_FROM_KERNEL	~PF_FROM_USER
+#define PF_IFETCH	0x10
+#define PF_RSRVD	0x8
+
+
+/* functions */
+extern char *x86_exception_names[];
+extern gatedesc idt[];
+
+void idt_init(void);
+void map_exception(uint32_t, cpu_state_t *);
+uint32_t page_fault_handler(cpu_state_t *);
 #endif

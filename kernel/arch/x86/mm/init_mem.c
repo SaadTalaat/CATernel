@@ -263,7 +263,6 @@ x86_setup_memory(void)
 	asm volatile("lidt idtdesc");
 	init_tss();
 //	write_tr(0x2B);
-	asm("xchg %bx,%bx");
 /*	asm volatile("	\
 		movw $0x23, %ax;	\
 		movw %ax,%ds;	\

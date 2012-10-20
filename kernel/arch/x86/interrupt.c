@@ -5,6 +5,10 @@
  * @date 27 Sept, 2012
  *
  */
+#include <types.h>
+#include <test.h>
+#include <proc/proc.h>
+#include <arch/x86/x86.h>
 #include <arch/x86/interrupt.h>
 #include <arch/x86/vectors.h>
 #include <arch/x86/mm/segdesc.h>
@@ -160,6 +164,7 @@ interrupt_init(void){
 
 void
 map_exception(uint32_t int_index, cpu_state_t *cpu_state){
+#ifdef	_SYSDBG_
 	printk("================= Exception =================\n");
 	printk("%s of index %d\n", x86_exception_names[int_index], int_index);
 	printk("Error Code = %x\n", cpu_state->error_code);
@@ -176,6 +181,60 @@ map_exception(uint32_t int_index, cpu_state_t *cpu_state){
 	printk("\tEFLAGS = %p\n", cpu_state->eflags);
 	printk("Current Instruction:-\n");
 	printk("\tEIP=%p\n",cpu_state->eip);
-	while(1);
+#endif
+	if(int_index == PF)
+		page_fault_handler(cpu_state);
 	return;
+}
+
+/*
+ * Page Fault Handler
+ *	1- Check if proc is accessing kernel space and not kernel mode	
+ */
+uint32_t
+page_fault_handler(cpu_state_t *cpu_state)
+{
+	
+	uint32_t page_fault_src, offby, extension_max = 4;
+	/* What address caused page fault? */
+	page_fault_src = read_cr2();
+	
+	if( (page_fault_src & 0xF0000000) == 0xF0000000)
+	{
+		/* did it come from kernel mode? */
+		if(cpu_state->error_code & PF_FROM_KERNEL)
+		{
+			panic("Page fault from kernel space, from addr %p", page_fault_src);
+		}
+		/* did it come from user code? and ofc it did..*/
+		else
+		{
+			/* kill causing proc */
+			printk("Page Fault\n");
+			LIFO_POP(&running_procs,q_link);
+		}
+	}
+	/* If it is caused by instruction fetch from user */
+	if((cpu_state->error_code & PF_IFETCH) && (cpu_state->error_code & PF_FROM_USER))
+	{
+		printk("Page Fault\n");
+		LIFO_POP(&running_procs, q_link);
+	}
+	else if (cpu_state->error_code & PF_FROM_USER)
+	{
+		if( (offby = (((page_fault_src & ~0xFFF) - USERSTACK_TOP) % PAGESZ )) == 0
+				&& offby <= extension_max )
+			/* allocate a page for it */
+		{
+			struct Page *page;
+			proc_t *current_proc;
+			x86_page_alloc(&page);
+			current_proc = LIFO_POP(&running_procs,q_link);
+			x86_page_insert(current_proc->page_directory, page, (void *) (page_fault_src & ~0xFFF),
+				PAGE_PRESENT | PAGE_USER);
+			LIFO_PUSH(&running_procs, current_proc, q_link);
+			return 0;
+		}
+
+	}
 }
