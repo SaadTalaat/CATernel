@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$init_8c.html" title="kernel/init.c" alt="" coords="5,160,93,189"/>
-<area shape="rect" id="node5" href="$load__elf_8c.html" title="kernel/proc/load_elf.c" alt="" coords="429,160,576,189"/>
-<area shape="rect" id="node7" href="$rdisk_8c.html" title="kernel/rdisk.c" alt="" coords="600,160,699,189"/>
-<area shape="rect" id="node9" href="$init_8h.html" title="include/init.h" alt="" coords="211,83,304,112"/>
-<area shape="rect" id="node16" href="$rdisk_8h.html" title="include/rdisk.h" alt="" coords="449,83,556,112"/>
-<area shape="rect" id="node12" href="$proc_8c.html" title="kernel/proc/proc.c" alt="" coords="280,160,405,189"/>
-<area shape="rect" id="node14" href="$work__it__out_8c.html" title="kernel/work_it_out.c" alt="" coords="117,160,256,189"/>
-</map>

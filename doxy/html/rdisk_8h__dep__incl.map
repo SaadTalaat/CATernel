@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$load__elf_8c.html" title="kernel/proc/load_elf.c" alt="" coords="5,83,152,112"/>
-<area shape="rect" id="node5" href="$proc_8c.html" title="kernel/proc/proc.c" alt="" coords="176,83,301,112"/>
-<area shape="rect" id="node7" href="$rdisk_8c.html" title="kernel/rdisk.c" alt="" coords="325,83,424,112"/>
-</map>

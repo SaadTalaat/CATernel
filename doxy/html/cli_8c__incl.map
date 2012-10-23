@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$types_8h.html" title="types.h" alt="" coords="45,160,109,189"/>
-<area shape="rect" id="node5" href="$x86_8h.html" title="arch/x86/x86.h" alt="" coords="23,83,130,112"/>
-<area shape="rect" id="node8" href="$cli_8h.html" title="cli.h" alt="" coords="154,83,199,112"/>
-<area shape="rect" id="node10" href="$kbc_8h.html" title="kbc.h" alt="" coords="223,83,277,112"/>
-<area shape="rect" id="node13" href="$video_8h.html" title="video.h" alt="" coords="301,83,365,112"/>
-<area shape="rect" id="node15" href="$stdio_8h.html" title="stdio.h" alt="" coords="389,83,450,112"/>
-<area shape="rect" id="node17" href="$stdarg_8h.html" title="stdarg.h" alt="" coords="385,160,454,189"/>
-</map>

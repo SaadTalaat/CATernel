@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$cli_8c.html#a9b3ba9ca613021d6954ade2927d8d56e" title="console_getc" alt="" coords="120,32,219,61"/>
-<area shape="rect" id="node5" href="$kbc_8c.html#abf3ce1c314db9a6a15b99e5313eb2edb" title="kbc_interrupt" alt="" coords="268,32,364,61"/>
-<area shape="rect" id="node7" href="$cli_8c.html#a3c8b2e35ff573401b1df8d0938cf75e6" title="console_interrupt" alt="" coords="415,5,535,35"/>
-<area shape="rect" id="node9" href="$kbc_8c.html#aa8584463ac58034ccbf9cd2ffc8e187d" title="kbc_data" alt="" coords="437,59,512,88"/>
-<area shape="rect" id="node11" href="$x86_8h.html#ab22bd329c089d76a3977792a2208f6b4" title="inb" alt="" coords="589,32,627,61"/>
-<area shape="rect" id="node13" href="$x86_8h.html#aecb1fa8a11c8a27335665526fc820dc6" title="outb" alt="" coords="585,85,631,115"/>
-</map>

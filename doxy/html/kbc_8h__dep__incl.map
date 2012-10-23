@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$cli_8c.html" title="kernel/cli.c" alt="" coords="5,83,91,112"/>
-<area shape="rect" id="node5" href="$kbc_8c.html" title="kernel/kbc.c" alt="" coords="115,83,208,112"/>
-<area shape="rect" id="node7" href="$readline_8c.html" title="kernel/readline.c" alt="" coords="232,83,349,112"/>
-<area shape="rect" id="node9" href="$video_8c.html" title="kernel/video.c" alt="" coords="373,83,475,112"/>
-</map>

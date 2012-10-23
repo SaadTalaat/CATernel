@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$init__mem_8c.html" title="kernel/arch/x86/mm/init_mem.c" alt="" coords="5,83,211,112"/>
-<area shape="rect" id="node5" href="$page_8c.html" title="kernel/arch/x86/mm/page.c" alt="" coords="235,83,413,112"/>
-<area shape="rect" id="node7" href="$init_8c.html" title="kernel/init.c" alt="" coords="437,83,525,112"/>
-<area shape="rect" id="node9" href="$proc_8c.html" title="kernel/proc/proc.c" alt="" coords="549,83,675,112"/>
-<area shape="rect" id="node11" href="$string_8c.html" title="kernel/string.c" alt="" coords="699,83,803,112"/>
-</map>
