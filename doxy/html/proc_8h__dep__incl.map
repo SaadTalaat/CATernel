@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$interrupt_8c.html" title="kernel/arch/x86/interrupt.c" alt="" coords="5,83,179,112"/>
+<area shape="rect" id="node5" href="$init__mem_8c.html" title="kernel/arch/x86/mm/init_mem.c" alt="" coords="203,83,408,112"/>
+<area shape="rect" id="node7" href="$init_8c.html" title="kernel/init.c" alt="" coords="484,160,572,189"/>
+<area shape="rect" id="node9" href="$play_8c.html" title="kernel main file" alt="" coords="483,83,579,112"/>
+<area shape="rect" id="node11" href="$load__elf_8c.html" title="kernel/proc/load_elf.c" alt="" coords="603,83,749,112"/>
+<area shape="rect" id="node13" href="$proc_8c.html" title="kernel/proc/proc.c" alt="" coords="841,160,967,189"/>
+<area shape="rect" id="node15" href="$init_8h.html" title="include/init.h" alt="" coords="773,83,867,112"/>
+<area shape="rect" id="node19" href="$work__it__out_8c.html" title="kernel/work_it_out.c" alt="" coords="679,160,817,189"/>
+</map>

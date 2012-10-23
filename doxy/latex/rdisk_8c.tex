@@ -1,0 +1,61 @@
+\hypertarget{rdisk_8c}{\section{kernel/rdisk.c \-File \-Reference}
+\label{rdisk_8c}\index{kernel/rdisk.\-c@{kernel/rdisk.\-c}}
+}
+{\ttfamily \#include $<$rdisk.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/x86.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/elf.\-h$>$}\*
+\-Include dependency graph for rdisk.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{rdisk_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{rdisk_8c_a8bc2062a175b7c74607a2498ac997657}{readsect} (void $\ast$, \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t})
+\item 
+void \hyperlink{rdisk_8c_a687601dc22e8d4d8407608c91fd325eb}{readseg} (\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t}, \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t}, \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t})
+\item 
+void \hyperlink{rdisk_8c_a63222d4a07c38c198de5bd116a001935}{waitdisk} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{rdisk_8c_a8bc2062a175b7c74607a2498ac997657}{\index{rdisk.\-c@{rdisk.\-c}!readsect@{readsect}}
+\index{readsect@{readsect}!rdisk.c@{rdisk.\-c}}
+\subsubsection[{readsect}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf readsect} (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{dst, }
+\item[{{\bf uint32\-\_\-t}}]{offset}
+\end{DoxyParamCaption}
+)}}\label{rdisk_8c_a8bc2062a175b7c74607a2498ac997657}
+
+
+\-Definition at line 36 of file rdisk.\-c.
+
+\hypertarget{rdisk_8c_a687601dc22e8d4d8407608c91fd325eb}{\index{rdisk.\-c@{rdisk.\-c}!readseg@{readseg}}
+\index{readseg@{readseg}!rdisk.c@{rdisk.\-c}}
+\subsubsection[{readseg}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf readseg} (
+\begin{DoxyParamCaption}
+\item[{{\bf uint32\-\_\-t}}]{va, }
+\item[{{\bf uint32\-\_\-t}}]{count, }
+\item[{{\bf uint32\-\_\-t}}]{offset}
+\end{DoxyParamCaption}
+)}}\label{rdisk_8c_a687601dc22e8d4d8407608c91fd325eb}
+
+
+\-Definition at line 11 of file rdisk.\-c.
+
+\hypertarget{rdisk_8c_a63222d4a07c38c198de5bd116a001935}{\index{rdisk.\-c@{rdisk.\-c}!waitdisk@{waitdisk}}
+\index{waitdisk@{waitdisk}!rdisk.c@{rdisk.\-c}}
+\subsubsection[{waitdisk}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf waitdisk} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{rdisk_8c_a63222d4a07c38c198de5bd116a001935}
+
+
+\-Definition at line 57 of file rdisk.\-c.
+

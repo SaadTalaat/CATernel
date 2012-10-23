@@ -1,0 +1,246 @@
+\hypertarget{linkedlist_8h}{\section{include/structs/linkedlist.h \-File \-Reference}
+\label{linkedlist_8h}\index{include/structs/linkedlist.\-h@{include/structs/linkedlist.\-h}}
+}
+\-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linkedlist_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{linkedlist_8h_a172799a84e7944bb109161db65bf99cf}{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D}(\-Instance, \-Type)
+\item 
+\#define \hyperlink{linkedlist_8h_ad9c04eb6522463f7d71aec6d81c7cb68}{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D\-\_\-\-I\-N\-I\-T}(head)~\{\hyperlink{types_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{\-N\-U\-L\-L}\}
+\item 
+\#define \hyperlink{linkedlist_8h_aec2ccd0e8c215504508af23f04480be6}{\-L\-I\-S\-T\-\_\-\-E\-N\-T\-R\-Y}(type)
+\item 
+\#define \hyperlink{linkedlist_8h_a24a69fc0af564d2a576b06c194891c5a}{\-L\-I\-S\-T\-\_\-\-E\-M\-P\-T\-Y}(xhead)~((xhead)-\/$>$first == \hyperlink{types_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{\-N\-U\-L\-L})
+\item 
+\#define \hyperlink{linkedlist_8h_a4beae2f37dbe52b21f754d987d3cec57}{\-L\-I\-S\-T\-\_\-\-F\-I\-R\-S\-T}(xhead)~((xhead)-\/$>$first)
+\item 
+\#define \hyperlink{linkedlist_8h_a6c28cf5a26558f950fd5632473390e36}{\-L\-I\-S\-T\-\_\-\-N\-E\-X\-T}(\hyperlink{structelement}{element}, field)~((\hyperlink{structelement}{element})-\/$>$field.\-next)
+\item 
+\#define \hyperlink{linkedlist_8h_ac1543beeb6d9224b60feb7a2703b2a87}{\-L\-I\-S\-T\-\_\-\-F\-O\-R\-E\-A\-C\-H}(var, head, field)
+\item 
+\#define \hyperlink{linkedlist_8h_a304b5b7f7bdcba2793eaba9c890991c3}{\-L\-I\-S\-T\-\_\-\-I\-N\-I\-T}(head)
+\item 
+\#define \hyperlink{linkedlist_8h_a3548dd269723b91fd13013cd8bd7d1c3}{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-A\-F\-T\-E\-R}(pre, \hyperlink{structelement}{element}, field)
+\item 
+\#define \hyperlink{linkedlist_8h_af7881d10124e52402743b6dfa4d445b0}{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-B\-E\-F\-O\-R\-E}(post, \hyperlink{structelement}{element}, field)
+\item 
+\#define \hyperlink{linkedlist_8h_a6c1914454bcfe361c908f1cc64e230f2}{\-L\-I\-S\-T\-\_\-\-R\-E\-M\-O\-V\-E}(\hyperlink{structelement}{element}, field)
+\item 
+\#define \hyperlink{linkedlist_8h_a4f07aefb8602b76649246d03eb570f03}{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-H\-E\-A\-D}(head, \hyperlink{structelement}{element}, field)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{linkedlist_8h_a24a69fc0af564d2a576b06c194891c5a}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-E\-M\-P\-T\-Y@{\-L\-I\-S\-T\-\_\-\-E\-M\-P\-T\-Y}}
+\index{\-L\-I\-S\-T\-\_\-\-E\-M\-P\-T\-Y@{\-L\-I\-S\-T\-\_\-\-E\-M\-P\-T\-Y}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-E\-M\-P\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-E\-M\-P\-T\-Y}(
+\begin{DoxyParamCaption}
+\item[{}]{xhead}
+\end{DoxyParamCaption}
+)~((xhead)-\/$>$first == {\bf \-N\-U\-L\-L})}}\label{linkedlist_8h_a24a69fc0af564d2a576b06c194891c5a}
+\-Functions of the list, first,next, insert, empty..etc 
+
+\-Definition at line 36 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_aec2ccd0e8c215504508af23f04480be6}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-E\-N\-T\-R\-Y@{\-L\-I\-S\-T\-\_\-\-E\-N\-T\-R\-Y}}
+\index{\-L\-I\-S\-T\-\_\-\-E\-N\-T\-R\-Y@{\-L\-I\-S\-T\-\_\-\-E\-N\-T\-R\-Y}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-E\-N\-T\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-E\-N\-T\-R\-Y}(
+\begin{DoxyParamCaption}
+\item[{}]{type}
+\end{DoxyParamCaption}
+)}}\label{linkedlist_8h_aec2ccd0e8c215504508af23f04480be6}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+struct {\
+                struct type *next;\
+                struct type **prev;\
+        }
+\end{DoxyCode}
+
+
+\-Definition at line 28 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_a4beae2f37dbe52b21f754d987d3cec57}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-F\-I\-R\-S\-T@{\-L\-I\-S\-T\-\_\-\-F\-I\-R\-S\-T}}
+\index{\-L\-I\-S\-T\-\_\-\-F\-I\-R\-S\-T@{\-L\-I\-S\-T\-\_\-\-F\-I\-R\-S\-T}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-F\-I\-R\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-F\-I\-R\-S\-T}(
+\begin{DoxyParamCaption}
+\item[{}]{xhead}
+\end{DoxyParamCaption}
+)~((xhead)-\/$>$first)}}\label{linkedlist_8h_a4beae2f37dbe52b21f754d987d3cec57}
+
+
+\-Definition at line 38 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_ac1543beeb6d9224b60feb7a2703b2a87}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-F\-O\-R\-E\-A\-C\-H@{\-L\-I\-S\-T\-\_\-\-F\-O\-R\-E\-A\-C\-H}}
+\index{\-L\-I\-S\-T\-\_\-\-F\-O\-R\-E\-A\-C\-H@{\-L\-I\-S\-T\-\_\-\-F\-O\-R\-E\-A\-C\-H}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-F\-O\-R\-E\-A\-C\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-F\-O\-R\-E\-A\-C\-H}(
+\begin{DoxyParamCaption}
+\item[{}]{var, }
+\item[{}]{head, }
+\item[{}]{field}
+\end{DoxyParamCaption}
+)}}\label{linkedlist_8h_ac1543beeb6d9224b60feb7a2703b2a87}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+for ((var) = LIST_FIRST((head));\
+        (var);\
+        (var) = LIST_NEXT((var),field))
+\end{DoxyCode}
+\-For each loop on teh list 
+
+\-Definition at line 48 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_a172799a84e7944bb109161db65bf99cf}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D@{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D}}
+\index{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D@{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-H\-E\-A\-D}(
+\begin{DoxyParamCaption}
+\item[{}]{\-Instance, }
+\item[{}]{\-Type}
+\end{DoxyParamCaption}
+)}}\label{linkedlist_8h_a172799a84e7944bb109161db65bf99cf}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+struct Instance{\
+                struct Type *first;\
+        }
+\end{DoxyCode}
+a boot time list is a macro coded list to provide ability to make sequential lists at boot time. 
+
+\-Definition at line 18 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_ad9c04eb6522463f7d71aec6d81c7cb68}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D\-\_\-\-I\-N\-I\-T@{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D\-\_\-\-I\-N\-I\-T}}
+\index{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D\-\_\-\-I\-N\-I\-T@{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D\-\_\-\-I\-N\-I\-T}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D\-\_\-\-I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-H\-E\-A\-D\-\_\-\-I\-N\-I\-T}(
+\begin{DoxyParamCaption}
+\item[{}]{head}
+\end{DoxyParamCaption}
+)~\{{\bf \-N\-U\-L\-L}\}}}\label{linkedlist_8h_ad9c04eb6522463f7d71aec6d81c7cb68}
+
+
+\-Definition at line 23 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_a304b5b7f7bdcba2793eaba9c890991c3}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-I\-N\-I\-T@{\-L\-I\-S\-T\-\_\-\-I\-N\-I\-T}}
+\index{\-L\-I\-S\-T\-\_\-\-I\-N\-I\-T@{\-L\-I\-S\-T\-\_\-\-I\-N\-I\-T}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-I\-N\-I\-T}(
+\begin{DoxyParamCaption}
+\item[{}]{head}
+\end{DoxyParamCaption}
+)}}\label{linkedlist_8h_a304b5b7f7bdcba2793eaba9c890991c3}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+do {\
+                LIST_FIRST((head)) = NULL;\
+        }while(0)
+\end{DoxyCode}
+
+
+\-Definition at line 55 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_a3548dd269723b91fd13013cd8bd7d1c3}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-A\-F\-T\-E\-R@{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-A\-F\-T\-E\-R}}
+\index{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-A\-F\-T\-E\-R@{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-A\-F\-T\-E\-R}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-A\-F\-T\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-A\-F\-T\-E\-R}(
+\begin{DoxyParamCaption}
+\item[{}]{pre, }
+\item[{}]{{\bf element}, }
+\item[{}]{field}
+\end{DoxyParamCaption}
+)}}\label{linkedlist_8h_a3548dd269723b91fd13013cd8bd7d1c3}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+do{\
+        if((LIST_NEXT((element),field) = (LIST_NEXT((pre),field))) != NULL)\
+                LIST_NEXT(pre,field)->field.prev = &(LIST_NEXT((element),field)
+      );\
+        LIST_NEXT((pre),field)->field.next = (element);\
+        (element)->field.prev = &(LIST_NEXT((pre),field));\
+        } while(0)
+\end{DoxyCode}
+
+
+\-Definition at line 60 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_af7881d10124e52402743b6dfa4d445b0}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-B\-E\-F\-O\-R\-E@{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-B\-E\-F\-O\-R\-E}}
+\index{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-B\-E\-F\-O\-R\-E@{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-B\-E\-F\-O\-R\-E}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-B\-E\-F\-O\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-B\-E\-F\-O\-R\-E}(
+\begin{DoxyParamCaption}
+\item[{}]{post, }
+\item[{}]{{\bf element}, }
+\item[{}]{field}
+\end{DoxyParamCaption}
+)}}\label{linkedlist_8h_af7881d10124e52402743b6dfa4d445b0}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+do{\
+        (element)->field.prev = (post)->field.prev;\
+        LIST_NEXT((element),field) = (post);\
+        *(post)->field.prev = (element);\
+        (post)->field.prev = &(LIST_NEXT((element),field));\
+        } while(0)
+\end{DoxyCode}
+
+
+\-Definition at line 69 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_a4f07aefb8602b76649246d03eb570f03}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-H\-E\-A\-D@{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-H\-E\-A\-D}}
+\index{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-H\-E\-A\-D@{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-H\-E\-A\-D}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-H\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-I\-N\-S\-E\-R\-T\-\_\-\-H\-E\-A\-D}(
+\begin{DoxyParamCaption}
+\item[{}]{head, }
+\item[{}]{{\bf element}, }
+\item[{}]{field}
+\end{DoxyParamCaption}
+)}}\label{linkedlist_8h_a4f07aefb8602b76649246d03eb570f03}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+do {\
+        if((LIST_NEXT((element), field) = LIST_FIRST((head))) != NULL)\
+                LIST_FIRST((head))->field.prev = &(LIST_NEXT((element),field));
+      \
+        LIST_FIRST((head)) = (element);\
+        (element)->field.prev = &(LIST_FIRST((head)));\
+        } while(0)
+\end{DoxyCode}
+
+
+\-Definition at line 85 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_a6c28cf5a26558f950fd5632473390e36}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-N\-E\-X\-T@{\-L\-I\-S\-T\-\_\-\-N\-E\-X\-T}}
+\index{\-L\-I\-S\-T\-\_\-\-N\-E\-X\-T@{\-L\-I\-S\-T\-\_\-\-N\-E\-X\-T}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-N\-E\-X\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-N\-E\-X\-T}(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf element}, }
+\item[{}]{field}
+\end{DoxyParamCaption}
+)~(({\bf element})-\/$>$field.\-next)}}\label{linkedlist_8h_a6c28cf5a26558f950fd5632473390e36}
+
+
+\-Definition at line 45 of file linkedlist.\-h.
+
+\hypertarget{linkedlist_8h_a6c1914454bcfe361c908f1cc64e230f2}{\index{linkedlist.\-h@{linkedlist.\-h}!\-L\-I\-S\-T\-\_\-\-R\-E\-M\-O\-V\-E@{\-L\-I\-S\-T\-\_\-\-R\-E\-M\-O\-V\-E}}
+\index{\-L\-I\-S\-T\-\_\-\-R\-E\-M\-O\-V\-E@{\-L\-I\-S\-T\-\_\-\-R\-E\-M\-O\-V\-E}!linkedlist.h@{linkedlist.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-R\-E\-M\-O\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-I\-S\-T\-\_\-\-R\-E\-M\-O\-V\-E}(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf element}, }
+\item[{}]{field}
+\end{DoxyParamCaption}
+)}}\label{linkedlist_8h_a6c1914454bcfe361c908f1cc64e230f2}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+do {\
+        if(LIST_NEXT((element),field) != NULL)\
+                LIST_NEXT((element),field)->field.prev =\
+                        (element)->field.prev;\
+        *(element)->field.prev = LIST_NEXT( (element), field);\
+        }while(0)
+\end{DoxyCode}
+
+
+\-Definition at line 77 of file linkedlist.\-h.
+

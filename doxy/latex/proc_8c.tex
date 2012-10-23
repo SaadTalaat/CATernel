@@ -1,0 +1,159 @@
+\hypertarget{proc_8c}{\section{kernel/proc/proc.c \-File \-Reference}
+\label{proc_8c}\index{kernel/proc/proc.\-c@{kernel/proc/proc.\-c}}
+}
+{\ttfamily \#include $<$types.\-h$>$}\*
+{\ttfamily \#include $<$memvals.\-h$>$}\*
+{\ttfamily \#include $<$proc/proc.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/mm/segdesc.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/processor.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include $<$init.\-h$>$}\*
+{\ttfamily \#include $<$rdisk.\-h$>$}\*
+\-Include dependency graph for proc.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{proc_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{proc_8c_a7a86f136018ec12ba764d8ecc13ee403}{init\-\_\-proc\-\_\-table} (void)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{proc_8c_af9b0729d454bfcd1cccac25668e1cdd5}{create\-\_\-proc} (\hyperlink{proc_8h_abcae78bfd085fccd601f7cc568946453}{proc\-\_\-t} $\ast$$\ast$proc\-\_\-s)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{proc_8c_a068b8a94b58e77fc6cf65795fd0b5aac}{proc\-\_\-alloc\-\_\-mem} (\hyperlink{proc_8h_abcae78bfd085fccd601f7cc568946453}{proc\-\_\-t} $\ast$\hyperlink{structproc}{proc}, void $\ast$va, \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} len)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{proc_8c_ae6e0fd99b6fae7f9b0c5575193151d58}{init\-\_\-proc0} ()
+\item 
+void \hyperlink{proc_8c_a3adc819d4b6f54184f72a00e0584190f}{init\-\_\-proc} (void)
+\item 
+void \hyperlink{proc_8c_a5786a19c8d7e97d107ad3e1c02c12b0d}{test\-\_\-lifo} (void)
+\item 
+void \hyperlink{proc_8c_a34033e3a55f39ca55025d33eb49aa313}{switch\-\_\-address\-\_\-space} (\hyperlink{proc_8h_abcae78bfd085fccd601f7cc568946453}{proc\-\_\-t} $\ast$proc\-\_\-to\-\_\-run)
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{page_8h_a1ae9855ac82633447ab53f25e49e1f62}{pde\-\_\-t} $\ast$ \hyperlink{proc_8c_a8ffe8b80013a018b23501ea7a45b7870}{global\-\_\-pgdir}
+\item 
+struct \-Proc\-\_\-\-List \hyperlink{proc_8c_a10d7952b0ace8f68027e672286c44b33}{empty\-\_\-procs}
+\item 
+\hyperlink{proc_8h_abcae78bfd085fccd601f7cc568946453}{proc\-\_\-t} $\ast$ \hyperlink{proc_8c_a432b7b292b7d2423daf04aceac8924e6}{proc\-\_\-table}
+\item 
+struct \-Proc\-\_\-\-Lifo \hyperlink{proc_8c_a7608dc18b85a71c7c6f32b45a8516d12}{running\-\_\-procs}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{proc_8c_af9b0729d454bfcd1cccac25668e1cdd5}{\index{proc.\-c@{proc.\-c}!create\-\_\-proc@{create\-\_\-proc}}
+\index{create\-\_\-proc@{create\-\_\-proc}!proc.c@{proc.\-c}}
+\subsubsection[{create\-\_\-proc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf create\-\_\-proc} (
+\begin{DoxyParamCaption}
+\item[{{\bf proc\-\_\-t} $\ast$$\ast$}]{proc\-\_\-s}
+\end{DoxyParamCaption}
+)}}\label{proc_8c_af9b0729d454bfcd1cccac25668e1cdd5}
+
+
+\-Definition at line 56 of file proc.\-c.
+
+\hypertarget{proc_8c_a3adc819d4b6f54184f72a00e0584190f}{\index{proc.\-c@{proc.\-c}!init\-\_\-proc@{init\-\_\-proc}}
+\index{init\-\_\-proc@{init\-\_\-proc}!proc.c@{proc.\-c}}
+\subsubsection[{init\-\_\-proc}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf init\-\_\-proc} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{proc_8c_a3adc819d4b6f54184f72a00e0584190f}
+
+
+\-Definition at line 112 of file proc.\-c.
+
+\hypertarget{proc_8c_ae6e0fd99b6fae7f9b0c5575193151d58}{\index{proc.\-c@{proc.\-c}!init\-\_\-proc0@{init\-\_\-proc0}}
+\index{init\-\_\-proc0@{init\-\_\-proc0}!proc.c@{proc.\-c}}
+\subsubsection[{init\-\_\-proc0}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf init\-\_\-proc0} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{proc_8c_ae6e0fd99b6fae7f9b0c5575193151d58}
+
+
+\-Definition at line 101 of file proc.\-c.
+
+\hypertarget{proc_8c_a7a86f136018ec12ba764d8ecc13ee403}{\index{proc.\-c@{proc.\-c}!init\-\_\-proc\-\_\-table@{init\-\_\-proc\-\_\-table}}
+\index{init\-\_\-proc\-\_\-table@{init\-\_\-proc\-\_\-table}!proc.c@{proc.\-c}}
+\subsubsection[{init\-\_\-proc\-\_\-table}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf init\-\_\-proc\-\_\-table} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{proc_8c_a7a86f136018ec12ba764d8ecc13ee403}
+
+
+\-Definition at line 17 of file proc.\-c.
+
+\hypertarget{proc_8c_a068b8a94b58e77fc6cf65795fd0b5aac}{\index{proc.\-c@{proc.\-c}!proc\-\_\-alloc\-\_\-mem@{proc\-\_\-alloc\-\_\-mem}}
+\index{proc\-\_\-alloc\-\_\-mem@{proc\-\_\-alloc\-\_\-mem}!proc.c@{proc.\-c}}
+\subsubsection[{proc\-\_\-alloc\-\_\-mem}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf proc\-\_\-alloc\-\_\-mem} (
+\begin{DoxyParamCaption}
+\item[{{\bf proc\-\_\-t} $\ast$}]{proc, }
+\item[{void $\ast$}]{va, }
+\item[{{\bf uint32\-\_\-t}}]{len}
+\end{DoxyParamCaption}
+)}}\label{proc_8c_a068b8a94b58e77fc6cf65795fd0b5aac}
+
+
+\-Definition at line 84 of file proc.\-c.
+
+\hypertarget{proc_8c_a34033e3a55f39ca55025d33eb49aa313}{\index{proc.\-c@{proc.\-c}!switch\-\_\-address\-\_\-space@{switch\-\_\-address\-\_\-space}}
+\index{switch\-\_\-address\-\_\-space@{switch\-\_\-address\-\_\-space}!proc.c@{proc.\-c}}
+\subsubsection[{switch\-\_\-address\-\_\-space}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf switch\-\_\-address\-\_\-space} (
+\begin{DoxyParamCaption}
+\item[{{\bf proc\-\_\-t} $\ast$}]{proc\-\_\-to\-\_\-run}
+\end{DoxyParamCaption}
+)}}\label{proc_8c_a34033e3a55f39ca55025d33eb49aa313}
+
+
+\-Definition at line 138 of file proc.\-c.
+
+\hypertarget{proc_8c_a5786a19c8d7e97d107ad3e1c02c12b0d}{\index{proc.\-c@{proc.\-c}!test\-\_\-lifo@{test\-\_\-lifo}}
+\index{test\-\_\-lifo@{test\-\_\-lifo}!proc.c@{proc.\-c}}
+\subsubsection[{test\-\_\-lifo}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf test\-\_\-lifo} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{proc_8c_a5786a19c8d7e97d107ad3e1c02c12b0d}
+
+
+\-Definition at line 119 of file proc.\-c.
+
+
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{proc_8c_a10d7952b0ace8f68027e672286c44b33}{\index{proc.\-c@{proc.\-c}!empty\-\_\-procs@{empty\-\_\-procs}}
+\index{empty\-\_\-procs@{empty\-\_\-procs}!proc.c@{proc.\-c}}
+\subsubsection[{empty\-\_\-procs}]{\setlength{\rightskip}{0pt plus 5cm}struct \-Proc\-\_\-\-List {\bf empty\-\_\-procs}}}\label{proc_8c_a10d7952b0ace8f68027e672286c44b33}
+
+
+\-Definition at line 11 of file proc.\-c.
+
+\hypertarget{proc_8c_a8ffe8b80013a018b23501ea7a45b7870}{\index{proc.\-c@{proc.\-c}!global\-\_\-pgdir@{global\-\_\-pgdir}}
+\index{global\-\_\-pgdir@{global\-\_\-pgdir}!proc.c@{proc.\-c}}
+\subsubsection[{global\-\_\-pgdir}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pde\-\_\-t}$\ast$ {\bf global\-\_\-pgdir}}}\label{proc_8c_a8ffe8b80013a018b23501ea7a45b7870}
+
+
+\-Definition at line 13 of file page.\-c.
+
+\hypertarget{proc_8c_a432b7b292b7d2423daf04aceac8924e6}{\index{proc.\-c@{proc.\-c}!proc\-\_\-table@{proc\-\_\-table}}
+\index{proc\-\_\-table@{proc\-\_\-table}!proc.c@{proc.\-c}}
+\subsubsection[{proc\-\_\-table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf proc\-\_\-t}$\ast$ {\bf proc\-\_\-table}}}\label{proc_8c_a432b7b292b7d2423daf04aceac8924e6}
+
+
+\-Definition at line 13 of file proc.\-c.
+
+\hypertarget{proc_8c_a7608dc18b85a71c7c6f32b45a8516d12}{\index{proc.\-c@{proc.\-c}!running\-\_\-procs@{running\-\_\-procs}}
+\index{running\-\_\-procs@{running\-\_\-procs}!proc.c@{proc.\-c}}
+\subsubsection[{running\-\_\-procs}]{\setlength{\rightskip}{0pt plus 5cm}struct \-Proc\-\_\-\-Lifo {\bf running\-\_\-procs}}}\label{proc_8c_a7608dc18b85a71c7c6f32b45a8516d12}
+
+
+\-Definition at line 14 of file proc.\-c.
+

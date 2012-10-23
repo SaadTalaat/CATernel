@@ -1,0 +1,233 @@
+\hypertarget{init__mem_8c}{\section{kernel/arch/x86/mm/init\-\_\-mem.c \-File \-Reference}
+\label{init__mem_8c}\index{kernel/arch/x86/mm/init\-\_\-mem.\-c@{kernel/arch/x86/mm/init\-\_\-mem.\-c}}
+}
+{\ttfamily \#include $<$types.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/x86.\-h$>$}\*
+{\ttfamily \#include $<$memvals.\-h$>$}\*
+{\ttfamily \#include $<$cmos.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/processor.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/mm/page.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/interrupt.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/cpu\-\_\-state.\-h$>$}\*
+{\ttfamily \#include $<$proc/proc.\-h$>$}\*
+\-Include dependency graph for init\-\_\-mem.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init__mem_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{init__mem_8c_ae211c9a7f35cbed9323ae43a16e69737}{x86\-\_\-read\-\_\-mem\-\_\-size} (int x)
+\item 
+void \hyperlink{init__mem_8c_a1ba69b97e0fef308cbf209384a7fcd81}{scan\-\_\-memory} (void)
+\item 
+static void $\ast$ \hyperlink{init__mem_8c_a9762d88ec8eee643ee3527ae5f765cd4}{allocate} (\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} n, \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} align)
+\item 
+void \hyperlink{init__mem_8c_aed3ab9d856a5001fb79add2f66523234}{init\-\_\-tss} (void)
+\item 
+void \hyperlink{init__mem_8c_ab51e89d6798c133feb72e0546b330e6b}{x86\-\_\-setup\-\_\-memory} (void)
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{init__mem_8c_a2eb17745f365b108bb5c8f0c727effa7}{max\-\_\-addr}
+\item 
+static \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{init__mem_8c_a5ba2f6f78705b63f0788f9b85f7f104c}{mem\-\_\-base}
+\item 
+static \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{init__mem_8c_a6d82d3a092ab3261207c2172340f057d}{ext\-\_\-base}
+\item 
+char $\ast$ \hyperlink{init__mem_8c_a39aa9990303c751420729e015f952dfb}{next\-\_\-free} = 0
+\item 
+static \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{init__mem_8c_af0ee28fa211c2bf5554596d9dcabd2bd}{alloc\-\_\-lock} = 0
+\item 
+struct \hyperlink{structPage}{\-Page} $\ast$ \hyperlink{init__mem_8c_a5c8561a52c4cda29a9be7dc7be92c771}{pages}
+\item 
+\hyperlink{proc_8h_abcae78bfd085fccd601f7cc568946453}{proc\-\_\-t} $\ast$ \hyperlink{init__mem_8c_a432b7b292b7d2423daf04aceac8924e6}{proc\-\_\-table}
+\item 
+struct \hyperlink{structSegdesc}{\-Segdesc} \hyperlink{init__mem_8c_a362a86eab2f1d332cf898b80741c89c9}{catgdt} \mbox{[}$\,$\mbox{]}
+\item 
+struct \hyperlink{structGdtdesc}{\-Gdtdesc} \hyperlink{init__mem_8c_a061803623c40821bfc4b422fa7b7454b}{gdtdesc}
+\item 
+\hyperlink{interrupt_8h_a81398f7aecfca5502a385160a0f84f7a}{\-Idtdesc} \hyperlink{init__mem_8c_a17f4900711fa847fd29c463f7f795b4a}{idtdesc}
+\item 
+tss\-\_\-t \hyperlink{init__mem_8c_aa24f361c0407c2ed810edfa9ef76da41}{tss}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{init__mem_8c_a9762d88ec8eee643ee3527ae5f765cd4}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!allocate@{allocate}}
+\index{allocate@{allocate}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{allocate}]{\setlength{\rightskip}{0pt plus 5cm}static void$\ast$ {\bf allocate} (
+\begin{DoxyParamCaption}
+\item[{{\bf uint32\-\_\-t}}]{n, }
+\item[{{\bf uint32\-\_\-t}}]{align}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{init__mem_8c_a9762d88ec8eee643ee3527ae5f765cd4}
+
+
+\-Definition at line 96 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_aed3ab9d856a5001fb79add2f66523234}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!init\-\_\-tss@{init\-\_\-tss}}
+\index{init\-\_\-tss@{init\-\_\-tss}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{init\-\_\-tss}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf init\-\_\-tss} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{init__mem_8c_aed3ab9d856a5001fb79add2f66523234}
+
+
+\-Definition at line 118 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_a1ba69b97e0fef308cbf209384a7fcd81}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!scan\-\_\-memory@{scan\-\_\-memory}}
+\index{scan\-\_\-memory@{scan\-\_\-memory}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{scan\-\_\-memory}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf scan\-\_\-memory} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{init__mem_8c_a1ba69b97e0fef308cbf209384a7fcd81}
+
+
+\-Definition at line 75 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_ae211c9a7f35cbed9323ae43a16e69737}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!x86\-\_\-read\-\_\-mem\-\_\-size@{x86\-\_\-read\-\_\-mem\-\_\-size}}
+\index{x86\-\_\-read\-\_\-mem\-\_\-size@{x86\-\_\-read\-\_\-mem\-\_\-size}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{x86\-\_\-read\-\_\-mem\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf uint32\-\_\-t} {\bf x86\-\_\-read\-\_\-mem\-\_\-size} (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{init__mem_8c_ae211c9a7f35cbed9323ae43a16e69737}
+
+
+\-Definition at line 70 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_ab51e89d6798c133feb72e0546b330e6b}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!x86\-\_\-setup\-\_\-memory@{x86\-\_\-setup\-\_\-memory}}
+\index{x86\-\_\-setup\-\_\-memory@{x86\-\_\-setup\-\_\-memory}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{x86\-\_\-setup\-\_\-memory}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf x86\-\_\-setup\-\_\-memory} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{init__mem_8c_ab51e89d6798c133feb72e0546b330e6b}
+\-At this point paging is on 
+
+\-Definition at line 131 of file init\-\_\-mem.\-c.
+
+
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{init__mem_8c_af0ee28fa211c2bf5554596d9dcabd2bd}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!alloc\-\_\-lock@{alloc\-\_\-lock}}
+\index{alloc\-\_\-lock@{alloc\-\_\-lock}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{alloc\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf alloc\-\_\-lock} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{init__mem_8c_af0ee28fa211c2bf5554596d9dcabd2bd}
+
+
+\-Definition at line 23 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_a362a86eab2f1d332cf898b80741c89c9}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!catgdt@{catgdt}}
+\index{catgdt@{catgdt}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{catgdt}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \-Segdesc} {\bf catgdt}\mbox{[}$\,$\mbox{]}}}\label{init__mem_8c_a362a86eab2f1d332cf898b80741c89c9}
+{\bfseries \-Initial value\-:}
+\begin{DoxyCode}
+ {
+        
+        SEG_NULL,
+        
+        [1] = SEGMENT(0xffffffff, 0, SEGACS_RW | SEGACS_X),
+        
+        [2] = SEGMENT(0xffffffff, 0, SEGACS_RW),
+        
+        [3] = SEGMENT(0xffffffff, 0x000000, SEGACS_RW | SEGACS_USR | SEGACS_X),
+        
+        [4] = SEGMENT(0xffffffff, 0x0, SEGACS_RW | SEGACS_USR),
+        
+        
+        [5] = SEG_NULL
+        
+
+}
+\end{DoxyCode}
+
+
+\-Definition at line 37 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_a6d82d3a092ab3261207c2172340f057d}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!ext\-\_\-base@{ext\-\_\-base}}
+\index{ext\-\_\-base@{ext\-\_\-base}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{ext\-\_\-base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf ext\-\_\-base}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{init__mem_8c_a6d82d3a092ab3261207c2172340f057d}
+
+
+\-Definition at line 21 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_a061803623c40821bfc4b422fa7b7454b}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!gdtdesc@{gdtdesc}}
+\index{gdtdesc@{gdtdesc}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{gdtdesc}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \-Gdtdesc} {\bf gdtdesc}}}\label{init__mem_8c_a061803623c40821bfc4b422fa7b7454b}
+{\bfseries \-Initial value\-:}
+\begin{DoxyCode}
+{
+        sizeof(catgdt)-1,
+        (unsigned long) catgdt
+
+}
+\end{DoxyCode}
+
+
+\-Definition at line 55 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_a17f4900711fa847fd29c463f7f795b4a}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!idtdesc@{idtdesc}}
+\index{idtdesc@{idtdesc}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{idtdesc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Idtdesc} {\bf idtdesc}}}\label{init__mem_8c_a17f4900711fa847fd29c463f7f795b4a}
+{\bfseries \-Initial value\-:}
+\begin{DoxyCode}
+ {
+        (256*sizeof(gatedesc))-1,
+        (unsigned long) idt
+
+}
+\end{DoxyCode}
+
+
+\-Definition at line 61 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_a2eb17745f365b108bb5c8f0c727effa7}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!max\-\_\-addr@{max\-\_\-addr}}
+\index{max\-\_\-addr@{max\-\_\-addr}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{max\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf max\-\_\-addr}}}\label{init__mem_8c_a2eb17745f365b108bb5c8f0c727effa7}
+
+
+\-Definition at line 20 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_a5ba2f6f78705b63f0788f9b85f7f104c}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!mem\-\_\-base@{mem\-\_\-base}}
+\index{mem\-\_\-base@{mem\-\_\-base}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{mem\-\_\-base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf mem\-\_\-base}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{init__mem_8c_a5ba2f6f78705b63f0788f9b85f7f104c}
+
+
+\-Definition at line 21 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_a39aa9990303c751420729e015f952dfb}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!next\-\_\-free@{next\-\_\-free}}
+\index{next\-\_\-free@{next\-\_\-free}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{next\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf next\-\_\-free} = 0}}\label{init__mem_8c_a39aa9990303c751420729e015f952dfb}
+
+
+\-Definition at line 22 of file init\-\_\-mem.\-c.
+
+\hypertarget{init__mem_8c_a5c8561a52c4cda29a9be7dc7be92c771}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!pages@{pages}}
+\index{pages@{pages}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{pages}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \-Page}$\ast$ {\bf pages}}}\label{init__mem_8c_a5c8561a52c4cda29a9be7dc7be92c771}
+
+
+\-Definition at line 17 of file page.\-c.
+
+\hypertarget{init__mem_8c_a432b7b292b7d2423daf04aceac8924e6}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!proc\-\_\-table@{proc\-\_\-table}}
+\index{proc\-\_\-table@{proc\-\_\-table}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{proc\-\_\-table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf proc\-\_\-t}$\ast$ {\bf proc\-\_\-table}}}\label{init__mem_8c_a432b7b292b7d2423daf04aceac8924e6}
+
+
+\-Definition at line 13 of file proc.\-c.
+
+\hypertarget{init__mem_8c_aa24f361c0407c2ed810edfa9ef76da41}{\index{init\-\_\-mem.\-c@{init\-\_\-mem.\-c}!tss@{tss}}
+\index{tss@{tss}!init_mem.c@{init\-\_\-mem.\-c}}
+\subsubsection[{tss}]{\setlength{\rightskip}{0pt plus 5cm}tss\-\_\-t {\bf tss}}}\label{init__mem_8c_aa24f361c0407c2ed810edfa9ef76da41}
+
+
+\-Definition at line 67 of file init\-\_\-mem.\-c.
+

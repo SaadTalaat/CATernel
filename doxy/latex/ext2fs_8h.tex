@@ -1,0 +1,739 @@
+\hypertarget{ext2fs_8h}{\section{include/fs/ext2fs.h \-File \-Reference}
+\label{ext2fs_8h}\index{include/fs/ext2fs.\-h@{include/fs/ext2fs.\-h}}
+}
+{\ttfamily \#include $<$types.\-h$>$}\*
+\-Include dependency graph for ext2fs.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{ext2fs_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Data \-Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structext2__super__block}{ext2\-\_\-super\-\_\-block}
+\item 
+struct \hyperlink{structext2__dir__entry}{ext2\-\_\-dir\-\_\-entry}
+\item 
+struct \hyperlink{structext2__group__desc}{ext2\-\_\-group\-\_\-desc}
+\item 
+struct \hyperlink{structext2__inode}{ext2\-\_\-inode}
+\end{DoxyCompactItemize}
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ext2fs_8h_a5466dbceff9b8fe74110eaf7279ac2f8}{\-E\-X\-T2\-\_\-\-N\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-S}~12
+\item 
+\#define \hyperlink{ext2fs_8h_a0ad4fd54bd5dde81d20feca9a9c106c6}{\-E\-X\-T2\-\_\-\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}~\hyperlink{ext2fs_8h_a5466dbceff9b8fe74110eaf7279ac2f8}{\-E\-X\-T2\-\_\-\-N\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-S}
+\item 
+\#define \hyperlink{ext2fs_8h_a6e95dea120c910dcba3cd94125d5503a}{\-E\-X\-T2\-\_\-\-D\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}~(\hyperlink{ext2fs_8h_a0ad4fd54bd5dde81d20feca9a9c106c6}{\-E\-X\-T2\-\_\-\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K} + 1)
+\item 
+\#define \hyperlink{ext2fs_8h_a71858954b55fd2631ea5cba8a33ef1ff}{\-E\-X\-T2\-\_\-\-T\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}~(\hyperlink{ext2fs_8h_a6e95dea120c910dcba3cd94125d5503a}{\-E\-X\-T2\-\_\-\-D\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K} + 1)
+\item 
+\#define \hyperlink{ext2fs_8h_add1194efd19a37c1239a967ed68b6614}{\-E\-X\-T2\-\_\-\-N\-\_\-\-B\-L\-O\-C\-K\-S}~(\hyperlink{ext2fs_8h_a71858954b55fd2631ea5cba8a33ef1ff}{\-E\-X\-T2\-\_\-\-T\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K} + 1)
+\item 
+\#define \hyperlink{ext2fs_8h_a342320971619107a378a494ba58efe62}{\-E\-X\-T2\-\_\-\-I\-N\-O\-S\-Z\-\_\-\-V0}~128
+\item 
+\#define \hyperlink{ext2fs_8h_a314a7f6544f6f42a028068c0ce164391}{\-E\-X\-T2\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N}~255
+\item 
+\#define \hyperlink{ext2fs_8h_ae7399e49b7efc3bdef56a903d2e4937e}{\-E\-X\-T2\-\_\-\-C\-L\-E\-A\-N}~1
+\item 
+\#define \hyperlink{ext2fs_8h_add8802911a5ec1cbdd9aed14115ded7b}{\-E\-X\-T2\-\_\-\-E\-R\-R0\-R}~2
+\item 
+\#define \hyperlink{ext2fs_8h_a45236cf2faf6b98448760fb49f417e41}{\-E\-X\-T2\-\_\-\-B\-A\-D\-\_\-\-I\-N\-O}~1	/$\ast$ \-Bad blocks inode $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_acb50ee6c9362361d2cc44d8be16f9959}{\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O}~2	/$\ast$ \-Root inode $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a855abeeb08fb7aed2778905e1959ef2e}{\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-I\-D\-X\-\_\-\-I\-N\-O}~3	/$\ast$ \-A\-C\-L inode $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a4463a3f3a2822d8afe7128ac268f232b}{\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-D\-A\-T\-A\-\_\-\-I\-N\-O}~4	/$\ast$ \-A\-C\-L inode $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a4742bbe5e8b89db8304568b90156c51a}{\-E\-X\-T2\-\_\-\-B\-O\-O\-T\-\_\-\-L\-O\-A\-D\-E\-R\-\_\-\-I\-N\-O}~5	/$\ast$ \-Boot loader inode $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a56db234c02a3a72218e2cb70131c09e2}{\-E\-X\-T2\-\_\-\-U\-N\-D\-E\-L\-\_\-\-D\-I\-R\-\_\-\-I\-N\-O}~6	/$\ast$ \-Undelete directory inode $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_ac502e094c11b7a93f6b9ac98a08cf1cb}{\-E\-X\-T2\-\_\-\-F\-I\-R\-S\-T\-\_\-\-I\-N\-O}~11	/$\ast$ \-First non reserved inode $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a34659f525c170d6abdec7e6adea230d1}{\-E\-X\-T2\-\_\-\-P\-R\-E\-\_\-02\-B\-\_\-\-M\-A\-G\-I\-C}~0x\-E\-F51
+\item 
+\#define \hyperlink{ext2fs_8h_a5a4b87af3f4498e3f2a254e8fbfe2ec3}{\-E\-X\-T2\-\_\-\-S\-U\-P\-E\-R\-\_\-\-M\-A\-G\-I\-C}~0x\-E\-F53
+\item 
+\#define \hyperlink{ext2fs_8h_a4e09064a0cb2c1e1d6d2c32976acb8a1}{\-E\-X\-T2\-\_\-\-L\-I\-N\-K\-\_\-\-M\-A\-X}~32000
+\item 
+\#define \hyperlink{ext2fs_8h_a12f28a29b5a657162a64153b8d5ddde2}{\-E\-X\-T2\-\_\-\-I\-G\-N\-O\-R\-E}~1
+\item 
+\#define \hyperlink{ext2fs_8h_a438f6622e874b6fffb39153204c8ff12}{\-E\-X\-T2\-\_\-\-R\-E\-M\-O\-U\-N\-T\-\_\-\-R\-O}~2
+\item 
+\#define \hyperlink{ext2fs_8h_a85dbc56d2d2f4dfbf8ebae9fed4ef695}{\-E\-X\-T2\-\_\-\-K\-P\-A\-N\-I\-C}~3
+\item 
+\#define \hyperlink{ext2fs_8h_a80253adc8e223859f4156fbabb970e32}{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-N\-U\-X}~0
+\item 
+\#define \hyperlink{ext2fs_8h_a7af4ecf350d7b5ba9f4d929bc91d4793}{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-H\-U\-R\-D}~1
+\item 
+\#define \hyperlink{ext2fs_8h_af9871fe2b6a9510f18263e27ff224f38}{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-M\-A\-S\-I\-X}~2
+\item 
+\#define \hyperlink{ext2fs_8h_a244c0e0fc3097187a2ac6a2f5b5f98d9}{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-F\-B\-S\-D}~3
+\item 
+\#define \hyperlink{ext2fs_8h_aaf563eacc83118b8d11c7b25bd52d363}{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-T\-E\-S}~4
+\item 
+\#define \hyperlink{ext2fs_8h_a5e5d85543e76dc50e70918adcb24201b}{\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O\-D\-E}~2	/$\ast$ \-Root inode $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a542ffc63389e10f34d27c87ac0f117de}{\-I\-\_\-\-F\-I\-F\-O}~0x1000
+\item 
+\#define \hyperlink{ext2fs_8h_aee258b80f48453b5875fdb314e31354c}{\-I\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V\-I\-C\-E}~0x2000
+\item 
+\#define \hyperlink{ext2fs_8h_a8980abd9f689b9d999b02a6ba2811271}{\-I\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y}~0x4000
+\item 
+\#define \hyperlink{ext2fs_8h_a99e0d67edb6a60f5a9279342afd3132e}{\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V\-I\-C\-E}~0x6000
+\item 
+\#define \hyperlink{ext2fs_8h_a75473feabda8cf4b780b3da60bbdfa73}{\-I\-\_\-\-R\-E\-G\-\_\-\-F\-I\-L\-E}~0x8000
+\item 
+\#define \hyperlink{ext2fs_8h_adcce939418387c9825733557a76498fb}{\-I\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K}~0x\-A000
+\item 
+\#define \hyperlink{ext2fs_8h_ac5ada9f0953aa7af119d49f75fa56e7e}{\-I\-\_\-\-U\-N\-I\-X\-\_\-\-S\-O\-C\-K}~0x\-C000
+\item 
+\#define \hyperlink{ext2fs_8h_a75a14467c538f136fe238c24689c9677}{\-I\-\_\-\-O\-E\-X\-E\-C\-\_\-\-P}~0\-X001
+\item 
+\#define \hyperlink{ext2fs_8h_aebdc994096b363323d0685417acb40b3}{\-I\-\_\-\-O\-W\-R\-I\-T\-E\-\_\-\-P}~0x002
+\item 
+\#define \hyperlink{ext2fs_8h_a90f85ce3d29d5f0537ee98cee5fe8dc2}{\-I\-\_\-\-O\-R\-E\-A\-D\-\_\-\-P}~0x004
+\item 
+\#define \hyperlink{ext2fs_8h_aec5106a6d4af3b05a6b6c2d5ca9f1757}{\-I\-\_\-\-G\-E\-X\-E\-C\-\_\-\-P}~0x008
+\item 
+\#define \hyperlink{ext2fs_8h_a62585f055450f5cfb051121163b3042b}{\-I\-\_\-\-G\-W\-R\-I\-T\-E\-\_\-\-P}~0x010
+\item 
+\#define \hyperlink{ext2fs_8h_a3a1c6a7d064ee00054c4943604477618}{\-I\-\_\-\-G\-R\-E\-A\-D\-\_\-\-P}~0x020
+\item 
+\#define \hyperlink{ext2fs_8h_a3f28fbb058b04cc0b7ddc034a92f508f}{\-I\-\_\-\-U\-E\-X\-E\-C\-\_\-\-P}~0x040
+\item 
+\#define \hyperlink{ext2fs_8h_a562dd09ffc3ad51913925317e2c10bc7}{\-I\-\_\-\-U\-W\-R\-I\-T\-E\-\_\-\-P}~0x080
+\item 
+\#define \hyperlink{ext2fs_8h_abaa2200bba98d5778c6a50d2b9a95d60}{\-I\-\_\-\-U\-R\-E\-A\-D\-\_\-\-P}~0x100
+\item 
+\#define \hyperlink{ext2fs_8h_ae8295105ca5fe1bc327f884539499cf6}{\-I\-\_\-\-S\-T\-I\-C\-K\-Y}~0x200
+\item 
+\#define \hyperlink{ext2fs_8h_abfe1f88ff55c94639b4289cc95eed80c}{\-I\-\_\-\-S\-E\-T\-\_\-\-G\-I\-D}~0x400
+\item 
+\#define \hyperlink{ext2fs_8h_aea12b910ed271583a1b559f087a1ed2d}{\-I\-\_\-\-S\-E\-T\-\_\-\-U\-I\-D}~0x800
+\item 
+\#define \hyperlink{ext2fs_8h_a1ef3c72b3ef7ec790f2ac2d51e64e235}{\-I\-\_\-\-S\-E\-C\-\_\-\-D\-E\-L}~0x00000001  /$\ast$\-Secure deletion$\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a362b42c224039fa757d5f14dddb4cace}{\-I\-\_\-\-K\-E\-E\-P\-\_\-\-C\-P\-Y}~0x00000002  /$\ast$\-Keep a copy of data when deleted$\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a1c780125164b5b272f82985cfcc15667}{\-I\-\_\-\-F\-I\-L\-E\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N}~0x00000004  /$\ast$\-File compression$\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_ae7e8ddd594fbe81343210eb4e3f83519}{\-I\-\_\-\-S\-Y\-N\-C\-\_\-\-U\-P\-D\-A\-T\-E\-S}~0x00000008  /$\ast$\-Synchronous updates$\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_aaed1f8e0b6f4a64dcc057cd30aab7082}{\-I\-\_\-\-I\-M\-M\-U\-T\-A\-B\-L\-E\-\_\-\-F\-I\-L\-E}~0x00000010  /$\ast$\-Immutable file$\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a437bbe574a661f9f29531654f925458b}{\-I\-\_\-\-A\-P\-P\-E\-N\-D\-\_\-\-O\-N\-L\-Y}~0x00000020  /$\ast$ Append only $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_af2e90ad39b34a55acbd05e420c3a1548}{\-I\-\_\-\-N\-O\-\_\-\-D\-U\-M\-P}~0x00000040  /$\ast$ File is not included in 'dump' command $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a8680369aaead46148826f8830378c0c0}{\-I\-\_\-\-N\-O\-\_\-\-L\-A\-T}~0x00000080  /$\ast$ Last accessed time should not updated $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a26c041da95bb78e5d94afbf5bb792201}{\-I\-\_\-\-H\-A\-S\-H\-\_\-\-I\-N\-D\-E\-X\-E\-D\-\_\-\-D\-I\-R}~0x00010000  /$\ast$ Hash indexed directory $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_ab1d5bb39a0f63f443c0ea1947d45487a}{\-I\-\_\-\-A\-F\-S\-\_\-\-D\-I\-R}~0x00020000  /$\ast$ A\-F\-S directory $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_a5033e488424488d0b68524e04c4687d4}{\-I\-\_\-\-J\-O\-U\-R\-N\-A\-L\-\_\-\-F\-I\-L\-E\-\_\-\-D\-A\-T\-A}~0x00040000  /$\ast$ Journal file data $\ast$/
+\item 
+\#define \hyperlink{ext2fs_8h_ac3344d402895bc2e1b2a484e0b53b42e}{\-I\-\_\-\-D\-I\-R\-\_\-\-U\-N\-K\-O\-W\-N}~0x0
+\item 
+\#define \hyperlink{ext2fs_8h_aa97f9ed1f26bbdb2e6571eecad0043d5}{\-I\-\_\-\-D\-I\-R\-\_\-\-R\-E\-G\-U\-L\-A\-R\-\_\-\-F}~0x1
+\item 
+\#define \hyperlink{ext2fs_8h_aee4eb0da717fa9fd5a6af3bca3cceddb}{\-I\-\_\-\-D\-I\-R\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y}~0x2
+\item 
+\#define \hyperlink{ext2fs_8h_a48258119f9033b605e8e2a5aadb14037}{\-I\-\_\-\-D\-I\-R\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V}~0x3
+\item 
+\#define \hyperlink{ext2fs_8h_a4b0417c1233ca7e0f696bae123a57690}{\-I\-\_\-\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V}~0x4
+\item 
+\#define \hyperlink{ext2fs_8h_ab76198e6d38cda1758b6b1e3f49d8cc8}{\-I\-\_\-\-D\-I\-R\-\_\-\-F\-I\-F\-O}~0x5
+\item 
+\#define \hyperlink{ext2fs_8h_a2743ed6716937ccea9283778ac4e5999}{\-I\-\_\-\-D\-I\-R\-\_\-\-S\-O\-C\-K}~0x6
+\item 
+\#define \hyperlink{ext2fs_8h_a1e07ec0a2a7ac5ce09becc7858333091}{\-I\-\_\-\-D\-I\-R\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K}~0x7
+\item 
+\#define \hyperlink{ext2fs_8h_ab6162564500fa3317fd74957ef03262a}{\-E\-X\-T2\-\_\-\-P\-R\-E\-L\-O\-C}~0x0001
+\item 
+\#define \hyperlink{ext2fs_8h_add8f4cc7c4d100e712ab1c8d5e4be97f}{\-E\-X\-T2\-\_\-\-A\-F\-S\-\_\-\-I\-N\-O}~0x0002
+\item 
+\#define \hyperlink{ext2fs_8h_a2439f1429bea87a618cad37d47fc54fd}{\-E\-X\-T2\-\_\-\-J\-R\-N\-L}~0x0004
+\item 
+\#define \hyperlink{ext2fs_8h_ac77c305d8e8aa7f02ee80bdf41fa9f1e}{\-E\-X\-T2\-\_\-\-I\-N\-O\-\_\-\-E\-X\-T\-N\-D\-A\-T\-T\-R}~0x0008
+\item 
+\#define \hyperlink{ext2fs_8h_a35e8e8d3e9006398c725177b30247b7e}{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-S\-I\-Z\-E}~0x0010
+\item 
+\#define \hyperlink{ext2fs_8h_ac9456c1ce959993d394b624cc3a7414f}{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-H\-A\-S\-H\-I}~0x0020
+\item 
+\#define \hyperlink{ext2fs_8h_ab38129c0dec55ae2b8666649cf893113}{\-E\-X\-T2\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N}~0x0001
+\item 
+\#define \hyperlink{ext2fs_8h_ae7e710692796e837afbeb0133613aa41}{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-T\-Y\-P\-E\-\_\-\-F}~0x0002
+\item 
+\#define \hyperlink{ext2fs_8h_a5076caf4d12e7a1c874649077d214ce9}{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-J\-O\-R}~0x0004
+\item 
+\#define \hyperlink{ext2fs_8h_a8f5bc740655a9480742cc4333269f58c}{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-J\-O\-R\-\_\-\-D\-E\-V}~0x0008
+\item 
+\#define \hyperlink{ext2fs_8h_a47357b3a4baf8c32e6c6db9a0197dd7e}{\-E\-X\-T2\-\_\-\-S\-P\-A\-R\-S\-E}~0x0001
+\item 
+\#define \hyperlink{ext2fs_8h_a8105cd2c5ca3068570afed5497179d97}{\-E\-X\-T2\-\_\-64\-F\-Z}~0x0002
+\item 
+\#define \hyperlink{ext2fs_8h_a67767224a3161076e9e8c061f5054587}{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-B\-I\-N\-\_\-\-T\-R\-E\-E}~0x0004
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{ext2fs_8h_a8105cd2c5ca3068570afed5497179d97}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-64\-F\-Z@{\-E\-X\-T2\-\_\-64\-F\-Z}}
+\index{\-E\-X\-T2\-\_\-64\-F\-Z@{\-E\-X\-T2\-\_\-64\-F\-Z}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-64\-F\-Z}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-64\-F\-Z}~0x0002}}\label{ext2fs_8h_a8105cd2c5ca3068570afed5497179d97}
+
+
+\-Definition at line 114 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a4463a3f3a2822d8afe7128ac268f232b}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-D\-A\-T\-A\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-D\-A\-T\-A\-\_\-\-I\-N\-O}}
+\index{\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-D\-A\-T\-A\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-D\-A\-T\-A\-\_\-\-I\-N\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-D\-A\-T\-A\-\_\-\-I\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-D\-A\-T\-A\-\_\-\-I\-N\-O}~4	/$\ast$ \-A\-C\-L inode $\ast$/}}\label{ext2fs_8h_a4463a3f3a2822d8afe7128ac268f232b}
+
+
+\-Definition at line 23 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a855abeeb08fb7aed2778905e1959ef2e}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-I\-D\-X\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-I\-D\-X\-\_\-\-I\-N\-O}}
+\index{\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-I\-D\-X\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-I\-D\-X\-\_\-\-I\-N\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-I\-D\-X\-\_\-\-I\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-A\-C\-L\-\_\-\-I\-D\-X\-\_\-\-I\-N\-O}~3	/$\ast$ \-A\-C\-L inode $\ast$/}}\label{ext2fs_8h_a855abeeb08fb7aed2778905e1959ef2e}
+
+
+\-Definition at line 22 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_add8f4cc7c4d100e712ab1c8d5e4be97f}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-A\-F\-S\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-A\-F\-S\-\_\-\-I\-N\-O}}
+\index{\-E\-X\-T2\-\_\-\-A\-F\-S\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-A\-F\-S\-\_\-\-I\-N\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-A\-F\-S\-\_\-\-I\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-A\-F\-S\-\_\-\-I\-N\-O}~0x0002}}\label{ext2fs_8h_add8f4cc7c4d100e712ab1c8d5e4be97f}
+
+
+\-Definition at line 102 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a45236cf2faf6b98448760fb49f417e41}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-B\-A\-D\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-B\-A\-D\-\_\-\-I\-N\-O}}
+\index{\-E\-X\-T2\-\_\-\-B\-A\-D\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-B\-A\-D\-\_\-\-I\-N\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-B\-A\-D\-\_\-\-I\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-B\-A\-D\-\_\-\-I\-N\-O}~1	/$\ast$ \-Bad blocks inode $\ast$/}}\label{ext2fs_8h_a45236cf2faf6b98448760fb49f417e41}
+
+
+\-Definition at line 20 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a4742bbe5e8b89db8304568b90156c51a}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-B\-O\-O\-T\-\_\-\-L\-O\-A\-D\-E\-R\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-B\-O\-O\-T\-\_\-\-L\-O\-A\-D\-E\-R\-\_\-\-I\-N\-O}}
+\index{\-E\-X\-T2\-\_\-\-B\-O\-O\-T\-\_\-\-L\-O\-A\-D\-E\-R\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-B\-O\-O\-T\-\_\-\-L\-O\-A\-D\-E\-R\-\_\-\-I\-N\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-B\-O\-O\-T\-\_\-\-L\-O\-A\-D\-E\-R\-\_\-\-I\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-B\-O\-O\-T\-\_\-\-L\-O\-A\-D\-E\-R\-\_\-\-I\-N\-O}~5	/$\ast$ \-Boot loader inode $\ast$/}}\label{ext2fs_8h_a4742bbe5e8b89db8304568b90156c51a}
+
+
+\-Definition at line 24 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ae7399e49b7efc3bdef56a903d2e4937e}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-C\-L\-E\-A\-N@{\-E\-X\-T2\-\_\-\-C\-L\-E\-A\-N}}
+\index{\-E\-X\-T2\-\_\-\-C\-L\-E\-A\-N@{\-E\-X\-T2\-\_\-\-C\-L\-E\-A\-N}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-C\-L\-E\-A\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-C\-L\-E\-A\-N}~1}}\label{ext2fs_8h_ae7399e49b7efc3bdef56a903d2e4937e}
+
+
+\-Definition at line 15 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ab38129c0dec55ae2b8666649cf893113}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N@{\-E\-X\-T2\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N}}
+\index{\-E\-X\-T2\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N@{\-E\-X\-T2\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N}~0x0001}}\label{ext2fs_8h_ab38129c0dec55ae2b8666649cf893113}
+
+
+\-Definition at line 108 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a6e95dea120c910dcba3cd94125d5503a}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-D\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K@{\-E\-X\-T2\-\_\-\-D\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}}
+\index{\-E\-X\-T2\-\_\-\-D\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K@{\-E\-X\-T2\-\_\-\-D\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-D\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-D\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}~({\bf \-E\-X\-T2\-\_\-\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K} + 1)}}\label{ext2fs_8h_a6e95dea120c910dcba3cd94125d5503a}
+
+
+\-Definition at line 9 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a67767224a3161076e9e8c061f5054587}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-B\-I\-N\-\_\-\-T\-R\-E\-E@{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-B\-I\-N\-\_\-\-T\-R\-E\-E}}
+\index{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-B\-I\-N\-\_\-\-T\-R\-E\-E@{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-B\-I\-N\-\_\-\-T\-R\-E\-E}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-B\-I\-N\-\_\-\-T\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-B\-I\-N\-\_\-\-T\-R\-E\-E}~0x0004}}\label{ext2fs_8h_a67767224a3161076e9e8c061f5054587}
+
+
+\-Definition at line 115 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ac9456c1ce959993d394b624cc3a7414f}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-H\-A\-S\-H\-I@{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-H\-A\-S\-H\-I}}
+\index{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-H\-A\-S\-H\-I@{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-H\-A\-S\-H\-I}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-H\-A\-S\-H\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-H\-A\-S\-H\-I}~0x0020}}\label{ext2fs_8h_ac9456c1ce959993d394b624cc3a7414f}
+
+
+\-Definition at line 106 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ae7e710692796e837afbeb0133613aa41}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-T\-Y\-P\-E\-\_\-\-F@{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-T\-Y\-P\-E\-\_\-\-F}}
+\index{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-T\-Y\-P\-E\-\_\-\-F@{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-T\-Y\-P\-E\-\_\-\-F}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-T\-Y\-P\-E\-\_\-\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-D\-I\-R\-\_\-\-T\-Y\-P\-E\-\_\-\-F}~0x0002}}\label{ext2fs_8h_ae7e710692796e837afbeb0133613aa41}
+
+
+\-Definition at line 109 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_add8802911a5ec1cbdd9aed14115ded7b}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-E\-R\-R0\-R@{\-E\-X\-T2\-\_\-\-E\-R\-R0\-R}}
+\index{\-E\-X\-T2\-\_\-\-E\-R\-R0\-R@{\-E\-X\-T2\-\_\-\-E\-R\-R0\-R}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-E\-R\-R0\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-E\-R\-R0\-R}~2}}\label{ext2fs_8h_add8802911a5ec1cbdd9aed14115ded7b}
+
+
+\-Definition at line 16 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ac502e094c11b7a93f6b9ac98a08cf1cb}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-F\-I\-R\-S\-T\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-F\-I\-R\-S\-T\-\_\-\-I\-N\-O}}
+\index{\-E\-X\-T2\-\_\-\-F\-I\-R\-S\-T\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-F\-I\-R\-S\-T\-\_\-\-I\-N\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-F\-I\-R\-S\-T\-\_\-\-I\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-F\-I\-R\-S\-T\-\_\-\-I\-N\-O}~11	/$\ast$ \-First non reserved inode $\ast$/}}\label{ext2fs_8h_ac502e094c11b7a93f6b9ac98a08cf1cb}
+
+
+\-Definition at line 26 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a8f5bc740655a9480742cc4333269f58c}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-J\-O\-R\-\_\-\-D\-E\-V@{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-J\-O\-R\-\_\-\-D\-E\-V}}
+\index{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-J\-O\-R\-\_\-\-D\-E\-V@{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-J\-O\-R\-\_\-\-D\-E\-V}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-J\-O\-R\-\_\-\-D\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-F\-S\-\_\-\-J\-O\-R\-\_\-\-D\-E\-V}~0x0008}}\label{ext2fs_8h_a8f5bc740655a9480742cc4333269f58c}
+
+
+\-Definition at line 111 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a5076caf4d12e7a1c874649077d214ce9}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-J\-O\-R@{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-J\-O\-R}}
+\index{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-J\-O\-R@{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-J\-O\-R}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-J\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-J\-O\-R}~0x0004}}\label{ext2fs_8h_a5076caf4d12e7a1c874649077d214ce9}
+
+
+\-Definition at line 110 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a35e8e8d3e9006398c725177b30247b7e}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-S\-I\-Z\-E@{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-S\-I\-Z\-E}}
+\index{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-S\-I\-Z\-E@{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-S\-I\-Z\-E}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-F\-S\-\_\-\-R\-E\-S\-I\-Z\-E}~0x0010}}\label{ext2fs_8h_a35e8e8d3e9006398c725177b30247b7e}
+
+
+\-Definition at line 105 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a12f28a29b5a657162a64153b8d5ddde2}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-I\-G\-N\-O\-R\-E@{\-E\-X\-T2\-\_\-\-I\-G\-N\-O\-R\-E}}
+\index{\-E\-X\-T2\-\_\-\-I\-G\-N\-O\-R\-E@{\-E\-X\-T2\-\_\-\-I\-G\-N\-O\-R\-E}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-I\-G\-N\-O\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-I\-G\-N\-O\-R\-E}~1}}\label{ext2fs_8h_a12f28a29b5a657162a64153b8d5ddde2}
+
+
+\-Definition at line 40 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a0ad4fd54bd5dde81d20feca9a9c106c6}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K@{\-E\-X\-T2\-\_\-\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}}
+\index{\-E\-X\-T2\-\_\-\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K@{\-E\-X\-T2\-\_\-\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}~{\bf \-E\-X\-T2\-\_\-\-N\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-S}}}\label{ext2fs_8h_a0ad4fd54bd5dde81d20feca9a9c106c6}
+
+
+\-Definition at line 8 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ac77c305d8e8aa7f02ee80bdf41fa9f1e}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-I\-N\-O\-\_\-\-E\-X\-T\-N\-D\-A\-T\-T\-R@{\-E\-X\-T2\-\_\-\-I\-N\-O\-\_\-\-E\-X\-T\-N\-D\-A\-T\-T\-R}}
+\index{\-E\-X\-T2\-\_\-\-I\-N\-O\-\_\-\-E\-X\-T\-N\-D\-A\-T\-T\-R@{\-E\-X\-T2\-\_\-\-I\-N\-O\-\_\-\-E\-X\-T\-N\-D\-A\-T\-T\-R}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-I\-N\-O\-\_\-\-E\-X\-T\-N\-D\-A\-T\-T\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-I\-N\-O\-\_\-\-E\-X\-T\-N\-D\-A\-T\-T\-R}~0x0008}}\label{ext2fs_8h_ac77c305d8e8aa7f02ee80bdf41fa9f1e}
+
+
+\-Definition at line 104 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a342320971619107a378a494ba58efe62}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-I\-N\-O\-S\-Z\-\_\-\-V0@{\-E\-X\-T2\-\_\-\-I\-N\-O\-S\-Z\-\_\-\-V0}}
+\index{\-E\-X\-T2\-\_\-\-I\-N\-O\-S\-Z\-\_\-\-V0@{\-E\-X\-T2\-\_\-\-I\-N\-O\-S\-Z\-\_\-\-V0}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-I\-N\-O\-S\-Z\-\_\-\-V0}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-I\-N\-O\-S\-Z\-\_\-\-V0}~128}}\label{ext2fs_8h_a342320971619107a378a494ba58efe62}
+
+
+\-Definition at line 12 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a2439f1429bea87a618cad37d47fc54fd}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-J\-R\-N\-L@{\-E\-X\-T2\-\_\-\-J\-R\-N\-L}}
+\index{\-E\-X\-T2\-\_\-\-J\-R\-N\-L@{\-E\-X\-T2\-\_\-\-J\-R\-N\-L}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-J\-R\-N\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-J\-R\-N\-L}~0x0004}}\label{ext2fs_8h_a2439f1429bea87a618cad37d47fc54fd}
+
+
+\-Definition at line 103 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a85dbc56d2d2f4dfbf8ebae9fed4ef695}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-K\-P\-A\-N\-I\-C@{\-E\-X\-T2\-\_\-\-K\-P\-A\-N\-I\-C}}
+\index{\-E\-X\-T2\-\_\-\-K\-P\-A\-N\-I\-C@{\-E\-X\-T2\-\_\-\-K\-P\-A\-N\-I\-C}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-K\-P\-A\-N\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-K\-P\-A\-N\-I\-C}~3}}\label{ext2fs_8h_a85dbc56d2d2f4dfbf8ebae9fed4ef695}
+
+
+\-Definition at line 42 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a4e09064a0cb2c1e1d6d2c32976acb8a1}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-L\-I\-N\-K\-\_\-\-M\-A\-X@{\-E\-X\-T2\-\_\-\-L\-I\-N\-K\-\_\-\-M\-A\-X}}
+\index{\-E\-X\-T2\-\_\-\-L\-I\-N\-K\-\_\-\-M\-A\-X@{\-E\-X\-T2\-\_\-\-L\-I\-N\-K\-\_\-\-M\-A\-X}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-L\-I\-N\-K\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-L\-I\-N\-K\-\_\-\-M\-A\-X}~32000}}\label{ext2fs_8h_a4e09064a0cb2c1e1d6d2c32976acb8a1}
+
+
+\-Definition at line 37 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_add1194efd19a37c1239a967ed68b6614}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-N\-\_\-\-B\-L\-O\-C\-K\-S@{\-E\-X\-T2\-\_\-\-N\-\_\-\-B\-L\-O\-C\-K\-S}}
+\index{\-E\-X\-T2\-\_\-\-N\-\_\-\-B\-L\-O\-C\-K\-S@{\-E\-X\-T2\-\_\-\-N\-\_\-\-B\-L\-O\-C\-K\-S}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-N\-\_\-\-B\-L\-O\-C\-K\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-N\-\_\-\-B\-L\-O\-C\-K\-S}~({\bf \-E\-X\-T2\-\_\-\-T\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K} + 1)}}\label{ext2fs_8h_add1194efd19a37c1239a967ed68b6614}
+
+
+\-Definition at line 11 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a314a7f6544f6f42a028068c0ce164391}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N@{\-E\-X\-T2\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N}}
+\index{\-E\-X\-T2\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N@{\-E\-X\-T2\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N}~255}}\label{ext2fs_8h_a314a7f6544f6f42a028068c0ce164391}
+
+
+\-Definition at line 13 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a5466dbceff9b8fe74110eaf7279ac2f8}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-N\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-S@{\-E\-X\-T2\-\_\-\-N\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-S}}
+\index{\-E\-X\-T2\-\_\-\-N\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-S@{\-E\-X\-T2\-\_\-\-N\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-S}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-N\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-N\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-S}~12}}\label{ext2fs_8h_a5466dbceff9b8fe74110eaf7279ac2f8}
+
+
+\-Definition at line 7 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a244c0e0fc3097187a2ac6a2f5b5f98d9}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-F\-B\-S\-D@{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-F\-B\-S\-D}}
+\index{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-F\-B\-S\-D@{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-F\-B\-S\-D}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-F\-B\-S\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-O\-S\-\_\-\-F\-B\-S\-D}~3}}\label{ext2fs_8h_a244c0e0fc3097187a2ac6a2f5b5f98d9}
+
+
+\-Definition at line 47 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a7af4ecf350d7b5ba9f4d929bc91d4793}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-H\-U\-R\-D@{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-H\-U\-R\-D}}
+\index{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-H\-U\-R\-D@{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-H\-U\-R\-D}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-H\-U\-R\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-O\-S\-\_\-\-H\-U\-R\-D}~1}}\label{ext2fs_8h_a7af4ecf350d7b5ba9f4d929bc91d4793}
+
+
+\-Definition at line 45 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a80253adc8e223859f4156fbabb970e32}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-N\-U\-X@{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-N\-U\-X}}
+\index{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-N\-U\-X@{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-N\-U\-X}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-N\-U\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-N\-U\-X}~0}}\label{ext2fs_8h_a80253adc8e223859f4156fbabb970e32}
+
+
+\-Definition at line 44 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_aaf563eacc83118b8d11c7b25bd52d363}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-T\-E\-S@{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-T\-E\-S}}
+\index{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-T\-E\-S@{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-T\-E\-S}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-T\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-O\-S\-\_\-\-L\-I\-T\-E\-S}~4}}\label{ext2fs_8h_aaf563eacc83118b8d11c7b25bd52d363}
+
+
+\-Definition at line 48 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_af9871fe2b6a9510f18263e27ff224f38}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-M\-A\-S\-I\-X@{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-M\-A\-S\-I\-X}}
+\index{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-M\-A\-S\-I\-X@{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-M\-A\-S\-I\-X}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-O\-S\-\_\-\-M\-A\-S\-I\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-O\-S\-\_\-\-M\-A\-S\-I\-X}~2}}\label{ext2fs_8h_af9871fe2b6a9510f18263e27ff224f38}
+
+
+\-Definition at line 46 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a34659f525c170d6abdec7e6adea230d1}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-P\-R\-E\-\_\-02\-B\-\_\-\-M\-A\-G\-I\-C@{\-E\-X\-T2\-\_\-\-P\-R\-E\-\_\-02\-B\-\_\-\-M\-A\-G\-I\-C}}
+\index{\-E\-X\-T2\-\_\-\-P\-R\-E\-\_\-02\-B\-\_\-\-M\-A\-G\-I\-C@{\-E\-X\-T2\-\_\-\-P\-R\-E\-\_\-02\-B\-\_\-\-M\-A\-G\-I\-C}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-P\-R\-E\-\_\-02\-B\-\_\-\-M\-A\-G\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-P\-R\-E\-\_\-02\-B\-\_\-\-M\-A\-G\-I\-C}~0x\-E\-F51}}\label{ext2fs_8h_a34659f525c170d6abdec7e6adea230d1}
+
+
+\-Definition at line 31 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ab6162564500fa3317fd74957ef03262a}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-P\-R\-E\-L\-O\-C@{\-E\-X\-T2\-\_\-\-P\-R\-E\-L\-O\-C}}
+\index{\-E\-X\-T2\-\_\-\-P\-R\-E\-L\-O\-C@{\-E\-X\-T2\-\_\-\-P\-R\-E\-L\-O\-C}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-P\-R\-E\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-P\-R\-E\-L\-O\-C}~0x0001}}\label{ext2fs_8h_ab6162564500fa3317fd74957ef03262a}
+\-Features 
+
+\-Definition at line 101 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a438f6622e874b6fffb39153204c8ff12}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-R\-E\-M\-O\-U\-N\-T\-\_\-\-R\-O@{\-E\-X\-T2\-\_\-\-R\-E\-M\-O\-U\-N\-T\-\_\-\-R\-O}}
+\index{\-E\-X\-T2\-\_\-\-R\-E\-M\-O\-U\-N\-T\-\_\-\-R\-O@{\-E\-X\-T2\-\_\-\-R\-E\-M\-O\-U\-N\-T\-\_\-\-R\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-R\-E\-M\-O\-U\-N\-T\-\_\-\-R\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-R\-E\-M\-O\-U\-N\-T\-\_\-\-R\-O}~2}}\label{ext2fs_8h_a438f6622e874b6fffb39153204c8ff12}
+
+
+\-Definition at line 41 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_acb50ee6c9362361d2cc44d8be16f9959}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O}}
+\index{\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O}~2	/$\ast$ \-Root inode $\ast$/}}\label{ext2fs_8h_acb50ee6c9362361d2cc44d8be16f9959}
+
+
+\-Definition at line 21 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a5e5d85543e76dc50e70918adcb24201b}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O\-D\-E@{\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O\-D\-E}}
+\index{\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O\-D\-E@{\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O\-D\-E}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-R\-O\-O\-T\-\_\-\-I\-N\-O\-D\-E}~2	/$\ast$ \-Root inode $\ast$/}}\label{ext2fs_8h_a5e5d85543e76dc50e70918adcb24201b}
+
+
+\-Definition at line 53 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a47357b3a4baf8c32e6c6db9a0197dd7e}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-S\-P\-A\-R\-S\-E@{\-E\-X\-T2\-\_\-\-S\-P\-A\-R\-S\-E}}
+\index{\-E\-X\-T2\-\_\-\-S\-P\-A\-R\-S\-E@{\-E\-X\-T2\-\_\-\-S\-P\-A\-R\-S\-E}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-S\-P\-A\-R\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-S\-P\-A\-R\-S\-E}~0x0001}}\label{ext2fs_8h_a47357b3a4baf8c32e6c6db9a0197dd7e}
+
+
+\-Definition at line 113 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a5a4b87af3f4498e3f2a254e8fbfe2ec3}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-S\-U\-P\-E\-R\-\_\-\-M\-A\-G\-I\-C@{\-E\-X\-T2\-\_\-\-S\-U\-P\-E\-R\-\_\-\-M\-A\-G\-I\-C}}
+\index{\-E\-X\-T2\-\_\-\-S\-U\-P\-E\-R\-\_\-\-M\-A\-G\-I\-C@{\-E\-X\-T2\-\_\-\-S\-U\-P\-E\-R\-\_\-\-M\-A\-G\-I\-C}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-S\-U\-P\-E\-R\-\_\-\-M\-A\-G\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-S\-U\-P\-E\-R\-\_\-\-M\-A\-G\-I\-C}~0x\-E\-F53}}\label{ext2fs_8h_a5a4b87af3f4498e3f2a254e8fbfe2ec3}
+
+
+\-Definition at line 32 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a71858954b55fd2631ea5cba8a33ef1ff}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-T\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K@{\-E\-X\-T2\-\_\-\-T\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}}
+\index{\-E\-X\-T2\-\_\-\-T\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K@{\-E\-X\-T2\-\_\-\-T\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-T\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-T\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K}~({\bf \-E\-X\-T2\-\_\-\-D\-I\-N\-D\-\_\-\-B\-L\-O\-C\-K} + 1)}}\label{ext2fs_8h_a71858954b55fd2631ea5cba8a33ef1ff}
+
+
+\-Definition at line 10 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a56db234c02a3a72218e2cb70131c09e2}{\index{ext2fs.\-h@{ext2fs.\-h}!\-E\-X\-T2\-\_\-\-U\-N\-D\-E\-L\-\_\-\-D\-I\-R\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-U\-N\-D\-E\-L\-\_\-\-D\-I\-R\-\_\-\-I\-N\-O}}
+\index{\-E\-X\-T2\-\_\-\-U\-N\-D\-E\-L\-\_\-\-D\-I\-R\-\_\-\-I\-N\-O@{\-E\-X\-T2\-\_\-\-U\-N\-D\-E\-L\-\_\-\-D\-I\-R\-\_\-\-I\-N\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-E\-X\-T2\-\_\-\-U\-N\-D\-E\-L\-\_\-\-D\-I\-R\-\_\-\-I\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T2\-\_\-\-U\-N\-D\-E\-L\-\_\-\-D\-I\-R\-\_\-\-I\-N\-O}~6	/$\ast$ \-Undelete directory inode $\ast$/}}\label{ext2fs_8h_a56db234c02a3a72218e2cb70131c09e2}
+
+
+\-Definition at line 25 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ab1d5bb39a0f63f443c0ea1947d45487a}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-A\-F\-S\-\_\-\-D\-I\-R@{\-I\-\_\-\-A\-F\-S\-\_\-\-D\-I\-R}}
+\index{\-I\-\_\-\-A\-F\-S\-\_\-\-D\-I\-R@{\-I\-\_\-\-A\-F\-S\-\_\-\-D\-I\-R}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-A\-F\-S\-\_\-\-D\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-A\-F\-S\-\_\-\-D\-I\-R}~0x00020000  /$\ast$ A\-F\-S directory $\ast$/}}\label{ext2fs_8h_ab1d5bb39a0f63f443c0ea1947d45487a}
+
+
+\-Definition at line 87 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a437bbe574a661f9f29531654f925458b}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-A\-P\-P\-E\-N\-D\-\_\-\-O\-N\-L\-Y@{\-I\-\_\-\-A\-P\-P\-E\-N\-D\-\_\-\-O\-N\-L\-Y}}
+\index{\-I\-\_\-\-A\-P\-P\-E\-N\-D\-\_\-\-O\-N\-L\-Y@{\-I\-\_\-\-A\-P\-P\-E\-N\-D\-\_\-\-O\-N\-L\-Y}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-A\-P\-P\-E\-N\-D\-\_\-\-O\-N\-L\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-A\-P\-P\-E\-N\-D\-\_\-\-O\-N\-L\-Y}~0x00000020  /$\ast$ Append only $\ast$/}}\label{ext2fs_8h_a437bbe574a661f9f29531654f925458b}
+
+
+\-Definition at line 83 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a99e0d67edb6a60f5a9279342afd3132e}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V\-I\-C\-E@{\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V\-I\-C\-E}}
+\index{\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V\-I\-C\-E@{\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V\-I\-C\-E}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V\-I\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V\-I\-C\-E}~0x6000}}\label{ext2fs_8h_a99e0d67edb6a60f5a9279342afd3132e}
+
+
+\-Definition at line 58 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_aee258b80f48453b5875fdb314e31354c}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V\-I\-C\-E@{\-I\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V\-I\-C\-E}}
+\index{\-I\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V\-I\-C\-E@{\-I\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V\-I\-C\-E}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V\-I\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V\-I\-C\-E}~0x2000}}\label{ext2fs_8h_aee258b80f48453b5875fdb314e31354c}
+
+
+\-Definition at line 56 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a4b0417c1233ca7e0f696bae123a57690}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V@{\-I\-\_\-\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V}}
+\index{\-I\-\_\-\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V@{\-I\-\_\-\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-D\-I\-R\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-E\-V}~0x4}}\label{ext2fs_8h_a4b0417c1233ca7e0f696bae123a57690}
+
+
+\-Definition at line 95 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a48258119f9033b605e8e2a5aadb14037}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-D\-I\-R\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V@{\-I\-\_\-\-D\-I\-R\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V}}
+\index{\-I\-\_\-\-D\-I\-R\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V@{\-I\-\_\-\-D\-I\-R\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-D\-I\-R\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-D\-I\-R\-\_\-\-C\-H\-A\-R\-\_\-\-D\-E\-V}~0x3}}\label{ext2fs_8h_a48258119f9033b605e8e2a5aadb14037}
+
+
+\-Definition at line 94 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_aee4eb0da717fa9fd5a6af3bca3cceddb}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-D\-I\-R\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y@{\-I\-\_\-\-D\-I\-R\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y}}
+\index{\-I\-\_\-\-D\-I\-R\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y@{\-I\-\_\-\-D\-I\-R\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-D\-I\-R\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-D\-I\-R\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y}~0x2}}\label{ext2fs_8h_aee4eb0da717fa9fd5a6af3bca3cceddb}
+
+
+\-Definition at line 93 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ab76198e6d38cda1758b6b1e3f49d8cc8}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-D\-I\-R\-\_\-\-F\-I\-F\-O@{\-I\-\_\-\-D\-I\-R\-\_\-\-F\-I\-F\-O}}
+\index{\-I\-\_\-\-D\-I\-R\-\_\-\-F\-I\-F\-O@{\-I\-\_\-\-D\-I\-R\-\_\-\-F\-I\-F\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-D\-I\-R\-\_\-\-F\-I\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-D\-I\-R\-\_\-\-F\-I\-F\-O}~0x5}}\label{ext2fs_8h_ab76198e6d38cda1758b6b1e3f49d8cc8}
+
+
+\-Definition at line 96 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_aa97f9ed1f26bbdb2e6571eecad0043d5}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-D\-I\-R\-\_\-\-R\-E\-G\-U\-L\-A\-R\-\_\-\-F@{\-I\-\_\-\-D\-I\-R\-\_\-\-R\-E\-G\-U\-L\-A\-R\-\_\-\-F}}
+\index{\-I\-\_\-\-D\-I\-R\-\_\-\-R\-E\-G\-U\-L\-A\-R\-\_\-\-F@{\-I\-\_\-\-D\-I\-R\-\_\-\-R\-E\-G\-U\-L\-A\-R\-\_\-\-F}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-D\-I\-R\-\_\-\-R\-E\-G\-U\-L\-A\-R\-\_\-\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-D\-I\-R\-\_\-\-R\-E\-G\-U\-L\-A\-R\-\_\-\-F}~0x1}}\label{ext2fs_8h_aa97f9ed1f26bbdb2e6571eecad0043d5}
+
+
+\-Definition at line 92 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a2743ed6716937ccea9283778ac4e5999}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-D\-I\-R\-\_\-\-S\-O\-C\-K@{\-I\-\_\-\-D\-I\-R\-\_\-\-S\-O\-C\-K}}
+\index{\-I\-\_\-\-D\-I\-R\-\_\-\-S\-O\-C\-K@{\-I\-\_\-\-D\-I\-R\-\_\-\-S\-O\-C\-K}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-D\-I\-R\-\_\-\-S\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-D\-I\-R\-\_\-\-S\-O\-C\-K}~0x6}}\label{ext2fs_8h_a2743ed6716937ccea9283778ac4e5999}
+
+
+\-Definition at line 97 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a1e07ec0a2a7ac5ce09becc7858333091}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-D\-I\-R\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K@{\-I\-\_\-\-D\-I\-R\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K}}
+\index{\-I\-\_\-\-D\-I\-R\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K@{\-I\-\_\-\-D\-I\-R\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-D\-I\-R\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-D\-I\-R\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K}~0x7}}\label{ext2fs_8h_a1e07ec0a2a7ac5ce09becc7858333091}
+
+
+\-Definition at line 98 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ac3344d402895bc2e1b2a484e0b53b42e}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-D\-I\-R\-\_\-\-U\-N\-K\-O\-W\-N@{\-I\-\_\-\-D\-I\-R\-\_\-\-U\-N\-K\-O\-W\-N}}
+\index{\-I\-\_\-\-D\-I\-R\-\_\-\-U\-N\-K\-O\-W\-N@{\-I\-\_\-\-D\-I\-R\-\_\-\-U\-N\-K\-O\-W\-N}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-D\-I\-R\-\_\-\-U\-N\-K\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-D\-I\-R\-\_\-\-U\-N\-K\-O\-W\-N}~0x0}}\label{ext2fs_8h_ac3344d402895bc2e1b2a484e0b53b42e}
+\-Directory \-Entry \-Types 
+
+\-Definition at line 91 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a8980abd9f689b9d999b02a6ba2811271}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y@{\-I\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y}}
+\index{\-I\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y@{\-I\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-D\-I\-R\-E\-C\-T\-O\-R\-Y}~0x4000}}\label{ext2fs_8h_a8980abd9f689b9d999b02a6ba2811271}
+
+
+\-Definition at line 57 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a542ffc63389e10f34d27c87ac0f117de}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-F\-I\-F\-O@{\-I\-\_\-\-F\-I\-F\-O}}
+\index{\-I\-\_\-\-F\-I\-F\-O@{\-I\-\_\-\-F\-I\-F\-O}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-F\-I\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-F\-I\-F\-O}~0x1000}}\label{ext2fs_8h_a542ffc63389e10f34d27c87ac0f117de}
+
+
+\-Definition at line 55 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a1c780125164b5b272f82985cfcc15667}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-F\-I\-L\-E\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N@{\-I\-\_\-\-F\-I\-L\-E\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N}}
+\index{\-I\-\_\-\-F\-I\-L\-E\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N@{\-I\-\_\-\-F\-I\-L\-E\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-F\-I\-L\-E\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-F\-I\-L\-E\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-I\-O\-N}~0x00000004  /$\ast$\-File compression$\ast$/}}\label{ext2fs_8h_a1c780125164b5b272f82985cfcc15667}
+
+
+\-Definition at line 80 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_aec5106a6d4af3b05a6b6c2d5ca9f1757}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-G\-E\-X\-E\-C\-\_\-\-P@{\-I\-\_\-\-G\-E\-X\-E\-C\-\_\-\-P}}
+\index{\-I\-\_\-\-G\-E\-X\-E\-C\-\_\-\-P@{\-I\-\_\-\-G\-E\-X\-E\-C\-\_\-\-P}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-G\-E\-X\-E\-C\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-G\-E\-X\-E\-C\-\_\-\-P}~0x008}}\label{ext2fs_8h_aec5106a6d4af3b05a6b6c2d5ca9f1757}
+
+
+\-Definition at line 67 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a3a1c6a7d064ee00054c4943604477618}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-G\-R\-E\-A\-D\-\_\-\-P@{\-I\-\_\-\-G\-R\-E\-A\-D\-\_\-\-P}}
+\index{\-I\-\_\-\-G\-R\-E\-A\-D\-\_\-\-P@{\-I\-\_\-\-G\-R\-E\-A\-D\-\_\-\-P}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-G\-R\-E\-A\-D\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-G\-R\-E\-A\-D\-\_\-\-P}~0x020}}\label{ext2fs_8h_a3a1c6a7d064ee00054c4943604477618}
+
+
+\-Definition at line 69 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a62585f055450f5cfb051121163b3042b}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-G\-W\-R\-I\-T\-E\-\_\-\-P@{\-I\-\_\-\-G\-W\-R\-I\-T\-E\-\_\-\-P}}
+\index{\-I\-\_\-\-G\-W\-R\-I\-T\-E\-\_\-\-P@{\-I\-\_\-\-G\-W\-R\-I\-T\-E\-\_\-\-P}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-G\-W\-R\-I\-T\-E\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-G\-W\-R\-I\-T\-E\-\_\-\-P}~0x010}}\label{ext2fs_8h_a62585f055450f5cfb051121163b3042b}
+
+
+\-Definition at line 68 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a26c041da95bb78e5d94afbf5bb792201}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-H\-A\-S\-H\-\_\-\-I\-N\-D\-E\-X\-E\-D\-\_\-\-D\-I\-R@{\-I\-\_\-\-H\-A\-S\-H\-\_\-\-I\-N\-D\-E\-X\-E\-D\-\_\-\-D\-I\-R}}
+\index{\-I\-\_\-\-H\-A\-S\-H\-\_\-\-I\-N\-D\-E\-X\-E\-D\-\_\-\-D\-I\-R@{\-I\-\_\-\-H\-A\-S\-H\-\_\-\-I\-N\-D\-E\-X\-E\-D\-\_\-\-D\-I\-R}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-H\-A\-S\-H\-\_\-\-I\-N\-D\-E\-X\-E\-D\-\_\-\-D\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-H\-A\-S\-H\-\_\-\-I\-N\-D\-E\-X\-E\-D\-\_\-\-D\-I\-R}~0x00010000  /$\ast$ Hash indexed directory $\ast$/}}\label{ext2fs_8h_a26c041da95bb78e5d94afbf5bb792201}
+
+
+\-Definition at line 86 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_aaed1f8e0b6f4a64dcc057cd30aab7082}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-I\-M\-M\-U\-T\-A\-B\-L\-E\-\_\-\-F\-I\-L\-E@{\-I\-\_\-\-I\-M\-M\-U\-T\-A\-B\-L\-E\-\_\-\-F\-I\-L\-E}}
+\index{\-I\-\_\-\-I\-M\-M\-U\-T\-A\-B\-L\-E\-\_\-\-F\-I\-L\-E@{\-I\-\_\-\-I\-M\-M\-U\-T\-A\-B\-L\-E\-\_\-\-F\-I\-L\-E}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-I\-M\-M\-U\-T\-A\-B\-L\-E\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-I\-M\-M\-U\-T\-A\-B\-L\-E\-\_\-\-F\-I\-L\-E}~0x00000010  /$\ast$\-Immutable file$\ast$/}}\label{ext2fs_8h_aaed1f8e0b6f4a64dcc057cd30aab7082}
+
+
+\-Definition at line 82 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a5033e488424488d0b68524e04c4687d4}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-J\-O\-U\-R\-N\-A\-L\-\_\-\-F\-I\-L\-E\-\_\-\-D\-A\-T\-A@{\-I\-\_\-\-J\-O\-U\-R\-N\-A\-L\-\_\-\-F\-I\-L\-E\-\_\-\-D\-A\-T\-A}}
+\index{\-I\-\_\-\-J\-O\-U\-R\-N\-A\-L\-\_\-\-F\-I\-L\-E\-\_\-\-D\-A\-T\-A@{\-I\-\_\-\-J\-O\-U\-R\-N\-A\-L\-\_\-\-F\-I\-L\-E\-\_\-\-D\-A\-T\-A}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-J\-O\-U\-R\-N\-A\-L\-\_\-\-F\-I\-L\-E\-\_\-\-D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-J\-O\-U\-R\-N\-A\-L\-\_\-\-F\-I\-L\-E\-\_\-\-D\-A\-T\-A}~0x00040000  /$\ast$ Journal file data $\ast$/}}\label{ext2fs_8h_a5033e488424488d0b68524e04c4687d4}
+
+
+\-Definition at line 88 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a362b42c224039fa757d5f14dddb4cace}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-K\-E\-E\-P\-\_\-\-C\-P\-Y@{\-I\-\_\-\-K\-E\-E\-P\-\_\-\-C\-P\-Y}}
+\index{\-I\-\_\-\-K\-E\-E\-P\-\_\-\-C\-P\-Y@{\-I\-\_\-\-K\-E\-E\-P\-\_\-\-C\-P\-Y}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-K\-E\-E\-P\-\_\-\-C\-P\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-K\-E\-E\-P\-\_\-\-C\-P\-Y}~0x00000002  /$\ast$\-Keep a copy of data when deleted$\ast$/}}\label{ext2fs_8h_a362b42c224039fa757d5f14dddb4cace}
+
+
+\-Definition at line 79 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_af2e90ad39b34a55acbd05e420c3a1548}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-N\-O\-\_\-\-D\-U\-M\-P@{\-I\-\_\-\-N\-O\-\_\-\-D\-U\-M\-P}}
+\index{\-I\-\_\-\-N\-O\-\_\-\-D\-U\-M\-P@{\-I\-\_\-\-N\-O\-\_\-\-D\-U\-M\-P}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-N\-O\-\_\-\-D\-U\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-N\-O\-\_\-\-D\-U\-M\-P}~0x00000040  /$\ast$ File is not included in 'dump' command $\ast$/}}\label{ext2fs_8h_af2e90ad39b34a55acbd05e420c3a1548}
+
+
+\-Definition at line 84 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a8680369aaead46148826f8830378c0c0}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-N\-O\-\_\-\-L\-A\-T@{\-I\-\_\-\-N\-O\-\_\-\-L\-A\-T}}
+\index{\-I\-\_\-\-N\-O\-\_\-\-L\-A\-T@{\-I\-\_\-\-N\-O\-\_\-\-L\-A\-T}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-N\-O\-\_\-\-L\-A\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-N\-O\-\_\-\-L\-A\-T}~0x00000080  /$\ast$ Last accessed time should not updated $\ast$/}}\label{ext2fs_8h_a8680369aaead46148826f8830378c0c0}
+
+
+\-Definition at line 85 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a75a14467c538f136fe238c24689c9677}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-O\-E\-X\-E\-C\-\_\-\-P@{\-I\-\_\-\-O\-E\-X\-E\-C\-\_\-\-P}}
+\index{\-I\-\_\-\-O\-E\-X\-E\-C\-\_\-\-P@{\-I\-\_\-\-O\-E\-X\-E\-C\-\_\-\-P}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-O\-E\-X\-E\-C\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-O\-E\-X\-E\-C\-\_\-\-P}~0\-X001}}\label{ext2fs_8h_a75a14467c538f136fe238c24689c9677}
+
+
+\-Definition at line 64 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a90f85ce3d29d5f0537ee98cee5fe8dc2}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-O\-R\-E\-A\-D\-\_\-\-P@{\-I\-\_\-\-O\-R\-E\-A\-D\-\_\-\-P}}
+\index{\-I\-\_\-\-O\-R\-E\-A\-D\-\_\-\-P@{\-I\-\_\-\-O\-R\-E\-A\-D\-\_\-\-P}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-O\-R\-E\-A\-D\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-O\-R\-E\-A\-D\-\_\-\-P}~0x004}}\label{ext2fs_8h_a90f85ce3d29d5f0537ee98cee5fe8dc2}
+
+
+\-Definition at line 66 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_aebdc994096b363323d0685417acb40b3}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-O\-W\-R\-I\-T\-E\-\_\-\-P@{\-I\-\_\-\-O\-W\-R\-I\-T\-E\-\_\-\-P}}
+\index{\-I\-\_\-\-O\-W\-R\-I\-T\-E\-\_\-\-P@{\-I\-\_\-\-O\-W\-R\-I\-T\-E\-\_\-\-P}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-O\-W\-R\-I\-T\-E\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-O\-W\-R\-I\-T\-E\-\_\-\-P}~0x002}}\label{ext2fs_8h_aebdc994096b363323d0685417acb40b3}
+
+
+\-Definition at line 65 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a75473feabda8cf4b780b3da60bbdfa73}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-R\-E\-G\-\_\-\-F\-I\-L\-E@{\-I\-\_\-\-R\-E\-G\-\_\-\-F\-I\-L\-E}}
+\index{\-I\-\_\-\-R\-E\-G\-\_\-\-F\-I\-L\-E@{\-I\-\_\-\-R\-E\-G\-\_\-\-F\-I\-L\-E}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-R\-E\-G\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-R\-E\-G\-\_\-\-F\-I\-L\-E}~0x8000}}\label{ext2fs_8h_a75473feabda8cf4b780b3da60bbdfa73}
+
+
+\-Definition at line 59 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a1ef3c72b3ef7ec790f2ac2d51e64e235}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-S\-E\-C\-\_\-\-D\-E\-L@{\-I\-\_\-\-S\-E\-C\-\_\-\-D\-E\-L}}
+\index{\-I\-\_\-\-S\-E\-C\-\_\-\-D\-E\-L@{\-I\-\_\-\-S\-E\-C\-\_\-\-D\-E\-L}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-S\-E\-C\-\_\-\-D\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-S\-E\-C\-\_\-\-D\-E\-L}~0x00000001  /$\ast$\-Secure deletion$\ast$/}}\label{ext2fs_8h_a1ef3c72b3ef7ec790f2ac2d51e64e235}
+\-Inode flags 
+
+\-Definition at line 78 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_abfe1f88ff55c94639b4289cc95eed80c}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-S\-E\-T\-\_\-\-G\-I\-D@{\-I\-\_\-\-S\-E\-T\-\_\-\-G\-I\-D}}
+\index{\-I\-\_\-\-S\-E\-T\-\_\-\-G\-I\-D@{\-I\-\_\-\-S\-E\-T\-\_\-\-G\-I\-D}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-S\-E\-T\-\_\-\-G\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-S\-E\-T\-\_\-\-G\-I\-D}~0x400}}\label{ext2fs_8h_abfe1f88ff55c94639b4289cc95eed80c}
+
+
+\-Definition at line 74 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_aea12b910ed271583a1b559f087a1ed2d}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-S\-E\-T\-\_\-\-U\-I\-D@{\-I\-\_\-\-S\-E\-T\-\_\-\-U\-I\-D}}
+\index{\-I\-\_\-\-S\-E\-T\-\_\-\-U\-I\-D@{\-I\-\_\-\-S\-E\-T\-\_\-\-U\-I\-D}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-S\-E\-T\-\_\-\-U\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-S\-E\-T\-\_\-\-U\-I\-D}~0x800}}\label{ext2fs_8h_aea12b910ed271583a1b559f087a1ed2d}
+
+
+\-Definition at line 75 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ae8295105ca5fe1bc327f884539499cf6}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-S\-T\-I\-C\-K\-Y@{\-I\-\_\-\-S\-T\-I\-C\-K\-Y}}
+\index{\-I\-\_\-\-S\-T\-I\-C\-K\-Y@{\-I\-\_\-\-S\-T\-I\-C\-K\-Y}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-S\-T\-I\-C\-K\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-S\-T\-I\-C\-K\-Y}~0x200}}\label{ext2fs_8h_ae8295105ca5fe1bc327f884539499cf6}
+
+
+\-Definition at line 73 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_adcce939418387c9825733557a76498fb}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K@{\-I\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K}}
+\index{\-I\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K@{\-I\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-S\-Y\-M\-\_\-\-L\-I\-N\-K}~0x\-A000}}\label{ext2fs_8h_adcce939418387c9825733557a76498fb}
+
+
+\-Definition at line 60 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ae7e8ddd594fbe81343210eb4e3f83519}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-S\-Y\-N\-C\-\_\-\-U\-P\-D\-A\-T\-E\-S@{\-I\-\_\-\-S\-Y\-N\-C\-\_\-\-U\-P\-D\-A\-T\-E\-S}}
+\index{\-I\-\_\-\-S\-Y\-N\-C\-\_\-\-U\-P\-D\-A\-T\-E\-S@{\-I\-\_\-\-S\-Y\-N\-C\-\_\-\-U\-P\-D\-A\-T\-E\-S}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-S\-Y\-N\-C\-\_\-\-U\-P\-D\-A\-T\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-S\-Y\-N\-C\-\_\-\-U\-P\-D\-A\-T\-E\-S}~0x00000008  /$\ast$\-Synchronous updates$\ast$/}}\label{ext2fs_8h_ae7e8ddd594fbe81343210eb4e3f83519}
+
+
+\-Definition at line 81 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a3f28fbb058b04cc0b7ddc034a92f508f}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-U\-E\-X\-E\-C\-\_\-\-P@{\-I\-\_\-\-U\-E\-X\-E\-C\-\_\-\-P}}
+\index{\-I\-\_\-\-U\-E\-X\-E\-C\-\_\-\-P@{\-I\-\_\-\-U\-E\-X\-E\-C\-\_\-\-P}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-U\-E\-X\-E\-C\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-U\-E\-X\-E\-C\-\_\-\-P}~0x040}}\label{ext2fs_8h_a3f28fbb058b04cc0b7ddc034a92f508f}
+
+
+\-Definition at line 70 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_ac5ada9f0953aa7af119d49f75fa56e7e}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-U\-N\-I\-X\-\_\-\-S\-O\-C\-K@{\-I\-\_\-\-U\-N\-I\-X\-\_\-\-S\-O\-C\-K}}
+\index{\-I\-\_\-\-U\-N\-I\-X\-\_\-\-S\-O\-C\-K@{\-I\-\_\-\-U\-N\-I\-X\-\_\-\-S\-O\-C\-K}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-U\-N\-I\-X\-\_\-\-S\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-U\-N\-I\-X\-\_\-\-S\-O\-C\-K}~0x\-C000}}\label{ext2fs_8h_ac5ada9f0953aa7af119d49f75fa56e7e}
+
+
+\-Definition at line 61 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_abaa2200bba98d5778c6a50d2b9a95d60}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-U\-R\-E\-A\-D\-\_\-\-P@{\-I\-\_\-\-U\-R\-E\-A\-D\-\_\-\-P}}
+\index{\-I\-\_\-\-U\-R\-E\-A\-D\-\_\-\-P@{\-I\-\_\-\-U\-R\-E\-A\-D\-\_\-\-P}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-U\-R\-E\-A\-D\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-U\-R\-E\-A\-D\-\_\-\-P}~0x100}}\label{ext2fs_8h_abaa2200bba98d5778c6a50d2b9a95d60}
+
+
+\-Definition at line 72 of file ext2fs.\-h.
+
+\hypertarget{ext2fs_8h_a562dd09ffc3ad51913925317e2c10bc7}{\index{ext2fs.\-h@{ext2fs.\-h}!\-I\-\_\-\-U\-W\-R\-I\-T\-E\-\_\-\-P@{\-I\-\_\-\-U\-W\-R\-I\-T\-E\-\_\-\-P}}
+\index{\-I\-\_\-\-U\-W\-R\-I\-T\-E\-\_\-\-P@{\-I\-\_\-\-U\-W\-R\-I\-T\-E\-\_\-\-P}!ext2fs.h@{ext2fs.\-h}}
+\subsubsection[{\-I\-\_\-\-U\-W\-R\-I\-T\-E\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-\_\-\-U\-W\-R\-I\-T\-E\-\_\-\-P}~0x080}}\label{ext2fs_8h_a562dd09ffc3ad51913925317e2c10bc7}
+
+
+\-Definition at line 71 of file ext2fs.\-h.
+

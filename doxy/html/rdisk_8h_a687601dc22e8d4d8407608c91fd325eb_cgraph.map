@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$rdisk_8c.html#a8bc2062a175b7c74607a2498ac997657" title="readsect" alt="" coords="123,59,195,88"/>
+<area shape="rect" id="node5" href="$rdisk_8c.html#a63222d4a07c38c198de5bd116a001935" title="waitdisk" alt="" coords="244,5,313,35"/>
+<area shape="rect" id="node9" href="$x86_8h.html#aecb1fa8a11c8a27335665526fc820dc6" title="outb" alt="" coords="256,59,301,88"/>
+<area shape="rect" id="node11" href="$x86_8h.html#a16386395d1cae950f2efd9bed742d487" title="insl" alt="" coords="257,112,300,141"/>
+<area shape="rect" id="node7" href="$x86_8h.html#ab22bd329c089d76a3977792a2208f6b4" title="inb" alt="" coords="364,5,401,35"/>
+</map>

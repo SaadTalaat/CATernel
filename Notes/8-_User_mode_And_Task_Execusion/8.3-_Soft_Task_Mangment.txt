@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2012-10-04T22:46:27+02:00
+
+====== 8.3- Soft Task Mangment ======
+Created Thursday 04 October 2012
+
+To be able to make a Task manager we need to have some similarity to TSS structure. and keep up with running processes by storing them in a list.
+Of course a list is a basic data structure to be modified later. However, a process structure shall have:-
+	1- GPR registers.
+	2- Segment registers.
+	3- Program counter
+
+	4- Process ID.
+	5- Process status.
+
+	6- page directory address.
+

@@ -1,0 +1,103 @@
+\hypertarget{cpuid_8c}{\section{kernel/cpuid.c \-File \-Reference}
+\label{cpuid_8c}\index{kernel/cpuid.\-c@{kernel/cpuid.\-c}}
+}
+{\ttfamily \#include $<$types.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/x86.\-h$>$}\*
+{\ttfamily \#include $<$cpuid.\-h$>$}\*
+\-Include dependency graph for cpuid.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{cpuid_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Data \-Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcpuid__regs}{cpuid\-\_\-regs}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{cpuid_8c_a859ce3c4fd538c7e8259bde51ee95db7}{cpuid\-\_\-get\-\_\-ebx} (void)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{cpuid_8c_afa0d0bb353ccf9cf21b6814977b154ef}{cpuid\-\_\-get\-\_\-ecx} (void)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{cpuid_8c_aa2a5fea9b9bd9993f24373cec6313516}{cpuid\-\_\-get\-\_\-edx} (void)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{cpuid_8c_a86d63e2300f1f529ee483ddd8b18137a}{cpuid\-\_\-get\-\_\-eax} (void)
+\item 
+static void \hyperlink{cpuid_8c_a3555022a9a455d0783e239690defaf3d}{make\-\_\-cpuid} (\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} $\ast$eax, \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} $\ast$ebx, \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} $\ast$ecx, \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} $\ast$edx)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{cpuid_8c_adec7c6888b96c83a0659b36e331ad138}{set\-\_\-eax} (\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} value)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{cpuid_8c_a79a861218fed01d656734e810da0229e}{cpuid\-\_\-print} (\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} ax\-\_\-value, \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} operation)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{cpuid_8c_a86d63e2300f1f529ee483ddd8b18137a}{\index{cpuid.\-c@{cpuid.\-c}!cpuid\-\_\-get\-\_\-eax@{cpuid\-\_\-get\-\_\-eax}}
+\index{cpuid\-\_\-get\-\_\-eax@{cpuid\-\_\-get\-\_\-eax}!cpuid.c@{cpuid.\-c}}
+\subsubsection[{cpuid\-\_\-get\-\_\-eax}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf cpuid\-\_\-get\-\_\-eax} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{cpuid_8c_a86d63e2300f1f529ee483ddd8b18137a}
+\hypertarget{cpuid_8c_a859ce3c4fd538c7e8259bde51ee95db7}{\index{cpuid.\-c@{cpuid.\-c}!cpuid\-\_\-get\-\_\-ebx@{cpuid\-\_\-get\-\_\-ebx}}
+\index{cpuid\-\_\-get\-\_\-ebx@{cpuid\-\_\-get\-\_\-ebx}!cpuid.c@{cpuid.\-c}}
+\subsubsection[{cpuid\-\_\-get\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf cpuid\-\_\-get\-\_\-ebx} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{cpuid_8c_a859ce3c4fd538c7e8259bde51ee95db7}
+\hypertarget{cpuid_8c_afa0d0bb353ccf9cf21b6814977b154ef}{\index{cpuid.\-c@{cpuid.\-c}!cpuid\-\_\-get\-\_\-ecx@{cpuid\-\_\-get\-\_\-ecx}}
+\index{cpuid\-\_\-get\-\_\-ecx@{cpuid\-\_\-get\-\_\-ecx}!cpuid.c@{cpuid.\-c}}
+\subsubsection[{cpuid\-\_\-get\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf cpuid\-\_\-get\-\_\-ecx} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{cpuid_8c_afa0d0bb353ccf9cf21b6814977b154ef}
+\hypertarget{cpuid_8c_aa2a5fea9b9bd9993f24373cec6313516}{\index{cpuid.\-c@{cpuid.\-c}!cpuid\-\_\-get\-\_\-edx@{cpuid\-\_\-get\-\_\-edx}}
+\index{cpuid\-\_\-get\-\_\-edx@{cpuid\-\_\-get\-\_\-edx}!cpuid.c@{cpuid.\-c}}
+\subsubsection[{cpuid\-\_\-get\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf cpuid\-\_\-get\-\_\-edx} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{cpuid_8c_aa2a5fea9b9bd9993f24373cec6313516}
+\hypertarget{cpuid_8c_a79a861218fed01d656734e810da0229e}{\index{cpuid.\-c@{cpuid.\-c}!cpuid\-\_\-print@{cpuid\-\_\-print}}
+\index{cpuid\-\_\-print@{cpuid\-\_\-print}!cpuid.c@{cpuid.\-c}}
+\subsubsection[{cpuid\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf cpuid\-\_\-print} (
+\begin{DoxyParamCaption}
+\item[{{\bf uint32\-\_\-t}}]{ax\-\_\-value, }
+\item[{{\bf uint32\-\_\-t}}]{operation}
+\end{DoxyParamCaption}
+)}}\label{cpuid_8c_a79a861218fed01d656734e810da0229e}
+
+
+\-Definition at line 22 of file cpuid.\-c.
+
+\hypertarget{cpuid_8c_a3555022a9a455d0783e239690defaf3d}{\index{cpuid.\-c@{cpuid.\-c}!make\-\_\-cpuid@{make\-\_\-cpuid}}
+\index{make\-\_\-cpuid@{make\-\_\-cpuid}!cpuid.c@{cpuid.\-c}}
+\subsubsection[{make\-\_\-cpuid}]{\setlength{\rightskip}{0pt plus 5cm}static void {\bf make\-\_\-cpuid} (
+\begin{DoxyParamCaption}
+\item[{{\bf uint32\-\_\-t} $\ast$}]{eax, }
+\item[{{\bf uint32\-\_\-t} $\ast$}]{ebx, }
+\item[{{\bf uint32\-\_\-t} $\ast$}]{ecx, }
+\item[{{\bf uint32\-\_\-t} $\ast$}]{edx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}\label{cpuid_8c_a3555022a9a455d0783e239690defaf3d}
+
+
+\-Definition at line 45 of file cpuid.\-c.
+
+\hypertarget{cpuid_8c_adec7c6888b96c83a0659b36e331ad138}{\index{cpuid.\-c@{cpuid.\-c}!set\-\_\-eax@{set\-\_\-eax}}
+\index{set\-\_\-eax@{set\-\_\-eax}!cpuid.c@{cpuid.\-c}}
+\subsubsection[{set\-\_\-eax}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf set\-\_\-eax} (
+\begin{DoxyParamCaption}
+\item[{{\bf uint32\-\_\-t}}]{value}
+\end{DoxyParamCaption}
+)}}\label{cpuid_8c_adec7c6888b96c83a0659b36e331ad138}
+
+
+\-Definition at line 18 of file cpuid.\-c.
+

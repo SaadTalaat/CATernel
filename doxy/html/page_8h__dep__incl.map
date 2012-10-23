@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$init__mem_8c.html" title="kernel/arch/x86/mm/init_mem.c" alt="" coords="5,160,211,189"/>
+<area shape="rect" id="node5" href="$page_8c.html" title="kernel/arch/x86/mm/page.c" alt="" coords="211,83,389,112"/>
+<area shape="rect" id="node7" href="$init_8c.html" title="kernel/init.c" alt="" coords="689,237,777,267"/>
+<area shape="rect" id="node9" href="$proc_8h.html" title="include/proc/proc.h" alt="" coords="413,83,544,112"/>
+<area shape="rect" id="node11" href="$interrupt_8c.html" title="kernel/arch/x86/interrupt.c" alt="" coords="744,160,917,189"/>
+<area shape="rect" id="node15" href="$play_8c.html" title="kernel main file" alt="" coords="285,160,381,189"/>
+<area shape="rect" id="node17" href="$load__elf_8c.html" title="kernel/proc/load_elf.c" alt="" coords="405,160,552,189"/>
+<area shape="rect" id="node19" href="$proc_8c.html" title="kernel/proc/proc.c" alt="" coords="295,237,420,267"/>
+<area shape="rect" id="node21" href="$init_8h.html" title="include/init.h" alt="" coords="576,160,669,189"/>
+<area shape="rect" id="node25" href="$work__it__out_8c.html" title="kernel/work_it_out.c" alt="" coords="527,237,665,267"/>
+</map>

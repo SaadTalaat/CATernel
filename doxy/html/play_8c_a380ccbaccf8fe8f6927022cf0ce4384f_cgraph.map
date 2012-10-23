@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$cmos_8c.html#a7d014a08169d9091ed83e880f491abe3" title="cmos_get_time" alt="" coords="135,32,244,61"/>
+<area shape="rect" id="node5" href="$printf_8c.html#a36fe4a3ea4506cb4d128b11f93187f71" title="printk" alt="" coords="163,85,216,115"/>
+<area shape="rect" id="node7" href="$printf_8c.html#a1965a44d004e945de8e4a662cdfac402" title="vprintk" alt="" coords="293,85,355,115"/>
+<area shape="rect" id="node9" href="$printf_8c.html#a39a5e13b8f9ef35f6878c6dc086d3463" title="kvprintk" alt="" coords="404,85,471,115"/>
+<area shape="rect" id="node11" href="$string_8c.html#a2e7b2907250be8edc8e78f5dc91cd85b" title="strnlen" alt="" coords="527,5,588,35"/>
+<area shape="rect" id="node13" href="$printf_8c.html#a15fa6d5bac62e4e23535055899f8198a" title="getint" alt="" coords="531,59,584,88"/>
+<area shape="rect" id="node15" href="$printf_8c.html#aa2d6b6655726ec3ed608623a0fa2efc5" title="getuint" alt="" coords="527,112,588,141"/>
+<area shape="rect" id="node17" href="$printf_8c.html#a4d96a0e0fd1a548e704a5408d77c33cb" title="ksprintkn" alt="" coords="520,189,595,219"/>
+</map>

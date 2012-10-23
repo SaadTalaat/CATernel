@@ -1,0 +1,236 @@
+\hypertarget{page_8c}{\section{kernel/arch/x86/mm/page.c \-File \-Reference}
+\label{page_8c}\index{kernel/arch/x86/mm/page.\-c@{kernel/arch/x86/mm/page.\-c}}
+}
+{\ttfamily \#include $<$types.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/x86.\-h$>$}\*
+{\ttfamily \#include $<$memvals.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/mm/page.\-h$>$}\*
+\-Include dependency graph for page.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{page_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{page_8c_a3116202f5e2264b63f5a69f007287b9a}{x86\-\_\-paging\-\_\-init} (void)
+\item 
+void \hyperlink{page_8c_a47035fa680fdf11c7403445db4762728}{x86\-\_\-page\-\_\-init} (struct \hyperlink{structPage}{\-Page} $\ast$page)
+\item 
+int \hyperlink{page_8c_afdfcf53a6e442e1244205d5caa178dc1}{x86\-\_\-page\-\_\-alloc} (struct \hyperlink{structPage}{\-Page} $\ast$$\ast$page\-\_\-byref)
+\item 
+void \hyperlink{page_8c_abf1a7d08ef370ed140d68279466d16c2}{x86\-\_\-page\-\_\-free} (struct \hyperlink{structPage}{\-Page} $\ast$page)
+\item 
+void \hyperlink{page_8c_a0e4ecf1dbcf05554104e7f089e6eaa9b}{x86\-\_\-page\-\_\-detach} (struct \hyperlink{structPage}{\-Page} $\ast$page)
+\item 
+pte\-\_\-t $\ast$ \hyperlink{page_8c_a7a6381142371ad1ed883bc33683c68de}{x86\-\_\-pgdir\-\_\-find} (\hyperlink{page_8h_a1ae9855ac82633447ab53f25e49e1f62}{pde\-\_\-t} $\ast$pgdir, const void $\ast$va, int \hyperlink{init__mem_8c_a9762d88ec8eee643ee3527ae5f765cd4}{allocate})
+\item 
+struct \hyperlink{structPage}{\-Page} $\ast$ \hyperlink{page_8c_a90f1e53f745fbff067dd1d6e21e4a971}{x86\-\_\-page\-\_\-lookup} (\hyperlink{page_8h_a1ae9855ac82633447ab53f25e49e1f62}{pde\-\_\-t} $\ast$pgdir, void $\ast$va, pte\-\_\-t $\ast$$\ast$pte)
+\item 
+void \hyperlink{page_8c_a0094c45a39dd8369285c834af6512f53}{x86\-\_\-page\-\_\-remove} (\hyperlink{page_8h_a1ae9855ac82633447ab53f25e49e1f62}{pde\-\_\-t} $\ast$pgdir, void $\ast$va)
+\item 
+int \hyperlink{page_8c_ac8fee72731746be1776eee181b5c3d1f}{x86\-\_\-page\-\_\-insert} (\hyperlink{page_8h_a1ae9855ac82633447ab53f25e49e1f62}{pde\-\_\-t} $\ast$pgdir, struct \hyperlink{structPage}{\-Page} $\ast$page, void $\ast$va, \hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} perm)
+\item 
+void \hyperlink{page_8c_a72d597193a2cbbab7100effdf3e045df}{map\-\_\-segment\-\_\-page} (\hyperlink{page_8h_a1ae9855ac82633447ab53f25e49e1f62}{pde\-\_\-t} $\ast$pgdir, \hyperlink{types_8h_a53428b953a0ae6fba02a5b3596c867e0}{vaddr\-\_\-t} linear, \hyperlink{types_8h_a7c94ea6f8948649f8d181ae55911eeaf}{size\-\_\-t} \hyperlink{memvals_8h_aaba88b24a21a6c70c895c0d55f4a69a0}{size}, \hyperlink{types_8h_a9f047c1f0917f6184a7a013d4b4277a6}{paddr\-\_\-t} physical, int perm)
+\item 
+void \hyperlink{page_8c_a3c2de2a5079f7f0854f1e2df482dbd99}{x86\-\_\-test\-\_\-pgdir} (void)
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{page_8c_aa993bc236650aa405b01d00b7ca72904}{page\-\_\-count}
+\item 
+\hyperlink{page_8h_a1ae9855ac82633447ab53f25e49e1f62}{pde\-\_\-t} $\ast$ \hyperlink{page_8c_a8ffe8b80013a018b23501ea7a45b7870}{global\-\_\-pgdir}
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{page_8c_a18cb6aa9c5285aa7411ebd96a283741e}{global\-\_\-cr3}
+\item 
+char $\ast$ \hyperlink{page_8c_a39aa9990303c751420729e015f952dfb}{next\-\_\-free}
+\item 
+struct \hyperlink{structPage}{\-Page} $\ast$ \hyperlink{page_8c_a5c8561a52c4cda29a9be7dc7be92c771}{pages}
+\item 
+static struct \-Page\-List \hyperlink{page_8c_a47458068a4a6404d82cdab009deb7343}{free\-\_\-pages}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{page_8c_a72d597193a2cbbab7100effdf3e045df}{\index{page.\-c@{page.\-c}!map\-\_\-segment\-\_\-page@{map\-\_\-segment\-\_\-page}}
+\index{map\-\_\-segment\-\_\-page@{map\-\_\-segment\-\_\-page}!page.c@{page.\-c}}
+\subsubsection[{map\-\_\-segment\-\_\-page}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf map\-\_\-segment\-\_\-page} (
+\begin{DoxyParamCaption}
+\item[{{\bf pde\-\_\-t} $\ast$}]{pgdir, }
+\item[{{\bf vaddr\-\_\-t}}]{linear, }
+\item[{{\bf size\-\_\-t}}]{size, }
+\item[{{\bf paddr\-\_\-t}}]{physical, }
+\item[{int}]{perm}
+\end{DoxyParamCaption}
+)}}\label{page_8c_a72d597193a2cbbab7100effdf3e045df}
+
+
+\-Definition at line 231 of file page.\-c.
+
+\hypertarget{page_8c_afdfcf53a6e442e1244205d5caa178dc1}{\index{page.\-c@{page.\-c}!x86\-\_\-page\-\_\-alloc@{x86\-\_\-page\-\_\-alloc}}
+\index{x86\-\_\-page\-\_\-alloc@{x86\-\_\-page\-\_\-alloc}!page.c@{page.\-c}}
+\subsubsection[{x86\-\_\-page\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf x86\-\_\-page\-\_\-alloc} (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-Page} $\ast$$\ast$}]{page\-\_\-byref}
+\end{DoxyParamCaption}
+)}}\label{page_8c_afdfcf53a6e442e1244205d5caa178dc1}
+
+
+\-Definition at line 83 of file page.\-c.
+
+\hypertarget{page_8c_a0e4ecf1dbcf05554104e7f089e6eaa9b}{\index{page.\-c@{page.\-c}!x86\-\_\-page\-\_\-detach@{x86\-\_\-page\-\_\-detach}}
+\index{x86\-\_\-page\-\_\-detach@{x86\-\_\-page\-\_\-detach}!page.c@{page.\-c}}
+\subsubsection[{x86\-\_\-page\-\_\-detach}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf x86\-\_\-page\-\_\-detach} (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-Page} $\ast$}]{page}
+\end{DoxyParamCaption}
+)}}\label{page_8c_a0e4ecf1dbcf05554104e7f089e6eaa9b}
+
+
+\-Definition at line 112 of file page.\-c.
+
+\hypertarget{page_8c_abf1a7d08ef370ed140d68279466d16c2}{\index{page.\-c@{page.\-c}!x86\-\_\-page\-\_\-free@{x86\-\_\-page\-\_\-free}}
+\index{x86\-\_\-page\-\_\-free@{x86\-\_\-page\-\_\-free}!page.c@{page.\-c}}
+\subsubsection[{x86\-\_\-page\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf x86\-\_\-page\-\_\-free} (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-Page} $\ast$}]{page}
+\end{DoxyParamCaption}
+)}}\label{page_8c_abf1a7d08ef370ed140d68279466d16c2}
+
+
+\-Definition at line 100 of file page.\-c.
+
+\hypertarget{page_8c_a47035fa680fdf11c7403445db4762728}{\index{page.\-c@{page.\-c}!x86\-\_\-page\-\_\-init@{x86\-\_\-page\-\_\-init}}
+\index{x86\-\_\-page\-\_\-init@{x86\-\_\-page\-\_\-init}!page.c@{page.\-c}}
+\subsubsection[{x86\-\_\-page\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf x86\-\_\-page\-\_\-init} (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-Page} $\ast$}]{page}
+\end{DoxyParamCaption}
+)}}\label{page_8c_a47035fa680fdf11c7403445db4762728}
+
+
+\-Definition at line 74 of file page.\-c.
+
+\hypertarget{page_8c_ac8fee72731746be1776eee181b5c3d1f}{\index{page.\-c@{page.\-c}!x86\-\_\-page\-\_\-insert@{x86\-\_\-page\-\_\-insert}}
+\index{x86\-\_\-page\-\_\-insert@{x86\-\_\-page\-\_\-insert}!page.c@{page.\-c}}
+\subsubsection[{x86\-\_\-page\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf x86\-\_\-page\-\_\-insert} (
+\begin{DoxyParamCaption}
+\item[{{\bf pde\-\_\-t} $\ast$}]{pgdir, }
+\item[{struct {\bf \-Page} $\ast$}]{page, }
+\item[{void $\ast$}]{va, }
+\item[{{\bf uint32\-\_\-t}}]{perm}
+\end{DoxyParamCaption}
+)}}\label{page_8c_ac8fee72731746be1776eee181b5c3d1f}
+
+
+\-Definition at line 184 of file page.\-c.
+
+\hypertarget{page_8c_a90f1e53f745fbff067dd1d6e21e4a971}{\index{page.\-c@{page.\-c}!x86\-\_\-page\-\_\-lookup@{x86\-\_\-page\-\_\-lookup}}
+\index{x86\-\_\-page\-\_\-lookup@{x86\-\_\-page\-\_\-lookup}!page.c@{page.\-c}}
+\subsubsection[{x86\-\_\-page\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \-Page}$\ast$ {\bf x86\-\_\-page\-\_\-lookup} (
+\begin{DoxyParamCaption}
+\item[{{\bf pde\-\_\-t} $\ast$}]{pgdir, }
+\item[{void $\ast$}]{va, }
+\item[{pte\-\_\-t $\ast$$\ast$}]{pte}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}read\mbox{]}}}}\label{page_8c_a90f1e53f745fbff067dd1d6e21e4a971}
+
+
+\-Definition at line 154 of file page.\-c.
+
+\hypertarget{page_8c_a0094c45a39dd8369285c834af6512f53}{\index{page.\-c@{page.\-c}!x86\-\_\-page\-\_\-remove@{x86\-\_\-page\-\_\-remove}}
+\index{x86\-\_\-page\-\_\-remove@{x86\-\_\-page\-\_\-remove}!page.c@{page.\-c}}
+\subsubsection[{x86\-\_\-page\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf x86\-\_\-page\-\_\-remove} (
+\begin{DoxyParamCaption}
+\item[{{\bf pde\-\_\-t} $\ast$}]{pgdir, }
+\item[{void $\ast$}]{va}
+\end{DoxyParamCaption}
+)}}\label{page_8c_a0094c45a39dd8369285c834af6512f53}
+
+
+\-Definition at line 170 of file page.\-c.
+
+\hypertarget{page_8c_a3116202f5e2264b63f5a69f007287b9a}{\index{page.\-c@{page.\-c}!x86\-\_\-paging\-\_\-init@{x86\-\_\-paging\-\_\-init}}
+\index{x86\-\_\-paging\-\_\-init@{x86\-\_\-paging\-\_\-init}!page.c@{page.\-c}}
+\subsubsection[{x86\-\_\-paging\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf x86\-\_\-paging\-\_\-init} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{page_8c_a3116202f5e2264b63f5a69f007287b9a}
+
+
+\-Definition at line 26 of file page.\-c.
+
+\hypertarget{page_8c_a7a6381142371ad1ed883bc33683c68de}{\index{page.\-c@{page.\-c}!x86\-\_\-pgdir\-\_\-find@{x86\-\_\-pgdir\-\_\-find}}
+\index{x86\-\_\-pgdir\-\_\-find@{x86\-\_\-pgdir\-\_\-find}!page.c@{page.\-c}}
+\subsubsection[{x86\-\_\-pgdir\-\_\-find}]{\setlength{\rightskip}{0pt plus 5cm}pte\-\_\-t$\ast$ {\bf x86\-\_\-pgdir\-\_\-find} (
+\begin{DoxyParamCaption}
+\item[{{\bf pde\-\_\-t} $\ast$}]{pgdir, }
+\item[{const void $\ast$}]{va, }
+\item[{int}]{allocate}
+\end{DoxyParamCaption}
+)}}\label{page_8c_a7a6381142371ad1ed883bc33683c68de}
+
+
+\-Definition at line 126 of file page.\-c.
+
+\hypertarget{page_8c_a3c2de2a5079f7f0854f1e2df482dbd99}{\index{page.\-c@{page.\-c}!x86\-\_\-test\-\_\-pgdir@{x86\-\_\-test\-\_\-pgdir}}
+\index{x86\-\_\-test\-\_\-pgdir@{x86\-\_\-test\-\_\-pgdir}!page.c@{page.\-c}}
+\subsubsection[{x86\-\_\-test\-\_\-pgdir}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf x86\-\_\-test\-\_\-pgdir} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{page_8c_a3c2de2a5079f7f0854f1e2df482dbd99}
+
+
+\-Definition at line 250 of file page.\-c.
+
+
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{page_8c_a47458068a4a6404d82cdab009deb7343}{\index{page.\-c@{page.\-c}!free\-\_\-pages@{free\-\_\-pages}}
+\index{free\-\_\-pages@{free\-\_\-pages}!page.c@{page.\-c}}
+\subsubsection[{free\-\_\-pages}]{\setlength{\rightskip}{0pt plus 5cm}struct \-Page\-List {\bf free\-\_\-pages}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{page_8c_a47458068a4a6404d82cdab009deb7343}
+
+
+\-Definition at line 19 of file page.\-c.
+
+\hypertarget{page_8c_a18cb6aa9c5285aa7411ebd96a283741e}{\index{page.\-c@{page.\-c}!global\-\_\-cr3@{global\-\_\-cr3}}
+\index{global\-\_\-cr3@{global\-\_\-cr3}!page.c@{page.\-c}}
+\subsubsection[{global\-\_\-cr3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf global\-\_\-cr3}}}\label{page_8c_a18cb6aa9c5285aa7411ebd96a283741e}
+
+
+\-Definition at line 14 of file page.\-c.
+
+\hypertarget{page_8c_a8ffe8b80013a018b23501ea7a45b7870}{\index{page.\-c@{page.\-c}!global\-\_\-pgdir@{global\-\_\-pgdir}}
+\index{global\-\_\-pgdir@{global\-\_\-pgdir}!page.c@{page.\-c}}
+\subsubsection[{global\-\_\-pgdir}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pde\-\_\-t}$\ast$ {\bf global\-\_\-pgdir}}}\label{page_8c_a8ffe8b80013a018b23501ea7a45b7870}
+
+
+\-Definition at line 13 of file page.\-c.
+
+\hypertarget{page_8c_a39aa9990303c751420729e015f952dfb}{\index{page.\-c@{page.\-c}!next\-\_\-free@{next\-\_\-free}}
+\index{next\-\_\-free@{next\-\_\-free}!page.c@{page.\-c}}
+\subsubsection[{next\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf next\-\_\-free}}}\label{page_8c_a39aa9990303c751420729e015f952dfb}
+
+
+\-Definition at line 22 of file init\-\_\-mem.\-c.
+
+\hypertarget{page_8c_aa993bc236650aa405b01d00b7ca72904}{\index{page.\-c@{page.\-c}!page\-\_\-count@{page\-\_\-count}}
+\index{page\-\_\-count@{page\-\_\-count}!page.c@{page.\-c}}
+\subsubsection[{page\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf page\-\_\-count}}}\label{page_8c_aa993bc236650aa405b01d00b7ca72904}
+
+
+\-Definition at line 12 of file page.\-c.
+
+\hypertarget{page_8c_a5c8561a52c4cda29a9be7dc7be92c771}{\index{page.\-c@{page.\-c}!pages@{pages}}
+\index{pages@{pages}!page.c@{page.\-c}}
+\subsubsection[{pages}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \-Page}$\ast$ {\bf pages}}}\label{page_8c_a5c8561a52c4cda29a9be7dc7be92c771}
+
+
+\-Definition at line 17 of file page.\-c.
+

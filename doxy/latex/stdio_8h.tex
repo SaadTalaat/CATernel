@@ -1,0 +1,125 @@
+\hypertarget{stdio_8h}{\section{include/stdio.h \-File \-Reference}
+\label{stdio_8h}\index{include/stdio.\-h@{include/stdio.\-h}}
+}
+{\ttfamily \#include $<$stdarg.\-h$>$}\*
+\-Include dependency graph for stdio.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{stdio_8h__incl}
+\end{center}
+\end{figure}
+\-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stdio_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{stdio_8h_a2d4bf280875c7c627a8548dcf7184187}{putchr} (int)
+\item 
+int \hyperlink{stdio_8h_a3e29caa20f7cffe18f410f01278905a8}{getchar} (void)
+\item 
+int \hyperlink{stdio_8h_a68c0540178fcff40a9b05dfa452900cf}{printk} (const char $\ast$,...)
+\item 
+int \hyperlink{stdio_8h_a9c91d3689b6c39cc51f8c8c6c63d920b}{vprintk} (const char $\ast$, \hyperlink{stdarg_8h_abaefbc6cabb217bf0138d4f9c94d4775}{va\-\_\-list})
+\item 
+int \hyperlink{stdio_8h_acbc64731fbdae6409954f586b33cd8aa}{kvprintk} (const char $\ast$, void($\ast$func)(int, int $\ast$), int $\ast$count, \hyperlink{stdarg_8h_abaefbc6cabb217bf0138d4f9c94d4775}{va\-\_\-list} ap)
+\item 
+void \hyperlink{stdio_8h_a4d96a0e0fd1a548e704a5408d77c33cb}{ksprintkn} (void($\ast$func)(int, int $\ast$), int $\ast$count, \hyperlink{types_8h_a2ba5f6c0633401558d277b2c0e4f758d}{uintmax\-\_\-t} num, int \hyperlink{memvals_8h_a0523cedff47e2441fc198b7770ec5d3f}{base}, int width, int padc)
+\item 
+char $\ast$ \hyperlink{stdio_8h_af3ce5d5d5bbaecd72030c27d331fb09e}{readline} (const char $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{stdio_8h_a3e29caa20f7cffe18f410f01278905a8}{\index{stdio.\-h@{stdio.\-h}!getchar@{getchar}}
+\index{getchar@{getchar}!stdio.h@{stdio.\-h}}
+\subsubsection[{getchar}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf getchar} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{stdio_8h_a3e29caa20f7cffe18f410f01278905a8}
+
+
+\-Definition at line 53 of file cli.\-c.
+
+\hypertarget{stdio_8h_a4d96a0e0fd1a548e704a5408d77c33cb}{\index{stdio.\-h@{stdio.\-h}!ksprintkn@{ksprintkn}}
+\index{ksprintkn@{ksprintkn}!stdio.h@{stdio.\-h}}
+\subsubsection[{ksprintkn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf ksprintkn} (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(int, int $\ast$)}]{func, }
+\item[{int $\ast$}]{count, }
+\item[{{\bf uintmax\-\_\-t}}]{num, }
+\item[{int}]{base, }
+\item[{int}]{width, }
+\item[{int}]{padc}
+\end{DoxyParamCaption}
+)}}\label{stdio_8h_a4d96a0e0fd1a548e704a5408d77c33cb}
+
+
+\-Definition at line 10 of file printf.\-c.
+
+\hypertarget{stdio_8h_acbc64731fbdae6409954f586b33cd8aa}{\index{stdio.\-h@{stdio.\-h}!kvprintk@{kvprintk}}
+\index{kvprintk@{kvprintk}!stdio.h@{stdio.\-h}}
+\subsubsection[{kvprintk}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf kvprintk} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{, }
+\item[{void($\ast$)(int, int $\ast$)}]{func, }
+\item[{int $\ast$}]{count, }
+\item[{{\bf va\-\_\-list}}]{ap}
+\end{DoxyParamCaption}
+)}}\label{stdio_8h_acbc64731fbdae6409954f586b33cd8aa}
+
+
+\-Definition at line 43 of file printf.\-c.
+
+\hypertarget{stdio_8h_a68c0540178fcff40a9b05dfa452900cf}{\index{stdio.\-h@{stdio.\-h}!printk@{printk}}
+\index{printk@{printk}!stdio.h@{stdio.\-h}}
+\subsubsection[{printk}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf printk} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{stdio_8h_a68c0540178fcff40a9b05dfa452900cf}
+
+
+\-Definition at line 167 of file printf.\-c.
+
+\hypertarget{stdio_8h_a2d4bf280875c7c627a8548dcf7184187}{\index{stdio.\-h@{stdio.\-h}!putchr@{putchr}}
+\index{putchr@{putchr}!stdio.h@{stdio.\-h}}
+\subsubsection[{putchr}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf putchr} (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{stdio_8h_a2d4bf280875c7c627a8548dcf7184187}
+
+
+\-Definition at line 49 of file cli.\-c.
+
+\hypertarget{stdio_8h_af3ce5d5d5bbaecd72030c27d331fb09e}{\index{stdio.\-h@{stdio.\-h}!readline@{readline}}
+\index{readline@{readline}!stdio.h@{stdio.\-h}}
+\subsubsection[{readline}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf readline} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{stdio_8h_af3ce5d5d5bbaecd72030c27d331fb09e}
+
+
+\-Definition at line 10 of file readline.\-c.
+
+\hypertarget{stdio_8h_a9c91d3689b6c39cc51f8c8c6c63d920b}{\index{stdio.\-h@{stdio.\-h}!vprintk@{vprintk}}
+\index{vprintk@{vprintk}!stdio.h@{stdio.\-h}}
+\subsubsection[{vprintk}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf vprintk} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{, }
+\item[{{\bf va\-\_\-list}}]{}
+\end{DoxyParamCaption}
+)}}\label{stdio_8h_a9c91d3689b6c39cc51f8c8c6c63d920b}
+
+
+\-Definition at line 160 of file printf.\-c.
+

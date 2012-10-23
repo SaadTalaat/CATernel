@@ -1,0 +1,22 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$printf_8c.html#a36fe4a3ea4506cb4d128b11f93187f71" title="printk" alt="" coords="127,177,180,207"/>
+<area shape="rect" id="node13" href="$cli_8c.html#a77246c715d47b2f9782c230ca981952e" title="putchr" alt="" coords="699,281,757,311"/>
+<area shape="rect" id="node34" href="$cli_8c.html#a3e29caa20f7cffe18f410f01278905a8" title="getchar" alt="" coords="121,347,185,376"/>
+<area shape="rect" id="node5" href="$printf_8c.html#a1965a44d004e945de8e4a662cdfac402" title="vprintk" alt="" coords="253,112,315,141"/>
+<area shape="rect" id="node7" href="$printf_8c.html#a39a5e13b8f9ef35f6878c6dc086d3463" title="kvprintk" alt="" coords="397,112,464,141"/>
+<area shape="rect" id="node11" href="$printf_8c.html#a2c0f7b90b6771c3ac60fcba2da990672" title="putch" alt="" coords="563,5,616,35"/>
+<area shape="rect" id="node9" href="$string_8c.html#a2e7b2907250be8edc8e78f5dc91cd85b" title="strnlen" alt="" coords="559,59,620,88"/>
+<area shape="rect" id="node26" href="$printf_8c.html#a15fa6d5bac62e4e23535055899f8198a" title="getint" alt="" coords="563,112,616,141"/>
+<area shape="rect" id="node28" href="$printf_8c.html#aa2d6b6655726ec3ed608623a0fa2efc5" title="getuint" alt="" coords="559,165,620,195"/>
+<area shape="rect" id="node30" href="$printf_8c.html#a4d96a0e0fd1a548e704a5408d77c33cb" title="ksprintkn" alt="" coords="552,243,627,272"/>
+<area shape="rect" id="node15" href="$cli_8c.html#ad3429ca65a1b6f39eed6d2f9f795586b" title="console_putc" alt="" coords="805,281,904,311"/>
+<area shape="rect" id="node17" href="$video_8c.html#aca189a8fb5d14a6ccaabfb4ce606e20c" title="cga_putc" alt="" coords="952,281,1027,311"/>
+<area shape="rect" id="node19" href="$video_8c.html#a98e2b5ab9f34fc634a00c8ac89200b2e" title="cga_set_pos" alt="" coords="1075,268,1171,297"/>
+<area shape="rect" id="node24" href="$string_8c.html#a5beb6f763ff14a288fbe9c1f526579a3" title="memcopy" alt="" coords="1084,321,1161,351"/>
+<area shape="rect" id="node21" href="$x86_8h.html#aecb1fa8a11c8a27335665526fc820dc6" title="outb" alt="" coords="1220,321,1265,351"/>
+<area shape="rect" id="node36" href="$cli_8c.html#a9b3ba9ca613021d6954ade2927d8d56e" title="console_getc" alt="" coords="235,347,333,376"/>
+<area shape="rect" id="node38" href="$kbc_8c.html#abf3ce1c314db9a6a15b99e5313eb2edb" title="kbc_interrupt" alt="" coords="383,347,479,376"/>
+<area shape="rect" id="node40" href="$cli_8c.html#a3c8b2e35ff573401b1df8d0938cf75e6" title="console_interrupt" alt="" coords="529,347,649,376"/>
+<area shape="rect" id="node42" href="$kbc_8c.html#aa8584463ac58034ccbf9cd2ffc8e187d" title="kbc_data" alt="" coords="552,400,627,429"/>
+<area shape="rect" id="node44" href="$x86_8h.html#ab22bd329c089d76a3977792a2208f6b4" title="inb" alt="" coords="709,425,747,455"/>
+</map>

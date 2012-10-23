@@ -1,0 +1,3250 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.12)  23 OCT 2012 15:47
+entering extended mode
+ %&-line parsing enabled.
+**refman
+(./refman.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/bk10.clo
+File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-texlive/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty
+Package: natbib 2009/07/16 8.31 (PWD, AO)
+\bibhang=\skip43
+\bibsep=\skip44
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count88
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+\Gread@gobject=\count89
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/share/texmf-texlive/tex/latex/tools/multicol.sty
+Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
+\c@tracingmulticols=\count90
+\mult@box=\box26
+\multicol@leftmargin=\dimen105
+\c@unbalance=\count91
+\c@collectmore=\count92
+\doublecol@number=\count93
+\multicoltolerance=\count94
+\multicolpretolerance=\count95
+\full@width=\dimen106
+\page@free=\dimen107
+\premulticols=\dimen108
+\postmulticols=\dimen109
+\multicolsep=\skip45
+\multicolbaselineskip=\skip46
+\partial@page=\box27
+\last@line=\box28
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count96
+\c@finalcolumnbadness=\count97
+\last@try=\dimen110
+\multicolovershoot=\dimen111
+\multicolundershoot=\dimen112
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+)
+(/usr/share/texmf-texlive/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count98
+\float@exts=\toks15
+\float@box=\box52
+\@float@everytoks=\toks16
+\@floatcapt=\box53
+)
+(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
+\lst@mode=\count99
+\lst@gtempboxa=\box54
+\lst@token=\toks17
+\lst@length=\count100
+\lst@currlwidth=\dimen113
+\lst@column=\count101
+\lst@pos=\count102
+\lst@lostspace=\dimen114
+\lst@width=\dimen115
+\lst@newlines=\count103
+\lst@lineno=\count104
+\lst@maxwidth=\dimen116
+
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count105
+\lst@skipnumbers=\count106
+\lst@framebox=\box55
+)
+(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/share/texmf-texlive/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2001/02/13 v0.1j Color table columns (DPC)
+
+(/usr/share/texmf-texlive/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen117
+\extrarowheight=\dimen118
+\NC@list=\toks18
+\extratabsurround=\skip47
+\backup@length=\skip48
+)
+\everycr=\toks19
+\minrowclearance=\skip49
+)
+LaTeX Info: Redefining \color on input line 702.
+\rownum=\count107
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+)
+(/usr/share/texmf-texlive/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
+Package: hycolor 2009/10/02 v1.5 Code for color options of hyperref/bookmark (H
+O)
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
+Package: xcolor-patch 2009/10/02 xcolor patch
+))
+\@linkdim=\dimen119
+\Hy@linkcounter=\count108
+\Hy@pagecounter=\count109
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)
+(/usr/share/texmf-texlive/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2009/08/13 v3.4 Keyval support for LaTeX options (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2009/07/30 v1.5 Key value parser with default handler suppor
+t (HO)
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 2864.
+Package hyperref Info: Option `unicode' set `true' on input line 2864.
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/puenc.def
+File: puenc.def 2009/10/09 v6.79a Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 2975.
+Package hyperref Info: Link nesting OFF on input line 2980.
+Package hyperref Info: Hyper index ON on input line 2983.
+Package hyperref Info: Plain pages OFF on input line 2990.
+Package hyperref Info: Backreferencing ON on input line 2993.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 3191.
+(/usr/share/texmf-texlive/tex/latex/hyperref/backref.sty
+Package: backref 2006/09/05 v1.28 Bibliographical back referencing
+)
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 3428.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
+Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
+Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2009/09/23 v0.6 LuaTeX support for pdfTeX utility functions
+ (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2009/04/17 v1.2 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2009/08/05 v1.0 Some LaTeX kernel commands for general use (HO
+)
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+)))
+\Fld@menulength=\count110
+\Field@Width=\dimen120
+\Fld@charsize=\dimen121
+\Field@toks=\toks20
+Package hyperref Info: Hyper figures OFF on input line 4377.
+Package hyperref Info: Link nesting OFF on input line 4382.
+Package hyperref Info: Hyper index ON on input line 4385.
+Package hyperref Info: backreferencing ON on input line 4390.
+Package hyperref Info: Link coloring ON on input line 4395.
+Package hyperref Info: Link coloring with OCG OFF on input line 4402.
+Package hyperref Info: PDF/A mode OFF on input line 4407.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
+)
+\Hy@abspage=\count111
+\c@Item=\count112
+\c@Hfootnote=\count113
+)
+*hyperref using driver hpdftex*
+(/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
+\Fld@listcount=\count114
+)
+(/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks21
+\inpenc@posthook=\toks22
+
+(/usr/share/texmf-texlive/tex/latex/base/utf8.def
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+
+(/usr/share/texmf-texlive/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+
+(/usr/share/texmf-texlive/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+
+(/usr/share/texmf-texlive/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+(/usr/share/texmf-texlive/tex/latex/base/ts1enc.dfu
+File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+(/usr/share/texmf-texlive/tex/latex/psnfss/mathptmx.sty
+Package: mathptmx 2005/04/12 PSNFSS-v9.2a Times w/ Math, improved (SPQR, WaS) 
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+\symbold=\mathgroup4
+\symitalic=\mathgroup5
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
+LaTeX Info: Redefining \hbar on input line 50.
+)
+(/usr/share/texmf-texlive/tex/latex/psnfss/helvet.sty
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(/usr/share/texmf-texlive/tex/latex/psnfss/courier.sty
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(/usr/share/texmf-texlive/tex/latex/sectsty/sectsty.sty
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
+les
+)
+(/usr/share/texmf-texlive/tex/latex/tocloft/tocloft.sty
+Package: tocloft 2009/09/04 v2.3d parameterised ToC, etc., typesetting
+
+
+Package tocloft Note: The document has chapter divisions.
+
+\cftparskip=\skip50
+\cftbeforetoctitleskip=\skip51
+\cftaftertoctitleskip=\skip52
+\cftbeforepartskip=\skip53
+\cftpartnumwidth=\skip54
+\cftpartindent=\skip55
+\cftbeforechapskip=\skip56
+\cftchapindent=\skip57
+\cftchapnumwidth=\skip58
+\cftbeforesecskip=\skip59
+\cftsecindent=\skip60
+\cftsecnumwidth=\skip61
+\cftbeforesubsecskip=\skip62
+\cftsubsecindent=\skip63
+\cftsubsecnumwidth=\skip64
+\cftbeforesubsubsecskip=\skip65
+\cftsubsubsecindent=\skip66
+\cftsubsubsecnumwidth=\skip67
+\cftbeforeparaskip=\skip68
+\cftparaindent=\skip69
+\cftparanumwidth=\skip70
+\cftbeforesubparaskip=\skip71
+\cftsubparaindent=\skip72
+\cftsubparanumwidth=\skip73
+\cftbeforeloftitleskip=\skip74
+\cftafterloftitleskip=\skip75
+\cftbeforefigskip=\skip76
+\cftfigindent=\skip77
+\cftfignumwidth=\skip78
+\c@lofdepth=\count115
+\c@lotdepth=\count116
+\cftbeforelottitleskip=\skip79
+\cftafterlottitleskip=\skip80
+\cftbeforetabskip=\skip81
+\cfttabindent=\skip82
+\cfttabnumwidth=\skip83
+) (./doxygen.sty
+Package: doxygen 
+ (/usr/share/texmf-texlive/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count117
+\calc@Bcount=\count118
+\calc@Adimen=\dimen122
+\calc@Bdimen=\dimen123
+\calc@Askip=\skip84
+\calc@Bskip=\skip85
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count119
+\calc@Cskip=\skip86
+)
+(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip87
+\f@ncyO@elh=\skip88
+\f@ncyO@erh=\skip89
+\f@ncyO@olh=\skip90
+\f@ncyO@orh=\skip91
+\f@ncyO@elf=\skip92
+\f@ncyO@erf=\skip93
+\f@ncyO@olf=\skip94
+\f@ncyO@orf=\skip95
+)
+(/usr/share/texmf-texlive/tex/latex/tools/longtable.sty
+Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip96
+\LTright=\skip97
+\LTpre=\skip98
+\LTpost=\skip99
+\LTchunksize=\count120
+\LTcapwidth=\dimen124
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@cols=\count121
+\LT@rows=\count122
+\c@LT@tables=\count123
+\c@LT@chunks=\count124
+\LT@p@ftn=\toks23
+)
+(/usr/share/texmf-texlive/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks24
+\verbatim@line=\toks25
+\verbatim@in@stream=\read1
+)
+\tmplength=\skip100
+\xrefbox=\box60
+\xreflength=\skip101
+
+(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texmf-texlive/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+)))
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
+\@indexfile=\write3
+\openout3 = `refman.idx'.
+
+
+Writing index file refman.idx
+(./refman.aux
+
+LaTeX Warning: Label `page_8h_a0b65338140b4aab20aae2708677df343' multiply defin
+ed.
+
+)
+\openout1 = `refman.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 46.
+ (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 46.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 46.
+
+(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count125
+\scratchdimen=\dimen125
+\scratchbox=\box61
+\nofMPsegments=\count126
+\nofMParguments=\count127
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen126
+\MPnumerator=\count129
+\everyMPtoPDFconversion=\toks27
+)
+\c@lstlisting=\count130
+Package hyperref Info: Link coloring ON on input line 46.
+ (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
+Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
+)
+\c@section@level=\count131
+)
+LaTeX Info: Redefining \ref on input line 46.
+LaTeX Info: Redefining \pageref on input line 46.
+ (./refman.out)
+(./refman.out)
+\@outlinefile=\write4
+\openout4 = `refman.out'.
+
+Package backref Info: ** backref set up for natbib ** on input line 46.
+\AtBeginShipoutBox=\box62
+\big@size=\dimen127
+Package hyperref Info: Option `pageanchor' set `false' on input line 47.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 12.9599pt on input line 51.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 10.79993pt on input line 53.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 55.
+ [1
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 22.39185pt on input line 60.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 60.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 22.39185pt on input line 60.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 60.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
+(Font)              scaled to size 22.39185pt on input line 60.
+ (./refman.toc
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 1.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 1.
+
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 1.
+
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 1.
+
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 1.
+
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 1.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
+ [1
+
+]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 60.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 60.
+ [2] [3] [4] [5]
+[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
+[22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32])
+\tf@toc=\write5
+\openout5 = `refman.toc'.
+
+ [33] [34
+
+]
+Package hyperref Info: Option `pageanchor' set `true' on input line 63.
+
+Chapter 1.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 18.66588pt on input line 64.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 64.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 18.66588pt on input line 64.
+LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
+(Font)              scaled to size 18.66588pt on input line 64.
+(./annotated.tex
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 12.9599pt on input line 1.
+LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
+(Font)              scaled to size 12.9599pt on input line 1.
+) [1
+
+] [2
+
+]
+Chapter 2.
+(./files.tex [3]) [4]
+Chapter 3.
+(./struct____attribute____.tex
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 6.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 8.
+LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
+(Font)              scaled to size 10.79993pt on input line 8.
+LaTeX Font Info:    Try loading font information for TS1+phv on input line 11.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/ts1phv.fd
+File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
+)
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 11.
+ [5
+
+]
+LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
+(Font)              scaled to size 8.99994pt on input line 150.
+ [6] [7] [8])
+(./structcpu__state__t.tex [9]
+Overfull \hbox (30.86482pt too wide) in paragraph at lines 54--55
+[][]\T1/phv/m/n/10 include/arch/x86/cpu-_-state.-h[][] -C-A-T-Reloaded (-C) -Co
+pyrights 2011 [][]\T1/pcr/m/n/10 http-://catreloaded.-
+ []
+
+[10]) (./structcpuid__regs.tex [11]) (./structelement.tex) (./structelfhdr.tex
+[12]) (./structext2__dir__entry.tex [13]) (./structext2__group__desc.tex
+[14]) (./structext2__inode.tex [15]
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 96.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omsphv.fd
+File: omsphv.fd 
+)
+
+LaTeX Font Warning: Font shape `OMS/phv/bc/n' undefined
+(Font)              using `OMS/phv/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 96.
+
+LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
+LaTeX Font Info:    Font shape `OMS/phv/bc/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
+[16]) (./structext2__super__block.tex [17] [18] [19]) (./structGdtdesc.tex
+[20]) (./structgpr__regs__t.tex [21]) (./structPage.tex) (./structproc.tex
+
+pdfTeX warning: pdflatex (file ./structproc__coll__graph.pdf): PDF inclusion: f
+ound PDF version <1.5>, but at most version <1.4> allowed
+<structproc__coll__graph.pdf, id=6457, 224.84pt x 174.6525pt>
+File: structproc__coll__graph.pdf Graphic file (type pdf)
+
+<use structproc__coll__graph.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
+LaTeX Font Info:    Font shape `OT1/phv/bc/it' in size <10> not available
+(Font)              Font shape `OT1/phv/bc/sl' tried instead on input line 62.
+LaTeX Font Info:    Font shape `OT1/phv/bc/sl' will be
+(Font)              scaled to size 8.99994pt on input line 62.
+
+[23 <./structproc__coll__graph.pdf>]) (./structproghdr.tex [24])
+(./structsechdr.tex [25]) (./structseg__regs__t.tex) (./structSegdesc.tex
+[26]) [27] [28
+
+]
+Chapter 4.
+(./cpu__state_8h.tex
+
+pdfTeX warning: pdflatex (file ./cpu__state_8h__incl.pdf): PDF inclusion: found
+ PDF version <1.5>, but at most version <1.4> allowed
+<cpu__state_8h__incl.pdf, id=6635, 222.8325pt x 160.6pt>
+File: cpu__state_8h__incl.pdf Graphic file (type pdf)
+
+<use cpu__state_8h__incl.pdf>
+
+pdfTeX warning: pdflatex (file ./cpu__state_8h__dep__incl.pdf): PDF inclusion: 
+found PDF version <1.5>, but at most version <1.4> allowed
+<cpu__state_8h__dep__incl.pdf, id=6637, 742.775pt x 277.035pt>
+File: cpu__state_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use cpu__state_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 15--17
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29 <./cpu__state_8h__incl.pdf>]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 69.
+ [30 <./cpu__state_8h__dep__incl.pdf>]) (./elf_8h.tex
+
+pdfTeX warning: pdflatex (file ./elf_8h__dep__incl.pdf): PDF inclusion: found P
+DF version <1.5>, but at most version <1.4> allowed
+<elf_8h__dep__incl.pdf, id=6691, 602.25pt x 218.8175pt>
+File: elf_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use elf_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 7--9
+ [] 
+ []
+
+[31 <./elf_8h__dep__incl.pdf>] [32] [33]) (./interrupt_8h.tex
+
+pdfTeX warning: pdflatex (file ./interrupt_8h__incl.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<interrupt_8h__incl.pdf, id=6793, 306.14375pt x 218.8175pt>
+File: interrupt_8h__incl.pdf Graphic file (type pdf)
+
+<use interrupt_8h__incl.pdf>
+Overfull \hbox (33.66544pt too wide) in paragraph at lines 4--13
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 memvals.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m
+/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/cpu-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34]
+
+pdfTeX warning: pdflatex (file ./interrupt_8h__dep__incl.pdf): PDF inclusion: f
+ound PDF version <1.5>, but at most version <1.4> allowed
+<interrupt_8h__dep__incl.pdf, id=6799, 383.4325pt x 160.6pt>
+File: interrupt_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use interrupt_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 17--19
+ [] 
+ []
+
+[35 <./interrupt_8h__incl.pdf> <./interrupt_8h__dep__incl.pdf>]
+Overfull \hbox (25.12262pt too wide) in paragraph at lines 96--97
+[][]\T1/phv/m/n/10 include/arch/x86/interrupt.-h[][] -C-A-T-Reloaded (-C) -Copy
+rights 2011 [][]\T1/pcr/m/n/10 http-://catreloaded.-
+ []
+
+[36] [37]
+
+pdfTeX warning: pdflatex (file ./interrupt_8h_a164d38a0163ec2c36993b803b8c7fdcb
+_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4>
+ allowed
+
+<interrupt_8h_a164d38a0163ec2c36993b803b8c7fdcb_cgraph.pdf, id=6897, 467.7475pt
+ x 240.9pt>
+File: interrupt_8h_a164d38a0163ec2c36993b803b8c7fdcb_cgraph.pdf Graphic file (t
+ype pdf)
+ <use interrupt_8h_a164d38a0163ec2c36993b803b8c7fdcb_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 213--215
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./interrupt_8h_ab836013c5b99083f285ae2326b3d0b3c
+_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4>
+ allowed
+
+<interrupt_8h_ab836013c5b99083f285ae2326b3d0b3c_cgraph.pdf, id=6899, 1126.2075p
+t x 397.485pt>
+File: interrupt_8h_ab836013c5b99083f285ae2326b3d0b3c_cgraph.pdf Graphic file (t
+ype pdf)
+ <use interrupt_8h_ab836013c5b99083f285ae2326b3d0b3c_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 232--234
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [38 <./interrupt_8h_a164d38a0163ec2c36993b803b8c7fdcb_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./interrupt_8h_ab13687fc7d407eae4d97c68bfc410097
+_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4>
+ allowed
+
+<interrupt_8h_ab13687fc7d407eae4d97c68bfc410097_cgraph.pdf, id=6912, 1005.7575p
+t x 397.485pt>
+File: interrupt_8h_ab13687fc7d407eae4d97c68bfc410097_cgraph.pdf Graphic file (t
+ype pdf)
+ <use interrupt_8h_ab13687fc7d407eae4d97c68bfc410097_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 250--252
+ [] 
+ []
+
+
+Overfull \hbox (25.12262pt too wide) in paragraph at lines 262--263
+[][]\T1/phv/m/n/10 include/arch/x86/interrupt.-h[][] -C-A-T-Reloaded (-C) -Copy
+rights 2011 [][]\T1/pcr/m/n/10 http-://catreloaded.-
+ []
+
+) (./page_8h.tex
+
+pdfTeX warning: pdflatex (file ./page_8h__incl.pdf): PDF inclusion: found PDF v
+ersion <1.5>, but at most version <1.4> allowed
+<page_8h__incl.pdf, id=6916, 322.20375pt x 277.035pt>
+File: page_8h__incl.pdf Graphic file (type pdf)
+ <use page_8h__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 4--13
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 structs/linkedlist
+.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/zt
+mcm/m/it/10 <$\T1/pcr/m/n/10 memvals.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 
+^^B
+ []
+
+[39 <./interrupt_8h_ab836013c5b99083f285ae2326b3d0b3c_cgraph.pdf> <./interrupt_
+8h_ab13687fc7d407eae4d97c68bfc410097_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./page_8h__dep__incl.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<page_8h__dep__incl.pdf, id=6937, 782.925pt x 277.035pt>
+File: page_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use page_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 17--19
+ [] 
+ []
+
+[40 <./page_8h__incl.pdf> <./page_8h__dep__incl.pdf>] [41] [42] [43pdfTeX warni
+ng (ext4): destination with the same identifier (name{page_8h_a0b65338140b4aab2
+0aae2708677df343}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.289 )}}
+         \label{page_8h_af06dbf095a0a3cb262f4ee59b32c6c7b}]
+
+pdfTeX warning: pdflatex (file ./page_8h_a890b33877bfdb45d1c074589b4b94adb_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8h_a890b33877bfdb45d1c074589b4b94adb_cgraph.pdf, id=7110, 624.3325pt x 12
+2.4575pt>
+File: page_8h_a890b33877bfdb45d1c074589b4b94adb_cgraph.pdf Graphic file (type p
+df)
+ <use page_8h_a890b33877bfdb45d1c074589b4b94adb_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 314--316
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./page_8h_aade2e8ac5c3f45d00dd3cfed120ce06e_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8h_aade2e8ac5c3f45d00dd3cfed120ce06e_cgraph.pdf, id=7112, 367.3725pt x 10
+2.3825pt>
+File: page_8h_aade2e8ac5c3f45d00dd3cfed120ce06e_cgraph.pdf Graphic file (type p
+df)
+ <use page_8h_aade2e8ac5c3f45d00dd3cfed120ce06e_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 332--334
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./page_8h_a4cfcd3f4ec83fe65d87fdf84687fcea7_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8h_a4cfcd3f4ec83fe65d87fdf84687fcea7_cgraph.pdf, id=7114, 291.0875pt x 10
+2.3825pt>
+File: page_8h_a4cfcd3f4ec83fe65d87fdf84687fcea7_cgraph.pdf Graphic file (type p
+df)
+ <use page_8h_a4cfcd3f4ec83fe65d87fdf84687fcea7_cgraph.pdf> [44 <./page_8h_a890
+b33877bfdb45d1c074589b4b94adb_cgraph.pdf> <./page_8h_aade2e8ac5c3f45d00dd3cfed1
+20ce06e_cgraph.pdf> <./page_8h_a4cfcd3f4ec83fe65d87fdf84687fcea7_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./page_8h_a11e80d1cc051516c82574218cd4d8a2e_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8h_a11e80d1cc051516c82574218cd4d8a2e_cgraph.pdf, id=7141, 246.9225pt x 10
+2.3825pt>
+File: page_8h_a11e80d1cc051516c82574218cd4d8a2e_cgraph.pdf Graphic file (type p
+df)
+ <use page_8h_a11e80d1cc051516c82574218cd4d8a2e_cgraph.pdf>
+
+pdfTeX warning: pdflatex (file ./page_8h_a039ec961f11b8a99073285dd66aa249f_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8h_a039ec961f11b8a99073285dd66aa249f_cgraph.pdf, id=7143, 871.255pt x 180
+.675pt>
+File: page_8h_a039ec961f11b8a99073285dd66aa249f_cgraph.pdf Graphic file (type p
+df)
+ <use page_8h_a039ec961f11b8a99073285dd66aa249f_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 396--398
+ [] 
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 410.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+
+LaTeX Font Warning: Font shape `OT1/pcr/bc/n' undefined
+(Font)              using `OT1/pcr/m/n' instead on input line 410.
+
+
+
+pdfTeX warning: pdflatex (file ./page_8h_aabbe2a1888b08c852a59e98a894184d6_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8h_aabbe2a1888b08c852a59e98a894184d6_cgraph.pdf, id=7145, 612.2875pt x 12
+2.4575pt>
+File: page_8h_aabbe2a1888b08c852a59e98a894184d6_cgraph.pdf Graphic file (type p
+df)
+ <use page_8h_aabbe2a1888b08c852a59e98a894184d6_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 416--418
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./page_8h_a54da2098233e8e95613fbe8d474ccb6e_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8h_a54da2098233e8e95613fbe8d474ccb6e_cgraph.pdf, id=7147, 746.79pt x 161.
+60374pt>
+File: page_8h_a54da2098233e8e95613fbe8d474ccb6e_cgraph.pdf Graphic file (type p
+df)
+ <use page_8h_a54da2098233e8e95613fbe8d474ccb6e_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 435--437
+ [] 
+ []
+
+[45 <./page_8h_a11e80d1cc051516c82574218cd4d8a2e_cgraph.pdf> <./page_8h_a039ec9
+61f11b8a99073285dd66aa249f_cgraph.pdf> <./page_8h_aabbe2a1888b08c852a59e98a8941
+84d6_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./page_8h_a5a77f74c19e12b42ae6ac430a1da67f3_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8h_a5a77f74c19e12b42ae6ac430a1da67f3_cgraph.pdf, id=7174, 483.8075pt x 12
+2.4575pt>
+File: page_8h_a5a77f74c19e12b42ae6ac430a1da67f3_cgraph.pdf Graphic file (type p
+df)
+ <use page_8h_a5a77f74c19e12b42ae6ac430a1da67f3_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 462--464
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./page_8h_a3c2de2a5079f7f0854f1e2df482dbd99_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8h_a3c2de2a5079f7f0854f1e2df482dbd99_cgraph.pdf, id=7176, 501.875pt x 240
+.9pt>
+File: page_8h_a3c2de2a5079f7f0854f1e2df482dbd99_cgraph.pdf Graphic file (type p
+df)
+ <use page_8h_a3c2de2a5079f7f0854f1e2df482dbd99_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 487--489
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [46 <./page_8h_a54da2098233e8e95613fbe8d474ccb6e_cgraph.pdf> <./page_8h_a5a77f
+74c19e12b42ae6ac430a1da67f3_cgraph.pdf>]) (./segdesc_8h.tex
+
+pdfTeX warning: pdflatex (file ./segdesc_8h__dep__incl.pdf): PDF inclusion: fou
+nd PDF version <1.5>, but at most version <1.4> allowed
+<segdesc_8h__dep__incl.pdf, id=7196, 323.2075pt x 160.6pt>
+File: segdesc_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use segdesc_8h__dep__incl.pdf>
+Underfull \vbox (badness 8019) has occurred while \output is active []
+
+ [47 <./page_8h_a3c2de2a5079f7f0854f1e2df482dbd99_cgraph.pdf>]) (./processor_8h
+.tex
+
+pdfTeX warning: pdflatex (file ./processor_8h__dep__incl.pdf): PDF inclusion: f
+ound PDF version <1.5>, but at most version <1.4> allowed
+<processor_8h__dep__incl.pdf, id=7214, 347.2975pt x 160.6pt>
+File: processor_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use processor_8h__dep__incl.pdf>
+Overfull \hbox (1.0pt too wide) in paragraph at lines 7--9
+ [] 
+ []
+
+
+Underfull \vbox (badness 3815) has occurred while \output is active []
+
+ [48 <./segdesc_8h__dep__incl.pdf>] [49 <./processor_8h__dep__incl.pdf>] [50] [
+51])
+(./vectors_8h.tex
+
+pdfTeX warning: pdflatex (file ./vectors_8h__dep__incl.pdf): PDF inclusion: fou
+nd PDF version <1.5>, but at most version <1.4> allowed
+<vectors_8h__dep__incl.pdf, id=7342, 210.7875pt x 160.6pt>
+File: vectors_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use vectors_8h__dep__incl.pdf> [52 <./vectors_8h__dep__incl.pdf>] [53]
+[54] [55]) (./x86_8h.tex
+
+pdfTeX warning: pdflatex (file ./x86_8h__incl.pdf): PDF inclusion: found PDF ve
+rsion <1.5>, but at most version <1.4> allowed
+<x86_8h__incl.pdf, id=7561, 194.7275pt x 160.6pt>
+File: x86_8h__incl.pdf Graphic file (type pdf)
+ <use x86_8h__incl.pdf>
+[56]
+
+pdfTeX warning: pdflatex (file ./x86_8h__dep__incl.pdf): PDF inclusion: found P
+DF version <1.5>, but at most version <1.4> allowed
+<x86_8h__dep__incl.pdf, id=7567, 1268.74pt x 218.8175pt>
+File: x86_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use x86_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 15--17
+ [] 
+ []
+
+) (./cli_8h.tex
+
+pdfTeX warning: pdflatex (file ./cli_8h__dep__incl.pdf): PDF inclusion: found P
+DF version <1.5>, but at most version <1.4> allowed
+<cli_8h__dep__incl.pdf, id=7569, 445.665pt x 160.6pt>
+File: cli_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use cli_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 7--9
+ [] 
+ []
+
+[57 <./x86_8h__incl.pdf> <./x86_8h__dep__incl.pdf> <./cli_8h__dep__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./cli_8h_a9b3ba9ca613021d6954ade2927d8d56e_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<cli_8h_a9b3ba9ca613021d6954ade2927d8d56e_cgraph.pdf, id=7601, 393.47pt x 142.5
+325pt>
+File: cli_8h_a9b3ba9ca613021d6954ade2927d8d56e_cgraph.pdf Graphic file (type pd
+f)
+ <use cli_8h_a9b3ba9ca613021d6954ade2927d8d56e_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 48--50
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./cli_8h_acadd2a5d99d952e55a4580dbc8f8739d_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<cli_8h_acadd2a5d99d952e55a4580dbc8f8739d_cgraph.pdf, id=7603, 523.9575pt x 240
+.9pt>
+File: cli_8h_acadd2a5d99d952e55a4580dbc8f8739d_cgraph.pdf Graphic file (type pd
+f)
+ <use cli_8h_acadd2a5d99d952e55a4580dbc8f8739d_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 66--68
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58 <./cli_8h_a9b3ba9ca613021d6954ade2927d8d56e_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./cli_8h_ad3429ca65a1b6f39eed6d2f9f795586b_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<cli_8h_ad3429ca65a1b6f39eed6d2f9f795586b_cgraph.pdf, id=7623, 355.3275pt x 142
+.5325pt>
+File: cli_8h_ad3429ca65a1b6f39eed6d2f9f795586b_cgraph.pdf Graphic file (type pd
+f)
+ <use cli_8h_ad3429ca65a1b6f39eed6d2f9f795586b_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 91--93
+ [] 
+ []
+
+) (./cmos_8h.tex
+
+pdfTeX warning: pdflatex (file ./cmos_8h__dep__incl.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<cmos_8h__dep__incl.pdf, id=7625, 544.0325pt x 160.6pt>
+File: cmos_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use cmos_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 7--9
+ [] 
+ []
+
+[59 <./cli_8h_acadd2a5d99d952e55a4580dbc8f8739d_cgraph.pdf> <./cli_8h_ad3429ca6
+5a1b6f39eed6d2f9f795586b_cgraph.pdf>] [60 <./cmos_8h__dep__incl.pdf>]
+Overfull \hbox (121.8878pt too wide) in paragraph at lines 80--82
+[]\T1/phv/m/n/10 #define [][]-C-M-O-S-_--S-Y-S-B-A-S-E-_--M-S-B[][] 0x16 /$\OMS
+/ztmcm/m/n/10 ^^C$ \T1/phv/m/n/10 M-S-B of $\OMS/ztmcm/m/n/10 ^^X$$^^X$$^^X$$^^
+X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^
+^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^C$\T1/phv/m/n/10 /
+ 
+ []
+
+
+Overfull \hbox (134.17682pt too wide) in paragraph at lines 84--86
+[]\T1/phv/m/n/10 #define [][]-C-M-O-S-_--E-X-T-M-E-M-_--M-S-B[][] 0x18 /$\OMS/z
+tmcm/m/n/10 ^^C$ \T1/phv/m/n/10 M-S-B of $\OMS/ztmcm/m/n/10 ^^X$$^^X$$^^X$$^^X$
+$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X
+$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$$^^X$
+ []
+
+[61]) (./cpuid_8h.tex [62]
+
+pdfTeX warning: pdflatex (file ./cpuid_8h__dep__incl.pdf): PDF inclusion: found
+ PDF version <1.5>, but at most version <1.4> allowed
+<cpuid_8h__dep__incl.pdf, id=7745, 246.9225pt x 160.6pt>
+File: cpuid_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use cpuid_8h__dep__incl.pdf>) (./device_8h.tex) (./ext2fs_8h.tex
+
+pdfTeX warning: pdflatex (file ./ext2fs_8h__incl.pdf): PDF inclusion: found PDF
+ version <1.5>, but at most version <1.4> allowed
+<ext2fs_8h__incl.pdf, id=7749, 176.66pt x 160.6pt>
+File: ext2fs_8h__incl.pdf Graphic file (type pdf)
+ <use ext2fs_8h__incl.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [63 <./cpuid_8h__dep__incl.pdf>] [64 <./ext2fs_8h__incl.pdf>] [65] [66] [67] [
+68])
+(./init_8h.tex
+
+pdfTeX warning: pdflatex (file ./init_8h__incl.pdf): PDF inclusion: found PDF v
+ersion <1.5>, but at most version <1.4> allowed
+<init_8h__incl.pdf, id=7959, 453.695pt x 393.47pt>
+File: init_8h__incl.pdf Graphic file (type pdf)
+ <use init_8h__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 9--11
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [69]
+
+pdfTeX warning: pdflatex (file ./init_8h__dep__incl.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<init_8h__dep__incl.pdf, id=7965, 381.425pt x 160.6pt>
+File: init_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use init_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 16--18
+ [] 
+ []
+
+[70 <./init_8h__incl.pdf> <./init_8h__dep__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./init_8h_a8550587b9b0a5d791fb2a9917415f6c5_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<init_8h_a8550587b9b0a5d791fb2a9917415f6c5_cgraph.pdf, id=7990, 752.8125pt x 31
+9.1925pt>
+File: init_8h_a8550587b9b0a5d791fb2a9917415f6c5_cgraph.pdf Graphic file (type p
+df)
+ <use init_8h_a8550587b9b0a5d791fb2a9917415f6c5_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 56--58
+ [] 
+ []
+
+) (./kbc_8h.tex
+
+pdfTeX warning: pdflatex (file ./kbc_8h__incl.pdf): PDF inclusion: found PDF ve
+rsion <1.5>, but at most version <1.4> allowed
+<kbc_8h__incl.pdf, id=7992, 154.5775pt x 160.6pt>
+File: kbc_8h__incl.pdf Graphic file (type pdf)
+ <use kbc_8h__incl.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [71 <./init_8h_a8550587b9b0a5d791fb2a9917415f6c5_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./kbc_8h__dep__incl.pdf): PDF inclusion: found P
+DF version <1.5>, but at most version <1.4> allowed
+<kbc_8h__dep__incl.pdf, id=8011, 433.62pt x 160.6pt>
+File: kbc_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use kbc_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 15--17
+ [] 
+ []
+
+[72 <./kbc_8h__incl.pdf> <./kbc_8h__dep__incl.pdf>] [73] [74] [75]
+
+pdfTeX warning: pdflatex (file ./kbc_8h_abf3ce1c314db9a6a15b99e5313eb2edb_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<kbc_8h_abf3ce1c314db9a6a15b99e5313eb2edb_cgraph.pdf, id=8158, 283.0575pt x 142
+.5325pt>
+File: kbc_8h_abf3ce1c314db9a6a15b99e5313eb2edb_cgraph.pdf Graphic file (type pd
+f)
+ <use kbc_8h_abf3ce1c314db9a6a15b99e5313eb2edb_cgraph.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [76])
+(./memvals_8h.tex
+
+pdfTeX warning: pdflatex (file ./memvals_8h__dep__incl.pdf): PDF inclusion: fou
+nd PDF version <1.5>, but at most version <1.4> allowed
+<memvals_8h__dep__incl.pdf, id=8164, 921.4425pt x 335.2525pt>
+File: memvals_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use memvals_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 7--9
+ [] 
+ []
+
+[77 <./kbc_8h_abf3ce1c314db9a6a15b99e5313eb2edb_cgraph.pdf> <./memvals_8h__dep_
+_incl.pdf>] [78]
+Overfull \hbox (29.40024pt too wide) in paragraph at lines 151--151
+[]\T1/pcr/m/n/8 0x4     /* growing down segment for data segments and means tha
+t this segments 
+ []
+
+
+Overfull \hbox (15.00023pt too wide) in paragraph at lines 153--153
+[]                                        \T1/pcr/m/n/8 Executed from the user 
+applications[] 
+ []
+
+[79]) (./proc_8h.tex
+
+pdfTeX warning: pdflatex (file ./proc_8h__incl.pdf): PDF inclusion: found PDF v
+ersion <1.5>, but at most version <1.4> allowed
+<proc_8h__incl.pdf, id=8284, 453.695pt x 335.2525pt>
+File: proc_8h__incl.pdf Graphic file (type pdf)
+ <use proc_8h__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 11--13
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--14
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/cpu-_-sta
+te.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/
+ztmcm/m/it/10 <$\T1/pcr/m/n/10 memvals.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/1
+0 ^^B
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--14
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 structs/queue.-h$\
+OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m
+/it/10 <$\T1/pcr/m/n/10 arch/x86/mm/page.-
+ []
+
+
+Underfull \vbox (badness 3068) has occurred while \output is active []
+
+ [80]
+
+pdfTeX warning: pdflatex (file ./proc_8h__dep__incl.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<proc_8h__dep__incl.pdf, id=8290, 804.00375pt x 218.8175pt>
+File: proc_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use proc_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 18--20
+ [] 
+ []
+
+[81 <./proc_8h__incl.pdf> <./proc_8h__dep__incl.pdf>]
+Overfull \hbox (25.12262pt too wide) in paragraph at lines 80--81
+\T1/phv/m/n/10 inclede/arch/x86/interrupt.-h -C-A-T-Reloaded (-C) -Copyrights 2
+011 [][]\T1/pcr/m/n/10 http-:/ecatreloaded.-
+ []
+
+[82]
+
+pdfTeX warning: pdflatex (file ./proc_8h_a7a86f136018ec12ba764d8ecc13ee403_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<proc_8h_a7a86f136018ec12ba764d8ecc13ee403_cgraph.pdf, id=8368, 740.7675pt x 12
+2.4575pt>
+File: proc_8h_a7a86f136018ec12ba764d8ecc13ee403_cgraph.pdf Graphic file (type p
+df)
+ <use proc_8h_a7a86f136018ec12ba764d8ecc13ee403_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 118--120
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./proc_8h_a5786a19c8d7e97d107ad3e1c02c12b0d_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<proc_8h_a5786a19c8d7e97d107ad3e1c02c12b0d_cgraph.pdf, id=8370, 473.77pt x 240.
+9pt>
+File: proc_8h_a5786a19c8d7e97d107ad3e1c02c12b0d_cgraph.pdf Graphic file (type p
+df)
+ <use proc_8h_a5786a19c8d7e97d107ad3e1c02c12b0d_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 173--175
+ [] 
+ []
+
+[83 <./proc_8h_a7a86f136018ec12ba764d8ecc13ee403_cgraph.pdf> <./proc_8h_a5786a1
+9c8d7e97d107ad3e1c02c12b0d_cgraph.pdf>]) (./rdisk_8h.tex
+
+pdfTeX warning: pdflatex (file ./rdisk_8h__incl.pdf): PDF inclusion: found PDF 
+version <1.5>, but at most version <1.4> allowed
+<rdisk_8h__incl.pdf, id=8390, 254.9525pt x 218.8175pt>
+File: rdisk_8h__incl.pdf Graphic file (type pdf)
+
+<use rdisk_8h__incl.pdf>
+
+pdfTeX warning: pdflatex (file ./rdisk_8h__dep__incl.pdf): PDF inclusion: found
+ PDF version <1.5>, but at most version <1.4> allowed
+<rdisk_8h__dep__incl.pdf, id=8392, 395.4775pt x 160.6pt>
+File: rdisk_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use rdisk_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 16--18
+ [] 
+ []
+
+[84 <./rdisk_8h__incl.pdf> <./rdisk_8h__dep__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./rdisk_8h_a8bc2062a175b7c74607a2498ac997657_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<rdisk_8h_a8bc2062a175b7c74607a2498ac997657_cgraph.pdf, id=8421, 224.84pt x 102
+.3825pt>
+File: rdisk_8h_a8bc2062a175b7c74607a2498ac997657_cgraph.pdf Graphic file (type 
+pdf)
+ <use rdisk_8h_a8bc2062a175b7c74607a2498ac997657_cgraph.pdf>
+
+pdfTeX warning: pdflatex (file ./rdisk_8h_a687601dc22e8d4d8407608c91fd325eb_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<rdisk_8h_a687601dc22e8d4d8407608c91fd325eb_cgraph.pdf, id=8423, 313.17pt x 102
+.3825pt>
+File: rdisk_8h_a687601dc22e8d4d8407608c91fd325eb_cgraph.pdf Graphic file (type 
+pdf)
+ <use rdisk_8h_a687601dc22e8d4d8407608c91fd325eb_cgraph.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [85 <./rdisk_8h_a8bc2062a175b7c74607a2498ac997657_cgraph.pdf>]) (./stdarg_8h.t
+ex
+
+pdfTeX warning: pdflatex (file ./stdarg_8h__dep__incl.pdf): PDF inclusion: foun
+d PDF version <1.5>, but at most version <1.4> allowed
+<stdarg_8h__dep__incl.pdf, id=8444, 1141.26375pt x 451.6875pt>
+File: stdarg_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use stdarg_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 7--9
+ [] 
+ []
+
+
+Underfull \hbox (badness 768) in paragraph at lines 18--20
+[]\T1/phv/m/n/10 #define [][]va-_-arg[][](ap, type) ($\OMS/ztmcm/m/n/10 ^^C$\T1
+/phv/m/n/10 (type $\OMS/ztmcm/m/n/10 ^^C$\T1/phv/m/n/10 )((ap) += [][]-_--_-va-
+_-size[][](type), (ap) - [][]-_--_-va-_-
+ []
+
+[86 <./rdisk_8h_a687601dc22e8d4d8407608c91fd325eb_cgraph.pdf> <./stdarg_8h__dep
+__incl.pdf>]) (./stdio_8h.tex
+
+pdfTeX warning: pdflatex (file ./stdio_8h__incl.pdf): PDF inclusion: found PDF 
+version <1.5>, but at most version <1.4> allowed
+<stdio_8h__incl.pdf, id=8481, 160.6pt x 160.6pt>
+File: stdio_8h__incl.pdf Graphic file (type pdf)
+ <use stdio_8h__incl.pdf>
+
+pdfTeX warning: pdflatex (file ./stdio_8h__dep__incl.pdf): PDF inclusion: found
+ PDF version <1.5>, but at most version <1.4> allowed
+<stdio_8h__dep__incl.pdf, id=8483, 885.3075pt x 393.47pt>
+File: stdio_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use stdio_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 15--17
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [87 <./stdio_8h__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./stdio_8h_a3e29caa20f7cffe18f410f01278905a8_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<stdio_8h_a3e29caa20f7cffe18f410f01278905a8_cgraph.pdf, id=8507, 479.7925pt x 1
+42.5325pt>
+File: stdio_8h_a3e29caa20f7cffe18f410f01278905a8_cgraph.pdf Graphic file (type 
+pdf)
+ <use stdio_8h_a3e29caa20f7cffe18f410f01278905a8_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 51--53
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./stdio_8h_a4d96a0e0fd1a548e704a5408d77c33cb_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<stdio_8h_a4d96a0e0fd1a548e704a5408d77c33cb_cgraph.pdf, id=8509, 228.855pt x 12
+0.45pt>
+File: stdio_8h_a4d96a0e0fd1a548e704a5408d77c33cb_cgraph.pdf Graphic file (type 
+pdf)
+ <use stdio_8h_a4d96a0e0fd1a548e704a5408d77c33cb_cgraph.pdf> [88 <./stdio_8h__d
+ep__incl.pdf> <./stdio_8h_a3e29caa20f7cffe18f410f01278905a8_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./stdio_8h_acbc64731fbdae6409954f586b33cd8aa_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<stdio_8h_acbc64731fbdae6409954f586b33cd8aa_cgraph.pdf, id=8538, 224.84pt x 240
+.9pt>
+File: stdio_8h_acbc64731fbdae6409954f586b33cd8aa_cgraph.pdf Graphic file (type 
+pdf)
+ <use stdio_8h_acbc64731fbdae6409954f586b33cd8aa_cgraph.pdf>
+
+pdfTeX warning: pdflatex (file ./stdio_8h_a68c0540178fcff40a9b05dfa452900cf_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<stdio_8h_a68c0540178fcff40a9b05dfa452900cf_cgraph.pdf, id=8540, 385.44pt x 240
+.9pt>
+File: stdio_8h_a68c0540178fcff40a9b05dfa452900cf_cgraph.pdf Graphic file (type 
+pdf)
+ <use stdio_8h_a68c0540178fcff40a9b05dfa452900cf_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 114--116
+ [] 
+ []
+
+
+Underfull \vbox (badness 1199) has occurred while \output is active []
+
+ [89 <./stdio_8h_a4d96a0e0fd1a548e704a5408d77c33cb_cgraph.pdf> <./stdio_8h_acbc
+64731fbdae6409954f586b33cd8aa_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./stdio_8h_a2d4bf280875c7c627a8548dcf7184187_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<stdio_8h_a2d4bf280875c7c627a8548dcf7184187_cgraph.pdf, id=8560, 435.6275pt x 1
+42.5325pt>
+File: stdio_8h_a2d4bf280875c7c627a8548dcf7184187_cgraph.pdf Graphic file (type 
+pdf)
+ <use stdio_8h_a2d4bf280875c7c627a8548dcf7184187_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 132--134
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./stdio_8h_af3ce5d5d5bbaecd72030c27d331fb09e_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<stdio_8h_af3ce5d5d5bbaecd72030c27d331fb09e_cgraph.pdf, id=8562, 566.115pt x 40
+1.5pt>
+File: stdio_8h_af3ce5d5d5bbaecd72030c27d331fb09e_cgraph.pdf Graphic file (type 
+pdf)
+ <use stdio_8h_af3ce5d5d5bbaecd72030c27d331fb09e_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 150--152
+ [] 
+ []
+
+
+Underfull \vbox (badness 7362) has occurred while \output is active []
+
+ [90 <./stdio_8h_a68c0540178fcff40a9b05dfa452900cf_cgraph.pdf> <./stdio_8h_a2d4
+bf280875c7c627a8548dcf7184187_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./stdio_8h_a9c91d3689b6c39cc51f8c8c6c63d920b_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<stdio_8h_a9c91d3689b6c39cc51f8c8c6c63d920b_cgraph.pdf, id=8582, 307.1475pt x 2
+40.9pt>
+File: stdio_8h_a9c91d3689b6c39cc51f8c8c6c63d920b_cgraph.pdf Graphic file (type 
+pdf)
+ <use stdio_8h_a9c91d3689b6c39cc51f8c8c6c63d920b_cgraph.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [91 <./stdio_8h_af3ce5d5d5bbaecd72030c27d331fb09e_cgraph.pdf>]) (./string_8h.t
+ex
+
+pdfTeX warning: pdflatex (file ./string_8h__incl.pdf): PDF inclusion: found PDF
+ version <1.5>, but at most version <1.4> allowed
+<string_8h__incl.pdf, id=8596, 162.6075pt x 160.6pt>
+File: string_8h__incl.pdf Graphic file (type pdf)
+ <use string_8h__incl.pdf>
+
+pdfTeX warning: pdflatex (file ./string_8h__dep__incl.pdf): PDF inclusion: foun
+d PDF version <1.5>, but at most version <1.4> allowed
+<string_8h__dep__incl.pdf, id=8598, 680.5425pt x 160.6pt>
+File: string_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use string_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 15--17
+ [] 
+ []
+
+
+Underfull \vbox (badness 7433) has occurred while \output is active []
+
+ [92 <./stdio_8h_a9c91d3689b6c39cc51f8c8c6c63d920b_cgraph.pdf> <./string_8h__in
+cl.pdf>]
+[93 <./string_8h__dep__incl.pdf>]) (./linkedlist_8h.tex
+
+pdfTeX warning: pdflatex (file ./linkedlist_8h__dep__incl.pdf): PDF inclusion: 
+found PDF version <1.5>, but at most version <1.4> allowed
+<linkedlist_8h__dep__incl.pdf, id=8677, 957.5775pt x 335.2525pt>
+File: linkedlist_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use linkedlist_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 7--9
+ [] 
+ []
+
+[94 <./linkedlist_8h__dep__incl.pdf>] [95]
+Overfull \hbox (19.80023pt too wide) in paragraph at lines 130--130
+[]        \T1/pcr/m/n/8 if((LIST_NEXT((element),field) = (LIST_NEXT((pre),field
+))) != NULL)\[] 
+ []
+
+
+Overfull \hbox (34.20024pt too wide) in paragraph at lines 131--131
+[]                \T1/pcr/m/n/8 LIST_NEXT(pre,field)->field.prev = &(LIST_NEXT(
+(element),field)[] 
+ []
+
+
+Overfull \hbox (34.20024pt too wide) in paragraph at lines 168--168
+[]                \T1/pcr/m/n/8 LIST_FIRST((head))->field.prev = &(LIST_NEXT((e
+lement),field));[] 
+ []
+
+) (./list_8h.tex [96]) (./queue_8h.tex
+
+pdfTeX warning: pdflatex (file ./queue_8h__incl.pdf): PDF inclusion: found PDF 
+version <1.5>, but at most version <1.4> allowed
+<queue_8h__incl.pdf, id=8733, 198.7425pt x 160.6pt>
+File: queue_8h__incl.pdf Graphic file (type pdf)
+ <use queue_8h__incl.pdf>
+
+pdfTeX warning: pdflatex (file ./queue_8h__dep__incl.pdf): PDF inclusion: found
+ PDF version <1.5>, but at most version <1.4> allowed
+<queue_8h__dep__incl.pdf, id=8735, 804.00375pt x 277.035pt>
+File: queue_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use queue_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 15--17
+ [] 
+ []
+
+[97 <./queue_8h__incl.pdf> <./queue_8h__dep__incl.pdf>]) (./test_8h.tex
+
+pdfTeX warning: pdflatex (file ./test_8h__incl.pdf): PDF inclusion: found PDF v
+ersion <1.5>, but at most version <1.4> allowed
+<test_8h__incl.pdf, id=8776, 165.61874pt x 218.8175pt>
+File: test_8h__incl.pdf Graphic file (type pdf)
+ <use test_8h__incl.pdf>
+Underfull \vbox (badness 5374) has occurred while \output is active []
+
+ [98]
+
+pdfTeX warning: pdflatex (file ./test_8h__dep__incl.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<test_8h__dep__incl.pdf, id=8785, 791.95876pt x 335.2525pt>
+File: test_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use test_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 16--18
+ [] 
+ []
+
+[99 <./test_8h__incl.pdf> <./test_8h__dep__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./test_8h_a8e8d6b6c571aed957342ff5b9b7450c5_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<test_8h_a8e8d6b6c571aed957342ff5b9b7450c5_cgraph.pdf, id=8814, 471.7625pt x 24
+0.9pt>
+File: test_8h_a8e8d6b6c571aed957342ff5b9b7450c5_cgraph.pdf Graphic file (type p
+df)
+ <use test_8h_a8e8d6b6c571aed957342ff5b9b7450c5_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 78--80
+ [] 
+ []
+
+) (./types_8h.tex
+
+pdfTeX warning: pdflatex (file ./types_8h__dep__incl.pdf): PDF inclusion: found
+ PDF version <1.5>, but at most version <1.4> allowed
+<types_8h__dep__incl.pdf, id=8816, 2027.575pt x 335.2525pt>
+File: types_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use types_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 7--9
+ [] 
+ []
+
+
+Underfull \vbox (badness 4739) has occurred while \output is active []
+
+ [100 <./test_8h_a8e8d6b6c571aed957342ff5b9b7450c5_cgraph.pdf>] [101 <./types_8
+h__dep__incl.pdf>]) (./video_8h.tex
+
+pdfTeX warning: pdflatex (file ./video_8h__dep__incl.pdf): PDF inclusion: found
+ PDF version <1.5>, but at most version <1.4> allowed
+<video_8h__dep__incl.pdf, id=8870, 558.085pt x 160.6pt>
+File: video_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use video_8h__dep__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 7--9
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [102]
+[103 <./video_8h__dep__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./video_8h_ab0ab5e709ff4fc4d57b7007cd4e305be_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<video_8h_ab0ab5e709ff4fc4d57b7007cd4e305be_cgraph.pdf, id=8945, 238.8925pt x 1
+02.3825pt>
+File: video_8h_ab0ab5e709ff4fc4d57b7007cd4e305be_cgraph.pdf Graphic file (type 
+pdf)
+ <use video_8h_ab0ab5e709ff4fc4d57b7007cd4e305be_cgraph.pdf> [104]
+
+pdfTeX warning: pdflatex (file ./video_8h_aca189a8fb5d14a6ccaabfb4ce606e20c_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<video_8h_aca189a8fb5d14a6ccaabfb4ce606e20c_cgraph.pdf, id=8954, 337.26pt x 160
+.6pt>
+File: video_8h_aca189a8fb5d14a6ccaabfb4ce606e20c_cgraph.pdf Graphic file (type 
+pdf)
+ <use video_8h_aca189a8fb5d14a6ccaabfb4ce606e20c_cgraph.pdf>)
+(./interrupt_8c.tex
+
+pdfTeX warning: pdflatex (file ./interrupt_8c__incl.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<interrupt_8c__incl.pdf, id=8956, 981.6675pt x 393.47pt>
+File: interrupt_8c__incl.pdf Graphic file (type pdf)
+
+<use interrupt_8c__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 15--17
+ [] 
+ []
+
+
+Overfull \hbox (37.89554pt too wide) in paragraph at lines 4--18
+\T1/pcr/m/n/10 h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #inc
+lude $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/vectors.-h$\OML/ztmcm/m/it/1
+0 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr
+/m/n/10 arch/x86/mm/segdesc.-
+ []
+
+
+Underfull \hbox (badness 1412) in paragraph at lines 4--18
+\T1/pcr/m/n/10 h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #inc
+lude $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/cpu-_-state.-h$\OML/ztmcm/m/
+it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/phv/m/n/10 -Include de-pen-dency graph for
+ []
+
+[105 <./video_8h_ab0ab5e709ff4fc4d57b7007cd4e305be_cgraph.pdf> <./video_8h_aca1
+89a8fb5d14a6ccaabfb4ce606e20c_cgraph.pdf>]
+Underfull \hbox (badness 5359) in paragraph at lines 26--28
+[]\T1/phv/m/n/10 void [][]register-_-exception[][] ([][]uint32-_-t[][] in-dex, 
+char $\OMS/ztmcm/m/n/10 ^^C$\T1/phv/m/n/10 name, [][]uint16-_-t[][] present,
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./interrupt_8c_a164d38a0163ec2c36993b803b8c7fdcb
+_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4>
+ allowed
+
+<interrupt_8c_a164d38a0163ec2c36993b803b8c7fdcb_cgraph.pdf, id=8991, 467.7475pt
+ x 240.9pt>
+File: interrupt_8c_a164d38a0163ec2c36993b803b8c7fdcb_cgraph.pdf Graphic file (t
+ype pdf)
+ <use interrupt_8c_a164d38a0163ec2c36993b803b8c7fdcb_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 58--60
+ [] 
+ []
+
+
+Underfull \vbox (badness 1087) has occurred while \output is active []
+
+ [106 <./interrupt_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./interrupt_8c_aee258f399635eb17537ee286417e141c
+_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4>
+ allowed
+
+<interrupt_8c_aee258f399635eb17537ee286417e141c_cgraph.pdf, id=9015, 1126.2075p
+t x 397.485pt>
+File: interrupt_8c_aee258f399635eb17537ee286417e141c_cgraph.pdf Graphic file (t
+ype pdf)
+ <use interrupt_8c_aee258f399635eb17537ee286417e141c_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 84--86
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./interrupt_8c_a5ca993690237b19d024337e30eecea6c
+_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4>
+ allowed
+
+<interrupt_8c_a5ca993690237b19d024337e30eecea6c_cgraph.pdf, id=9017, 1005.7575p
+t x 397.485pt>
+File: interrupt_8c_a5ca993690237b19d024337e30eecea6c_cgraph.pdf Graphic file (t
+ype pdf)
+ <use interrupt_8c_a5ca993690237b19d024337e30eecea6c_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 102--104
+ [] 
+ []
+
+
+Underfull \vbox (badness 7576) has occurred while \output is active []
+
+ [107 <./interrupt_8c_a164d38a0163ec2c36993b803b8c7fdcb_cgraph.pdf> <./interrup
+t_8c_aee258f399635eb17537ee286417e141c_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./interrupt_8c_aec1d1c87cbfcb716257cc7c4f6766bd2
+_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4>
+ allowed
+
+<interrupt_8c_aec1d1c87cbfcb716257cc7c4f6766bd2_cgraph.pdf, id=9037, 455.7025pt
+ x 240.9pt>
+File: interrupt_8c_aec1d1c87cbfcb716257cc7c4f6766bd2_cgraph.pdf Graphic file (t
+ype pdf)
+ <use interrupt_8c_aec1d1c87cbfcb716257cc7c4f6766bd2_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 130--132
+ [] 
+ []
+
+
+Overfull \hbox (25.12262pt too wide) in paragraph at lines 142--143
+[][]\T1/phv/m/n/10 include/arch/x86/interrupt.-h[][] -C-A-T-Reloaded (-C) -Copy
+rights 2011 [][]\T1/pcr/m/n/10 http-://catreloaded.-
+ []
+
+[108 <./interrupt_8c_a5ca993690237b19d024337e30eecea6c_cgraph.pdf> <./interrupt
+_8c_aec1d1c87cbfcb716257cc7c4f6766bd2_cgraph.pdf>]) (./init__mem_8c.tex
+
+pdfTeX warning: pdflatex (file ./init__mem_8c__incl.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<init__mem_8c__incl.pdf, id=9059, 782.925pt x 393.47pt>
+File: init__mem_8c__incl.pdf Graphic file (type pdf)
+
+<use init__mem_8c__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 17--19
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--20
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 arch/x86/x86.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/
+pcr/m/n/10 #include
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--20
+\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/processor.-h$\OML/ztmcm/m/it/10 >$
+\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n
+/10 arch/x86/mm/page.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--20
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/interrupt
+.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/zt
+mcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/cpu-
+ []
+
+
+Underfull \vbox (badness 5475) has occurred while \output is active []
+
+ [109]
+
+pdfTeX warning: pdflatex (file ./init__mem_8c_a1ba69b97e0fef308cbf209384a7fcd81
+_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4>
+ allowed
+
+<init__mem_8c_a1ba69b97e0fef308cbf209384a7fcd81_cgraph.pdf, id=9084, 499.8675pt
+ x 240.9pt>
+File: init__mem_8c_a1ba69b97e0fef308cbf209384a7fcd81_cgraph.pdf Graphic file (t
+ype pdf)
+ <use init__mem_8c_a1ba69b97e0fef308cbf209384a7fcd81_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 71--73
+ [] 
+ []
+
+[110 <./init__mem_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./init__mem_8c_ab51e89d6798c133feb72e0546b330e6b
+_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4>
+ allowed
+
+<init__mem_8c_ab51e89d6798c133feb72e0546b330e6b_cgraph.pdf, id=9110, 766.865pt 
+x 378.41376pt>
+File: init__mem_8c_ab51e89d6798c133feb72e0546b330e6b_cgraph.pdf Graphic file (t
+ype pdf)
+ <use init__mem_8c_ab51e89d6798c133feb72e0546b330e6b_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 89--91
+ [] 
+ []
+
+[111 <./init__mem_8c_a1ba69b97e0fef308cbf209384a7fcd81_cgraph.pdf> <./init__mem
+_8c_ab51e89d6798c133feb72e0546b330e6b_cgraph.pdf>]
+Overfull \hbox (34.20024pt too wide) in paragraph at lines 111--111
+[]        \T1/pcr/m/n/8 [3] = SEGMENT(0xffffffff, 0x000000, SEGACS_RW | SEGACS_
+USR | SEGACS_X),[] 
+ []
+
+) (./page_8c.tex
+
+pdfTeX warning: pdflatex (file ./page_8c__incl.pdf): PDF inclusion: found PDF v
+ersion <1.5>, but at most version <1.4> allowed
+<page_8c__incl.pdf, id=9130, 472.76625pt x 335.2525pt>
+File: page_8c__incl.pdf Graphic file (type pdf)
+ <use page_8c__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 12--14
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--15
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 arch/x86/x86.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/
+pcr/m/n/10 #include
+ []
+
+
+Overfull \hbox (15.66544pt too wide) in paragraph at lines 4--15
+\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 memvals.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/
+m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 string.
+-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztm
+cm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/mm/page.-
+ []
+
+[112] [113 <./page_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./page_8c_a72d597193a2cbbab7100effdf3e045df_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8c_a72d597193a2cbbab7100effdf3e045df_cgraph.pdf, id=9201, 624.3325pt x 12
+2.4575pt>
+File: page_8c_a72d597193a2cbbab7100effdf3e045df_cgraph.pdf Graphic file (type p
+df)
+ <use page_8c_a72d597193a2cbbab7100effdf3e045df_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 73--75
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./page_8c_afdfcf53a6e442e1244205d5caa178dc1_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8c_afdfcf53a6e442e1244205d5caa178dc1_cgraph.pdf, id=9203, 367.3725pt x 10
+2.3825pt>
+File: page_8c_afdfcf53a6e442e1244205d5caa178dc1_cgraph.pdf Graphic file (type p
+df)
+ <use page_8c_afdfcf53a6e442e1244205d5caa178dc1_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 91--93
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./page_8c_a0e4ecf1dbcf05554104e7f089e6eaa9b_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8c_a0e4ecf1dbcf05554104e7f089e6eaa9b_cgraph.pdf, id=9205, 291.0875pt x 10
+2.3825pt>
+File: page_8c_a0e4ecf1dbcf05554104e7f089e6eaa9b_cgraph.pdf Graphic file (type p
+df)
+ <use page_8c_a0e4ecf1dbcf05554104e7f089e6eaa9b_cgraph.pdf>
+
+pdfTeX warning: pdflatex (file ./page_8c_a47035fa680fdf11c7403445db4762728_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8c_a47035fa680fdf11c7403445db4762728_cgraph.pdf, id=9207, 246.9225pt x 10
+2.3825pt>
+File: page_8c_a47035fa680fdf11c7403445db4762728_cgraph.pdf Graphic file (type p
+df)
+ <use page_8c_a47035fa680fdf11c7403445db4762728_cgraph.pdf> [114 <./page_8c_a72
+d597193a2cbbab7100effdf3e045df_cgraph.pdf> <./page_8c_afdfcf53a6e442e1244205d5c
+aa178dc1_cgraph.pdf> <./page_8c_a0e4ecf1dbcf05554104e7f089e6eaa9b_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./page_8c_ac8fee72731746be1776eee181b5c3d1f_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8c_ac8fee72731746be1776eee181b5c3d1f_cgraph.pdf, id=9234, 871.255pt x 180
+.675pt>
+File: page_8c_ac8fee72731746be1776eee181b5c3d1f_cgraph.pdf Graphic file (type p
+df)
+ <use page_8c_ac8fee72731746be1776eee181b5c3d1f_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 155--157
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./page_8c_a90f1e53f745fbff067dd1d6e21e4a971_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8c_a90f1e53f745fbff067dd1d6e21e4a971_cgraph.pdf, id=9236, 612.2875pt x 12
+2.4575pt>
+File: page_8c_a90f1e53f745fbff067dd1d6e21e4a971_cgraph.pdf Graphic file (type p
+df)
+ <use page_8c_a90f1e53f745fbff067dd1d6e21e4a971_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 175--177
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./page_8c_a0094c45a39dd8369285c834af6512f53_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8c_a0094c45a39dd8369285c834af6512f53_cgraph.pdf, id=9238, 746.79pt x 161.
+60374pt>
+File: page_8c_a0094c45a39dd8369285c834af6512f53_cgraph.pdf Graphic file (type p
+df)
+ <use page_8c_a0094c45a39dd8369285c834af6512f53_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 194--196
+ [] 
+ []
+
+[115 <./page_8c_a47035fa680fdf11c7403445db4762728_cgraph.pdf> <./page_8c_ac8fee
+72731746be1776eee181b5c3d1f_cgraph.pdf> <./page_8c_a90f1e53f745fbff067dd1d6e21e
+4a971_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./page_8c_a7a6381142371ad1ed883bc33683c68de_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8c_a7a6381142371ad1ed883bc33683c68de_cgraph.pdf, id=9266, 483.8075pt x 12
+2.4575pt>
+File: page_8c_a7a6381142371ad1ed883bc33683c68de_cgraph.pdf Graphic file (type p
+df)
+ <use page_8c_a7a6381142371ad1ed883bc33683c68de_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 221--223
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./page_8c_a3c2de2a5079f7f0854f1e2df482dbd99_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<page_8c_a3c2de2a5079f7f0854f1e2df482dbd99_cgraph.pdf, id=9268, 501.875pt x 240
+.9pt>
+File: page_8c_a3c2de2a5079f7f0854f1e2df482dbd99_cgraph.pdf Graphic file (type p
+df)
+ <use page_8c_a3c2de2a5079f7f0854f1e2df482dbd99_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 239--241
+ [] 
+ []
+
+[116 <./page_8c_a0094c45a39dd8369285c834af6512f53_cgraph.pdf> <./page_8c_a7a638
+1142371ad1ed883bc33683c68de_cgraph.pdf> <./page_8c_a3c2de2a5079f7f0854f1e2df482
+dbd99_cgraph.pdf>]) (./cli_8c.tex
+
+pdfTeX warning: pdflatex (file ./cli_8c__incl.pdf): PDF inclusion: found PDF ve
+rsion <1.5>, but at most version <1.4> allowed
+<cli_8c__incl.pdf, id=9295, 418.56375pt x 218.8175pt>
+File: cli_8c__incl.pdf Graphic file (type pdf)
+ <use cli_8c__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 13--15
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--16
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 arch/x86/x86.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/
+pcr/m/n/10 #include
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--16
+\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 cli.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/
+10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 kbc.-h$\OML
+/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it
+/10 <$\T1/pcr/m/n/10 video.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pc
+r/m/n/10 #include
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./cli_8c_aa458c825fb8701dc71639422d2a03385_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<cli_8c_aa458c825fb8701dc71639422d2a03385_cgraph.pdf, id=9304, 363.3575pt x 102
+.3825pt>
+File: cli_8c_aa458c825fb8701dc71639422d2a03385_cgraph.pdf Graphic file (type pd
+f)
+ <use cli_8c_aa458c825fb8701dc71639422d2a03385_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 49--51
+ [] 
+ []
+
+[117 <./cli_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./cli_8c_a9b3ba9ca613021d6954ade2927d8d56e_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<cli_8c_a9b3ba9ca613021d6954ade2927d8d56e_cgraph.pdf, id=9325, 393.47pt x 142.5
+325pt>
+File: cli_8c_a9b3ba9ca613021d6954ade2927d8d56e_cgraph.pdf Graphic file (type pd
+f)
+ <use cli_8c_a9b3ba9ca613021d6954ade2927d8d56e_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 67--69
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./cli_8c_acadd2a5d99d952e55a4580dbc8f8739d_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<cli_8c_acadd2a5d99d952e55a4580dbc8f8739d_cgraph.pdf, id=9327, 523.9575pt x 240
+.9pt>
+File: cli_8c_acadd2a5d99d952e55a4580dbc8f8739d_cgraph.pdf Graphic file (type pd
+f)
+ <use cli_8c_acadd2a5d99d952e55a4580dbc8f8739d_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 85--87
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [118 <./cli_8c_aa458c825fb8701dc71639422d2a03385_cgraph.pdf> <./cli_8c_a9b3ba9
+ca613021d6954ade2927d8d56e_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./cli_8c_ad3429ca65a1b6f39eed6d2f9f795586b_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<cli_8c_ad3429ca65a1b6f39eed6d2f9f795586b_cgraph.pdf, id=9347, 355.3275pt x 142
+.5325pt>
+File: cli_8c_ad3429ca65a1b6f39eed6d2f9f795586b_cgraph.pdf Graphic file (type pd
+f)
+ <use cli_8c_ad3429ca65a1b6f39eed6d2f9f795586b_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 110--112
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./cli_8c_a3e29caa20f7cffe18f410f01278905a8_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<cli_8c_a3e29caa20f7cffe18f410f01278905a8_cgraph.pdf, id=9349, 479.7925pt x 142
+.5325pt>
+File: cli_8c_a3e29caa20f7cffe18f410f01278905a8_cgraph.pdf Graphic file (type pd
+f)
+ <use cli_8c_a3e29caa20f7cffe18f410f01278905a8_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 128--130
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [119 <./cli_8c_acadd2a5d99d952e55a4580dbc8f8739d_cgraph.pdf> <./cli_8c_ad3429c
+a65a1b6f39eed6d2f9f795586b_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./cli_8c_a77246c715d47b2f9782c230ca981952e_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<cli_8c_a77246c715d47b2f9782c230ca981952e_cgraph.pdf, id=9369, 435.6275pt x 142
+.5325pt>
+File: cli_8c_a77246c715d47b2f9782c230ca981952e_cgraph.pdf Graphic file (type pd
+f)
+ <use cli_8c_a77246c715d47b2f9782c230ca981952e_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 146--148
+ [] 
+ []
+
+) (./cmos_8c.tex
+
+pdfTeX warning: pdflatex (file ./cmos_8c__incl.pdf): PDF inclusion: found PDF v
+ersion <1.5>, but at most version <1.4> allowed
+<cmos_8c__incl.pdf, id=9371, 244.915pt x 218.8175pt>
+File: cmos_8c__incl.pdf Graphic file (type pdf)
+ <use cmos_8c__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 4--13
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 arch/x86/x86.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/
+pcr/m/n/10 #include
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [120 <./cli_8c_a3e29caa20f7cffe18f410f01278905a8_cgraph.pdf> <./cli_8c_a77246c
+715d47b2f9782c230ca981952e_cgraph.pdf>]) (./cpuid_8c.tex
+
+pdfTeX warning: pdflatex (file ./cpuid_8c__incl.pdf): PDF inclusion: found PDF 
+version <1.5>, but at most version <1.4> allowed
+<cpuid_8c__incl.pdf, id=9400, 244.915pt x 218.8175pt>
+File: cpuid_8c__incl.pdf Graphic file (type pdf)
+ <use cpuid_8c__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 4--13
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 arch/x86/x86.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/
+pcr/m/n/10 #include
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [121 <./cmos_8c__incl.pdf>] [122 <./cpuid_8c__incl.pdf>]) (./init_8c.tex
+
+pdfTeX warning: pdflatex (file ./init_8c__incl.pdf): PDF inclusion: found PDF v
+ersion <1.5>, but at most version <1.4> allowed
+<init_8c__incl.pdf, id=9453, 597.23125pt x 451.6875pt>
+File: init_8c__incl.pdf Graphic file (type pdf)
+ <use init_8c__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 15--17
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--18
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 arch/x86/x86.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/
+pcr/m/n/10 #include
+ []
+
+
+Overfull \hbox (15.66544pt too wide) in paragraph at lines 4--18
+\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 memvals.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/
+m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 string.
+-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztm
+cm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/mm/page.-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--18
+\T1/pcr/m/n/10 h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #inc
+lude $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/elf.-h$\OML/ztmcm/m/it/10 >$
+\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n
+/10 proc/proc.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B
+ []
+
+[123 <./init_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./init_8c_acb85e8964a153af4bc3a991dcd40906d_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<init_8c_acb85e8964a153af4bc3a991dcd40906d_cgraph.pdf, id=9481, 752.8125pt x 31
+9.1925pt>
+File: init_8c_acb85e8964a153af4bc3a991dcd40906d_cgraph.pdf Graphic file (type p
+df)
+ <use init_8c_acb85e8964a153af4bc3a991dcd40906d_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 48--50
+ [] 
+ []
+
+) (./kbc_8c.tex
+
+pdfTeX warning: pdflatex (file ./kbc_8c__incl.pdf): PDF inclusion: found PDF ve
+rsion <1.5>, but at most version <1.4> allowed
+<kbc_8c__incl.pdf, id=9483, 284.06125pt x 218.8175pt>
+File: kbc_8c__incl.pdf Graphic file (type pdf)
+ <use kbc_8c__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 4--14
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 arch/x86/x86.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/
+pcr/m/n/10 #include
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [124 <./init_8c_acb85e8964a153af4bc3a991dcd40906d_cgraph.pdf>] [125 <./kbc_8c_
+_incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./kbc_8c_abf3ce1c314db9a6a15b99e5313eb2edb_cgrap
+h.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allow
+ed
+
+<kbc_8c_abf3ce1c314db9a6a15b99e5313eb2edb_cgraph.pdf, id=9531, 283.0575pt x 142
+.5325pt>
+File: kbc_8c_abf3ce1c314db9a6a15b99e5313eb2edb_cgraph.pdf Graphic file (type pd
+f)
+ <use kbc_8c_abf3ce1c314db9a6a15b99e5313eb2edb_cgraph.pdf>)
+(./play_8c.tex
+
+pdfTeX warning: pdflatex (file ./play_8c__incl.pdf): PDF inclusion: found PDF v
+ersion <1.5>, but at most version <1.4> allowed
+<play_8c__incl.pdf, id=9533, 893.3375pt x 393.47pt>
+File: play_8c__incl.pdf Graphic file (type pdf)
+ <use play_8c__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 21--23
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--24
+[]\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/zt
+mcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10
+ <$\T1/pcr/m/n/10 cli.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n
+/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 stdio.-h$\OML/ztmcm/m/it/10 >
+$\OMS/ztmcm/m/n/10 ^^B
+ []
+
+
+Overfull \hbox (21.66544pt too wide) in paragraph at lines 9--24
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 video.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 cmos.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/
+10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/x86.-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--24
+\T1/pcr/m/n/10 h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #inc
+lude $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 cpuid.-h$\OML/ztmcm/m/it/10 >$\OMS/zt
+mcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 pro
+c/proc.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include
+ []
+
+[126 <./kbc_8c_abf3ce1c314db9a6a15b99e5313eb2edb_cgraph.pdf>]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 33.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.99994pt on input line 33.
+
+Underfull \vbox (badness 10000) detected at line 35
+ []
+
+
+Overfull \hbox (21.89388pt too wide) in alignment at lines 37--42
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 42
+ []
+
+[127 <./play_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./play_8c_aa3af12553c8338d80c22e90f5e12c1e1_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<play_8c_aa3af12553c8338d80c22e90f5e12c1e1_cgraph.pdf, id=9570, 471.7625pt x 24
+0.9pt>
+File: play_8c_aa3af12553c8338d80c22e90f5e12c1e1_cgraph.pdf Graphic file (type p
+df)
+ <use play_8c_aa3af12553c8338d80c22e90f5e12c1e1_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 81--83
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./play_8c_a7510f52822177f82d8b2bcb8e88b7939_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<play_8c_a7510f52822177f82d8b2bcb8e88b7939_cgraph.pdf, id=9572, 1477.52pt x 836
+.12375pt>
+File: play_8c_a7510f52822177f82d8b2bcb8e88b7939_cgraph.pdf Graphic file (type p
+df)
+ <use play_8c_a7510f52822177f82d8b2bcb8e88b7939_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 99--101
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./play_8c_abdfb298c4eb2fba465cab1235f1c3723_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<play_8c_abdfb298c4eb2fba465cab1235f1c3723_cgraph.pdf, id=9574, 660.4675pt x 40
+1.5pt>
+File: play_8c_abdfb298c4eb2fba465cab1235f1c3723_cgraph.pdf Graphic file (type p
+df)
+ <use play_8c_abdfb298c4eb2fba465cab1235f1c3723_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 117--119
+ [] 
+ []
+
+[128 <./play_8c_aa3af12553c8338d80c22e90f5e12c1e1_cgraph.pdf> <./play_8c_a7510f
+52822177f82d8b2bcb8e88b7939_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./play_8c_a380ccbaccf8fe8f6927022cf0ce4384f_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<play_8c_a380ccbaccf8fe8f6927022cf0ce4384f_cgraph.pdf, id=9594, 523.9575pt x 24
+0.9pt>
+File: play_8c_a380ccbaccf8fe8f6927022cf0ce4384f_cgraph.pdf Graphic file (type p
+df)
+ <use play_8c_a380ccbaccf8fe8f6927022cf0ce4384f_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 135--137
+ [] 
+ []
+
+) (./printf_8c.tex
+
+pdfTeX warning: pdflatex (file ./printf_8c__incl.pdf): PDF inclusion: found PDF
+ version <1.5>, but at most version <1.4> allowed
+<printf_8c__incl.pdf, id=9596, 195.73125pt x 218.8175pt>
+File: printf_8c__incl.pdf Graphic file (type pdf)
+
+<use printf_8c__incl.pdf>
+Underfull \vbox (badness 2608) has occurred while \output is active []
+
+ [129 <./play_8c_abdfb298c4eb2fba465cab1235f1c3723_cgraph.pdf> <./play_8c_a380c
+cbaccf8fe8f6927022cf0ce4384f_cgraph.pdf>] [130 <./printf_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./printf_8c_a4d96a0e0fd1a548e704a5408d77c33cb_cg
+raph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> al
+lowed
+
+<printf_8c_a4d96a0e0fd1a548e704a5408d77c33cb_cgraph.pdf, id=9649, 136.51pt x 12
+0.45pt>
+File: printf_8c_a4d96a0e0fd1a548e704a5408d77c33cb_cgraph.pdf Graphic file (type
+ pdf)
+ <use printf_8c_a4d96a0e0fd1a548e704a5408d77c33cb_cgraph.pdf>
+
+pdfTeX warning: pdflatex (file ./printf_8c_a39a5e13b8f9ef35f6878c6dc086d3463_cg
+raph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> al
+lowed
+
+<printf_8c_a39a5e13b8f9ef35f6878c6dc086d3463_cgraph.pdf, id=9651, 224.84pt x 24
+0.9pt>
+File: printf_8c_a39a5e13b8f9ef35f6878c6dc086d3463_cgraph.pdf Graphic file (type
+ pdf)
+ <use printf_8c_a39a5e13b8f9ef35f6878c6dc086d3463_cgraph.pdf>
+
+pdfTeX warning: pdflatex (file ./printf_8c_a36fe4a3ea4506cb4d128b11f93187f71_cg
+raph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> al
+lowed
+
+<printf_8c_a36fe4a3ea4506cb4d128b11f93187f71_cgraph.pdf, id=9653, 385.44pt x 24
+0.9pt>
+File: printf_8c_a36fe4a3ea4506cb4d128b11f93187f71_cgraph.pdf Graphic file (type
+ pdf)
+ <use printf_8c_a36fe4a3ea4506cb4d128b11f93187f71_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 119--121
+ [] 
+ []
+
+[131 <./printf_8c_a4d96a0e0fd1a548e704a5408d77c33cb_cgraph.pdf> <./printf_8c_a3
+9a5e13b8f9ef35f6878c6dc086d3463_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./printf_8c_a1965a44d004e945de8e4a662cdfac402_cg
+raph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> al
+lowed
+
+<printf_8c_a1965a44d004e945de8e4a662cdfac402_cgraph.pdf, id=9673, 307.1475pt x 
+240.9pt>
+File: printf_8c_a1965a44d004e945de8e4a662cdfac402_cgraph.pdf Graphic file (type
+ pdf)
+ <use printf_8c_a1965a44d004e945de8e4a662cdfac402_cgraph.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [132 <./printf_8c_a36fe4a3ea4506cb4d128b11f93187f71_cgraph.pdf>]) (./load__elf
+_8c.tex
+
+pdfTeX warning: pdflatex (file ./load__elf_8c__incl.pdf): PDF inclusion: found 
+PDF version <1.5>, but at most version <1.4> allowed
+<load__elf_8c__incl.pdf, id=9686, 722.7pt x 393.47pt>
+File: load__elf_8c__incl.pdf Graphic file (type pdf)
+
+<use load__elf_8c__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 12--14
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--15
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 arch/x86/elf.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/
+pcr/m/n/10 #include
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--15
+\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 memvals.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/
+m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 proc/pr
+oc.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/
+ztmcm/m/it/10 <$\T1/pcr/m/n/10 rdisk.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 
+^^B
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [133 <./printf_8c_a1965a44d004e945de8e4a662cdfac402_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./load__elf_8c_a2672ea9e3b3140f2a7861de2a4372aa2
+_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4>
+ allowed
+
+<load__elf_8c_a2672ea9e3b3140f2a7861de2a4372aa2_cgraph.pdf, id=9705, 1136.245pt
+ x 290.08376pt>
+File: load__elf_8c_a2672ea9e3b3140f2a7861de2a4372aa2_cgraph.pdf Graphic file (t
+ype pdf)
+
+<use load__elf_8c_a2672ea9e3b3140f2a7861de2a4372aa2_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 37--39
+ [] 
+ []
+
+) (./proc_8c.tex
+
+pdfTeX warning: pdflatex (file ./proc_8c__incl.pdf): PDF inclusion: found PDF v
+ersion <1.5>, but at most version <1.4> allowed
+<proc_8c__incl.pdf, id=9707, 818.05624pt x 451.6875pt>
+File: proc_8c__incl.pdf Graphic file (type pdf)
+ <use proc_8c__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 15--17
+ [] 
+ []
+
+
+Overfull \hbox (21.66544pt too wide) in paragraph at lines 4--18
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 memvals.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m
+/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 proc/proc.-
+ []
+
+
+Overfull \hbox (49.89554pt too wide) in paragraph at lines 4--18
+\T1/pcr/m/n/10 h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #inc
+lude $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/mm/segdesc.-h$\OML/ztmcm/m/i
+t/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/
+pcr/m/n/10 arch/x86/processor.-
+ []
+
+[134 <./load__elf_8c__incl.pdf> <./load__elf_8c_a2672ea9e3b3140f2a7861de2a4372a
+a2_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./proc_8c_af9b0729d454bfcd1cccac25668e1cdd5_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<proc_8c_af9b0729d454bfcd1cccac25668e1cdd5_cgraph.pdf, id=9750, 471.7625pt x 12
+2.4575pt>
+File: proc_8c_af9b0729d454bfcd1cccac25668e1cdd5_cgraph.pdf Graphic file (type p
+df)
+ <use proc_8c_af9b0729d454bfcd1cccac25668e1cdd5_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 62--64
+ [] 
+ []
+
+
+Underfull \vbox (badness 1184) has occurred while \output is active []
+
+ [135 <./proc_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./proc_8c_a3adc819d4b6f54184f72a00e0584190f_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<proc_8c_a3adc819d4b6f54184f72a00e0584190f_cgraph.pdf, id=9776, 1322.9425pt x 5
+16.93124pt>
+File: proc_8c_a3adc819d4b6f54184f72a00e0584190f_cgraph.pdf Graphic file (type p
+df)
+ <use proc_8c_a3adc819d4b6f54184f72a00e0584190f_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 80--82
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./proc_8c_ae6e0fd99b6fae7f9b0c5575193151d58_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<proc_8c_ae6e0fd99b6fae7f9b0c5575193151d58_cgraph.pdf, id=9778, 1232.605pt x 31
+7.185pt>
+File: proc_8c_ae6e0fd99b6fae7f9b0c5575193151d58_cgraph.pdf Graphic file (type p
+df)
+ <use proc_8c_ae6e0fd99b6fae7f9b0c5575193151d58_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 98--100
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./proc_8c_a7a86f136018ec12ba764d8ecc13ee403_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<proc_8c_a7a86f136018ec12ba764d8ecc13ee403_cgraph.pdf, id=9780, 740.7675pt x 12
+2.4575pt>
+File: proc_8c_a7a86f136018ec12ba764d8ecc13ee403_cgraph.pdf Graphic file (type p
+df)
+ <use proc_8c_a7a86f136018ec12ba764d8ecc13ee403_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 116--118
+ [] 
+ []
+
+[136 <./proc_8c_af9b0729d454bfcd1cccac25668e1cdd5_cgraph.pdf> <./proc_8c_a3adc8
+19d4b6f54184f72a00e0584190f_cgraph.pdf> <./proc_8c_ae6e0fd99b6fae7f9b0c55751931
+51d58_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./proc_8c_a068b8a94b58e77fc6cf65795fd0b5aac_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<proc_8c_a068b8a94b58e77fc6cf65795fd0b5aac_cgraph.pdf, id=9807, 995.72pt x 219.
+82124pt>
+File: proc_8c_a068b8a94b58e77fc6cf65795fd0b5aac_cgraph.pdf Graphic file (type p
+df)
+ <use proc_8c_a068b8a94b58e77fc6cf65795fd0b5aac_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 136--138
+ [] 
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./proc_8c_a5786a19c8d7e97d107ad3e1c02c12b0d_cgra
+ph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> allo
+wed
+
+<proc_8c_a5786a19c8d7e97d107ad3e1c02c12b0d_cgraph.pdf, id=9809, 473.77pt x 240.
+9pt>
+File: proc_8c_a5786a19c8d7e97d107ad3e1c02c12b0d_cgraph.pdf Graphic file (type p
+df)
+ <use proc_8c_a5786a19c8d7e97d107ad3e1c02c12b0d_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 161--163
+ [] 
+ []
+
+[137 <./proc_8c_a7a86f136018ec12ba764d8ecc13ee403_cgraph.pdf> <./proc_8c_a068b8
+a94b58e77fc6cf65795fd0b5aac_cgraph.pdf> <./proc_8c_a5786a19c8d7e97d107ad3e1c02c
+12b0d_cgraph.pdf>]) (./rdisk_8c.tex
+
+pdfTeX warning: pdflatex (file ./rdisk_8c__incl.pdf): PDF inclusion: found PDF 
+version <1.5>, but at most version <1.4> allowed
+<rdisk_8c__incl.pdf, id=9836, 257.96375pt x 277.035pt>
+File: rdisk_8c__incl.pdf Graphic file (type pdf)
+
+<use rdisk_8c__incl.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 4--13
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 rdisk.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 arch/x86/x86.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/
+pcr/m/n/10 #include
+ []
+
+[138 <./rdisk_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./rdisk_8c_a8bc2062a175b7c74607a2498ac997657_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<rdisk_8c_a8bc2062a175b7c74607a2498ac997657_cgraph.pdf, id=9860, 224.84pt x 102
+.3825pt>
+File: rdisk_8c_a8bc2062a175b7c74607a2498ac997657_cgraph.pdf Graphic file (type 
+pdf)
+ <use rdisk_8c_a8bc2062a175b7c74607a2498ac997657_cgraph.pdf>
+
+pdfTeX warning: pdflatex (file ./rdisk_8c_a687601dc22e8d4d8407608c91fd325eb_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<rdisk_8c_a687601dc22e8d4d8407608c91fd325eb_cgraph.pdf, id=9862, 313.17pt x 102
+.3825pt>
+File: rdisk_8c_a687601dc22e8d4d8407608c91fd325eb_cgraph.pdf Graphic file (type 
+pdf)
+ <use rdisk_8c_a687601dc22e8d4d8407608c91fd325eb_cgraph.pdf>)
+(./readline_8c.tex
+
+pdfTeX warning: pdflatex (file ./readline_8c__incl.pdf): PDF inclusion: found P
+DF version <1.5>, but at most version <1.4> allowed
+<readline_8c__incl.pdf, id=9864, 283.0575pt x 218.8175pt>
+File: readline_8c__incl.pdf Graphic file (type pdf)
+
+<use readline_8c__incl.pdf>
+Underfull \hbox (badness 1990) in paragraph at lines 4--14
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 kbc.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/1
+0 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 stdio.-h$\OML/ztmcm/m/it/10 >$\
+OMS/ztmcm/m/n/10 ^^B
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [139 <./rdisk_8c_a8bc2062a175b7c74607a2498ac997657_cgraph.pdf> <./rdisk_8c_a68
+7601dc22e8d4d8407608c91fd325eb_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./readline_8c_a2d8df50da224fdc6607a12e71c22f86b_
+cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> 
+allowed
+
+<readline_8c_a2d8df50da224fdc6607a12e71c22f86b_cgraph.pdf, id=9887, 566.115pt x
+ 401.5pt>
+File: readline_8c_a2d8df50da224fdc6607a12e71c22f86b_cgraph.pdf Graphic file (ty
+pe pdf)
+ <use readline_8c_a2d8df50da224fdc6607a12e71c22f86b_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 46--48
+ [] 
+ []
+
+
+Underfull \vbox (badness 4954) has occurred while \output is active []
+
+ [140 <./readline_8c__incl.pdf>]) (./string_8c.tex
+
+pdfTeX warning: pdflatex (file ./string_8c__incl.pdf): PDF inclusion: found PDF
+ version <1.5>, but at most version <1.4> allowed
+<string_8c__incl.pdf, id=9904, 158.5925pt x 218.8175pt>
+File: string_8c__incl.pdf Graphic file (type pdf)
+
+<use string_8c__incl.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [141 <./readline_8c_a2d8df50da224fdc6607a12e71c22f86b_cgraph.pdf>]) (./init__e
+lf_8c.tex)
+(./video_8c.tex [142 <./string_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./video_8c__incl.pdf): PDF inclusion: found PDF 
+version <1.5>, but at most version <1.4> allowed
+<video_8c__incl.pdf, id=9942, 405.515pt x 218.8175pt>
+File: video_8c__incl.pdf Graphic file (type pdf)
+ <use video_8c__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 12--14
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--15
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 arch/x86/x86.-h$\O
+ML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/
+it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/
+pcr/m/n/10 #include
+ []
+
+
+Underfull \hbox (badness 879) in paragraph at lines 4--15
+\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 video.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/
+n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 memvals.-
+h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmc
+m/m/it/10 <$\T1/pcr/m/n/10 kbc.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T
+1/phv/m/n/10 -Include de-
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./video_8c_a2ac77fae84030fe22301c6cdb918bfdb_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<video_8c_a2ac77fae84030fe22301c6cdb918bfdb_cgraph.pdf, id=9954, 248.93pt x 102
+.3825pt>
+File: video_8c_a2ac77fae84030fe22301c6cdb918bfdb_cgraph.pdf Graphic file (type 
+pdf)
+ <use video_8c_a2ac77fae84030fe22301c6cdb918bfdb_cgraph.pdf>
+Underfull \vbox (badness 2393) has occurred while \output is active []
+
+ [143 <./video_8c__incl.pdf>]
+
+pdfTeX warning: pdflatex (file ./video_8c_ab0ab5e709ff4fc4d57b7007cd4e305be_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<video_8c_ab0ab5e709ff4fc4d57b7007cd4e305be_cgraph.pdf, id=9975, 238.8925pt x 1
+02.3825pt>
+File: video_8c_ab0ab5e709ff4fc4d57b7007cd4e305be_cgraph.pdf Graphic file (type 
+pdf)
+ <use video_8c_ab0ab5e709ff4fc4d57b7007cd4e305be_cgraph.pdf>
+
+pdfTeX warning: pdflatex (file ./video_8c_aca189a8fb5d14a6ccaabfb4ce606e20c_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<video_8c_aca189a8fb5d14a6ccaabfb4ce606e20c_cgraph.pdf, id=9977, 244.915pt x 14
+2.5325pt>
+File: video_8c_aca189a8fb5d14a6ccaabfb4ce606e20c_cgraph.pdf Graphic file (type 
+pdf)
+ <use video_8c_aca189a8fb5d14a6ccaabfb4ce606e20c_cgraph.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [144 <./video_8c_a2ac77fae84030fe22301c6cdb918bfdb_cgraph.pdf> <./video_8c_ab0
+ab5e709ff4fc4d57b7007cd4e305be_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./video_8c_aa52715a04e18ce4c3392ac12b39631f5_cgr
+aph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <1.4> all
+owed
+
+<video_8c_aa52715a04e18ce4c3392ac12b39631f5_cgraph.pdf, id=9997, 343.2825pt x 1
+42.5325pt>
+File: video_8c_aa52715a04e18ce4c3392ac12b39631f5_cgraph.pdf Graphic file (type 
+pdf)
+ <use video_8c_aa52715a04e18ce4c3392ac12b39631f5_cgraph.pdf>)
+(./work__it__out_8c.tex
+
+pdfTeX warning: pdflatex (file ./work__it__out_8c__incl.pdf): PDF inclusion: fo
+und PDF version <1.5>, but at most version <1.4> allowed
+<work__it__out_8c__incl.pdf, id=9999, 727.71875pt x 451.6875pt>
+File: work__it__out_8c__incl.pdf Graphic file (type pdf)
+
+<use work__it__out_8c__incl.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 14--16
+ [] 
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 4--17
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 types.-h$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 cmos.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/
+10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 video.-h$\OML/ztmcm/m/it/10 >$
+\OMS/ztmcm/m/n/10 ^^B
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--17
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 cli.-h$\OML/ztmcm/
+m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\
+T1/pcr/m/n/10 stdio.-h$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/1
+0 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 test.-h$\OML/ztmcm/m/it/10 >$\O
+MS/ztmcm/m/n/10 ^^B
+ []
+
+[145 <./video_8c_aca189a8fb5d14a6ccaabfb4ce606e20c_cgraph.pdf> <./video_8c_aa52
+715a04e18ce4c3392ac12b39631f5_cgraph.pdf>]
+
+pdfTeX warning: pdflatex (file ./work__it__out_8c_afacf7cf1946e12674f100d1f8d58
+a69c_cgraph.pdf): PDF inclusion: found PDF version <1.5>, but at most version <
+1.4> allowed
+
+<work__it__out_8c_afacf7cf1946e12674f100d1f8d58a69c_cgraph.pdf, id=10021, 1614.
+03pt x 959.585pt>
+File: work__it__out_8c_afacf7cf1946e12674f100d1f8d58a69c_cgraph.pdf Graphic fil
+e (type pdf)
+
+<use work__it__out_8c_afacf7cf1946e12674f100d1f8d58a69c_cgraph.pdf>
+Overfull \hbox (5.0pt too wide) in paragraph at lines 38--40
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [146 <./work__it__out_8c__incl.pdf>]) (./refman.ind) [147 <./work__it__out_8c_
+afacf7cf1946e12674f100d1f8d58a69c_cgraph.pdf>] (./refman.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 14920 strings out of 495061
+ 299818 string characters out of 1182621
+ 298906 words of memory out of 3000000
+ 15300 multiletter control sequences out of 15000+50000
+ 59088 words of font info for 77 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 41i,13n,58p,797b,1124s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/urw/cou
+rier/ucrr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb><
+/usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf
+-texlive/fonts/type1/urw/helvetic/uhvbo8ac.pfb></usr/share/texmf-texlive/fonts/
+type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helveti
+c/uhvro8a.pfb>
+Output written on refman.pdf (183 pages, 6373570 bytes).
+PDF statistics:
+ 10548 PDF objects out of 10688 (max. 8388607)
+ 2318 named destinations out of 2487 (max. 500000)
+ 9333 words of extra memory for PDF output out of 10000 (max. 10000000)
+

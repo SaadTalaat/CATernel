@@ -1,0 +1,546 @@
+\hypertarget{kbc_8h}{\section{include/kbc.h \-File \-Reference}
+\label{kbc_8h}\index{include/kbc.\-h@{include/kbc.\-h}}
+}
+{\ttfamily \#include $<$types.\-h$>$}\*
+\-Include dependency graph for kbc.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{kbc_8h__incl}
+\end{center}
+\end{figure}
+\-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kbc_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{kbc_8h_afd321581da9c009e77ca77612d026ec2}{\-K\-B\-C\-\_\-\-S\-T\-A\-T\-U\-S\-P\-O\-R\-T}~0x64
+\item 
+\#define \hyperlink{kbc_8h_a83c26cee464c0bd0739a99ef60c368f7}{\-K\-B\-C\-\_\-\-D\-A\-T\-A\-P\-O\-R\-T}~0x60
+\item 
+\#define \hyperlink{kbc_8h_ad10c1d496e696488559cde113317fec5}{\-K\-B\-C\-\_\-\-D\-A\-T\-A\-I\-N}~0x01	/$\ast$$\ast$ New Data in buffer $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_af6319137ba2e75ef1353729f014bef1b}{\-K\-B\-C\-\_\-\-F\-U\-L\-L\-B\-U\-F}~0x02	/$\ast$$\ast$ Buffer is full $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_ac93554216ffddf26f4cd30a5914bd9fa}{\-K\-B\-C\-\_\-\-R\-E\-B\-O\-O\-T}~0x04	/$\ast$$\ast$ soft reboot $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a0d562a66341b00a3e2491bbeb5a20d5d}{\-K\-B\-C\-\_\-\-C\-O\-M\-M\-A\-N\-D}~0x08	/$\ast$$\ast$ data in output register is a command $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_ae67c9300c0b90b81e55ecf8313c20952}{\-K\-B\-C\-\_\-\-S\-E\-C\-L\-O\-C\-K}~0x10	/$\ast$$\ast$ Security lock engaged $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_ac10ad9ebfd3e267d59e6fa55cc22b1a7}{\-K\-B\-C\-\_\-\-T\-T\-I\-M\-E\-O\-U\-T}~0x20	/$\ast$$\ast$ transmission timeout error $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a33677a3374da89e2aea99e70043c0669}{\-K\-B\-C\-\_\-\-R\-T\-I\-M\-E\-O\-U\-T}~0x40	/$\ast$$\ast$ recieve timeout error $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a82a39176e42fe8f48025521b9674cdc6}{\-K\-B\-C\-\_\-\-P\-A\-R\-I\-T\-Y}~0x80	/$\ast$$\ast$ Parity error $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a3d7de39b369f644585feb4cabd643f9f}{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-R\-A\-M}~0x20	/$\ast$$\ast$ Read byte 0 from the internal R\-A\-M $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a1072189fb81979edebf1c1f6eb6df535}{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-L\-O\-W}~0x21	/$\ast$$\ast$ Read byte specified in low 5 bits of the command in 804x's internal R\-A\-M $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_aee9938edf70d141725e4c3a031007baa}{\-K\-B\-C\-\_\-\-W\-R\-I\-T\-E\-R\-A\-M}~0x60	/$\ast$$\ast$ write the data to the address specified in the 5 lower bits of command $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_abd5d90340251eb8295f57d966234df95}{\-K\-B\-C\-\_\-\-D\-I\-S\-M\-O\-U\-S\-E}~0x\-A7	/$\ast$$\ast$ disable mouse/auxillary port $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_ab255fc48bcc371829b66cc2c84a49553}{\-K\-B\-C\-\_\-\-E\-N\-M\-O\-U\-S\-E}~0x\-A8	/$\ast$$\ast$ enable mouse/auxillary port $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_ab6421575437acd520cbcc6829d998bdd}{\-K\-B\-C\-\_\-\-T\-S\-T\-M\-O\-U\-S\-E}~0x\-A9	/$\ast$$\ast$ test mouse/auxillary port $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a3b6e93597b428f09d15500b9924a2dbe}{\-K\-B\-C\-\_\-\-S\-E\-L\-F\-T\-E\-S\-T}~0x\-A\-A	/$\ast$$\ast$ initiate the self-\/test $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a7208ef5cf529564551b6ad7571126057}{\-K\-B\-C\-\_\-\-I\-N\-T\-R\-T\-E\-S\-T}
+\item 
+\#define \hyperlink{kbc_8h_a66904faee9c4ce70afd7e6e7db02b566}{\-K\-B\-C\-\_\-\-D\-I\-G\-D\-U\-M\-P}~0x\-A\-C 	/$\ast$$\ast$ dump the content of 804x's R\-A\-M, output port, input port, status word $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a5867d36b2e13ae3f101e84fa0f5eb12f}{\-K\-B\-C\-\_\-\-D\-I\-S\-K\-B\-D}~0x\-A\-D	/$\ast$$\ast$ disable keyboard $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a74df832f0d7b6d8a51e5884f75935d25}{\-K\-B\-C\-\_\-\-E\-N\-B\-K\-B\-D}~0x\-A\-E	/$\ast$$\ast$ enable keyboard $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a108efc17e6b60d69db8579b0cf23f79a}{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-V\-E\-R}~0x\-A\-F	/$\ast$$\ast$ Read keyboard version $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a6e071b5150a91ec4dabda75dad679149}{\-K\-B\-C\-\_\-\-I\-N\-P\-R\-E\-A\-D}~0x\-C0	/$\ast$$\ast$ Read input port $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_adaf92e130cdbd5611a360198233201dd}{\-K\-B\-C\-\_\-\-O\-U\-T\-R\-E\-A\-D}~0x\-D0	/$\ast$$\ast$ Read Output port $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a1879110de3cf58035d08b4572ae449f9}{\-K\-B\-C\-\_\-\-O\-U\-T\-W\-R\-T\-E}~0x\-D1	/$\ast$$\ast$ write output port ,next byte will be written to 804x $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_ad10691bb2a88fe0599b3dcc14ef904de}{\-K\-B\-C\-\_\-\-O\-U\-T\-K\-B\-D}~0x\-D2	/$\ast$$\ast$ Echo keyboard output buffer $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a48e4b03f7be349754c77099d35f21d20}{\-K\-B\-C\-\_\-\-O\-U\-T\-A\-U\-X}~0x\-D3	/$\ast$$\ast$ Echo pointing device output buffer $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_ab0fc656184808bac874fbaff1c4a7cc8}{\-K\-B\-C\-\_\-\-A\-U\-X\-W\-R\-I\-T\-E}~0x\-D4	/$\ast$$\ast$ Write to pointing device output buffer $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_ab4a5907532b9ecdec56d528a93dac558}{\-K\-B\-C\-\_\-\-D\-I\-S\-A20}~0x\-D\-D	/$\ast$$\ast$ Disable the A20 gate $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_aa5033fcf2ff94d8efffd64fccf98ffa5}{\-K\-B\-C\-\_\-\-E\-N\-B\-A20}~0x\-D\-F	/$\ast$$\ast$ Enable the A20 gate $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a6a2a046aa363ac58ce6ddb0a4ddc3b0b}{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E0}~0x\-F\-E	/$\ast$$\ast$ Pulse output bit 0 $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_ae96097ff8247c0f4b6c9e3bc5afd6ebc}{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E1}~0x\-F\-D	/$\ast$$\ast$ $\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$ 1 $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_afa4d6fe554e5b3f8181e38e3c4366f11}{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E2}~0x\-F\-B	/$\ast$$\ast$ $\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$ 2 $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_af5b1025d8b69021f483d35ef69c3f1de}{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E3}~0x\-F7	/$\ast$$\ast$ $\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$ 3 $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a9380d340e2f61e3cc7ab35345f9d47d8}{\-K\-B\-C\-\_\-\-R\-E\-S\-E\-T}~0x\-F\-F	/$\ast$$\ast$ R\-E\-S\-E\-T the mouse and the keyboard $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a5e88c9afa8efac0728e8483135b7ceb5}{\-K\-B\-C\-\_\-\-R\-E\-S\-E\-N\-D}~0x\-F\-E	/$\ast$$\ast$ Resend the last byte $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a27dc41c3dca8a932afe0a30c5e239224}{\-K\-B\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T}~0x\-F6	/$\ast$$\ast$ Set the keyboard to default parameters $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_aeaea276e8eeadf22fe2508dfe15d0fc8}{\-K\-B\-C\-\_\-\-D\-I\-S\-A\-B\-L\-E}~0x\-F5	/$\ast$$\ast$ disables key scanning, yet set the default parameters $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a291939465a5c59ca219f53201eb4da75}{\-K\-B\-C\-\_\-\-E\-N\-A\-B\-L\-E}~0x\-F4	/$\ast$$\ast$ Enable key scanning $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_aad7b69b6846a7ec0718fbed27088ae0e}{\-K\-B\-C\-\_\-\-T\-Y\-P\-E\-M\-A\-T\-I\-C}~0x\-F3	/$\ast$$\ast$ Set typematic rate/delay $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a893a8f21fee8b56d5bad81cd7fe7a012}{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-I\-D}~0x\-F2	/$\ast$$\ast$ Read Keyboard I\-D $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a04a4fc50a5d92c2f70a62e3f26a05e55}{\-K\-B\-C\-\_\-\-S\-E\-T\-S\-C\-A\-N}~0x\-F0	/$\ast$$\ast$ Set/\-Get scancodes set $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a1169d58bb478567093f07168a34395c7}{\-K\-B\-C\-\_\-\-E\-C\-H\-O\-D\-I\-G}~0x\-E\-E	/$\ast$$\ast$ request a diganostic echo from the keyboard $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_a741fc4238c68fc68bd3a1f6ee565fc63}{\-K\-B\-C\-\_\-\-I\-N\-D\-I\-C\-A\-T\-O\-R}~0x\-E\-D	/$\ast$$\ast$ Set mode indicators $\ast$$\ast$/
+\item 
+\#define \hyperlink{kbc_8h_af6806366178266b3eaf1fb16f991cbee}{\-K\-E\-Y\-\_\-\-H\-O\-M\-E}~0x\-E0
+\item 
+\#define \hyperlink{kbc_8h_a912861b945e779c29f718cdcd62be10c}{\-K\-E\-Y\-\_\-\-E\-N\-D}~0x\-E1
+\item 
+\#define \hyperlink{kbc_8h_afa086fc916a81e7fd348ec00cf786916}{\-K\-E\-Y\-\_\-\-U\-P}~0x\-E2
+\item 
+\#define \hyperlink{kbc_8h_a69aff5c97fd814c5f29fca79bdcda9be}{\-K\-E\-Y\-\_\-\-D\-N}~0x\-E3
+\item 
+\#define \hyperlink{kbc_8h_afe0182b9752acbeff23e5b01e63ffe9c}{\-K\-E\-Y\-\_\-\-L\-F}~0x\-E4
+\item 
+\#define \hyperlink{kbc_8h_ab787b56ca072749c919b02381f66d271}{\-K\-E\-Y\-\_\-\-R\-T}~0x\-E5
+\item 
+\#define \hyperlink{kbc_8h_ac35c65d4a20c05b2cc7e1f3e40e13e79}{\-K\-E\-Y\-\_\-\-P\-G\-U\-P}~0x\-E6
+\item 
+\#define \hyperlink{kbc_8h_a84a56bcd66075dce29dd77873006f33c}{\-K\-E\-Y\-\_\-\-P\-G\-D\-N}~0x\-E7
+\item 
+\#define \hyperlink{kbc_8h_a4ea8f40f4220377b764d1b3b14807f2b}{\-K\-E\-Y\-\_\-\-I\-N\-S}~0x\-E8
+\item 
+\#define \hyperlink{kbc_8h_ad06e66a899b065c65c2363233d8ebce2}{\-K\-E\-Y\-\_\-\-D\-E\-L}~0x\-E9
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{kbc_8h_aa8584463ac58034ccbf9cd2ffc8e187d}{kbc\-\_\-data} (void)
+\item 
+void \hyperlink{kbc_8h_abf3ce1c314db9a6a15b99e5313eb2edb}{kbc\-\_\-interrupt} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{kbc_8h_ab0fc656184808bac874fbaff1c4a7cc8}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-A\-U\-X\-W\-R\-I\-T\-E@{\-K\-B\-C\-\_\-\-A\-U\-X\-W\-R\-I\-T\-E}}
+\index{\-K\-B\-C\-\_\-\-A\-U\-X\-W\-R\-I\-T\-E@{\-K\-B\-C\-\_\-\-A\-U\-X\-W\-R\-I\-T\-E}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-A\-U\-X\-W\-R\-I\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-A\-U\-X\-W\-R\-I\-T\-E}~0x\-D4	/$\ast$$\ast$ Write to pointing device output buffer $\ast$$\ast$/}}\label{kbc_8h_ab0fc656184808bac874fbaff1c4a7cc8}
+
+
+\-Definition at line 40 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a0d562a66341b00a3e2491bbeb5a20d5d}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-C\-O\-M\-M\-A\-N\-D@{\-K\-B\-C\-\_\-\-C\-O\-M\-M\-A\-N\-D}}
+\index{\-K\-B\-C\-\_\-\-C\-O\-M\-M\-A\-N\-D@{\-K\-B\-C\-\_\-\-C\-O\-M\-M\-A\-N\-D}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-C\-O\-M\-M\-A\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-C\-O\-M\-M\-A\-N\-D}~0x08	/$\ast$$\ast$ data in output register is a command $\ast$$\ast$/}}\label{kbc_8h_a0d562a66341b00a3e2491bbeb5a20d5d}
+
+
+\-Definition at line 16 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ad10c1d496e696488559cde113317fec5}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-D\-A\-T\-A\-I\-N@{\-K\-B\-C\-\_\-\-D\-A\-T\-A\-I\-N}}
+\index{\-K\-B\-C\-\_\-\-D\-A\-T\-A\-I\-N@{\-K\-B\-C\-\_\-\-D\-A\-T\-A\-I\-N}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-D\-A\-T\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-D\-A\-T\-A\-I\-N}~0x01	/$\ast$$\ast$ New Data in buffer $\ast$$\ast$/}}\label{kbc_8h_ad10c1d496e696488559cde113317fec5}
+
+
+\-Definition at line 13 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a83c26cee464c0bd0739a99ef60c368f7}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-D\-A\-T\-A\-P\-O\-R\-T@{\-K\-B\-C\-\_\-\-D\-A\-T\-A\-P\-O\-R\-T}}
+\index{\-K\-B\-C\-\_\-\-D\-A\-T\-A\-P\-O\-R\-T@{\-K\-B\-C\-\_\-\-D\-A\-T\-A\-P\-O\-R\-T}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-D\-A\-T\-A\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-D\-A\-T\-A\-P\-O\-R\-T}~0x60}}\label{kbc_8h_a83c26cee464c0bd0739a99ef60c368f7}
+
+
+\-Definition at line 11 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a27dc41c3dca8a932afe0a30c5e239224}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T@{\-K\-B\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T}}
+\index{\-K\-B\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T@{\-K\-B\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T}~0x\-F6	/$\ast$$\ast$ Set the keyboard to default parameters $\ast$$\ast$/}}\label{kbc_8h_a27dc41c3dca8a932afe0a30c5e239224}
+
+
+\-Definition at line 52 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a66904faee9c4ce70afd7e6e7db02b566}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-D\-I\-G\-D\-U\-M\-P@{\-K\-B\-C\-\_\-\-D\-I\-G\-D\-U\-M\-P}}
+\index{\-K\-B\-C\-\_\-\-D\-I\-G\-D\-U\-M\-P@{\-K\-B\-C\-\_\-\-D\-I\-G\-D\-U\-M\-P}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-D\-I\-G\-D\-U\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-D\-I\-G\-D\-U\-M\-P}~0x\-A\-C 	/$\ast$$\ast$ dump the content of 804x's R\-A\-M, output port, input port, status word $\ast$$\ast$/}}\label{kbc_8h_a66904faee9c4ce70afd7e6e7db02b566}
+
+
+\-Definition at line 31 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ab4a5907532b9ecdec56d528a93dac558}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-D\-I\-S\-A20@{\-K\-B\-C\-\_\-\-D\-I\-S\-A20}}
+\index{\-K\-B\-C\-\_\-\-D\-I\-S\-A20@{\-K\-B\-C\-\_\-\-D\-I\-S\-A20}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-D\-I\-S\-A20}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-D\-I\-S\-A20}~0x\-D\-D	/$\ast$$\ast$ Disable the A20 gate $\ast$$\ast$/}}\label{kbc_8h_ab4a5907532b9ecdec56d528a93dac558}
+
+
+\-Definition at line 41 of file kbc.\-h.
+
+\hypertarget{kbc_8h_aeaea276e8eeadf22fe2508dfe15d0fc8}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-D\-I\-S\-A\-B\-L\-E@{\-K\-B\-C\-\_\-\-D\-I\-S\-A\-B\-L\-E}}
+\index{\-K\-B\-C\-\_\-\-D\-I\-S\-A\-B\-L\-E@{\-K\-B\-C\-\_\-\-D\-I\-S\-A\-B\-L\-E}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-D\-I\-S\-A\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-D\-I\-S\-A\-B\-L\-E}~0x\-F5	/$\ast$$\ast$ disables key scanning, yet set the default parameters $\ast$$\ast$/}}\label{kbc_8h_aeaea276e8eeadf22fe2508dfe15d0fc8}
+
+
+\-Definition at line 53 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a5867d36b2e13ae3f101e84fa0f5eb12f}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-D\-I\-S\-K\-B\-D@{\-K\-B\-C\-\_\-\-D\-I\-S\-K\-B\-D}}
+\index{\-K\-B\-C\-\_\-\-D\-I\-S\-K\-B\-D@{\-K\-B\-C\-\_\-\-D\-I\-S\-K\-B\-D}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-D\-I\-S\-K\-B\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-D\-I\-S\-K\-B\-D}~0x\-A\-D	/$\ast$$\ast$ disable keyboard $\ast$$\ast$/}}\label{kbc_8h_a5867d36b2e13ae3f101e84fa0f5eb12f}
+
+
+\-Definition at line 32 of file kbc.\-h.
+
+\hypertarget{kbc_8h_abd5d90340251eb8295f57d966234df95}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-D\-I\-S\-M\-O\-U\-S\-E@{\-K\-B\-C\-\_\-\-D\-I\-S\-M\-O\-U\-S\-E}}
+\index{\-K\-B\-C\-\_\-\-D\-I\-S\-M\-O\-U\-S\-E@{\-K\-B\-C\-\_\-\-D\-I\-S\-M\-O\-U\-S\-E}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-D\-I\-S\-M\-O\-U\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-D\-I\-S\-M\-O\-U\-S\-E}~0x\-A7	/$\ast$$\ast$ disable mouse/auxillary port $\ast$$\ast$/}}\label{kbc_8h_abd5d90340251eb8295f57d966234df95}
+
+
+\-Definition at line 26 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a1169d58bb478567093f07168a34395c7}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-E\-C\-H\-O\-D\-I\-G@{\-K\-B\-C\-\_\-\-E\-C\-H\-O\-D\-I\-G}}
+\index{\-K\-B\-C\-\_\-\-E\-C\-H\-O\-D\-I\-G@{\-K\-B\-C\-\_\-\-E\-C\-H\-O\-D\-I\-G}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-E\-C\-H\-O\-D\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-E\-C\-H\-O\-D\-I\-G}~0x\-E\-E	/$\ast$$\ast$ request a diganostic echo from the keyboard $\ast$$\ast$/}}\label{kbc_8h_a1169d58bb478567093f07168a34395c7}
+
+
+\-Definition at line 58 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a291939465a5c59ca219f53201eb4da75}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-E\-N\-A\-B\-L\-E@{\-K\-B\-C\-\_\-\-E\-N\-A\-B\-L\-E}}
+\index{\-K\-B\-C\-\_\-\-E\-N\-A\-B\-L\-E@{\-K\-B\-C\-\_\-\-E\-N\-A\-B\-L\-E}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-E\-N\-A\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-E\-N\-A\-B\-L\-E}~0x\-F4	/$\ast$$\ast$ Enable key scanning $\ast$$\ast$/}}\label{kbc_8h_a291939465a5c59ca219f53201eb4da75}
+
+
+\-Definition at line 54 of file kbc.\-h.
+
+\hypertarget{kbc_8h_aa5033fcf2ff94d8efffd64fccf98ffa5}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-E\-N\-B\-A20@{\-K\-B\-C\-\_\-\-E\-N\-B\-A20}}
+\index{\-K\-B\-C\-\_\-\-E\-N\-B\-A20@{\-K\-B\-C\-\_\-\-E\-N\-B\-A20}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-E\-N\-B\-A20}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-E\-N\-B\-A20}~0x\-D\-F	/$\ast$$\ast$ Enable the A20 gate $\ast$$\ast$/}}\label{kbc_8h_aa5033fcf2ff94d8efffd64fccf98ffa5}
+
+
+\-Definition at line 42 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a74df832f0d7b6d8a51e5884f75935d25}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-E\-N\-B\-K\-B\-D@{\-K\-B\-C\-\_\-\-E\-N\-B\-K\-B\-D}}
+\index{\-K\-B\-C\-\_\-\-E\-N\-B\-K\-B\-D@{\-K\-B\-C\-\_\-\-E\-N\-B\-K\-B\-D}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-E\-N\-B\-K\-B\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-E\-N\-B\-K\-B\-D}~0x\-A\-E	/$\ast$$\ast$ enable keyboard $\ast$$\ast$/}}\label{kbc_8h_a74df832f0d7b6d8a51e5884f75935d25}
+
+
+\-Definition at line 33 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ab255fc48bcc371829b66cc2c84a49553}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-E\-N\-M\-O\-U\-S\-E@{\-K\-B\-C\-\_\-\-E\-N\-M\-O\-U\-S\-E}}
+\index{\-K\-B\-C\-\_\-\-E\-N\-M\-O\-U\-S\-E@{\-K\-B\-C\-\_\-\-E\-N\-M\-O\-U\-S\-E}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-E\-N\-M\-O\-U\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-E\-N\-M\-O\-U\-S\-E}~0x\-A8	/$\ast$$\ast$ enable mouse/auxillary port $\ast$$\ast$/}}\label{kbc_8h_ab255fc48bcc371829b66cc2c84a49553}
+
+
+\-Definition at line 27 of file kbc.\-h.
+
+\hypertarget{kbc_8h_af6319137ba2e75ef1353729f014bef1b}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-F\-U\-L\-L\-B\-U\-F@{\-K\-B\-C\-\_\-\-F\-U\-L\-L\-B\-U\-F}}
+\index{\-K\-B\-C\-\_\-\-F\-U\-L\-L\-B\-U\-F@{\-K\-B\-C\-\_\-\-F\-U\-L\-L\-B\-U\-F}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-F\-U\-L\-L\-B\-U\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-F\-U\-L\-L\-B\-U\-F}~0x02	/$\ast$$\ast$ Buffer is full $\ast$$\ast$/}}\label{kbc_8h_af6319137ba2e75ef1353729f014bef1b}
+
+
+\-Definition at line 14 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a741fc4238c68fc68bd3a1f6ee565fc63}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-I\-N\-D\-I\-C\-A\-T\-O\-R@{\-K\-B\-C\-\_\-\-I\-N\-D\-I\-C\-A\-T\-O\-R}}
+\index{\-K\-B\-C\-\_\-\-I\-N\-D\-I\-C\-A\-T\-O\-R@{\-K\-B\-C\-\_\-\-I\-N\-D\-I\-C\-A\-T\-O\-R}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-I\-N\-D\-I\-C\-A\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-I\-N\-D\-I\-C\-A\-T\-O\-R}~0x\-E\-D	/$\ast$$\ast$ Set mode indicators $\ast$$\ast$/}}\label{kbc_8h_a741fc4238c68fc68bd3a1f6ee565fc63}
+
+
+\-Definition at line 59 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a6e071b5150a91ec4dabda75dad679149}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-I\-N\-P\-R\-E\-A\-D@{\-K\-B\-C\-\_\-\-I\-N\-P\-R\-E\-A\-D}}
+\index{\-K\-B\-C\-\_\-\-I\-N\-P\-R\-E\-A\-D@{\-K\-B\-C\-\_\-\-I\-N\-P\-R\-E\-A\-D}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-I\-N\-P\-R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-I\-N\-P\-R\-E\-A\-D}~0x\-C0	/$\ast$$\ast$ Read input port $\ast$$\ast$/}}\label{kbc_8h_a6e071b5150a91ec4dabda75dad679149}
+
+
+\-Definition at line 35 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a7208ef5cf529564551b6ad7571126057}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-I\-N\-T\-R\-T\-E\-S\-T@{\-K\-B\-C\-\_\-\-I\-N\-T\-R\-T\-E\-S\-T}}
+\index{\-K\-B\-C\-\_\-\-I\-N\-T\-R\-T\-E\-S\-T@{\-K\-B\-C\-\_\-\-I\-N\-T\-R\-T\-E\-S\-T}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-I\-N\-T\-R\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-I\-N\-T\-R\-T\-E\-S\-T}}}\label{kbc_8h_a7208ef5cf529564551b6ad7571126057}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+0xAB    
+\end{DoxyCode}
+
+
+\-Definition at line 30 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a48e4b03f7be349754c77099d35f21d20}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-O\-U\-T\-A\-U\-X@{\-K\-B\-C\-\_\-\-O\-U\-T\-A\-U\-X}}
+\index{\-K\-B\-C\-\_\-\-O\-U\-T\-A\-U\-X@{\-K\-B\-C\-\_\-\-O\-U\-T\-A\-U\-X}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-O\-U\-T\-A\-U\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-O\-U\-T\-A\-U\-X}~0x\-D3	/$\ast$$\ast$ Echo pointing device output buffer $\ast$$\ast$/}}\label{kbc_8h_a48e4b03f7be349754c77099d35f21d20}
+
+
+\-Definition at line 39 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ad10691bb2a88fe0599b3dcc14ef904de}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-O\-U\-T\-K\-B\-D@{\-K\-B\-C\-\_\-\-O\-U\-T\-K\-B\-D}}
+\index{\-K\-B\-C\-\_\-\-O\-U\-T\-K\-B\-D@{\-K\-B\-C\-\_\-\-O\-U\-T\-K\-B\-D}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-O\-U\-T\-K\-B\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-O\-U\-T\-K\-B\-D}~0x\-D2	/$\ast$$\ast$ Echo keyboard output buffer $\ast$$\ast$/}}\label{kbc_8h_ad10691bb2a88fe0599b3dcc14ef904de}
+
+
+\-Definition at line 38 of file kbc.\-h.
+
+\hypertarget{kbc_8h_adaf92e130cdbd5611a360198233201dd}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-O\-U\-T\-R\-E\-A\-D@{\-K\-B\-C\-\_\-\-O\-U\-T\-R\-E\-A\-D}}
+\index{\-K\-B\-C\-\_\-\-O\-U\-T\-R\-E\-A\-D@{\-K\-B\-C\-\_\-\-O\-U\-T\-R\-E\-A\-D}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-O\-U\-T\-R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-O\-U\-T\-R\-E\-A\-D}~0x\-D0	/$\ast$$\ast$ Read Output port $\ast$$\ast$/}}\label{kbc_8h_adaf92e130cdbd5611a360198233201dd}
+
+
+\-Definition at line 36 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a1879110de3cf58035d08b4572ae449f9}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-O\-U\-T\-W\-R\-T\-E@{\-K\-B\-C\-\_\-\-O\-U\-T\-W\-R\-T\-E}}
+\index{\-K\-B\-C\-\_\-\-O\-U\-T\-W\-R\-T\-E@{\-K\-B\-C\-\_\-\-O\-U\-T\-W\-R\-T\-E}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-O\-U\-T\-W\-R\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-O\-U\-T\-W\-R\-T\-E}~0x\-D1	/$\ast$$\ast$ write output port ,next byte will be written to 804x $\ast$$\ast$/}}\label{kbc_8h_a1879110de3cf58035d08b4572ae449f9}
+
+
+\-Definition at line 37 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a82a39176e42fe8f48025521b9674cdc6}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-P\-A\-R\-I\-T\-Y@{\-K\-B\-C\-\_\-\-P\-A\-R\-I\-T\-Y}}
+\index{\-K\-B\-C\-\_\-\-P\-A\-R\-I\-T\-Y@{\-K\-B\-C\-\_\-\-P\-A\-R\-I\-T\-Y}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-P\-A\-R\-I\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-P\-A\-R\-I\-T\-Y}~0x80	/$\ast$$\ast$ Parity error $\ast$$\ast$/}}\label{kbc_8h_a82a39176e42fe8f48025521b9674cdc6}
+
+
+\-Definition at line 20 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a6a2a046aa363ac58ce6ddb0a4ddc3b0b}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E0@{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E0}}
+\index{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E0@{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E0}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E0}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-P\-U\-L\-S\-E0}~0x\-F\-E	/$\ast$$\ast$ Pulse output bit 0 $\ast$$\ast$/}}\label{kbc_8h_a6a2a046aa363ac58ce6ddb0a4ddc3b0b}
+
+
+\-Definition at line 43 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ae96097ff8247c0f4b6c9e3bc5afd6ebc}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E1@{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E1}}
+\index{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E1@{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E1}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E1}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-P\-U\-L\-S\-E1}~0x\-F\-D	/$\ast$$\ast$ $\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$ 1 $\ast$$\ast$/}}\label{kbc_8h_ae96097ff8247c0f4b6c9e3bc5afd6ebc}
+
+
+\-Definition at line 44 of file kbc.\-h.
+
+\hypertarget{kbc_8h_afa4d6fe554e5b3f8181e38e3c4366f11}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E2@{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E2}}
+\index{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E2@{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E2}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E2}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-P\-U\-L\-S\-E2}~0x\-F\-B	/$\ast$$\ast$ $\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$ 2 $\ast$$\ast$/}}\label{kbc_8h_afa4d6fe554e5b3f8181e38e3c4366f11}
+
+
+\-Definition at line 45 of file kbc.\-h.
+
+\hypertarget{kbc_8h_af5b1025d8b69021f483d35ef69c3f1de}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E3@{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E3}}
+\index{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E3@{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E3}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-P\-U\-L\-S\-E3}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-P\-U\-L\-S\-E3}~0x\-F7	/$\ast$$\ast$ $\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$$\sim$ 3 $\ast$$\ast$/}}\label{kbc_8h_af5b1025d8b69021f483d35ef69c3f1de}
+
+
+\-Definition at line 46 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a893a8f21fee8b56d5bad81cd7fe7a012}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-R\-E\-A\-D\-I\-D@{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-I\-D}}
+\index{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-I\-D@{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-I\-D}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-R\-E\-A\-D\-I\-D}~0x\-F2	/$\ast$$\ast$ Read Keyboard I\-D $\ast$$\ast$/}}\label{kbc_8h_a893a8f21fee8b56d5bad81cd7fe7a012}
+
+
+\-Definition at line 56 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a1072189fb81979edebf1c1f6eb6df535}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-R\-E\-A\-D\-L\-O\-W@{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-L\-O\-W}}
+\index{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-L\-O\-W@{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-L\-O\-W}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-L\-O\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-R\-E\-A\-D\-L\-O\-W}~0x21	/$\ast$$\ast$ Read byte specified in low 5 bits of the command in 804x's internal R\-A\-M $\ast$$\ast$/}}\label{kbc_8h_a1072189fb81979edebf1c1f6eb6df535}
+
+
+\-Definition at line 24 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a3d7de39b369f644585feb4cabd643f9f}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-R\-E\-A\-D\-R\-A\-M@{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-R\-A\-M}}
+\index{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-R\-A\-M@{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-R\-A\-M}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-R\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-R\-E\-A\-D\-R\-A\-M}~0x20	/$\ast$$\ast$ Read byte 0 from the internal R\-A\-M $\ast$$\ast$/}}\label{kbc_8h_a3d7de39b369f644585feb4cabd643f9f}
+
+
+\-Definition at line 23 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a108efc17e6b60d69db8579b0cf23f79a}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-R\-E\-A\-D\-V\-E\-R@{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-V\-E\-R}}
+\index{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-V\-E\-R@{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-V\-E\-R}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-R\-E\-A\-D\-V\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-R\-E\-A\-D\-V\-E\-R}~0x\-A\-F	/$\ast$$\ast$ Read keyboard version $\ast$$\ast$/}}\label{kbc_8h_a108efc17e6b60d69db8579b0cf23f79a}
+
+
+\-Definition at line 34 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ac93554216ffddf26f4cd30a5914bd9fa}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-R\-E\-B\-O\-O\-T@{\-K\-B\-C\-\_\-\-R\-E\-B\-O\-O\-T}}
+\index{\-K\-B\-C\-\_\-\-R\-E\-B\-O\-O\-T@{\-K\-B\-C\-\_\-\-R\-E\-B\-O\-O\-T}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-R\-E\-B\-O\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-R\-E\-B\-O\-O\-T}~0x04	/$\ast$$\ast$ soft reboot $\ast$$\ast$/}}\label{kbc_8h_ac93554216ffddf26f4cd30a5914bd9fa}
+
+
+\-Definition at line 15 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a5e88c9afa8efac0728e8483135b7ceb5}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-R\-E\-S\-E\-N\-D@{\-K\-B\-C\-\_\-\-R\-E\-S\-E\-N\-D}}
+\index{\-K\-B\-C\-\_\-\-R\-E\-S\-E\-N\-D@{\-K\-B\-C\-\_\-\-R\-E\-S\-E\-N\-D}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-R\-E\-S\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-R\-E\-S\-E\-N\-D}~0x\-F\-E	/$\ast$$\ast$ Resend the last byte $\ast$$\ast$/}}\label{kbc_8h_a5e88c9afa8efac0728e8483135b7ceb5}
+
+
+\-Definition at line 51 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a9380d340e2f61e3cc7ab35345f9d47d8}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-R\-E\-S\-E\-T@{\-K\-B\-C\-\_\-\-R\-E\-S\-E\-T}}
+\index{\-K\-B\-C\-\_\-\-R\-E\-S\-E\-T@{\-K\-B\-C\-\_\-\-R\-E\-S\-E\-T}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-R\-E\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-R\-E\-S\-E\-T}~0x\-F\-F	/$\ast$$\ast$ R\-E\-S\-E\-T the mouse and the keyboard $\ast$$\ast$/}}\label{kbc_8h_a9380d340e2f61e3cc7ab35345f9d47d8}
+
+
+\-Definition at line 50 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a33677a3374da89e2aea99e70043c0669}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-R\-T\-I\-M\-E\-O\-U\-T@{\-K\-B\-C\-\_\-\-R\-T\-I\-M\-E\-O\-U\-T}}
+\index{\-K\-B\-C\-\_\-\-R\-T\-I\-M\-E\-O\-U\-T@{\-K\-B\-C\-\_\-\-R\-T\-I\-M\-E\-O\-U\-T}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-R\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-R\-T\-I\-M\-E\-O\-U\-T}~0x40	/$\ast$$\ast$ recieve timeout error $\ast$$\ast$/}}\label{kbc_8h_a33677a3374da89e2aea99e70043c0669}
+
+
+\-Definition at line 19 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ae67c9300c0b90b81e55ecf8313c20952}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-S\-E\-C\-L\-O\-C\-K@{\-K\-B\-C\-\_\-\-S\-E\-C\-L\-O\-C\-K}}
+\index{\-K\-B\-C\-\_\-\-S\-E\-C\-L\-O\-C\-K@{\-K\-B\-C\-\_\-\-S\-E\-C\-L\-O\-C\-K}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-S\-E\-C\-L\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-S\-E\-C\-L\-O\-C\-K}~0x10	/$\ast$$\ast$ Security lock engaged $\ast$$\ast$/}}\label{kbc_8h_ae67c9300c0b90b81e55ecf8313c20952}
+
+
+\-Definition at line 17 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a3b6e93597b428f09d15500b9924a2dbe}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-S\-E\-L\-F\-T\-E\-S\-T@{\-K\-B\-C\-\_\-\-S\-E\-L\-F\-T\-E\-S\-T}}
+\index{\-K\-B\-C\-\_\-\-S\-E\-L\-F\-T\-E\-S\-T@{\-K\-B\-C\-\_\-\-S\-E\-L\-F\-T\-E\-S\-T}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-S\-E\-L\-F\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-S\-E\-L\-F\-T\-E\-S\-T}~0x\-A\-A	/$\ast$$\ast$ initiate the self-\/test $\ast$$\ast$/}}\label{kbc_8h_a3b6e93597b428f09d15500b9924a2dbe}
+
+
+\-Definition at line 29 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a04a4fc50a5d92c2f70a62e3f26a05e55}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-S\-E\-T\-S\-C\-A\-N@{\-K\-B\-C\-\_\-\-S\-E\-T\-S\-C\-A\-N}}
+\index{\-K\-B\-C\-\_\-\-S\-E\-T\-S\-C\-A\-N@{\-K\-B\-C\-\_\-\-S\-E\-T\-S\-C\-A\-N}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-S\-E\-T\-S\-C\-A\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-S\-E\-T\-S\-C\-A\-N}~0x\-F0	/$\ast$$\ast$ Set/\-Get scancodes set $\ast$$\ast$/}}\label{kbc_8h_a04a4fc50a5d92c2f70a62e3f26a05e55}
+
+
+\-Definition at line 57 of file kbc.\-h.
+
+\hypertarget{kbc_8h_afd321581da9c009e77ca77612d026ec2}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-S\-T\-A\-T\-U\-S\-P\-O\-R\-T@{\-K\-B\-C\-\_\-\-S\-T\-A\-T\-U\-S\-P\-O\-R\-T}}
+\index{\-K\-B\-C\-\_\-\-S\-T\-A\-T\-U\-S\-P\-O\-R\-T@{\-K\-B\-C\-\_\-\-S\-T\-A\-T\-U\-S\-P\-O\-R\-T}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-S\-T\-A\-T\-U\-S\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-S\-T\-A\-T\-U\-S\-P\-O\-R\-T}~0x64}}\label{kbc_8h_afd321581da9c009e77ca77612d026ec2}
+
+
+\-Definition at line 10 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ab6421575437acd520cbcc6829d998bdd}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-T\-S\-T\-M\-O\-U\-S\-E@{\-K\-B\-C\-\_\-\-T\-S\-T\-M\-O\-U\-S\-E}}
+\index{\-K\-B\-C\-\_\-\-T\-S\-T\-M\-O\-U\-S\-E@{\-K\-B\-C\-\_\-\-T\-S\-T\-M\-O\-U\-S\-E}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-T\-S\-T\-M\-O\-U\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-T\-S\-T\-M\-O\-U\-S\-E}~0x\-A9	/$\ast$$\ast$ test mouse/auxillary port $\ast$$\ast$/}}\label{kbc_8h_ab6421575437acd520cbcc6829d998bdd}
+
+
+\-Definition at line 28 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ac10ad9ebfd3e267d59e6fa55cc22b1a7}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-T\-T\-I\-M\-E\-O\-U\-T@{\-K\-B\-C\-\_\-\-T\-T\-I\-M\-E\-O\-U\-T}}
+\index{\-K\-B\-C\-\_\-\-T\-T\-I\-M\-E\-O\-U\-T@{\-K\-B\-C\-\_\-\-T\-T\-I\-M\-E\-O\-U\-T}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-T\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-T\-T\-I\-M\-E\-O\-U\-T}~0x20	/$\ast$$\ast$ transmission timeout error $\ast$$\ast$/}}\label{kbc_8h_ac10ad9ebfd3e267d59e6fa55cc22b1a7}
+
+
+\-Definition at line 18 of file kbc.\-h.
+
+\hypertarget{kbc_8h_aad7b69b6846a7ec0718fbed27088ae0e}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-T\-Y\-P\-E\-M\-A\-T\-I\-C@{\-K\-B\-C\-\_\-\-T\-Y\-P\-E\-M\-A\-T\-I\-C}}
+\index{\-K\-B\-C\-\_\-\-T\-Y\-P\-E\-M\-A\-T\-I\-C@{\-K\-B\-C\-\_\-\-T\-Y\-P\-E\-M\-A\-T\-I\-C}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-T\-Y\-P\-E\-M\-A\-T\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-T\-Y\-P\-E\-M\-A\-T\-I\-C}~0x\-F3	/$\ast$$\ast$ Set typematic rate/delay $\ast$$\ast$/}}\label{kbc_8h_aad7b69b6846a7ec0718fbed27088ae0e}
+
+
+\-Definition at line 55 of file kbc.\-h.
+
+\hypertarget{kbc_8h_aee9938edf70d141725e4c3a031007baa}{\index{kbc.\-h@{kbc.\-h}!\-K\-B\-C\-\_\-\-W\-R\-I\-T\-E\-R\-A\-M@{\-K\-B\-C\-\_\-\-W\-R\-I\-T\-E\-R\-A\-M}}
+\index{\-K\-B\-C\-\_\-\-W\-R\-I\-T\-E\-R\-A\-M@{\-K\-B\-C\-\_\-\-W\-R\-I\-T\-E\-R\-A\-M}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-B\-C\-\_\-\-W\-R\-I\-T\-E\-R\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B\-C\-\_\-\-W\-R\-I\-T\-E\-R\-A\-M}~0x60	/$\ast$$\ast$ write the data to the address specified in the 5 lower bits of command $\ast$$\ast$/}}\label{kbc_8h_aee9938edf70d141725e4c3a031007baa}
+
+
+\-Definition at line 25 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ad06e66a899b065c65c2363233d8ebce2}{\index{kbc.\-h@{kbc.\-h}!\-K\-E\-Y\-\_\-\-D\-E\-L@{\-K\-E\-Y\-\_\-\-D\-E\-L}}
+\index{\-K\-E\-Y\-\_\-\-D\-E\-L@{\-K\-E\-Y\-\_\-\-D\-E\-L}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-E\-Y\-\_\-\-D\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-Y\-\_\-\-D\-E\-L}~0x\-E9}}\label{kbc_8h_ad06e66a899b065c65c2363233d8ebce2}
+
+
+\-Definition at line 72 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a69aff5c97fd814c5f29fca79bdcda9be}{\index{kbc.\-h@{kbc.\-h}!\-K\-E\-Y\-\_\-\-D\-N@{\-K\-E\-Y\-\_\-\-D\-N}}
+\index{\-K\-E\-Y\-\_\-\-D\-N@{\-K\-E\-Y\-\_\-\-D\-N}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-E\-Y\-\_\-\-D\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-Y\-\_\-\-D\-N}~0x\-E3}}\label{kbc_8h_a69aff5c97fd814c5f29fca79bdcda9be}
+
+
+\-Definition at line 66 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a912861b945e779c29f718cdcd62be10c}{\index{kbc.\-h@{kbc.\-h}!\-K\-E\-Y\-\_\-\-E\-N\-D@{\-K\-E\-Y\-\_\-\-E\-N\-D}}
+\index{\-K\-E\-Y\-\_\-\-E\-N\-D@{\-K\-E\-Y\-\_\-\-E\-N\-D}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-E\-Y\-\_\-\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-Y\-\_\-\-E\-N\-D}~0x\-E1}}\label{kbc_8h_a912861b945e779c29f718cdcd62be10c}
+
+
+\-Definition at line 64 of file kbc.\-h.
+
+\hypertarget{kbc_8h_af6806366178266b3eaf1fb16f991cbee}{\index{kbc.\-h@{kbc.\-h}!\-K\-E\-Y\-\_\-\-H\-O\-M\-E@{\-K\-E\-Y\-\_\-\-H\-O\-M\-E}}
+\index{\-K\-E\-Y\-\_\-\-H\-O\-M\-E@{\-K\-E\-Y\-\_\-\-H\-O\-M\-E}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-E\-Y\-\_\-\-H\-O\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-Y\-\_\-\-H\-O\-M\-E}~0x\-E0}}\label{kbc_8h_af6806366178266b3eaf1fb16f991cbee}
+
+
+\-Definition at line 63 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a4ea8f40f4220377b764d1b3b14807f2b}{\index{kbc.\-h@{kbc.\-h}!\-K\-E\-Y\-\_\-\-I\-N\-S@{\-K\-E\-Y\-\_\-\-I\-N\-S}}
+\index{\-K\-E\-Y\-\_\-\-I\-N\-S@{\-K\-E\-Y\-\_\-\-I\-N\-S}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-E\-Y\-\_\-\-I\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-Y\-\_\-\-I\-N\-S}~0x\-E8}}\label{kbc_8h_a4ea8f40f4220377b764d1b3b14807f2b}
+
+
+\-Definition at line 71 of file kbc.\-h.
+
+\hypertarget{kbc_8h_afe0182b9752acbeff23e5b01e63ffe9c}{\index{kbc.\-h@{kbc.\-h}!\-K\-E\-Y\-\_\-\-L\-F@{\-K\-E\-Y\-\_\-\-L\-F}}
+\index{\-K\-E\-Y\-\_\-\-L\-F@{\-K\-E\-Y\-\_\-\-L\-F}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-E\-Y\-\_\-\-L\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-Y\-\_\-\-L\-F}~0x\-E4}}\label{kbc_8h_afe0182b9752acbeff23e5b01e63ffe9c}
+
+
+\-Definition at line 67 of file kbc.\-h.
+
+\hypertarget{kbc_8h_a84a56bcd66075dce29dd77873006f33c}{\index{kbc.\-h@{kbc.\-h}!\-K\-E\-Y\-\_\-\-P\-G\-D\-N@{\-K\-E\-Y\-\_\-\-P\-G\-D\-N}}
+\index{\-K\-E\-Y\-\_\-\-P\-G\-D\-N@{\-K\-E\-Y\-\_\-\-P\-G\-D\-N}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-E\-Y\-\_\-\-P\-G\-D\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-Y\-\_\-\-P\-G\-D\-N}~0x\-E7}}\label{kbc_8h_a84a56bcd66075dce29dd77873006f33c}
+
+
+\-Definition at line 70 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ac35c65d4a20c05b2cc7e1f3e40e13e79}{\index{kbc.\-h@{kbc.\-h}!\-K\-E\-Y\-\_\-\-P\-G\-U\-P@{\-K\-E\-Y\-\_\-\-P\-G\-U\-P}}
+\index{\-K\-E\-Y\-\_\-\-P\-G\-U\-P@{\-K\-E\-Y\-\_\-\-P\-G\-U\-P}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-E\-Y\-\_\-\-P\-G\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-Y\-\_\-\-P\-G\-U\-P}~0x\-E6}}\label{kbc_8h_ac35c65d4a20c05b2cc7e1f3e40e13e79}
+
+
+\-Definition at line 69 of file kbc.\-h.
+
+\hypertarget{kbc_8h_ab787b56ca072749c919b02381f66d271}{\index{kbc.\-h@{kbc.\-h}!\-K\-E\-Y\-\_\-\-R\-T@{\-K\-E\-Y\-\_\-\-R\-T}}
+\index{\-K\-E\-Y\-\_\-\-R\-T@{\-K\-E\-Y\-\_\-\-R\-T}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-E\-Y\-\_\-\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-Y\-\_\-\-R\-T}~0x\-E5}}\label{kbc_8h_ab787b56ca072749c919b02381f66d271}
+
+
+\-Definition at line 68 of file kbc.\-h.
+
+\hypertarget{kbc_8h_afa086fc916a81e7fd348ec00cf786916}{\index{kbc.\-h@{kbc.\-h}!\-K\-E\-Y\-\_\-\-U\-P@{\-K\-E\-Y\-\_\-\-U\-P}}
+\index{\-K\-E\-Y\-\_\-\-U\-P@{\-K\-E\-Y\-\_\-\-U\-P}!kbc.h@{kbc.\-h}}
+\subsubsection[{\-K\-E\-Y\-\_\-\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-Y\-\_\-\-U\-P}~0x\-E2}}\label{kbc_8h_afa086fc916a81e7fd348ec00cf786916}
+
+
+\-Definition at line 65 of file kbc.\-h.
+
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{kbc_8h_aa8584463ac58034ccbf9cd2ffc8e187d}{\index{kbc.\-h@{kbc.\-h}!kbc\-\_\-data@{kbc\-\_\-data}}
+\index{kbc\-\_\-data@{kbc\-\_\-data}!kbc.h@{kbc.\-h}}
+\subsubsection[{kbc\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf kbc\-\_\-data} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{kbc_8h_aa8584463ac58034ccbf9cd2ffc8e187d}
+
+
+\-Definition at line 97 of file kbc.\-c.
+
+\hypertarget{kbc_8h_abf3ce1c314db9a6a15b99e5313eb2edb}{\index{kbc.\-h@{kbc.\-h}!kbc\-\_\-interrupt@{kbc\-\_\-interrupt}}
+\index{kbc\-\_\-interrupt@{kbc\-\_\-interrupt}!kbc.h@{kbc.\-h}}
+\subsubsection[{kbc\-\_\-interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf kbc\-\_\-interrupt} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{kbc_8h_abf3ce1c314db9a6a15b99e5313eb2edb}
+
+
+\-Definition at line 131 of file kbc.\-c.
+

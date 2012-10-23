@@ -1,0 +1,342 @@
+\hypertarget{memvals_8h}{\section{include/memvals.h \-File \-Reference}
+\label{memvals_8h}\index{include/memvals.\-h@{include/memvals.\-h}}
+}
+\-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memvals_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Data \-Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structSegdesc}{\-Segdesc}
+\item 
+struct \hyperlink{structGdtdesc}{\-Gdtdesc}
+\end{DoxyCompactItemize}
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{memvals_8h_a3339ed3317bf1983a963ec00b5e6920e}{\-S\-E\-G\-A\-C\-S\-\_\-\-R\-W}~0x2	/$\ast$ Read and write flag Read for code segments and write for data segments $\ast$/
+\item 
+\#define \hyperlink{memvals_8h_a320426c604cdecc5a193134703d15864}{\-S\-E\-G\-A\-C\-S\-\_\-\-X}~0x8	/$\ast$ The Executable flag $\ast$/
+\item 
+\#define \hyperlink{memvals_8h_a14ac70ce8b1d2b8947785bb263f34dff}{\-S\-E\-G\-A\-C\-S\-\_\-\-D}
+\item 
+\#define \hyperlink{memvals_8h_ac0df0c9e3291f13ac316e36566673ee5}{\-S\-E\-G\-A\-C\-S\-\_\-\-U\-S\-R}~0x60
+\item 
+\#define \hyperlink{memvals_8h_a594f82f31d1ed7189ad21c3af3279269}{\-S\-E\-G\-\_\-\-N\-U\-L\-L}~(struct \hyperlink{structSegdesc}{\-Segdesc})\{0,0,0,0,0,0,0\}
+\item 
+\#define \hyperlink{memvals_8h_a51cd335eb7b3c2775b28995bc5a8b9a4}{\-S\-E\-G\-M\-E\-N\-T}(limit, \hyperlink{memvals_8h_a0523cedff47e2441fc198b7770ec5d3f}{base}, access)
+\item 
+\#define \hyperlink{memvals_8h_afa15977c771e531ebd3f3a5c2563ce16}{\-E\-X\-T\-M\-E\-M}~0x100000
+\item 
+\#define \hyperlink{memvals_8h_afaaefef20f05b195fe951996639d6e0b}{\-P\-A\-G\-E\-S\-Z}~0x1000
+\item 
+\#define \hyperlink{memvals_8h_afa3787ef60f1ab1900e4155a69c294e7}{\-P\-A\-G\-E\-L\-G}~0x\-C
+\item 
+\#define \hyperlink{memvals_8h_a2ae6c608093b58db8aeb7a55afa6ced4}{\-P\-A\-G\-E\-C\-N\-T}~0x400
+\item 
+\#define \hyperlink{memvals_8h_a5f6a8c03818b17c32a2fbc2151cee288}{\-P\-A\-G\-E\-T\-S\-Z}~(\hyperlink{memvals_8h_afaaefef20f05b195fe951996639d6e0b}{\-P\-A\-G\-E\-S\-Z}$\ast$\hyperlink{memvals_8h_a2ae6c608093b58db8aeb7a55afa6ced4}{\-P\-A\-G\-E\-C\-N\-T})
+\item 
+\#define \hyperlink{memvals_8h_ad72dec5e3e9cbc32c38253c447e875ad}{\-K\-E\-R\-N\-E\-L\-\_\-\-A\-D\-D\-R}~0x\-F0000000
+\item 
+\#define \hyperlink{memvals_8h_a23c7f2f55680575f333c26044f6097cb}{\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K}~\hyperlink{memvals_8h_afaaefef20f05b195fe951996639d6e0b}{\-P\-A\-G\-E\-S\-Z}$\ast$8
+\item 
+\#define \hyperlink{memvals_8h_ace568adaf7e532683e563d7cbcfe6328}{\-V\-I\-R\-T\-P\-G\-T}~(\hyperlink{memvals_8h_ad72dec5e3e9cbc32c38253c447e875ad}{\-K\-E\-R\-N\-E\-L\-\_\-\-A\-D\-D\-R} -\/ \hyperlink{memvals_8h_a5f6a8c03818b17c32a2fbc2151cee288}{\-P\-A\-G\-E\-T\-S\-Z})
+\item 
+\#define \hyperlink{memvals_8h_aac7f7736d8372772fdc018238ddd255d}{\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P}~\hyperlink{memvals_8h_ace568adaf7e532683e563d7cbcfe6328}{\-V\-I\-R\-T\-P\-G\-T}
+\item 
+\#define \hyperlink{memvals_8h_a39d3d196a74d68f2386ac220de11c62d}{\-U\-S\-E\-R\-E\-N\-D}~(\hyperlink{memvals_8h_ace568adaf7e532683e563d7cbcfe6328}{\-V\-I\-R\-T\-P\-G\-T} -\/ \hyperlink{memvals_8h_a5f6a8c03818b17c32a2fbc2151cee288}{\-P\-A\-G\-E\-T\-S\-Z})
+\item 
+\#define \hyperlink{memvals_8h_a071ef09fc45a890d9b9a44a5f983ef65}{\-U\-S\-E\-R\-V\-I\-R\-T\-P\-G\-T}~(\hyperlink{memvals_8h_a39d3d196a74d68f2386ac220de11c62d}{\-U\-S\-E\-R\-E\-N\-D} -\/ \hyperlink{memvals_8h_a5f6a8c03818b17c32a2fbc2151cee288}{\-P\-A\-G\-E\-T\-S\-Z})
+\item 
+\#define \hyperlink{memvals_8h_a626f3751ebabc3f61df0d77cbbe536ae}{\-U\-S\-E\-R\-P\-A\-G\-E\-S}~(\hyperlink{memvals_8h_a071ef09fc45a890d9b9a44a5f983ef65}{\-U\-S\-E\-R\-V\-I\-R\-T\-P\-G\-T} -\/ \hyperlink{memvals_8h_a5f6a8c03818b17c32a2fbc2151cee288}{\-P\-A\-G\-E\-T\-S\-Z})
+\item 
+\#define \hyperlink{memvals_8h_a6220d966059baa20fc62479d1b620b37}{\-P\-R\-O\-C\-\_\-\-L\-I\-S\-T}~(\hyperlink{memvals_8h_a626f3751ebabc3f61df0d77cbbe536ae}{\-U\-S\-E\-R\-P\-A\-G\-E\-S} -\/ \hyperlink{memvals_8h_a5f6a8c03818b17c32a2fbc2151cee288}{\-P\-A\-G\-E\-T\-S\-Z})
+\item 
+\#define \hyperlink{memvals_8h_ae3ae3cfc7cee7569379146d2f31a9f9f}{\-U\-S\-E\-R\-S\-T\-A\-R\-T}~(\hyperlink{memvals_8h_a6220d966059baa20fc62479d1b620b37}{\-P\-R\-O\-C\-\_\-\-L\-I\-S\-T})
+\item 
+\#define \hyperlink{memvals_8h_a30a99faf9b563bfbd6bb3889f313673c}{\-U\-S\-E\-R\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P}~(\hyperlink{memvals_8h_ae3ae3cfc7cee7569379146d2f31a9f9f}{\-U\-S\-E\-R\-S\-T\-A\-R\-T} -\/ 2$\ast$\hyperlink{memvals_8h_afaaefef20f05b195fe951996639d6e0b}{\-P\-A\-G\-E\-S\-Z})
+\item 
+\#define \hyperlink{memvals_8h_ae19a309f4177d8849b5ebe8ebe7d76c9}{\-U\-S\-E\-R\-S\-P\-A\-C\-E\-S\-T\-A\-R\-T}~0\-X\-E\-E800000
+\item 
+\#define \hyperlink{memvals_8h_adcb9a0e28614fc06bf37d46dfe40ae99}{\-P\-A}(va)
+\item 
+\#define \hyperlink{memvals_8h_a8d55351437a0f35a5b3091d8acf6fa42}{\-I\-O\-P\-H\-Y\-M\-E\-M}~0x0\-A0000
+\item 
+\#define \hyperlink{memvals_8h_a1841fd1a462d245d8c73dce55e2f45da}{\-K\-B}~0x400
+\item 
+\#define \hyperlink{memvals_8h_aa6b38d492364d98453284934ed7caee9}{\-M\-B}~\hyperlink{memvals_8h_a1841fd1a462d245d8c73dce55e2f45da}{\-K\-B}$\ast$\hyperlink{memvals_8h_a1841fd1a462d245d8c73dce55e2f45da}{\-K\-B}
+\item 
+\#define \hyperlink{memvals_8h_a44172ac633c517cb4c9e278cef36b000}{\-G\-B}~\hyperlink{memvals_8h_aa6b38d492364d98453284934ed7caee9}{\-M\-B}$\ast$\hyperlink{memvals_8h_a1841fd1a462d245d8c73dce55e2f45da}{\-K\-B}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structGdtdesc}{\-Gdtdesc} \hyperlink{memvals_8h_a038c990262fc385e807818a59ff8e25f}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((packed))
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{types_8h_a273cf69d639a59973b6019625df33e30}{uint16\-\_\-t} \hyperlink{memvals_8h_aaba88b24a21a6c70c895c0d55f4a69a0}{size}
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{memvals_8h_a0523cedff47e2441fc198b7770ec5d3f}{base}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{memvals_8h_afa15977c771e531ebd3f3a5c2563ce16}{\index{memvals.\-h@{memvals.\-h}!\-E\-X\-T\-M\-E\-M@{\-E\-X\-T\-M\-E\-M}}
+\index{\-E\-X\-T\-M\-E\-M@{\-E\-X\-T\-M\-E\-M}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-E\-X\-T\-M\-E\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-X\-T\-M\-E\-M}~0x100000}}\label{memvals_8h_afa15977c771e531ebd3f3a5c2563ce16}
+
+
+\-Definition at line 83 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a44172ac633c517cb4c9e278cef36b000}{\index{memvals.\-h@{memvals.\-h}!\-G\-B@{\-G\-B}}
+\index{\-G\-B@{\-G\-B}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-G\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-G\-B}~{\bf \-M\-B}$\ast${\bf \-K\-B}}}\label{memvals_8h_a44172ac633c517cb4c9e278cef36b000}
+
+
+\-Definition at line 120 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a8d55351437a0f35a5b3091d8acf6fa42}{\index{memvals.\-h@{memvals.\-h}!\-I\-O\-P\-H\-Y\-M\-E\-M@{\-I\-O\-P\-H\-Y\-M\-E\-M}}
+\index{\-I\-O\-P\-H\-Y\-M\-E\-M@{\-I\-O\-P\-H\-Y\-M\-E\-M}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-I\-O\-P\-H\-Y\-M\-E\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-O\-P\-H\-Y\-M\-E\-M}~0x0\-A0000}}\label{memvals_8h_a8d55351437a0f35a5b3091d8acf6fa42}
+\-Paging 
+
+\-Definition at line 114 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a1841fd1a462d245d8c73dce55e2f45da}{\index{memvals.\-h@{memvals.\-h}!\-K\-B@{\-K\-B}}
+\index{\-K\-B@{\-K\-B}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-K\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-B}~0x400}}\label{memvals_8h_a1841fd1a462d245d8c73dce55e2f45da}
+
+
+\-Definition at line 118 of file memvals.\-h.
+
+\hypertarget{memvals_8h_ad72dec5e3e9cbc32c38253c447e875ad}{\index{memvals.\-h@{memvals.\-h}!\-K\-E\-R\-N\-E\-L\-\_\-\-A\-D\-D\-R@{\-K\-E\-R\-N\-E\-L\-\_\-\-A\-D\-D\-R}}
+\index{\-K\-E\-R\-N\-E\-L\-\_\-\-A\-D\-D\-R@{\-K\-E\-R\-N\-E\-L\-\_\-\-A\-D\-D\-R}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-K\-E\-R\-N\-E\-L\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-R\-N\-E\-L\-\_\-\-A\-D\-D\-R}~0x\-F0000000}}\label{memvals_8h_ad72dec5e3e9cbc32c38253c447e875ad}
+
+
+\-Definition at line 88 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a23c7f2f55680575f333c26044f6097cb}{\index{memvals.\-h@{memvals.\-h}!\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K@{\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K}}
+\index{\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K@{\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K}~{\bf \-P\-A\-G\-E\-S\-Z}$\ast$8}}\label{memvals_8h_a23c7f2f55680575f333c26044f6097cb}
+
+
+\-Definition at line 89 of file memvals.\-h.
+
+\hypertarget{memvals_8h_aac7f7736d8372772fdc018238ddd255d}{\index{memvals.\-h@{memvals.\-h}!\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P@{\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P}}
+\index{\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P@{\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-K\-E\-R\-N\-E\-L\-\_\-\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P}~{\bf \-V\-I\-R\-T\-P\-G\-T}}}\label{memvals_8h_aac7f7736d8372772fdc018238ddd255d}
+
+
+\-Definition at line 91 of file memvals.\-h.
+
+\hypertarget{memvals_8h_aa6b38d492364d98453284934ed7caee9}{\index{memvals.\-h@{memvals.\-h}!\-M\-B@{\-M\-B}}
+\index{\-M\-B@{\-M\-B}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-M\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-M\-B}~{\bf \-K\-B}$\ast${\bf \-K\-B}}}\label{memvals_8h_aa6b38d492364d98453284934ed7caee9}
+
+
+\-Definition at line 119 of file memvals.\-h.
+
+\hypertarget{memvals_8h_adcb9a0e28614fc06bf37d46dfe40ae99}{\index{memvals.\-h@{memvals.\-h}!\-P\-A@{\-P\-A}}
+\index{\-P\-A@{\-P\-A}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-P\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-A}(
+\begin{DoxyParamCaption}
+\item[{}]{va}
+\end{DoxyParamCaption}
+)}}\label{memvals_8h_adcb9a0e28614fc06bf37d46dfe40ae99}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+({\
+        uint32_t pa = (uint32_t) va;\
+        pa-KERNEL_ADDR;\
+})
+\end{DoxyCode}
+
+
+\-Definition at line 103 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a2ae6c608093b58db8aeb7a55afa6ced4}{\index{memvals.\-h@{memvals.\-h}!\-P\-A\-G\-E\-C\-N\-T@{\-P\-A\-G\-E\-C\-N\-T}}
+\index{\-P\-A\-G\-E\-C\-N\-T@{\-P\-A\-G\-E\-C\-N\-T}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-P\-A\-G\-E\-C\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-A\-G\-E\-C\-N\-T}~0x400}}\label{memvals_8h_a2ae6c608093b58db8aeb7a55afa6ced4}
+
+
+\-Definition at line 86 of file memvals.\-h.
+
+\hypertarget{memvals_8h_afa3787ef60f1ab1900e4155a69c294e7}{\index{memvals.\-h@{memvals.\-h}!\-P\-A\-G\-E\-L\-G@{\-P\-A\-G\-E\-L\-G}}
+\index{\-P\-A\-G\-E\-L\-G@{\-P\-A\-G\-E\-L\-G}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-P\-A\-G\-E\-L\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-A\-G\-E\-L\-G}~0x\-C}}\label{memvals_8h_afa3787ef60f1ab1900e4155a69c294e7}
+
+
+\-Definition at line 85 of file memvals.\-h.
+
+\hypertarget{memvals_8h_afaaefef20f05b195fe951996639d6e0b}{\index{memvals.\-h@{memvals.\-h}!\-P\-A\-G\-E\-S\-Z@{\-P\-A\-G\-E\-S\-Z}}
+\index{\-P\-A\-G\-E\-S\-Z@{\-P\-A\-G\-E\-S\-Z}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-P\-A\-G\-E\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-A\-G\-E\-S\-Z}~0x1000}}\label{memvals_8h_afaaefef20f05b195fe951996639d6e0b}
+
+
+\-Definition at line 84 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a5f6a8c03818b17c32a2fbc2151cee288}{\index{memvals.\-h@{memvals.\-h}!\-P\-A\-G\-E\-T\-S\-Z@{\-P\-A\-G\-E\-T\-S\-Z}}
+\index{\-P\-A\-G\-E\-T\-S\-Z@{\-P\-A\-G\-E\-T\-S\-Z}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-P\-A\-G\-E\-T\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-A\-G\-E\-T\-S\-Z}~({\bf \-P\-A\-G\-E\-S\-Z}$\ast${\bf \-P\-A\-G\-E\-C\-N\-T})}}\label{memvals_8h_a5f6a8c03818b17c32a2fbc2151cee288}
+
+
+\-Definition at line 87 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a6220d966059baa20fc62479d1b620b37}{\index{memvals.\-h@{memvals.\-h}!\-P\-R\-O\-C\-\_\-\-L\-I\-S\-T@{\-P\-R\-O\-C\-\_\-\-L\-I\-S\-T}}
+\index{\-P\-R\-O\-C\-\_\-\-L\-I\-S\-T@{\-P\-R\-O\-C\-\_\-\-L\-I\-S\-T}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-P\-R\-O\-C\-\_\-\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-R\-O\-C\-\_\-\-L\-I\-S\-T}~({\bf \-U\-S\-E\-R\-P\-A\-G\-E\-S} -\/ {\bf \-P\-A\-G\-E\-T\-S\-Z})}}\label{memvals_8h_a6220d966059baa20fc62479d1b620b37}
+
+
+\-Definition at line 96 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a594f82f31d1ed7189ad21c3af3279269}{\index{memvals.\-h@{memvals.\-h}!\-S\-E\-G\-\_\-\-N\-U\-L\-L@{\-S\-E\-G\-\_\-\-N\-U\-L\-L}}
+\index{\-S\-E\-G\-\_\-\-N\-U\-L\-L@{\-S\-E\-G\-\_\-\-N\-U\-L\-L}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-S\-E\-G\-\_\-\-N\-U\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-S\-E\-G\-\_\-\-N\-U\-L\-L}~(struct {\bf \-Segdesc})\{0,0,0,0,0,0,0\}}}\label{memvals_8h_a594f82f31d1ed7189ad21c3af3279269}
+
+
+\-Definition at line 67 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a14ac70ce8b1d2b8947785bb263f34dff}{\index{memvals.\-h@{memvals.\-h}!\-S\-E\-G\-A\-C\-S\-\_\-\-D@{\-S\-E\-G\-A\-C\-S\-\_\-\-D}}
+\index{\-S\-E\-G\-A\-C\-S\-\_\-\-D@{\-S\-E\-G\-A\-C\-S\-\_\-\-D}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-S\-E\-G\-A\-C\-S\-\_\-\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-S\-E\-G\-A\-C\-S\-\_\-\-D}}}\label{memvals_8h_a14ac70ce8b1d2b8947785bb263f34dff}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+0x4     /* growing down segment for data segments and means that this segments
+       can be
+                                        Executed from the user applications
+       "Low Privilege" */
+\end{DoxyCode}
+
+
+\-Definition at line 54 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a3339ed3317bf1983a963ec00b5e6920e}{\index{memvals.\-h@{memvals.\-h}!\-S\-E\-G\-A\-C\-S\-\_\-\-R\-W@{\-S\-E\-G\-A\-C\-S\-\_\-\-R\-W}}
+\index{\-S\-E\-G\-A\-C\-S\-\_\-\-R\-W@{\-S\-E\-G\-A\-C\-S\-\_\-\-R\-W}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-S\-E\-G\-A\-C\-S\-\_\-\-R\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-S\-E\-G\-A\-C\-S\-\_\-\-R\-W}~0x2	/$\ast$ Read and write flag Read for code segments and write for data segments $\ast$/}}\label{memvals_8h_a3339ed3317bf1983a963ec00b5e6920e}
+
+
+\-Definition at line 52 of file memvals.\-h.
+
+\hypertarget{memvals_8h_ac0df0c9e3291f13ac316e36566673ee5}{\index{memvals.\-h@{memvals.\-h}!\-S\-E\-G\-A\-C\-S\-\_\-\-U\-S\-R@{\-S\-E\-G\-A\-C\-S\-\_\-\-U\-S\-R}}
+\index{\-S\-E\-G\-A\-C\-S\-\_\-\-U\-S\-R@{\-S\-E\-G\-A\-C\-S\-\_\-\-U\-S\-R}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-S\-E\-G\-A\-C\-S\-\_\-\-U\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-S\-E\-G\-A\-C\-S\-\_\-\-U\-S\-R}~0x60}}\label{memvals_8h_ac0df0c9e3291f13ac316e36566673ee5}
+
+
+\-Definition at line 55 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a320426c604cdecc5a193134703d15864}{\index{memvals.\-h@{memvals.\-h}!\-S\-E\-G\-A\-C\-S\-\_\-\-X@{\-S\-E\-G\-A\-C\-S\-\_\-\-X}}
+\index{\-S\-E\-G\-A\-C\-S\-\_\-\-X@{\-S\-E\-G\-A\-C\-S\-\_\-\-X}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-S\-E\-G\-A\-C\-S\-\_\-\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-S\-E\-G\-A\-C\-S\-\_\-\-X}~0x8	/$\ast$ The Executable flag $\ast$/}}\label{memvals_8h_a320426c604cdecc5a193134703d15864}
+
+
+\-Definition at line 53 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a51cd335eb7b3c2775b28995bc5a8b9a4}{\index{memvals.\-h@{memvals.\-h}!\-S\-E\-G\-M\-E\-N\-T@{\-S\-E\-G\-M\-E\-N\-T}}
+\index{\-S\-E\-G\-M\-E\-N\-T@{\-S\-E\-G\-M\-E\-N\-T}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-S\-E\-G\-M\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-S\-E\-G\-M\-E\-N\-T}(
+\begin{DoxyParamCaption}
+\item[{}]{limit, }
+\item[{}]{{\bf base}, }
+\item[{}]{access}
+\end{DoxyParamCaption}
+)}}\label{memvals_8h_a51cd335eb7b3c2775b28995bc5a8b9a4}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+(struct Segdesc)\
+        {\
+        (limit>>12) & 0xFFFF,\
+        (base) & 0xFFFF,\
+        ((base)>>16) & 0xFF,\
+        (access) | 0x90,\
+        ((limit) >> 28),\
+        0xC,\
+        (base)>>24\
+        }
+\end{DoxyCode}
+
+
+\-Definition at line 68 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a39d3d196a74d68f2386ac220de11c62d}{\index{memvals.\-h@{memvals.\-h}!\-U\-S\-E\-R\-E\-N\-D@{\-U\-S\-E\-R\-E\-N\-D}}
+\index{\-U\-S\-E\-R\-E\-N\-D@{\-U\-S\-E\-R\-E\-N\-D}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-U\-S\-E\-R\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-U\-S\-E\-R\-E\-N\-D}~({\bf \-V\-I\-R\-T\-P\-G\-T} -\/ {\bf \-P\-A\-G\-E\-T\-S\-Z})}}\label{memvals_8h_a39d3d196a74d68f2386ac220de11c62d}
+
+
+\-Definition at line 93 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a626f3751ebabc3f61df0d77cbbe536ae}{\index{memvals.\-h@{memvals.\-h}!\-U\-S\-E\-R\-P\-A\-G\-E\-S@{\-U\-S\-E\-R\-P\-A\-G\-E\-S}}
+\index{\-U\-S\-E\-R\-P\-A\-G\-E\-S@{\-U\-S\-E\-R\-P\-A\-G\-E\-S}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-U\-S\-E\-R\-P\-A\-G\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-U\-S\-E\-R\-P\-A\-G\-E\-S}~({\bf \-U\-S\-E\-R\-V\-I\-R\-T\-P\-G\-T} -\/ {\bf \-P\-A\-G\-E\-T\-S\-Z})}}\label{memvals_8h_a626f3751ebabc3f61df0d77cbbe536ae}
+
+
+\-Definition at line 95 of file memvals.\-h.
+
+\hypertarget{memvals_8h_ae19a309f4177d8849b5ebe8ebe7d76c9}{\index{memvals.\-h@{memvals.\-h}!\-U\-S\-E\-R\-S\-P\-A\-C\-E\-S\-T\-A\-R\-T@{\-U\-S\-E\-R\-S\-P\-A\-C\-E\-S\-T\-A\-R\-T}}
+\index{\-U\-S\-E\-R\-S\-P\-A\-C\-E\-S\-T\-A\-R\-T@{\-U\-S\-E\-R\-S\-P\-A\-C\-E\-S\-T\-A\-R\-T}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-U\-S\-E\-R\-S\-P\-A\-C\-E\-S\-T\-A\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-U\-S\-E\-R\-S\-P\-A\-C\-E\-S\-T\-A\-R\-T}~0\-X\-E\-E800000}}\label{memvals_8h_ae19a309f4177d8849b5ebe8ebe7d76c9}
+
+
+\-Definition at line 101 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a30a99faf9b563bfbd6bb3889f313673c}{\index{memvals.\-h@{memvals.\-h}!\-U\-S\-E\-R\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P@{\-U\-S\-E\-R\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P}}
+\index{\-U\-S\-E\-R\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P@{\-U\-S\-E\-R\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-U\-S\-E\-R\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-U\-S\-E\-R\-S\-T\-A\-C\-K\-\_\-\-T\-O\-P}~({\bf \-U\-S\-E\-R\-S\-T\-A\-R\-T} -\/ 2$\ast${\bf \-P\-A\-G\-E\-S\-Z})}}\label{memvals_8h_a30a99faf9b563bfbd6bb3889f313673c}
+
+
+\-Definition at line 98 of file memvals.\-h.
+
+\hypertarget{memvals_8h_ae3ae3cfc7cee7569379146d2f31a9f9f}{\index{memvals.\-h@{memvals.\-h}!\-U\-S\-E\-R\-S\-T\-A\-R\-T@{\-U\-S\-E\-R\-S\-T\-A\-R\-T}}
+\index{\-U\-S\-E\-R\-S\-T\-A\-R\-T@{\-U\-S\-E\-R\-S\-T\-A\-R\-T}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-U\-S\-E\-R\-S\-T\-A\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-U\-S\-E\-R\-S\-T\-A\-R\-T}~({\bf \-P\-R\-O\-C\-\_\-\-L\-I\-S\-T})}}\label{memvals_8h_ae3ae3cfc7cee7569379146d2f31a9f9f}
+
+
+\-Definition at line 97 of file memvals.\-h.
+
+\hypertarget{memvals_8h_a071ef09fc45a890d9b9a44a5f983ef65}{\index{memvals.\-h@{memvals.\-h}!\-U\-S\-E\-R\-V\-I\-R\-T\-P\-G\-T@{\-U\-S\-E\-R\-V\-I\-R\-T\-P\-G\-T}}
+\index{\-U\-S\-E\-R\-V\-I\-R\-T\-P\-G\-T@{\-U\-S\-E\-R\-V\-I\-R\-T\-P\-G\-T}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-U\-S\-E\-R\-V\-I\-R\-T\-P\-G\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-U\-S\-E\-R\-V\-I\-R\-T\-P\-G\-T}~({\bf \-U\-S\-E\-R\-E\-N\-D} -\/ {\bf \-P\-A\-G\-E\-T\-S\-Z})}}\label{memvals_8h_a071ef09fc45a890d9b9a44a5f983ef65}
+
+
+\-Definition at line 94 of file memvals.\-h.
+
+\hypertarget{memvals_8h_ace568adaf7e532683e563d7cbcfe6328}{\index{memvals.\-h@{memvals.\-h}!\-V\-I\-R\-T\-P\-G\-T@{\-V\-I\-R\-T\-P\-G\-T}}
+\index{\-V\-I\-R\-T\-P\-G\-T@{\-V\-I\-R\-T\-P\-G\-T}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-V\-I\-R\-T\-P\-G\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-V\-I\-R\-T\-P\-G\-T}~({\bf \-K\-E\-R\-N\-E\-L\-\_\-\-A\-D\-D\-R} -\/ {\bf \-P\-A\-G\-E\-T\-S\-Z})}}\label{memvals_8h_ace568adaf7e532683e563d7cbcfe6328}
+
+
+\-Definition at line 90 of file memvals.\-h.
+
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{memvals_8h_a038c990262fc385e807818a59ff8e25f}{\index{memvals.\-h@{memvals.\-h}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!memvals.h@{memvals.\-h}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \-Gdtdesc} {\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-} (
+\begin{DoxyParamCaption}
+\item[{(packed)}]{}
+\end{DoxyParamCaption}
+)}}\label{memvals_8h_a038c990262fc385e807818a59ff8e25f}
+
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{memvals_8h_a0523cedff47e2441fc198b7770ec5d3f}{\index{memvals.\-h@{memvals.\-h}!base@{base}}
+\index{base@{base}!memvals.h@{memvals.\-h}}
+\subsubsection[{base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf base}}}\label{memvals_8h_a0523cedff47e2441fc198b7770ec5d3f}
+
+
+\-Definition at line 52 of file memvals.\-h.
+
+\hypertarget{memvals_8h_aaba88b24a21a6c70c895c0d55f4a69a0}{\index{memvals.\-h@{memvals.\-h}!size@{size}}
+\index{size@{size}!memvals.h@{memvals.\-h}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint16\-\_\-t} {\bf size}}}\label{memvals_8h_aaba88b24a21a6c70c895c0d55f4a69a0}
+
+
+\-Definition at line 51 of file memvals.\-h.
+

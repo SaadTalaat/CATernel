@@ -1,0 +1,141 @@
+\hypertarget{printf_8c}{\section{kernel/printf.c \-File \-Reference}
+\label{printf_8c}\index{kernel/printf.\-c@{kernel/printf.\-c}}
+}
+{\ttfamily \#include $<$types.\-h$>$}\*
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+\-Include dependency graph for printf.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{printf_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{printf_8c_a4d22860a6ae6b1a2fc3b6c1f44af59a8}{hex2ascii}(x)~(\char`\"{}0123456789\-A\-B\-C\-D\-E\-F\char`\"{}\mbox{[}x\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{printf_8c_a2c0f7b90b6771c3ac60fcba2da990672}{putch} (int c, int $\ast$count)
+\item 
+void \hyperlink{printf_8c_a4d96a0e0fd1a548e704a5408d77c33cb}{ksprintkn} (void($\ast$func)(int, int $\ast$), int $\ast$count, \hyperlink{types_8h_a2ba5f6c0633401558d277b2c0e4f758d}{uintmax\-\_\-t} num, int \hyperlink{memvals_8h_a0523cedff47e2441fc198b7770ec5d3f}{base}, int width, int padc)
+\item 
+int \hyperlink{printf_8c_a15fa6d5bac62e4e23535055899f8198a}{getint} (\hyperlink{stdarg_8h_abaefbc6cabb217bf0138d4f9c94d4775}{va\-\_\-list} $\ast$ap, int lflag)
+\item 
+int \hyperlink{printf_8c_aa2d6b6655726ec3ed608623a0fa2efc5}{getuint} (\hyperlink{stdarg_8h_abaefbc6cabb217bf0138d4f9c94d4775}{va\-\_\-list} $\ast$ap, int lflag)
+\item 
+int \hyperlink{printf_8c_a39a5e13b8f9ef35f6878c6dc086d3463}{kvprintk} (const char $\ast$format, void($\ast$func)(int, int $\ast$), int $\ast$count, \hyperlink{stdarg_8h_abaefbc6cabb217bf0138d4f9c94d4775}{va\-\_\-list} ap)
+\item 
+\hyperlink{printf_8c_a1965a44d004e945de8e4a662cdfac402}{vprintk} (const char $\ast$format, \hyperlink{stdarg_8h_abaefbc6cabb217bf0138d4f9c94d4775}{va\-\_\-list} ap)
+\item 
+int \hyperlink{printf_8c_a36fe4a3ea4506cb4d128b11f93187f71}{printk} (const char $\ast$format,...)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{printf_8c_a4d22860a6ae6b1a2fc3b6c1f44af59a8}{\index{printf.\-c@{printf.\-c}!hex2ascii@{hex2ascii}}
+\index{hex2ascii@{hex2ascii}!printf.c@{printf.\-c}}
+\subsubsection[{hex2ascii}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hex2ascii}(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(\char`\"{}0123456789\-A\-B\-C\-D\-E\-F\char`\"{}\mbox{[}x\mbox{]})}}\label{printf_8c_a4d22860a6ae6b1a2fc3b6c1f44af59a8}
+
+
+\-Definition at line 4 of file printf.\-c.
+
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{printf_8c_a15fa6d5bac62e4e23535055899f8198a}{\index{printf.\-c@{printf.\-c}!getint@{getint}}
+\index{getint@{getint}!printf.c@{printf.\-c}}
+\subsubsection[{getint}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf getint} (
+\begin{DoxyParamCaption}
+\item[{{\bf va\-\_\-list} $\ast$}]{ap, }
+\item[{int}]{lflag}
+\end{DoxyParamCaption}
+)}}\label{printf_8c_a15fa6d5bac62e4e23535055899f8198a}
+
+
+\-Definition at line 21 of file printf.\-c.
+
+\hypertarget{printf_8c_aa2d6b6655726ec3ed608623a0fa2efc5}{\index{printf.\-c@{printf.\-c}!getuint@{getuint}}
+\index{getuint@{getuint}!printf.c@{printf.\-c}}
+\subsubsection[{getuint}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf getuint} (
+\begin{DoxyParamCaption}
+\item[{{\bf va\-\_\-list} $\ast$}]{ap, }
+\item[{int}]{lflag}
+\end{DoxyParamCaption}
+)}}\label{printf_8c_aa2d6b6655726ec3ed608623a0fa2efc5}
+
+
+\-Definition at line 31 of file printf.\-c.
+
+\hypertarget{printf_8c_a4d96a0e0fd1a548e704a5408d77c33cb}{\index{printf.\-c@{printf.\-c}!ksprintkn@{ksprintkn}}
+\index{ksprintkn@{ksprintkn}!printf.c@{printf.\-c}}
+\subsubsection[{ksprintkn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf ksprintkn} (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(int, int $\ast$)}]{func, }
+\item[{int $\ast$}]{count, }
+\item[{{\bf uintmax\-\_\-t}}]{num, }
+\item[{int}]{base, }
+\item[{int}]{width, }
+\item[{int}]{padc}
+\end{DoxyParamCaption}
+)}}\label{printf_8c_a4d96a0e0fd1a548e704a5408d77c33cb}
+
+
+\-Definition at line 10 of file printf.\-c.
+
+\hypertarget{printf_8c_a39a5e13b8f9ef35f6878c6dc086d3463}{\index{printf.\-c@{printf.\-c}!kvprintk@{kvprintk}}
+\index{kvprintk@{kvprintk}!printf.c@{printf.\-c}}
+\subsubsection[{kvprintk}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf kvprintk} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{format, }
+\item[{void($\ast$)(int, int $\ast$)}]{func, }
+\item[{int $\ast$}]{count, }
+\item[{{\bf va\-\_\-list}}]{ap}
+\end{DoxyParamCaption}
+)}}\label{printf_8c_a39a5e13b8f9ef35f6878c6dc086d3463}
+
+
+\-Definition at line 43 of file printf.\-c.
+
+\hypertarget{printf_8c_a36fe4a3ea4506cb4d128b11f93187f71}{\index{printf.\-c@{printf.\-c}!printk@{printk}}
+\index{printk@{printk}!printf.c@{printf.\-c}}
+\subsubsection[{printk}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf printk} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{format, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{printf_8c_a36fe4a3ea4506cb4d128b11f93187f71}
+
+
+\-Definition at line 167 of file printf.\-c.
+
+\hypertarget{printf_8c_a2c0f7b90b6771c3ac60fcba2da990672}{\index{printf.\-c@{printf.\-c}!putch@{putch}}
+\index{putch@{putch}!printf.c@{printf.\-c}}
+\subsubsection[{putch}]{\setlength{\rightskip}{0pt plus 5cm}static void {\bf putch} (
+\begin{DoxyParamCaption}
+\item[{int}]{c, }
+\item[{int $\ast$}]{count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{printf_8c_a2c0f7b90b6771c3ac60fcba2da990672}
+
+
+\-Definition at line 6 of file printf.\-c.
+
+\hypertarget{printf_8c_a1965a44d004e945de8e4a662cdfac402}{\index{printf.\-c@{printf.\-c}!vprintk@{vprintk}}
+\index{vprintk@{vprintk}!printf.c@{printf.\-c}}
+\subsubsection[{vprintk}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vprintk} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{format, }
+\item[{{\bf va\-\_\-list}}]{ap}
+\end{DoxyParamCaption}
+)}}\label{printf_8c_a1965a44d004e945de8e4a662cdfac402}
+
+
+\-Definition at line 160 of file printf.\-c.
+

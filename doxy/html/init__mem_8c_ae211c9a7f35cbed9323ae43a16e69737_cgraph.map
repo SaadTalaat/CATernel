@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$cmos_8c.html#a56f6e4f404b4a6218c050c045d6732c3" title="cmos_get_reg" alt="" coords="197,59,301,88"/>
+<area shape="rect" id="node5" href="$x86_8h.html#aecb1fa8a11c8a27335665526fc820dc6" title="outb" alt="" coords="351,5,396,35"/>
+<area shape="rect" id="node7" href="$x86_8h.html#ab22bd329c089d76a3977792a2208f6b4" title="inb" alt="" coords="355,59,392,88"/>
+<area shape="rect" id="node9" href="$x86_8h.html#a89d04efedb6dc6e8d87c6a5b453529e1" title="cli" alt="" coords="355,112,392,141"/>
+</map>

@@ -1,0 +1,127 @@
+\hypertarget{video_8c}{\section{kernel/video.c \-File \-Reference}
+\label{video_8c}\index{kernel/video.\-c@{kernel/video.\-c}}
+}
+{\ttfamily \#include $<$arch/x86/x86.\-h$>$}\*
+{\ttfamily \#include $<$types.\-h$>$}\*
+{\ttfamily \#include $<$video.\-h$>$}\*
+{\ttfamily \#include $<$memvals.\-h$>$}\*
+{\ttfamily \#include $<$kbc.\-h$>$}\*
+\-Include dependency graph for video.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{video_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{types_8h_a273cf69d639a59973b6019625df33e30}{uint16\-\_\-t} \hyperlink{video_8c_a395d60b7d3454851db53889826e8d72e}{cga\-\_\-get\-\_\-pos} (void)
+\item 
+void \hyperlink{video_8c_a5ab3d2356d4335b222e739300a6dbcb6}{cga\-\_\-set\-\_\-attr} (\hyperlink{types_8h_a273cf69d639a59973b6019625df33e30}{uint16\-\_\-t} c)
+\item 
+void \hyperlink{video_8c_a2ac77fae84030fe22301c6cdb918bfdb}{cga\-\_\-clear} (void)
+\item 
+void \hyperlink{video_8c_a98e2b5ab9f34fc634a00c8ac89200b2e}{cga\-\_\-set\-\_\-pos} (\hyperlink{types_8h_a273cf69d639a59973b6019625df33e30}{uint16\-\_\-t} pos)
+\item 
+void \hyperlink{video_8c_ab0ab5e709ff4fc4d57b7007cd4e305be}{cga\-\_\-init} (void)
+\item 
+void \hyperlink{video_8c_aca189a8fb5d14a6ccaabfb4ce606e20c}{cga\-\_\-putc} (int c)
+\item 
+\hyperlink{video_8c_aa52715a04e18ce4c3392ac12b39631f5}{cga\-\_\-putstr} (char $\ast$c)
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{video_8c_a26a60f0654a4abc3c6f3ad02c83601e2}{cga\-\_\-attr}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{video_8c_a2ac77fae84030fe22301c6cdb918bfdb}{\index{video.\-c@{video.\-c}!cga\-\_\-clear@{cga\-\_\-clear}}
+\index{cga\-\_\-clear@{cga\-\_\-clear}!video.c@{video.\-c}}
+\subsubsection[{cga\-\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf cga\-\_\-clear} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{video_8c_a2ac77fae84030fe22301c6cdb918bfdb}
+
+
+\-Definition at line 31 of file video.\-c.
+
+\hypertarget{video_8c_a395d60b7d3454851db53889826e8d72e}{\index{video.\-c@{video.\-c}!cga\-\_\-get\-\_\-pos@{cga\-\_\-get\-\_\-pos}}
+\index{cga\-\_\-get\-\_\-pos@{cga\-\_\-get\-\_\-pos}!video.c@{video.\-c}}
+\subsubsection[{cga\-\_\-get\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint16\-\_\-t} {\bf cga\-\_\-get\-\_\-pos} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{video_8c_a395d60b7d3454851db53889826e8d72e}
+
+
+\-Definition at line 18 of file video.\-c.
+
+\hypertarget{video_8c_ab0ab5e709ff4fc4d57b7007cd4e305be}{\index{video.\-c@{video.\-c}!cga\-\_\-init@{cga\-\_\-init}}
+\index{cga\-\_\-init@{cga\-\_\-init}!video.c@{video.\-c}}
+\subsubsection[{cga\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf cga\-\_\-init} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{video_8c_ab0ab5e709ff4fc4d57b7007cd4e305be}
+
+
+\-Definition at line 48 of file video.\-c.
+
+\hypertarget{video_8c_aca189a8fb5d14a6ccaabfb4ce606e20c}{\index{video.\-c@{video.\-c}!cga\-\_\-putc@{cga\-\_\-putc}}
+\index{cga\-\_\-putc@{cga\-\_\-putc}!video.c@{video.\-c}}
+\subsubsection[{cga\-\_\-putc}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf cga\-\_\-putc} (
+\begin{DoxyParamCaption}
+\item[{int}]{c}
+\end{DoxyParamCaption}
+)}}\label{video_8c_aca189a8fb5d14a6ccaabfb4ce606e20c}
+
+
+\-Definition at line 59 of file video.\-c.
+
+\hypertarget{video_8c_aa52715a04e18ce4c3392ac12b39631f5}{\index{video.\-c@{video.\-c}!cga\-\_\-putstr@{cga\-\_\-putstr}}
+\index{cga\-\_\-putstr@{cga\-\_\-putstr}!video.c@{video.\-c}}
+\subsubsection[{cga\-\_\-putstr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cga\-\_\-putstr} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{video_8c_aa52715a04e18ce4c3392ac12b39631f5}
+
+
+\-Definition at line 107 of file video.\-c.
+
+\hypertarget{video_8c_a5ab3d2356d4335b222e739300a6dbcb6}{\index{video.\-c@{video.\-c}!cga\-\_\-set\-\_\-attr@{cga\-\_\-set\-\_\-attr}}
+\index{cga\-\_\-set\-\_\-attr@{cga\-\_\-set\-\_\-attr}!video.c@{video.\-c}}
+\subsubsection[{cga\-\_\-set\-\_\-attr}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf cga\-\_\-set\-\_\-attr} (
+\begin{DoxyParamCaption}
+\item[{{\bf uint16\-\_\-t}}]{c}
+\end{DoxyParamCaption}
+)}}\label{video_8c_a5ab3d2356d4335b222e739300a6dbcb6}
+
+
+\-Definition at line 27 of file video.\-c.
+
+\hypertarget{video_8c_a98e2b5ab9f34fc634a00c8ac89200b2e}{\index{video.\-c@{video.\-c}!cga\-\_\-set\-\_\-pos@{cga\-\_\-set\-\_\-pos}}
+\index{cga\-\_\-set\-\_\-pos@{cga\-\_\-set\-\_\-pos}!video.c@{video.\-c}}
+\subsubsection[{cga\-\_\-set\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf cga\-\_\-set\-\_\-pos} (
+\begin{DoxyParamCaption}
+\item[{{\bf uint16\-\_\-t}}]{pos}
+\end{DoxyParamCaption}
+)}}\label{video_8c_a98e2b5ab9f34fc634a00c8ac89200b2e}
+
+
+\-Definition at line 40 of file video.\-c.
+
+
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{video_8c_a26a60f0654a4abc3c6f3ad02c83601e2}{\index{video.\-c@{video.\-c}!cga\-\_\-attr@{cga\-\_\-attr}}
+\index{cga\-\_\-attr@{cga\-\_\-attr}!video.c@{video.\-c}}
+\subsubsection[{cga\-\_\-attr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cga\-\_\-attr}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{video_8c_a26a60f0654a4abc3c6f3ad02c83601e2}
+
+
+\-Definition at line 16 of file video.\-c.
+

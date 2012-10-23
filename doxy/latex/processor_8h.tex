@@ -1,0 +1,412 @@
+\hypertarget{processor_8h}{\section{include/arch/x86/processor.h \-File \-Reference}
+\label{processor_8h}\index{include/arch/x86/processor.\-h@{include/arch/x86/processor.\-h}}
+}
+\-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{processor_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{processor_8h_a597ee77644c12219fb9ea52e20126522}{\-X86\-\_\-\-C\-R0\-\_\-\-P\-E}~0x00000001	/$\ast$ Protection Enable $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a0d83e8761ecea0be4a9658e1bebab2bf}{\-X86\-\_\-\-C\-R0\-\_\-\-M\-P}~0x00000002	/$\ast$ Monitor Coprocessor $\ast$/
+\item 
+\#define \hyperlink{processor_8h_adf7d31c6132d58e480f50f31df4b5942}{\-X86\-\_\-\-C\-R0\-\_\-\-E\-M}~0x00000004	/$\ast$ Emulation $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a9fc705998cbf68e9706a5149a755e832}{\-X86\-\_\-\-C\-R0\-\_\-\-T\-S}~0x00000008	/$\ast$ Task Switched $\ast$/
+\item 
+\#define \hyperlink{processor_8h_adbd34f1e859cc6b38101459d17e34701}{\-X86\-\_\-\-C\-R0\-\_\-\-E\-T}~0x00000010	/$\ast$ Extension type $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a6871428c756277884dce3281af8358bf}{\-X86\-\_\-\-C\-R0\-\_\-\-N\-E}~0x00000020	/$\ast$ Numeric error $\ast$/
+\item 
+\#define \hyperlink{processor_8h_ad80f888ec507d366f5b8f0372ed1bc05}{\-X86\-\_\-\-C\-R0\-\_\-\-W\-P}~0x00010000	/$\ast$ Write Protect $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a04ea804593f839c4ab2bc1feef760a73}{\-X86\-\_\-\-C\-R0\-\_\-\-A\-M}~0x00040000	/$\ast$ Alignment Mask $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a869394d7cf13790e0214283c7e9f8194}{\-X86\-\_\-\-C\-R0\-\_\-\-N\-W}~0x20000000	/$\ast$ Not writable through $\ast$/
+\item 
+\#define \hyperlink{processor_8h_aebf661430d4577713142ff9f81a4d102}{\-X86\-\_\-\-C\-R0\-\_\-\-C\-D}~0x40000000	/$\ast$ Cache disabled $\ast$/
+\item 
+\#define \hyperlink{processor_8h_ab72deb63af2e514ee438b77ef1e84774}{\-X86\-\_\-\-C\-R0\-\_\-\-P\-G}~0x80000000	/$\ast$ Paging enable $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a4119db930b70df9b5924616a8125ff84}{\-X86\-\_\-\-C\-R3\-\_\-\-P\-W\-T}~0x00000008	/$\ast$ Page Write Through $\ast$/
+\item 
+\#define \hyperlink{processor_8h_aab5dedf3133983fea452694efca8a1f1}{\-X86\-\_\-\-C\-R3\-\_\-\-P\-C\-D}~0x00000010	/$\ast$ Page Cache Disabled $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a3222e39f032fc55acbccf8103653d1cf}{\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-E}~0x00000001	/$\ast$ Enable V\-M86 Extension $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a41454d13f762adabb9a7ceb792c05b2d}{\-X86\-\_\-\-C\-R4\-\_\-\-P\-V\-I}~0x00000002	/$\ast$ Virtual interrupts flag enable $\ast$/
+\item 
+\#define \hyperlink{processor_8h_ab3ca2c2439512da0298be80aaa24d5bd}{\-X86\-\_\-\-C\-R4\-\_\-\-T\-S\-D}~0x00000004	/$\ast$ Disable time stamp at ipl 3 $\ast$/
+\item 
+\#define \hyperlink{processor_8h_ab30aed0358c581fc3bfbf6905d9881a9}{\-X86\-\_\-\-C\-R4\-\_\-\-D\-E}~0x00000008	/$\ast$ Enable Debugging extensions $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a293066c70fa0a9de3b2e12368cb527ac}{\-X86\-\_\-\-C\-R4\-\_\-\-P\-S\-E}~0x00000010	/$\ast$ Enable Page Size extension $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a0cb6a44b6c4f52eca15afeaa2b61e79e}{\-X86\-\_\-\-C\-R4\-\_\-\-P\-A\-E}~0x00000020	/$\ast$ Enable Physical address extension $\ast$/
+\item 
+\#define \hyperlink{processor_8h_af8ecc7a75011c464ce5bf0019d41fd8c}{\-X86\-\_\-\-C\-R4\-\_\-\-M\-C\-E}~0x00000040	/$\ast$ Machine Chech enable $\ast$/
+\item 
+\#define \hyperlink{processor_8h_ad23bda2721546baf492dad4af149fa71}{\-X86\-\_\-\-C\-R4\-\_\-\-P\-G\-E}~0x00000080	/$\ast$ Enable Global Pages $\ast$/
+\item 
+\#define \hyperlink{processor_8h_ae897ccbe936e5a72070061b44552db06}{\-X86\-\_\-\-C\-R4\-\_\-\-P\-C\-E}~0x00000100	/$\ast$ Enable Performance Counters at ipl 3$\ast$/
+\item 
+\#define \hyperlink{processor_8h_a6ba7f7e3e179f76fcf2608f271d1e651}{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-F\-X\-S\-R}~0x00000200	/$\ast$ Enable Fast F\-P\-U save and restore $\ast$/
+\item 
+\#define \hyperlink{processor_8h_af0183ac7a7eb4f349f38006cae976796}{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-M\-M\-E\-X\-C\-P\-T}~0x00000400	/$\ast$ Enable unmasked S\-S\-E exceptions $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a8352c2d920c1435e681c21a07c06b28c}{\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-X\-E}~0x00002000	/$\ast$ Enable V\-M\-X virtualization $\ast$/
+\item 
+\#define \hyperlink{processor_8h_acb4869a763bf0afca2fff1d44bcaf920}{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-S\-A\-V\-E}~0x00004000	/$\ast$ Enable Xsave and xrestore $\ast$/
+\item 
+\#define \hyperlink{processor_8h_a3962355b6f9b8842480d6c9842f4d609}{\-X86\-\_\-\-C\-R8\-\_\-\-T\-P\-R}~0x0000000\-F	/$\ast$ Task Priority Register $\ast$/
+\item 
+\#define \hyperlink{processor_8h_ab986e2506d41cc4c34ed200d4f1af152}{\-F\-L\-A\-G\-\_\-\-C\-F}~0x1
+\item 
+\#define \hyperlink{processor_8h_a9110b772ac704bd1274772a0cf1c7cd9}{\-F\-L\-A\-G\-\_\-\-P\-F}~0x4
+\item 
+\#define \hyperlink{processor_8h_a39b1b69d5d3c961e3cb3d29c6b07d566}{\-F\-L\-A\-G\-\_\-\-A\-F}~0x10
+\item 
+\#define \hyperlink{processor_8h_ad8903c2ead023ee8cd24695791d83d63}{\-F\-L\-A\-G\-\_\-\-Z\-F}~0x40
+\item 
+\#define \hyperlink{processor_8h_a46c416a4db6f14ff2e27c82844ac9b2a}{\-F\-L\-A\-G\-\_\-\-S\-F}~0x80
+\item 
+\#define \hyperlink{processor_8h_ae8932ec7b0ea0ddddf3262cedafc90c1}{\-F\-L\-A\-G\-\_\-\-T\-F}~0x100
+\item 
+\#define \hyperlink{processor_8h_a9ea36bf70e20601bdbefa9c7d7e0ad09}{\-F\-L\-A\-G\-\_\-\-I\-F}~0x200
+\item 
+\#define \hyperlink{processor_8h_a4c305ff02093002fffd78a460cc97544}{\-F\-L\-A\-G\-\_\-\-D\-F}~0x400
+\item 
+\#define \hyperlink{processor_8h_ab602d601b9d55752a3d1c57432bb78ca}{\-F\-L\-A\-G\-\_\-\-O\-F}~0x800
+\item 
+\#define \hyperlink{processor_8h_a562613e04f629238c17b69fee12d9ca9}{\-F\-L\-A\-G\-\_\-\-I\-O\-P\-L}~0x1000
+\item 
+\#define \hyperlink{processor_8h_afa1e13c0d70e6ce850d9781749af82f3}{\-F\-L\-A\-G\-\_\-\-N\-T}~0x2000
+\item 
+\#define \hyperlink{processor_8h_af3989e1484ca9ee0c8a68b466c3d233a}{\-F\-L\-A\-G\-\_\-\-R\-F}~0x4000
+\item 
+\#define \hyperlink{processor_8h_acfb792d06dfb29f9d8c9266bfaf1f172}{\-F\-L\-A\-G\-\_\-\-V\-M}~0x8000
+\item 
+\#define \hyperlink{processor_8h_ae7c594342e3f61c45e7db4ff74133827}{\-F\-L\-A\-G\-\_\-\-A\-C}~0x10000
+\item 
+\#define \hyperlink{processor_8h_aaa999059d2fc4368978776f8f328a9ed}{\-F\-L\-A\-G\-\_\-\-V\-I\-F}~0x20000
+\item 
+\#define \hyperlink{processor_8h_a005b6aaa02e4f1e8ea14a35986c24b65}{\-F\-L\-A\-G\-\_\-\-V\-I\-P}~0x40000
+\item 
+\#define \hyperlink{processor_8h_a5d3c13eae6153b442fbfe65bddfc33c7}{\-F\-L\-A\-G\-\_\-\-I\-D}~0x80000
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{processor_8h_ae7c594342e3f61c45e7db4ff74133827}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-A\-C@{\-F\-L\-A\-G\-\_\-\-A\-C}}
+\index{\-F\-L\-A\-G\-\_\-\-A\-C@{\-F\-L\-A\-G\-\_\-\-A\-C}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-A\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-A\-C}~0x10000}}\label{processor_8h_ae7c594342e3f61c45e7db4ff74133827}
+
+
+\-Definition at line 54 of file processor.\-h.
+
+\hypertarget{processor_8h_a39b1b69d5d3c961e3cb3d29c6b07d566}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-A\-F@{\-F\-L\-A\-G\-\_\-\-A\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-A\-F@{\-F\-L\-A\-G\-\_\-\-A\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-A\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-A\-F}~0x10}}\label{processor_8h_a39b1b69d5d3c961e3cb3d29c6b07d566}
+
+
+\-Definition at line 43 of file processor.\-h.
+
+\hypertarget{processor_8h_ab986e2506d41cc4c34ed200d4f1af152}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-C\-F@{\-F\-L\-A\-G\-\_\-\-C\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-C\-F@{\-F\-L\-A\-G\-\_\-\-C\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-C\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-C\-F}~0x1}}\label{processor_8h_ab986e2506d41cc4c34ed200d4f1af152}
+
+
+\-Definition at line 41 of file processor.\-h.
+
+\hypertarget{processor_8h_a4c305ff02093002fffd78a460cc97544}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-D\-F@{\-F\-L\-A\-G\-\_\-\-D\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-D\-F@{\-F\-L\-A\-G\-\_\-\-D\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-D\-F}~0x400}}\label{processor_8h_a4c305ff02093002fffd78a460cc97544}
+
+
+\-Definition at line 48 of file processor.\-h.
+
+\hypertarget{processor_8h_a5d3c13eae6153b442fbfe65bddfc33c7}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-I\-D@{\-F\-L\-A\-G\-\_\-\-I\-D}}
+\index{\-F\-L\-A\-G\-\_\-\-I\-D@{\-F\-L\-A\-G\-\_\-\-I\-D}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-I\-D}~0x80000}}\label{processor_8h_a5d3c13eae6153b442fbfe65bddfc33c7}
+
+
+\-Definition at line 57 of file processor.\-h.
+
+\hypertarget{processor_8h_a9ea36bf70e20601bdbefa9c7d7e0ad09}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-I\-F@{\-F\-L\-A\-G\-\_\-\-I\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-I\-F@{\-F\-L\-A\-G\-\_\-\-I\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-I\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-I\-F}~0x200}}\label{processor_8h_a9ea36bf70e20601bdbefa9c7d7e0ad09}
+
+
+\-Definition at line 47 of file processor.\-h.
+
+\hypertarget{processor_8h_a562613e04f629238c17b69fee12d9ca9}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-I\-O\-P\-L@{\-F\-L\-A\-G\-\_\-\-I\-O\-P\-L}}
+\index{\-F\-L\-A\-G\-\_\-\-I\-O\-P\-L@{\-F\-L\-A\-G\-\_\-\-I\-O\-P\-L}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-I\-O\-P\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-I\-O\-P\-L}~0x1000}}\label{processor_8h_a562613e04f629238c17b69fee12d9ca9}
+
+
+\-Definition at line 50 of file processor.\-h.
+
+\hypertarget{processor_8h_afa1e13c0d70e6ce850d9781749af82f3}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-N\-T@{\-F\-L\-A\-G\-\_\-\-N\-T}}
+\index{\-F\-L\-A\-G\-\_\-\-N\-T@{\-F\-L\-A\-G\-\_\-\-N\-T}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-N\-T}~0x2000}}\label{processor_8h_afa1e13c0d70e6ce850d9781749af82f3}
+
+
+\-Definition at line 51 of file processor.\-h.
+
+\hypertarget{processor_8h_ab602d601b9d55752a3d1c57432bb78ca}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-O\-F@{\-F\-L\-A\-G\-\_\-\-O\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-O\-F@{\-F\-L\-A\-G\-\_\-\-O\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-O\-F}~0x800}}\label{processor_8h_ab602d601b9d55752a3d1c57432bb78ca}
+
+
+\-Definition at line 49 of file processor.\-h.
+
+\hypertarget{processor_8h_a9110b772ac704bd1274772a0cf1c7cd9}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-P\-F@{\-F\-L\-A\-G\-\_\-\-P\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-P\-F@{\-F\-L\-A\-G\-\_\-\-P\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-P\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-P\-F}~0x4}}\label{processor_8h_a9110b772ac704bd1274772a0cf1c7cd9}
+
+
+\-Definition at line 42 of file processor.\-h.
+
+\hypertarget{processor_8h_af3989e1484ca9ee0c8a68b466c3d233a}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-R\-F@{\-F\-L\-A\-G\-\_\-\-R\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-R\-F@{\-F\-L\-A\-G\-\_\-\-R\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-R\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-R\-F}~0x4000}}\label{processor_8h_af3989e1484ca9ee0c8a68b466c3d233a}
+
+
+\-Definition at line 52 of file processor.\-h.
+
+\hypertarget{processor_8h_a46c416a4db6f14ff2e27c82844ac9b2a}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-S\-F@{\-F\-L\-A\-G\-\_\-\-S\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-S\-F@{\-F\-L\-A\-G\-\_\-\-S\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-S\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-S\-F}~0x80}}\label{processor_8h_a46c416a4db6f14ff2e27c82844ac9b2a}
+
+
+\-Definition at line 45 of file processor.\-h.
+
+\hypertarget{processor_8h_ae8932ec7b0ea0ddddf3262cedafc90c1}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-T\-F@{\-F\-L\-A\-G\-\_\-\-T\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-T\-F@{\-F\-L\-A\-G\-\_\-\-T\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-T\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-T\-F}~0x100}}\label{processor_8h_ae8932ec7b0ea0ddddf3262cedafc90c1}
+
+
+\-Definition at line 46 of file processor.\-h.
+
+\hypertarget{processor_8h_aaa999059d2fc4368978776f8f328a9ed}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-V\-I\-F@{\-F\-L\-A\-G\-\_\-\-V\-I\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-V\-I\-F@{\-F\-L\-A\-G\-\_\-\-V\-I\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-V\-I\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-V\-I\-F}~0x20000}}\label{processor_8h_aaa999059d2fc4368978776f8f328a9ed}
+
+
+\-Definition at line 55 of file processor.\-h.
+
+\hypertarget{processor_8h_a005b6aaa02e4f1e8ea14a35986c24b65}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-V\-I\-P@{\-F\-L\-A\-G\-\_\-\-V\-I\-P}}
+\index{\-F\-L\-A\-G\-\_\-\-V\-I\-P@{\-F\-L\-A\-G\-\_\-\-V\-I\-P}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-V\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-V\-I\-P}~0x40000}}\label{processor_8h_a005b6aaa02e4f1e8ea14a35986c24b65}
+
+
+\-Definition at line 56 of file processor.\-h.
+
+\hypertarget{processor_8h_acfb792d06dfb29f9d8c9266bfaf1f172}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-V\-M@{\-F\-L\-A\-G\-\_\-\-V\-M}}
+\index{\-F\-L\-A\-G\-\_\-\-V\-M@{\-F\-L\-A\-G\-\_\-\-V\-M}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-V\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-V\-M}~0x8000}}\label{processor_8h_acfb792d06dfb29f9d8c9266bfaf1f172}
+
+
+\-Definition at line 53 of file processor.\-h.
+
+\hypertarget{processor_8h_ad8903c2ead023ee8cd24695791d83d63}{\index{processor.\-h@{processor.\-h}!\-F\-L\-A\-G\-\_\-\-Z\-F@{\-F\-L\-A\-G\-\_\-\-Z\-F}}
+\index{\-F\-L\-A\-G\-\_\-\-Z\-F@{\-F\-L\-A\-G\-\_\-\-Z\-F}!processor.h@{processor.\-h}}
+\subsubsection[{\-F\-L\-A\-G\-\_\-\-Z\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-F\-L\-A\-G\-\_\-\-Z\-F}~0x40}}\label{processor_8h_ad8903c2ead023ee8cd24695791d83d63}
+
+
+\-Definition at line 44 of file processor.\-h.
+
+\hypertarget{processor_8h_a04ea804593f839c4ab2bc1feef760a73}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-A\-M@{\-X86\-\_\-\-C\-R0\-\_\-\-A\-M}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-A\-M@{\-X86\-\_\-\-C\-R0\-\_\-\-A\-M}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-A\-M}~0x00040000	/$\ast$ Alignment Mask $\ast$/}}\label{processor_8h_a04ea804593f839c4ab2bc1feef760a73}
+
+
+\-Definition at line 12 of file processor.\-h.
+
+\hypertarget{processor_8h_aebf661430d4577713142ff9f81a4d102}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-C\-D@{\-X86\-\_\-\-C\-R0\-\_\-\-C\-D}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-C\-D@{\-X86\-\_\-\-C\-R0\-\_\-\-C\-D}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-C\-D}~0x40000000	/$\ast$ Cache disabled $\ast$/}}\label{processor_8h_aebf661430d4577713142ff9f81a4d102}
+
+
+\-Definition at line 14 of file processor.\-h.
+
+\hypertarget{processor_8h_adf7d31c6132d58e480f50f31df4b5942}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-E\-M@{\-X86\-\_\-\-C\-R0\-\_\-\-E\-M}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-E\-M@{\-X86\-\_\-\-C\-R0\-\_\-\-E\-M}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-E\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-E\-M}~0x00000004	/$\ast$ Emulation $\ast$/}}\label{processor_8h_adf7d31c6132d58e480f50f31df4b5942}
+
+
+\-Definition at line 7 of file processor.\-h.
+
+\hypertarget{processor_8h_adbd34f1e859cc6b38101459d17e34701}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-E\-T@{\-X86\-\_\-\-C\-R0\-\_\-\-E\-T}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-E\-T@{\-X86\-\_\-\-C\-R0\-\_\-\-E\-T}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-E\-T}~0x00000010	/$\ast$ Extension type $\ast$/}}\label{processor_8h_adbd34f1e859cc6b38101459d17e34701}
+
+
+\-Definition at line 9 of file processor.\-h.
+
+\hypertarget{processor_8h_a0d83e8761ecea0be4a9658e1bebab2bf}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-M\-P@{\-X86\-\_\-\-C\-R0\-\_\-\-M\-P}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-M\-P@{\-X86\-\_\-\-C\-R0\-\_\-\-M\-P}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-M\-P}~0x00000002	/$\ast$ Monitor Coprocessor $\ast$/}}\label{processor_8h_a0d83e8761ecea0be4a9658e1bebab2bf}
+
+
+\-Definition at line 6 of file processor.\-h.
+
+\hypertarget{processor_8h_a6871428c756277884dce3281af8358bf}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-N\-E@{\-X86\-\_\-\-C\-R0\-\_\-\-N\-E}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-N\-E@{\-X86\-\_\-\-C\-R0\-\_\-\-N\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-N\-E}~0x00000020	/$\ast$ Numeric error $\ast$/}}\label{processor_8h_a6871428c756277884dce3281af8358bf}
+
+
+\-Definition at line 10 of file processor.\-h.
+
+\hypertarget{processor_8h_a869394d7cf13790e0214283c7e9f8194}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-N\-W@{\-X86\-\_\-\-C\-R0\-\_\-\-N\-W}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-N\-W@{\-X86\-\_\-\-C\-R0\-\_\-\-N\-W}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-N\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-N\-W}~0x20000000	/$\ast$ Not writable through $\ast$/}}\label{processor_8h_a869394d7cf13790e0214283c7e9f8194}
+
+
+\-Definition at line 13 of file processor.\-h.
+
+\hypertarget{processor_8h_a597ee77644c12219fb9ea52e20126522}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-P\-E@{\-X86\-\_\-\-C\-R0\-\_\-\-P\-E}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-P\-E@{\-X86\-\_\-\-C\-R0\-\_\-\-P\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-P\-E}~0x00000001	/$\ast$ Protection Enable $\ast$/}}\label{processor_8h_a597ee77644c12219fb9ea52e20126522}
+
+
+\-Definition at line 5 of file processor.\-h.
+
+\hypertarget{processor_8h_ab72deb63af2e514ee438b77ef1e84774}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-P\-G@{\-X86\-\_\-\-C\-R0\-\_\-\-P\-G}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-P\-G@{\-X86\-\_\-\-C\-R0\-\_\-\-P\-G}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-P\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-P\-G}~0x80000000	/$\ast$ Paging enable $\ast$/}}\label{processor_8h_ab72deb63af2e514ee438b77ef1e84774}
+
+
+\-Definition at line 15 of file processor.\-h.
+
+\hypertarget{processor_8h_a9fc705998cbf68e9706a5149a755e832}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-T\-S@{\-X86\-\_\-\-C\-R0\-\_\-\-T\-S}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-T\-S@{\-X86\-\_\-\-C\-R0\-\_\-\-T\-S}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-T\-S}~0x00000008	/$\ast$ Task Switched $\ast$/}}\label{processor_8h_a9fc705998cbf68e9706a5149a755e832}
+
+
+\-Definition at line 8 of file processor.\-h.
+
+\hypertarget{processor_8h_ad80f888ec507d366f5b8f0372ed1bc05}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R0\-\_\-\-W\-P@{\-X86\-\_\-\-C\-R0\-\_\-\-W\-P}}
+\index{\-X86\-\_\-\-C\-R0\-\_\-\-W\-P@{\-X86\-\_\-\-C\-R0\-\_\-\-W\-P}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R0\-\_\-\-W\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R0\-\_\-\-W\-P}~0x00010000	/$\ast$ Write Protect $\ast$/}}\label{processor_8h_ad80f888ec507d366f5b8f0372ed1bc05}
+
+
+\-Definition at line 11 of file processor.\-h.
+
+\hypertarget{processor_8h_aab5dedf3133983fea452694efca8a1f1}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R3\-\_\-\-P\-C\-D@{\-X86\-\_\-\-C\-R3\-\_\-\-P\-C\-D}}
+\index{\-X86\-\_\-\-C\-R3\-\_\-\-P\-C\-D@{\-X86\-\_\-\-C\-R3\-\_\-\-P\-C\-D}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R3\-\_\-\-P\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R3\-\_\-\-P\-C\-D}~0x00000010	/$\ast$ Page Cache Disabled $\ast$/}}\label{processor_8h_aab5dedf3133983fea452694efca8a1f1}
+
+
+\-Definition at line 19 of file processor.\-h.
+
+\hypertarget{processor_8h_a4119db930b70df9b5924616a8125ff84}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R3\-\_\-\-P\-W\-T@{\-X86\-\_\-\-C\-R3\-\_\-\-P\-W\-T}}
+\index{\-X86\-\_\-\-C\-R3\-\_\-\-P\-W\-T@{\-X86\-\_\-\-C\-R3\-\_\-\-P\-W\-T}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R3\-\_\-\-P\-W\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R3\-\_\-\-P\-W\-T}~0x00000008	/$\ast$ Page Write Through $\ast$/}}\label{processor_8h_a4119db930b70df9b5924616a8125ff84}
+
+
+\-Definition at line 18 of file processor.\-h.
+
+\hypertarget{processor_8h_ab30aed0358c581fc3bfbf6905d9881a9}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-D\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-D\-E}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-D\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-D\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-D\-E}~0x00000008	/$\ast$ Enable Debugging extensions $\ast$/}}\label{processor_8h_ab30aed0358c581fc3bfbf6905d9881a9}
+
+
+\-Definition at line 25 of file processor.\-h.
+
+\hypertarget{processor_8h_af8ecc7a75011c464ce5bf0019d41fd8c}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-M\-C\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-M\-C\-E}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-M\-C\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-M\-C\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-M\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-M\-C\-E}~0x00000040	/$\ast$ Machine Chech enable $\ast$/}}\label{processor_8h_af8ecc7a75011c464ce5bf0019d41fd8c}
+
+
+\-Definition at line 28 of file processor.\-h.
+
+\hypertarget{processor_8h_a6ba7f7e3e179f76fcf2608f271d1e651}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-F\-X\-S\-R@{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-F\-X\-S\-R}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-F\-X\-S\-R@{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-F\-X\-S\-R}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-F\-X\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-F\-X\-S\-R}~0x00000200	/$\ast$ Enable Fast F\-P\-U save and restore $\ast$/}}\label{processor_8h_a6ba7f7e3e179f76fcf2608f271d1e651}
+
+
+\-Definition at line 31 of file processor.\-h.
+
+\hypertarget{processor_8h_af0183ac7a7eb4f349f38006cae976796}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-M\-M\-E\-X\-C\-P\-T@{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-M\-M\-E\-X\-C\-P\-T}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-M\-M\-E\-X\-C\-P\-T@{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-M\-M\-E\-X\-C\-P\-T}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-M\-M\-E\-X\-C\-P\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-M\-M\-E\-X\-C\-P\-T}~0x00000400	/$\ast$ Enable unmasked S\-S\-E exceptions $\ast$/}}\label{processor_8h_af0183ac7a7eb4f349f38006cae976796}
+
+
+\-Definition at line 32 of file processor.\-h.
+
+\hypertarget{processor_8h_acb4869a763bf0afca2fff1d44bcaf920}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-S\-A\-V\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-S\-A\-V\-E}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-S\-A\-V\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-S\-A\-V\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-S\-A\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-O\-S\-X\-S\-A\-V\-E}~0x00004000	/$\ast$ Enable Xsave and xrestore $\ast$/}}\label{processor_8h_acb4869a763bf0afca2fff1d44bcaf920}
+
+
+\-Definition at line 34 of file processor.\-h.
+
+\hypertarget{processor_8h_a0cb6a44b6c4f52eca15afeaa2b61e79e}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-P\-A\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-P\-A\-E}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-P\-A\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-P\-A\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-P\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-P\-A\-E}~0x00000020	/$\ast$ Enable Physical address extension $\ast$/}}\label{processor_8h_a0cb6a44b6c4f52eca15afeaa2b61e79e}
+
+
+\-Definition at line 27 of file processor.\-h.
+
+\hypertarget{processor_8h_ae897ccbe936e5a72070061b44552db06}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-P\-C\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-P\-C\-E}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-P\-C\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-P\-C\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-P\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-P\-C\-E}~0x00000100	/$\ast$ Enable Performance Counters at ipl 3$\ast$/}}\label{processor_8h_ae897ccbe936e5a72070061b44552db06}
+
+
+\-Definition at line 30 of file processor.\-h.
+
+\hypertarget{processor_8h_ad23bda2721546baf492dad4af149fa71}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-P\-G\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-P\-G\-E}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-P\-G\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-P\-G\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-P\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-P\-G\-E}~0x00000080	/$\ast$ Enable Global Pages $\ast$/}}\label{processor_8h_ad23bda2721546baf492dad4af149fa71}
+
+
+\-Definition at line 29 of file processor.\-h.
+
+\hypertarget{processor_8h_a293066c70fa0a9de3b2e12368cb527ac}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-P\-S\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-P\-S\-E}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-P\-S\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-P\-S\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-P\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-P\-S\-E}~0x00000010	/$\ast$ Enable Page Size extension $\ast$/}}\label{processor_8h_a293066c70fa0a9de3b2e12368cb527ac}
+
+
+\-Definition at line 26 of file processor.\-h.
+
+\hypertarget{processor_8h_a41454d13f762adabb9a7ceb792c05b2d}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-P\-V\-I@{\-X86\-\_\-\-C\-R4\-\_\-\-P\-V\-I}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-P\-V\-I@{\-X86\-\_\-\-C\-R4\-\_\-\-P\-V\-I}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-P\-V\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-P\-V\-I}~0x00000002	/$\ast$ Virtual interrupts flag enable $\ast$/}}\label{processor_8h_a41454d13f762adabb9a7ceb792c05b2d}
+
+
+\-Definition at line 23 of file processor.\-h.
+
+\hypertarget{processor_8h_ab3ca2c2439512da0298be80aaa24d5bd}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-T\-S\-D@{\-X86\-\_\-\-C\-R4\-\_\-\-T\-S\-D}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-T\-S\-D@{\-X86\-\_\-\-C\-R4\-\_\-\-T\-S\-D}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-T\-S\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-T\-S\-D}~0x00000004	/$\ast$ Disable time stamp at ipl 3 $\ast$/}}\label{processor_8h_ab3ca2c2439512da0298be80aaa24d5bd}
+
+
+\-Definition at line 24 of file processor.\-h.
+
+\hypertarget{processor_8h_a3222e39f032fc55acbccf8103653d1cf}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-E}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-E}~0x00000001	/$\ast$ Enable V\-M86 Extension $\ast$/}}\label{processor_8h_a3222e39f032fc55acbccf8103653d1cf}
+
+
+\-Definition at line 22 of file processor.\-h.
+
+\hypertarget{processor_8h_a8352c2d920c1435e681c21a07c06b28c}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-X\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-X\-E}}
+\index{\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-X\-E@{\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-X\-E}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-X\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R4\-\_\-\-V\-M\-X\-E}~0x00002000	/$\ast$ Enable V\-M\-X virtualization $\ast$/}}\label{processor_8h_a8352c2d920c1435e681c21a07c06b28c}
+
+
+\-Definition at line 33 of file processor.\-h.
+
+\hypertarget{processor_8h_a3962355b6f9b8842480d6c9842f4d609}{\index{processor.\-h@{processor.\-h}!\-X86\-\_\-\-C\-R8\-\_\-\-T\-P\-R@{\-X86\-\_\-\-C\-R8\-\_\-\-T\-P\-R}}
+\index{\-X86\-\_\-\-C\-R8\-\_\-\-T\-P\-R@{\-X86\-\_\-\-C\-R8\-\_\-\-T\-P\-R}!processor.h@{processor.\-h}}
+\subsubsection[{\-X86\-\_\-\-C\-R8\-\_\-\-T\-P\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-X86\-\_\-\-C\-R8\-\_\-\-T\-P\-R}~0x0000000\-F	/$\ast$ Task Priority Register $\ast$/}}\label{processor_8h_a3962355b6f9b8842480d6c9842f4d609}
+
+
+\-Definition at line 37 of file processor.\-h.
+

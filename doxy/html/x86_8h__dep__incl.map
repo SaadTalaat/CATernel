@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$init__mem_8c.html" title="kernel/arch/x86/mm/init_mem.c" alt="" coords="5,83,211,112"/>
+<area shape="rect" id="node5" href="$page_8c.html" title="kernel/arch/x86/mm/page.c" alt="" coords="235,83,413,112"/>
+<area shape="rect" id="node7" href="$cli_8c.html" title="kernel/cli.c" alt="" coords="437,83,523,112"/>
+<area shape="rect" id="node9" href="$cmos_8c.html" title="kernel/cmos.c" alt="" coords="547,83,651,112"/>
+<area shape="rect" id="node11" href="$cpuid_8c.html" title="kernel/cpuid.c" alt="" coords="675,83,776,112"/>
+<area shape="rect" id="node13" href="$init_8c.html" title="kernel/init.c" alt="" coords="800,83,888,112"/>
+<area shape="rect" id="node15" href="$kbc_8c.html" title="kernel/kbc.c" alt="" coords="912,83,1005,112"/>
+<area shape="rect" id="node17" href="$play_8c.html" title="kernel main file" alt="" coords="1029,83,1125,112"/>
+<area shape="rect" id="node19" href="$rdisk_8c.html" title="kernel/rdisk.c" alt="" coords="1131,160,1229,189"/>
+<area shape="rect" id="node21" href="$video_8c.html" title="kernel/video.c" alt="" coords="1200,83,1301,112"/>
+<area shape="rect" id="node23" href="$rdisk_8h.html" title="include/rdisk.h" alt="" coords="1325,83,1432,112"/>
+<area shape="rect" id="node25" href="$load__elf_8c.html" title="kernel/proc/load_elf.c" alt="" coords="1288,160,1435,189"/>
+<area shape="rect" id="node27" href="$proc_8c.html" title="kernel/proc/proc.c" alt="" coords="1459,160,1584,189"/>
+</map>

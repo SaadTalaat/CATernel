@@ -1,0 +1,25 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$page_8c.html#afdfcf53a6e442e1244205d5caa178dc1" title="x86_page_alloc" alt="" coords="1027,52,1139,81"/>
+<area shape="rect" id="node9" href="$page_8c.html#ac8fee72731746be1776eee181b5c3d1f" title="x86_page_insert" alt="" coords="347,224,464,253"/>
+<area shape="rect" id="node37" href="$x86_8h.html#aad2f9353d3c5b5125eff2528008e0a6c" title="write_cr3" alt="" coords="192,340,267,369"/>
+<area shape="rect" id="node39" href="$rdisk_8c.html#a687601dc22e8d4d8407608c91fd325eb" title="readseg" alt="" coords="196,425,263,455"/>
+<area shape="rect" id="node51" href="$proc_8c.html#a068b8a94b58e77fc6cf65795fd0b5aac" title="proc_alloc_mem" alt="" coords="171,185,288,215"/>
+<area shape="rect" id="node55" href="$page_8c.html#a72d597193a2cbbab7100effdf3e045df" title="map_segment_page" alt="" coords="336,296,475,325"/>
+<area shape="rect" id="node5" href="$page_8c.html#a47035fa680fdf11c7403445db4762728" title="x86_page_init" alt="" coords="1188,63,1289,92"/>
+<area shape="rect" id="node7" href="$string_8c.html#aed8d67a6c62c63e36f1f8e071188bdfe" title="memset" alt="" coords="1345,109,1415,139"/>
+<area shape="rect" id="node11" href="$page_8c.html#a7a6381142371ad1ed883bc33683c68de" title="x86_pgdir_find" alt="" coords="872,225,979,255"/>
+<area shape="rect" id="node17" href="$page_8h.html#ab6c946403ac4ab350ca9a5b12ec08f5b" title="pagetopa" alt="" coords="1201,277,1276,307"/>
+<area shape="rect" id="node23" href="$page_8c.html#a0094c45a39dd8369285c834af6512f53" title="x86_page_remove" alt="" coords="523,147,651,176"/>
+<area shape="rect" id="node34" href="$x86_8h.html#a2c1c4c8523ed258a75c563a8f94d1686" title="invlpg" alt="" coords="733,200,789,229"/>
+<area shape="rect" id="node15" href="$page_8h.html#a94dd2ec22e115460a6d568f22ebd91c2" title="pagetova" alt="" coords="1045,277,1120,307"/>
+<area shape="rect" id="node19" href="$page_8h.html#a735b55b2c43127444f76fd10f474f8c9" title="pagetoppn" alt="" coords="1339,277,1421,307"/>
+<area shape="rect" id="node25" href="$page_8c.html#a90f1e53f745fbff067dd1d6e21e4a971" title="x86_page_lookup" alt="" coords="700,147,823,176"/>
+<area shape="rect" id="node30" href="$page_8c.html#a0e4ecf1dbcf05554104e7f089e6eaa9b" title="x86_page_detach" alt="" coords="700,93,823,123"/>
+<area shape="rect" id="node28" href="$page_8h.html#a3ba1dbb29838d112343f5c3ca65bd22e" title="patopage" alt="" coords="888,147,963,176"/>
+<area shape="rect" id="node32" href="$page_8c.html#abf1a7d08ef370ed140d68279466d16c2" title="x86_page_free" alt="" coords="872,93,979,123"/>
+<area shape="rect" id="node41" href="$rdisk_8c.html#a8bc2062a175b7c74607a2498ac997657" title="readsect" alt="" coords="369,443,441,472"/>
+<area shape="rect" id="node43" href="$rdisk_8c.html#a63222d4a07c38c198de5bd116a001935" title="waitdisk" alt="" coords="552,405,621,435"/>
+<area shape="rect" id="node47" href="$x86_8h.html#aecb1fa8a11c8a27335665526fc820dc6" title="outb" alt="" coords="564,459,609,488"/>
+<area shape="rect" id="node49" href="$x86_8h.html#a16386395d1cae950f2efd9bed742d487" title="insl" alt="" coords="565,512,608,541"/>
+<area shape="rect" id="node45" href="$x86_8h.html#ab22bd329c089d76a3977792a2208f6b4" title="inb" alt="" coords="743,405,780,435"/>
+</map>

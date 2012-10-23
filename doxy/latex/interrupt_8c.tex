@@ -1,0 +1,165 @@
+\hypertarget{interrupt_8c}{\section{kernel/arch/x86/interrupt.c \-File \-Reference}
+\label{interrupt_8c}\index{kernel/arch/x86/interrupt.\-c@{kernel/arch/x86/interrupt.\-c}}
+}
+{\ttfamily \#include $<$types.\-h$>$}\*
+{\ttfamily \#include $<$test.\-h$>$}\*
+{\ttfamily \#include $<$proc/proc.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/x86.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/interrupt.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/vectors.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/mm/segdesc.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/cpu\-\_\-state.\-h$>$}\*
+\-Include dependency graph for interrupt.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interrupt_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{interrupt_8c_aec1d1c87cbfcb716257cc7c4f6766bd2}{trap} (void)
+\item 
+void \hyperlink{interrupt_8c_a164d38a0163ec2c36993b803b8c7fdcb}{idt\-\_\-init} (void)
+\item 
+void \hyperlink{interrupt_8c_a8d7db7dde7fc6c113d1f10578db13816}{register\-\_\-exception} (\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} index, char $\ast$name, \hyperlink{types_8h_a273cf69d639a59973b6019625df33e30}{uint16\-\_\-t} present, void(handler)(void))
+\item 
+void \hyperlink{interrupt_8c_aae3db3a98d70c22944d98e61fa398938}{interrupt\-\_\-init} (void)
+\item 
+void \hyperlink{interrupt_8c_aee258f399635eb17537ee286417e141c}{map\-\_\-exception} (\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} int\-\_\-index, \hyperlink{structcpu__state__t}{cpu\-\_\-state\-\_\-t} $\ast$cpu\-\_\-state)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{interrupt_8c_a5ca993690237b19d024337e30eecea6c}{page\-\_\-fault\-\_\-handler} (\hyperlink{structcpu__state__t}{cpu\-\_\-state\-\_\-t} $\ast$cpu\-\_\-state)
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+gatedesc \hyperlink{interrupt_8c_a5d1792166c76d20f9054b3bda93be7c4}{idt} \mbox{[}64\mbox{]}
+\item 
+char $\ast$ \hyperlink{interrupt_8c_a555133898405bfedf4422c9f76a58875}{x86\-\_\-exception\-\_\-names} \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{interrupt_8c_aeb98d34fe8825c3bd7d199f9f55ec66f}{int\-\_\-generic}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{interrupt_8c_a164d38a0163ec2c36993b803b8c7fdcb}{\index{interrupt.\-c@{interrupt.\-c}!idt\-\_\-init@{idt\-\_\-init}}
+\index{idt\-\_\-init@{idt\-\_\-init}!interrupt.c@{interrupt.\-c}}
+\subsubsection[{idt\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf idt\-\_\-init} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{interrupt_8c_a164d38a0163ec2c36993b803b8c7fdcb}
+
+
+\-Definition at line 60 of file interrupt.\-c.
+
+\hypertarget{interrupt_8c_aae3db3a98d70c22944d98e61fa398938}{\index{interrupt.\-c@{interrupt.\-c}!interrupt\-\_\-init@{interrupt\-\_\-init}}
+\index{interrupt\-\_\-init@{interrupt\-\_\-init}!interrupt.c@{interrupt.\-c}}
+\subsubsection[{interrupt\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf interrupt\-\_\-init} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{interrupt_8c_aae3db3a98d70c22944d98e61fa398938}
+
+
+\-Definition at line 160 of file interrupt.\-c.
+
+\hypertarget{interrupt_8c_aee258f399635eb17537ee286417e141c}{\index{interrupt.\-c@{interrupt.\-c}!map\-\_\-exception@{map\-\_\-exception}}
+\index{map\-\_\-exception@{map\-\_\-exception}!interrupt.c@{interrupt.\-c}}
+\subsubsection[{map\-\_\-exception}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf map\-\_\-exception} (
+\begin{DoxyParamCaption}
+\item[{{\bf uint32\-\_\-t}}]{int\-\_\-index, }
+\item[{{\bf cpu\-\_\-state\-\_\-t} $\ast$}]{cpu\-\_\-state}
+\end{DoxyParamCaption}
+)}}\label{interrupt_8c_aee258f399635eb17537ee286417e141c}
+
+
+\-Definition at line 166 of file interrupt.\-c.
+
+\hypertarget{interrupt_8c_a5ca993690237b19d024337e30eecea6c}{\index{interrupt.\-c@{interrupt.\-c}!page\-\_\-fault\-\_\-handler@{page\-\_\-fault\-\_\-handler}}
+\index{page\-\_\-fault\-\_\-handler@{page\-\_\-fault\-\_\-handler}!interrupt.c@{interrupt.\-c}}
+\subsubsection[{page\-\_\-fault\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf page\-\_\-fault\-\_\-handler} (
+\begin{DoxyParamCaption}
+\item[{{\bf cpu\-\_\-state\-\_\-t} $\ast$}]{cpu\-\_\-state}
+\end{DoxyParamCaption}
+)}}\label{interrupt_8c_a5ca993690237b19d024337e30eecea6c}
+
+
+\-Definition at line 195 of file interrupt.\-c.
+
+\hypertarget{interrupt_8c_a8d7db7dde7fc6c113d1f10578db13816}{\index{interrupt.\-c@{interrupt.\-c}!register\-\_\-exception@{register\-\_\-exception}}
+\index{register\-\_\-exception@{register\-\_\-exception}!interrupt.c@{interrupt.\-c}}
+\subsubsection[{register\-\_\-exception}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf register\-\_\-exception} (
+\begin{DoxyParamCaption}
+\item[{{\bf uint32\-\_\-t}}]{index, }
+\item[{char $\ast$}]{name, }
+\item[{{\bf uint16\-\_\-t}}]{present, }
+\item[{void(handler)(void)}]{}
+\end{DoxyParamCaption}
+)}}\label{interrupt_8c_a8d7db7dde7fc6c113d1f10578db13816}
+
+
+\-Definition at line 154 of file interrupt.\-c.
+
+\hypertarget{interrupt_8c_aec1d1c87cbfcb716257cc7c4f6766bd2}{\index{interrupt.\-c@{interrupt.\-c}!trap@{trap}}
+\index{trap@{trap}!interrupt.c@{interrupt.\-c}}
+\subsubsection[{trap}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf trap} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{interrupt_8c_aec1d1c87cbfcb716257cc7c4f6766bd2}
+
+
+\-Definition at line 44 of file interrupt.\-c.
+
+
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{interrupt_8c_a5d1792166c76d20f9054b3bda93be7c4}{\index{interrupt.\-c@{interrupt.\-c}!idt@{idt}}
+\index{idt@{idt}!interrupt.c@{interrupt.\-c}}
+\subsubsection[{idt}]{\setlength{\rightskip}{0pt plus 5cm}gatedesc {\bf idt}}}\label{interrupt_8c_a5d1792166c76d20f9054b3bda93be7c4}
+\hyperlink{interrupt_8h}{include/arch/x86/interrupt.\-h} \-C\-A\-T\-Reloaded (\-C) \-Copyrights 2011 \href{http://catreloaded.net}{\tt http\-://catreloaded.\-net}
+
+\begin{DoxyDate}{\-Date}
+27 \-Sept, 2012 
+\end{DoxyDate}
+
+
+\-Definition at line 19 of file interrupt.\-c.
+
+\hypertarget{interrupt_8c_aeb98d34fe8825c3bd7d199f9f55ec66f}{\index{interrupt.\-c@{interrupt.\-c}!int\-\_\-generic@{int\-\_\-generic}}
+\index{int\-\_\-generic@{int\-\_\-generic}!interrupt.c@{interrupt.\-c}}
+\subsubsection[{int\-\_\-generic}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int\-\_\-generic}}}\label{interrupt_8c_aeb98d34fe8825c3bd7d199f9f55ec66f}
+\hypertarget{interrupt_8c_a555133898405bfedf4422c9f76a58875}{\index{interrupt.\-c@{interrupt.\-c}!x86\-\_\-exception\-\_\-names@{x86\-\_\-exception\-\_\-names}}
+\index{x86\-\_\-exception\-\_\-names@{x86\-\_\-exception\-\_\-names}!interrupt.c@{interrupt.\-c}}
+\subsubsection[{x86\-\_\-exception\-\_\-names}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf x86\-\_\-exception\-\_\-names}\mbox{[}$\,$\mbox{]}}}\label{interrupt_8c_a555133898405bfedf4422c9f76a58875}
+{\bfseries \-Initial value\-:}
+\begin{DoxyCode}
+{
+        "Divide Error #DE",
+        "Debug",
+        "NMI",
+        "Breakpoint #BP",
+        "Overflow #OV",
+        "Bound Range Exceeded #BR",
+        "Undefined Opcode",
+        "Device not avalible",
+        "Double fault",
+        "Coprocessor segment overrun",
+        "Invalid TSS",
+        "Segment not present",
+        "Stack Segment Fault",
+        "General Protection",
+        "Page Fault",
+        "\0",
+        "x87 FPU error",
+        "Alignment Mask",
+        "Machine Check",
+        "SIMD exception"
+        }
+\end{DoxyCode}
+
+
+\-Definition at line 20 of file interrupt.\-c.
+

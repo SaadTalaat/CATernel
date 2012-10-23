@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$string_8c.html#a2e7b2907250be8edc8e78f5dc91cd85b" title="strnlen" alt="" coords="129,5,191,35"/>
+<area shape="rect" id="node5" href="$printf_8c.html#a2c0f7b90b6771c3ac60fcba2da990672" title="putch" alt="" coords="133,59,187,88"/>
+<area shape="rect" id="node20" href="$printf_8c.html#a15fa6d5bac62e4e23535055899f8198a" title="getint" alt="" coords="133,112,187,141"/>
+<area shape="rect" id="node22" href="$printf_8c.html#aa2d6b6655726ec3ed608623a0fa2efc5" title="getuint" alt="" coords="129,165,191,195"/>
+<area shape="rect" id="node24" href="$printf_8c.html#a4d96a0e0fd1a548e704a5408d77c33cb" title="ksprintkn" alt="" coords="123,243,197,272"/>
+<area shape="rect" id="node7" href="$cli_8c.html#a77246c715d47b2f9782c230ca981952e" title="putchr" alt="" coords="245,59,304,88"/>
+<area shape="rect" id="node9" href="$cli_8c.html#ad3429ca65a1b6f39eed6d2f9f795586b" title="console_putc" alt="" coords="352,59,451,88"/>
+<area shape="rect" id="node11" href="$video_8c.html#aca189a8fb5d14a6ccaabfb4ce606e20c" title="cga_putc" alt="" coords="499,59,573,88"/>
+<area shape="rect" id="node13" href="$video_8c.html#a98e2b5ab9f34fc634a00c8ac89200b2e" title="cga_set_pos" alt="" coords="621,32,717,61"/>
+<area shape="rect" id="node18" href="$string_8c.html#a5beb6f763ff14a288fbe9c1f526579a3" title="memcopy" alt="" coords="631,85,708,115"/>
+<area shape="rect" id="node15" href="$x86_8h.html#aecb1fa8a11c8a27335665526fc820dc6" title="outb" alt="" coords="767,32,812,61"/>
+</map>

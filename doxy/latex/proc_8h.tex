@@ -1,0 +1,209 @@
+\hypertarget{proc_8h}{\section{include/proc/proc.h \-File \-Reference}
+\label{proc_8h}\index{include/proc/proc.\-h@{include/proc/proc.\-h}}
+}
+{\ttfamily \#include $<$arch/x86/cpu\-\_\-state.\-h$>$}\*
+{\ttfamily \#include $<$memvals.\-h$>$}\*
+{\ttfamily \#include $<$structs/queue.\-h$>$}\*
+{\ttfamily \#include $<$arch/x86/mm/page.\-h$>$}\*
+\-Include dependency graph for proc.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{proc_8h__incl}
+\end{center}
+\end{figure}
+\-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{proc_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Data \-Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structproc}{proc}
+\end{DoxyCompactItemize}
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{proc_8h_a0e92bfcd9e51ca39bbebc3dfb9c16014}{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-S}~256
+\item 
+\#define \hyperlink{proc_8h_a343751858d398e59d69b625d6593c288}{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-\_\-\-N\-A\-M\-E}~128
+\item 
+\#define \hyperlink{proc_8h_a7ccc5ca21a66634195c2d9964c7817e8}{\-R\-U\-N\-N\-A\-B\-L\-E}~0
+\item 
+\#define \hyperlink{proc_8h_afca3664b6210cca51d6b7cc0ed9a884a}{\-P\-R\-O\-C\-\_\-\-E\-M\-P\-T\-Y}~0x1
+\item 
+\#define \hyperlink{proc_8h_a576996404555949ca922818a968d758d}{\-N\-O\-N\-\_\-\-R\-U\-N\-N\-A\-B\-L\-E}~0x2
+\item 
+\#define \hyperlink{proc_8h_a53c43501315a81999360575361f512b5}{\-P\-R\-O\-C\-\_\-\-T\-A\-B\-L\-E\-\_\-\-S\-I\-Z\-E}~\hyperlink{types_8h_a7a4ba4f2dbc3879306d8518c2670dd77}{\-R\-O\-U\-N\-D\-\_\-\-U\-P}(\hyperlink{proc_8h_a0e92bfcd9e51ca39bbebc3dfb9c16014}{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-S} $\ast$ sizeof(struct \hyperlink{structproc}{proc}), \hyperlink{memvals_8h_afaaefef20f05b195fe951996639d6e0b}{\-P\-A\-G\-E\-S\-Z})
+\end{DoxyCompactItemize}
+\subsection*{\-Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structproc}{proc} \hyperlink{proc_8h_abcae78bfd085fccd601f7cc568946453}{proc\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{proc_8h_a07939ecde6cf51540dcf77e9c2c0098c}{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D} (\-Proc\-\_\-\-List, \hyperlink{structproc}{proc})
+\item 
+\hyperlink{proc_8h_abc4ce76c5721dbfcb7b522b97e1474c0}{\-L\-I\-F\-O\-\_\-\-H\-E\-A\-D} (\-Proc\-\_\-\-Lifo, \hyperlink{structproc}{proc})
+\item 
+void \hyperlink{proc_8h_a7a86f136018ec12ba764d8ecc13ee403}{init\-\_\-proc\-\_\-table} (void)
+\item 
+void \hyperlink{proc_8h_a1dbb2fb41967cafc4ef1e7ecc04002a0}{switch\-\_\-address\-\_\-space} (\hyperlink{proc_8h_abcae78bfd085fccd601f7cc568946453}{proc\-\_\-t} $\ast$)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{proc_8h_a05cfdf014538d1fb554b180744bedb4e}{proc\-\_\-setup} (\hyperlink{proc_8h_abcae78bfd085fccd601f7cc568946453}{proc\-\_\-t} $\ast$$\ast$)
+\item 
+\hyperlink{types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\-\_\-t} \hyperlink{proc_8h_a427dfd5d9cec71a53e4b1c9d52dc8a1c}{proc\-\_\-setup\-\_\-mem} (\hyperlink{proc_8h_abcae78bfd085fccd601f7cc568946453}{proc\-\_\-t} $\ast$)
+\item 
+void \hyperlink{proc_8h_a5786a19c8d7e97d107ad3e1c02c12b0d}{test\-\_\-lifo} (void)
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{proc_8h_abcae78bfd085fccd601f7cc568946453}{proc\-\_\-t} $\ast$ \hyperlink{proc_8h_a432b7b292b7d2423daf04aceac8924e6}{proc\-\_\-table}
+\item 
+struct \-Proc\-\_\-\-Lifo \hyperlink{proc_8h_a7608dc18b85a71c7c6f32b45a8516d12}{running\-\_\-procs}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{proc_8h_a343751858d398e59d69b625d6593c288}{\index{proc.\-h@{proc.\-h}!\-M\-A\-X\-\_\-\-P\-R\-O\-C\-\_\-\-N\-A\-M\-E@{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-\_\-\-N\-A\-M\-E}}
+\index{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-\_\-\-N\-A\-M\-E@{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-\_\-\-N\-A\-M\-E}!proc.h@{proc.\-h}}
+\subsubsection[{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-\_\-\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-M\-A\-X\-\_\-\-P\-R\-O\-C\-\_\-\-N\-A\-M\-E}~128}}\label{proc_8h_a343751858d398e59d69b625d6593c288}
+
+
+\-Definition at line 18 of file proc.\-h.
+
+\hypertarget{proc_8h_a0e92bfcd9e51ca39bbebc3dfb9c16014}{\index{proc.\-h@{proc.\-h}!\-M\-A\-X\-\_\-\-P\-R\-O\-C\-S@{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-S}}
+\index{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-S@{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-S}!proc.h@{proc.\-h}}
+\subsubsection[{\-M\-A\-X\-\_\-\-P\-R\-O\-C\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-M\-A\-X\-\_\-\-P\-R\-O\-C\-S}~256}}\label{proc_8h_a0e92bfcd9e51ca39bbebc3dfb9c16014}
+inclede/arch/x86/interrupt.\-h \-C\-A\-T\-Reloaded (\-C) \-Copyrights 2011 \href{http:/ecatreloaded.net}{\tt http\-:/ecatreloaded.\-net}
+
+\begin{DoxyDate}{\-Date}
+4 \-Oct, 2012 
+\end{DoxyDate}
+
+
+\-Definition at line 17 of file proc.\-h.
+
+\hypertarget{proc_8h_a576996404555949ca922818a968d758d}{\index{proc.\-h@{proc.\-h}!\-N\-O\-N\-\_\-\-R\-U\-N\-N\-A\-B\-L\-E@{\-N\-O\-N\-\_\-\-R\-U\-N\-N\-A\-B\-L\-E}}
+\index{\-N\-O\-N\-\_\-\-R\-U\-N\-N\-A\-B\-L\-E@{\-N\-O\-N\-\_\-\-R\-U\-N\-N\-A\-B\-L\-E}!proc.h@{proc.\-h}}
+\subsubsection[{\-N\-O\-N\-\_\-\-R\-U\-N\-N\-A\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-N\-O\-N\-\_\-\-R\-U\-N\-N\-A\-B\-L\-E}~0x2}}\label{proc_8h_a576996404555949ca922818a968d758d}
+
+
+\-Definition at line 22 of file proc.\-h.
+
+\hypertarget{proc_8h_afca3664b6210cca51d6b7cc0ed9a884a}{\index{proc.\-h@{proc.\-h}!\-P\-R\-O\-C\-\_\-\-E\-M\-P\-T\-Y@{\-P\-R\-O\-C\-\_\-\-E\-M\-P\-T\-Y}}
+\index{\-P\-R\-O\-C\-\_\-\-E\-M\-P\-T\-Y@{\-P\-R\-O\-C\-\_\-\-E\-M\-P\-T\-Y}!proc.h@{proc.\-h}}
+\subsubsection[{\-P\-R\-O\-C\-\_\-\-E\-M\-P\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-R\-O\-C\-\_\-\-E\-M\-P\-T\-Y}~0x1}}\label{proc_8h_afca3664b6210cca51d6b7cc0ed9a884a}
+
+
+\-Definition at line 21 of file proc.\-h.
+
+\hypertarget{proc_8h_a53c43501315a81999360575361f512b5}{\index{proc.\-h@{proc.\-h}!\-P\-R\-O\-C\-\_\-\-T\-A\-B\-L\-E\-\_\-\-S\-I\-Z\-E@{\-P\-R\-O\-C\-\_\-\-T\-A\-B\-L\-E\-\_\-\-S\-I\-Z\-E}}
+\index{\-P\-R\-O\-C\-\_\-\-T\-A\-B\-L\-E\-\_\-\-S\-I\-Z\-E@{\-P\-R\-O\-C\-\_\-\-T\-A\-B\-L\-E\-\_\-\-S\-I\-Z\-E}!proc.h@{proc.\-h}}
+\subsubsection[{\-P\-R\-O\-C\-\_\-\-T\-A\-B\-L\-E\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-R\-O\-C\-\_\-\-T\-A\-B\-L\-E\-\_\-\-S\-I\-Z\-E}~{\bf \-R\-O\-U\-N\-D\-\_\-\-U\-P}({\bf \-M\-A\-X\-\_\-\-P\-R\-O\-C\-S} $\ast$ sizeof(struct {\bf proc}), {\bf \-P\-A\-G\-E\-S\-Z})}}\label{proc_8h_a53c43501315a81999360575361f512b5}
+
+
+\-Definition at line 43 of file proc.\-h.
+
+\hypertarget{proc_8h_a7ccc5ca21a66634195c2d9964c7817e8}{\index{proc.\-h@{proc.\-h}!\-R\-U\-N\-N\-A\-B\-L\-E@{\-R\-U\-N\-N\-A\-B\-L\-E}}
+\index{\-R\-U\-N\-N\-A\-B\-L\-E@{\-R\-U\-N\-N\-A\-B\-L\-E}!proc.h@{proc.\-h}}
+\subsubsection[{\-R\-U\-N\-N\-A\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-R\-U\-N\-N\-A\-B\-L\-E}~0}}\label{proc_8h_a7ccc5ca21a66634195c2d9964c7817e8}
+
+
+\-Definition at line 20 of file proc.\-h.
+
+
+
+\subsection{\-Typedef \-Documentation}
+\hypertarget{proc_8h_abcae78bfd085fccd601f7cc568946453}{\index{proc.\-h@{proc.\-h}!proc\-\_\-t@{proc\-\_\-t}}
+\index{proc\-\_\-t@{proc\-\_\-t}!proc.h@{proc.\-h}}
+\subsubsection[{proc\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf proc}  {\bf proc\-\_\-t}}}\label{proc_8h_abcae78bfd085fccd601f7cc568946453}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{proc_8h_a7a86f136018ec12ba764d8ecc13ee403}{\index{proc.\-h@{proc.\-h}!init\-\_\-proc\-\_\-table@{init\-\_\-proc\-\_\-table}}
+\index{init\-\_\-proc\-\_\-table@{init\-\_\-proc\-\_\-table}!proc.h@{proc.\-h}}
+\subsubsection[{init\-\_\-proc\-\_\-table}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf init\-\_\-proc\-\_\-table} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{proc_8h_a7a86f136018ec12ba764d8ecc13ee403}
+
+
+\-Definition at line 17 of file proc.\-c.
+
+\hypertarget{proc_8h_abc4ce76c5721dbfcb7b522b97e1474c0}{\index{proc.\-h@{proc.\-h}!\-L\-I\-F\-O\-\_\-\-H\-E\-A\-D@{\-L\-I\-F\-O\-\_\-\-H\-E\-A\-D}}
+\index{\-L\-I\-F\-O\-\_\-\-H\-E\-A\-D@{\-L\-I\-F\-O\-\_\-\-H\-E\-A\-D}!proc.h@{proc.\-h}}
+\subsubsection[{\-L\-I\-F\-O\-\_\-\-H\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-L\-I\-F\-O\-\_\-\-H\-E\-A\-D} (
+\begin{DoxyParamCaption}
+\item[{\-Proc\-\_\-\-Lifo}]{, }
+\item[{{\bf proc}}]{}
+\end{DoxyParamCaption}
+)}}\label{proc_8h_abc4ce76c5721dbfcb7b522b97e1474c0}
+\hypertarget{proc_8h_a07939ecde6cf51540dcf77e9c2c0098c}{\index{proc.\-h@{proc.\-h}!\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D@{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D}}
+\index{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D@{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D}!proc.h@{proc.\-h}}
+\subsubsection[{\-L\-I\-S\-T\-\_\-\-H\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-L\-I\-S\-T\-\_\-\-H\-E\-A\-D} (
+\begin{DoxyParamCaption}
+\item[{\-Proc\-\_\-\-List}]{, }
+\item[{{\bf proc}}]{}
+\end{DoxyParamCaption}
+)}}\label{proc_8h_a07939ecde6cf51540dcf77e9c2c0098c}
+\hypertarget{proc_8h_a05cfdf014538d1fb554b180744bedb4e}{\index{proc.\-h@{proc.\-h}!proc\-\_\-setup@{proc\-\_\-setup}}
+\index{proc\-\_\-setup@{proc\-\_\-setup}!proc.h@{proc.\-h}}
+\subsubsection[{proc\-\_\-setup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf proc\-\_\-setup} (
+\begin{DoxyParamCaption}
+\item[{{\bf proc\-\_\-t} $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{proc_8h_a05cfdf014538d1fb554b180744bedb4e}
+\hypertarget{proc_8h_a427dfd5d9cec71a53e4b1c9d52dc8a1c}{\index{proc.\-h@{proc.\-h}!proc\-\_\-setup\-\_\-mem@{proc\-\_\-setup\-\_\-mem}}
+\index{proc\-\_\-setup\-\_\-mem@{proc\-\_\-setup\-\_\-mem}!proc.h@{proc.\-h}}
+\subsubsection[{proc\-\_\-setup\-\_\-mem}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint32\-\_\-t} {\bf proc\-\_\-setup\-\_\-mem} (
+\begin{DoxyParamCaption}
+\item[{{\bf proc\-\_\-t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{proc_8h_a427dfd5d9cec71a53e4b1c9d52dc8a1c}
+\hypertarget{proc_8h_a1dbb2fb41967cafc4ef1e7ecc04002a0}{\index{proc.\-h@{proc.\-h}!switch\-\_\-address\-\_\-space@{switch\-\_\-address\-\_\-space}}
+\index{switch\-\_\-address\-\_\-space@{switch\-\_\-address\-\_\-space}!proc.h@{proc.\-h}}
+\subsubsection[{switch\-\_\-address\-\_\-space}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf switch\-\_\-address\-\_\-space} (
+\begin{DoxyParamCaption}
+\item[{{\bf proc\-\_\-t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{proc_8h_a1dbb2fb41967cafc4ef1e7ecc04002a0}
+
+
+\-Definition at line 138 of file proc.\-c.
+
+\hypertarget{proc_8h_a5786a19c8d7e97d107ad3e1c02c12b0d}{\index{proc.\-h@{proc.\-h}!test\-\_\-lifo@{test\-\_\-lifo}}
+\index{test\-\_\-lifo@{test\-\_\-lifo}!proc.h@{proc.\-h}}
+\subsubsection[{test\-\_\-lifo}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf test\-\_\-lifo} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{proc_8h_a5786a19c8d7e97d107ad3e1c02c12b0d}
+
+
+\-Definition at line 119 of file proc.\-c.
+
+
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{proc_8h_a432b7b292b7d2423daf04aceac8924e6}{\index{proc.\-h@{proc.\-h}!proc\-\_\-table@{proc\-\_\-table}}
+\index{proc\-\_\-table@{proc\-\_\-table}!proc.h@{proc.\-h}}
+\subsubsection[{proc\-\_\-table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf proc\-\_\-t}$\ast$ {\bf proc\-\_\-table}}}\label{proc_8h_a432b7b292b7d2423daf04aceac8924e6}
+
+
+\-Definition at line 13 of file proc.\-c.
+
+\hypertarget{proc_8h_a7608dc18b85a71c7c6f32b45a8516d12}{\index{proc.\-h@{proc.\-h}!running\-\_\-procs@{running\-\_\-procs}}
+\index{running\-\_\-procs@{running\-\_\-procs}!proc.h@{proc.\-h}}
+\subsubsection[{running\-\_\-procs}]{\setlength{\rightskip}{0pt plus 5cm}struct \-Proc\-\_\-\-Lifo {\bf running\-\_\-procs}}}\label{proc_8h_a7608dc18b85a71c7c6f32b45a8516d12}
+
+
+\-Definition at line 14 of file proc.\-c.
+

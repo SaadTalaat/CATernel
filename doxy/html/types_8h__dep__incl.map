@@ -1,0 +1,28 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$interrupt_8c.html" title="kernel/arch/x86/interrupt.c" alt="" coords="42,237,215,267"/>
+<area shape="rect" id="node5" href="$init__mem_8c.html" title="kernel/arch/x86/mm/init_mem.c" alt="" coords="458,237,663,267"/>
+<area shape="rect" id="node7" href="$page_8c.html" title="kernel/arch/x86/mm/page.c" alt="" coords="853,160,1031,189"/>
+<area shape="rect" id="node9" href="$cli_8c.html" title="kernel/cli.c" alt="" coords="1794,160,1879,189"/>
+<area shape="rect" id="node11" href="$cmos_8c.html" title="kernel/cmos.c" alt="" coords="1541,160,1645,189"/>
+<area shape="rect" id="node13" href="$cpuid_8c.html" title="kernel/cpuid.c" alt="" coords="1669,160,1770,189"/>
+<area shape="rect" id="node15" href="$init_8c.html" title="kernel/init.c" alt="" coords="293,315,381,344"/>
+<area shape="rect" id="node17" href="$kbc_8c.html" title="kernel/kbc.c" alt="" coords="1903,160,1997,189"/>
+<area shape="rect" id="node19" href="$play_8c.html" title="kernel main file" alt="" coords="866,237,962,267"/>
+<area shape="rect" id="node21" href="$printf_8c.html" title="kernel/printf.c" alt="" coords="2338,83,2439,112"/>
+<area shape="rect" id="node23" href="$load__elf_8c.html" title="kernel/proc/load_elf.c" alt="" coords="986,237,1133,267"/>
+<area shape="rect" id="node25" href="$proc_8c.html" title="kernel/proc/proc.c" alt="" coords="753,315,878,344"/>
+<area shape="rect" id="node27" href="$readline_8c.html" title="kernel/readline.c" alt="" coords="2146,160,2263,189"/>
+<area shape="rect" id="node29" href="$video_8c.html" title="kernel/video.c" alt="" coords="2021,160,2122,189"/>
+<area shape="rect" id="node31" href="$work__it__out_8c.html" title="kernel/work_it_out.c" alt="" coords="1566,315,1705,344"/>
+<area shape="rect" id="node33" href="$cpu__state_8h.html" title="include/arch/x86/cpu_state.h" alt="" coords="287,83,477,112"/>
+<area shape="rect" id="node37" href="$interrupt_8h.html" title="include/arch/x86/interrupt.h" alt="" coords="63,160,242,189"/>
+<area shape="rect" id="node55" href="$x86_8h.html" title="include/arch/x86/x86.h" alt="" coords="1403,83,1555,112"/>
+<area shape="rect" id="node73" href="$ext2fs_8h.html" title="include/fs/ext2fs.h" alt="" coords="2463,83,2591,112"/>
+<area shape="rect" id="node75" href="$kbc_8h.html" title="include/kbc.h" alt="" coords="1901,83,1999,112"/>
+<area shape="rect" id="node81" href="$string_8h.html" title="include/string.h" alt="" coords="717,83,826,112"/>
+<area shape="rect" id="node41" href="$proc_8h.html" title="include/proc/proc.h" alt="" coords="317,160,447,189"/>
+<area shape="rect" id="node49" href="$init_8h.html" title="include/init.h" alt="" coords="290,237,383,267"/>
+<area shape="rect" id="node65" href="$rdisk_8c.html" title="kernel/rdisk.c" alt="" coords="1339,237,1438,267"/>
+<area shape="rect" id="node68" href="$rdisk_8h.html" title="include/rdisk.h" alt="" coords="1309,160,1415,189"/>
+<area shape="rect" id="node87" href="$string_8c.html" title="kernel/string.c" alt="" coords="674,160,778,189"/>
+</map>

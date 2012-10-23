@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$page_8c.html#afdfcf53a6e442e1244205d5caa178dc1" title="x86_page_alloc" alt="" coords="160,5,272,35"/>
+<area shape="rect" id="node7" href="$string_8c.html#aed8d67a6c62c63e36f1f8e071188bdfe" title="memset" alt="" coords="479,31,548,60"/>
+<area shape="rect" id="node10" href="$page_8h.html#a94dd2ec22e115460a6d568f22ebd91c2" title="pagetova" alt="" coords="179,109,253,139"/>
+<area shape="rect" id="node12" href="$page_8h.html#ab6c946403ac4ab350ca9a5b12ec08f5b" title="pagetopa" alt="" coords="335,109,409,139"/>
+<area shape="rect" id="node5" href="$page_8c.html#a47035fa680fdf11c7403445db4762728" title="x86_page_init" alt="" coords="321,5,423,35"/>
+<area shape="rect" id="node14" href="$page_8h.html#a735b55b2c43127444f76fd10f474f8c9" title="pagetoppn" alt="" coords="472,109,555,139"/>
+</map>
