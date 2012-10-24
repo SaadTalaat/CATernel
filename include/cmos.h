@@ -1,5 +1,8 @@
-/* Menna Essa
- * CATReloaded (C) Copyrights 2011
+ /** 
+ * @file cmos.h
+ * @Author Menna Essa , Saad Talaat
+ * @date 29/10/2011
+ * @brief defines constants for RTC 
  * http://catreloaded.net
  */
 #ifndef _CATERNEL_CMOS_H_
@@ -24,7 +27,7 @@
 #define RTC_STATUS_B	0xB	/* the RTC Status register B */
 
 
-#define STAT_RUN	0x7F     //values to be used in the Masking of the RTC_STATUS_B
+#define STAT_RUN	0x7F     /*values to be used in the Masking of the RTC_STATUS_B*/
 #define STAT_HALT       0x80  
 #define STAT_PER_INTR   0x40
 #define STAT_ALRM_INTR  0x20
@@ -52,5 +55,7 @@
 #define CMOS_DRIVE_D	0x1A	/* Drive D extention type */
 
 /* functions */
-//uint8_t cmos_get_seconds(void);
+uint8_t cmos_set_power_stat(uint8_t stat);
+uint8_t cmos_get_seconds(void);
+uint32_t cmos_get_reg(uint8_t value);
 #endif
