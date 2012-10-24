@@ -1,3 +1,15 @@
+/** @addtogroup Main
+ * @{
+ */
+
+/**
+ * @file kernel/play.c
+ * @Author Saad Talaat
+ * @date 12/9/2011
+ * @brief kernel main file
+ *
+ */
+
 #include <types.h>
 #include <cli.h>
 #include <stdio.h>
@@ -7,9 +19,19 @@
 #include <cpuid.h>
 #include <proc/proc.h>
 #include <test.h>
-
+/**
+ * @fn void play(void);
+ * @brief this function holds initializations and setting up facilities
+ *
+ * @fn void time_print(void);
+ * @brief a completely useless function that prints current time.
+ *
+ * @fn void bootup(void);
+ * @brief booting up operations
+ */
 void play(void);
 static const char* error_panic = NULL;
+
 void
 _panic_(const char *file, int nline, const char *fmt, ...){
         va_list ap;
@@ -80,3 +102,6 @@ play(){
 
 	}
 }
+
+/** @} @}
+ */

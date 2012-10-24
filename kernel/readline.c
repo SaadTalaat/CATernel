@@ -1,7 +1,19 @@
+/** 
+ * @addtogroup Main
+ * @{
+ * @file readline.c
+ * @brief readline operation.
+ * @date Thursday 03/11/2011
+ * @details
+ * Readline is used in user interaction which is used in late
+ * console. can be used in the future as a system call.
+ *
+ */
 #include <types.h>
 #include <kbc.h>
 #include <stdio.h>
 #include <video.h>
+
 
 #define BUFLEN	1024
 static char buf[BUFLEN];
@@ -33,3 +45,6 @@ readline(const char* towrite){
 	}
 
 }
+
+/** @}
+ */

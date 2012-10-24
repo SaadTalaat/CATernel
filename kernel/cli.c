@@ -1,3 +1,15 @@
+/** 
+ * @addtogroup Main
+ * @{
+ * @file cli.c
+ * @author Saad Talaat
+ * @date Thursday 03/11/2011
+ * @brief CLI I/O facilities
+ * @name Console
+ * @{
+ * 
+ * @details A generic wrapping for the display I/O.
+ */
 #include <types.h>
 #include <arch/x86/x86.h>
 #include <cli.h>
@@ -56,3 +68,6 @@ getchar(void){
 	return ch;
 
 }
+/**
+ * @} @}
+ */

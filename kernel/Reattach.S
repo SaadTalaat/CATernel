@@ -22,9 +22,9 @@ _start:
 	movw	%ax,%ds				# Copy Data Segment
 	movw	%ax,%es				
 	movw	%ax,%ss				
-	ljmp	$CODE_SEG,$get_to_work		# Do a far jump to go to protected mode
+	ljmp	$CODE_SEG,$boot_setup_stack		# Do a far jump to go to protected mode
 
-get_to_work:
+boot_setup_stack:
 	xor	%ebp,%ebp			# Clear the frame pointer
 	movl	$(kernel_stack_end),%esp		# Load the stack into the stack pointer
 	call	work_it_out

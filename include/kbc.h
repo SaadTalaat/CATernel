@@ -76,7 +76,20 @@
 #define KEY_INS		0xE8
 #define KEY_DEL		0xE9
 /**** Functions **********************/
-
+/**
+ * @fn int kbc_data(void);
+ * @return character read from screen
+ * @brief keyboard input controller driver
+ * @details The task of this function is to read the
+ * keyboard input, It makes sure that there's data in
+ * the input register, then reads the data port. and 
+ * maps input data to a character depending on the code
+ * generated.
+ *
+ * @fn void kbc_interrupt(void);
+ * @brief calls console interrupt which is used in character read.
+ * 
+ */
 int kbc_data(void);
 void kbc_interrupt(void);
 

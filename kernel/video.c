@@ -1,18 +1,28 @@
-/*
- * Saad Talaat
- * CATReloaded (C) Copyrights 2011
- * http://catreloaded.net
+/**
+ * @addtogroup Drivers
+ * @{
+ */ 
+/**
+ * @file video.c
+ * @Author Saad Talaat
+ * @date Sunday 30/10/2011
+ * @brief Color Graphics Adapter (CGA) driver.
+ * @name CGA Driver
+ * @{
+ *
+ * An early initialization for the console can be useful in debugging
+ * and logging operations.
+ * here screen is initialized and get ready for I/O operations.
  */
 #include <arch/x86/x86.h>
 #include <types.h>
 #include <video.h>
 #include <memvals.h>
 #include <kbc.h>
-//////////////////////////////////////////////////////////////////
-//								//
-//								//
-//								//		
-//////////////////////////////////////////////////////////////////
+
+/** @var cga_attr;
+ * @brief holds the colors attribute of the written character
+ */
 static cga_attr;
 uint16_t
 cga_get_pos(void){
@@ -104,6 +114,7 @@ cga_putc(int c){
 	}
 }
 
+void
 cga_putstr(char *c){
 	while(*c != '\0'){
 		cga_putc((int )*c);
@@ -111,3 +122,7 @@ cga_putstr(char *c){
 	}
 
 }
+
+/**
+ *@} @}
+ */

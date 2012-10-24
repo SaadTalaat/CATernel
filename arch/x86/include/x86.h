@@ -1,8 +1,19 @@
+/**
+ * @addtogroup x86-boot
+ * @{
+ */
+
+/**
+ * @file x86.h
+ * @Author Saad Talaat
+ * @date 22/10/2011
+ * @brief inline functions for performing basic assembly operations
+ *
+ */
 #ifndef _ASM_X86_X86_H
 #define _ASM_X86_X86_H
-
 #include <types.h>
-;
+
 static __inline void outb(uint8_t data,int port)
 {
         __asm __volatile("outb %0,%w1" : : "a" (data), "d" (port));
@@ -53,5 +64,5 @@ static inline void insw(void *addr,int cnt,int port){
                         "d" (port), "0" (addr),"1" (cnt):
                         "memory","cc");
 }
-
+/** @} */
 #endif

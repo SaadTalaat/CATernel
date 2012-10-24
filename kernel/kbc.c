@@ -1,3 +1,15 @@
+/**
+ * @addtogroup Drivers
+ * @{
+ * @file kbc.c
+ * @brief Keyboard driver.
+ * @name PS/2 Keyboard Driver
+ * @{
+ * @details 
+ * This file contains keyboard mapping and input
+ * handling functions.
+ *
+ */
 #include <types.h>
 #include <arch/x86/x86.h>
 #include <cli.h>
@@ -12,6 +24,9 @@
 #define CAPSLOCK (1<<3)
 #define NUMLOCK	 (1<<4)
 #define SCROLLLOCK (1<<5)
+/**
+ * @brief codes to shift character values.
+ */
 static uint8_t shiftcode[256]=
 {
 	[0x1D] CTL,
@@ -22,6 +37,9 @@ static uint8_t shiftcode[256]=
 	[0xB8] ALT
 
 };
+/**
+ * @brief button codes that toggle button values
+ */
 static uint8_t togglecode[256] =
 {
 	[0x3A] CAPSLOCK,
@@ -29,6 +47,10 @@ static uint8_t togglecode[256] =
 	[0x46] SCROLLLOCK
 };
 #define NUL	0
+
+/**
+ * @brief the normal keyboard map.
+ */
 static uint8_t normalmap[256] =
 {
 	NUL,0x1B,'1','2','3','4','5','6',
@@ -50,6 +72,9 @@ static uint8_t normalmap[256] =
 	[0xD2] KEY_INS,		[0xD3] KEY_DEL
 };
 
+/**
+ * @brief the keyboard map once shiftcode is pressed.
+ */ 
 static uint8_t shiftmap[256] =
 {
 	NUL,0x1B,'!','@','#','$','%','^',
@@ -70,6 +95,10 @@ static uint8_t shiftmap[256] =
 	[0xD2] KEY_INS,         [0xD3] KEY_DEL
 };
 #define CL(x)	((x)-'@')
+
+/**
+ * @brief the keyboard map once control is pressed.
+ */
 static uint8_t ctlmap[256] =
 {
 	NUL,	NUL,	NUL,	NUL,	NUL,	NUL,	NUL,	NUL,
@@ -88,6 +117,7 @@ static uint8_t ctlmap[256] =
 
 
 };
+
 static uint8_t *charcode[4] = {
 	normalmap,
 	shiftmap,
@@ -134,3 +164,6 @@ kbc_interrupt(void)
 }
 
 
+/**
+ * @} @}
+ */

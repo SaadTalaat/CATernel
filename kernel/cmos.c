@@ -2,11 +2,15 @@
 #include <arch/x86/x86.h>
 #include <cmos.h>
 /**
+ * @addtogroup Drivers
+ * @{
  * @file cmos.c
  * @Author Menna Essa
  * @date 31/10/2011
  * @brief CMOS Driver.
- *
+ * @name CMOS Driver.
+ * @{
+ * 
  *  supports status A and B Power options , Refer to boch's Ports.lst for details.
  */
 
@@ -89,3 +93,8 @@ uint8_t cmos_get_time(uint8_t value) //value holds whether it's day,month,second
 	time = inb(CMOS_DATAPORT);
 	return time;
 }
+
+/**
+ * @}
+ * @}
+ */
