@@ -30,11 +30,12 @@ all: $(OBJDIRS2)
 always:
 	@:
 $(OBJDIR):
-	@echo $(OBJDIRS)
-	mkdir $@	
-	mkdir -p $(OBJDIRS)
+	@echo [*] Setting up directory tree.
+	@mkdir $@	
+	@mkdir -p $(OBJDIRS)
 .PHONY: clean all image
 image:$(OBJDIR)/kernel/CATernel.img
 
 clean:
-	rm -rf $(OBJDIR)
+	@echo [*] Generated files removed.
+	@rm -rf $(OBJDIR)
