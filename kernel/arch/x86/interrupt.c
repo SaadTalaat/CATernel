@@ -13,6 +13,7 @@
 #include <arch/x86/vectors.h>
 #include <arch/x86/mm/segdesc.h>
 #include <arch/x86/cpu_state.h>
+#include <syscalls/syscalls.h>
 /*
  * Declare our IDT with 255 width interrupts.
  */
@@ -184,6 +185,8 @@ map_exception(uint32_t int_index, cpu_state_t *cpu_state){
 #endif
 	if(int_index == PF)
 		page_fault_handler(cpu_state);
+	if(int_index == SYSCALL)
+		map_syscall(cpu_state);
 	return;
 }
 
