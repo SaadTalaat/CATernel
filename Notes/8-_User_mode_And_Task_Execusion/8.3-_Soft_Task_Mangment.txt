@@ -15,4 +15,15 @@ Of course a list is a basic data structure to be modified later. However, a proc
 	5- Process status.
 
 	6- page directory address.
+	7- times count that process been scheduled and preempted.
+
+**Initialization**
+a processes structures table(array) is used to store the processes structures. initially all processes are members of the empty_procs list.
+once a process is spwaned a proc structure from the empty procs is filled with proc info and binary is loaded into proc and a virtual memory
+allocation function is used to allocate memory.
+
+**Organization**
+procs organization is partially like minix. currently ready procs are put into a queue and should be poped by the scheduler. however this is
+a premature guess of process organization for scheduling.
+
 

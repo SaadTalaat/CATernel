@@ -21,6 +21,10 @@ Created Tuesday 25 September 2012
 	Interrupts are for : System calls, Faults, HW interrupt.
 	How to interrupt: Change the processor to K-Mode, save old processor, restore processor.
 
+**Scheduling**
+	Optimize Scheduling for cpu bound and i/o bound processes, for best performance.
+	Set a (when to schedule) bases.
+	
 
 **Check**
 	- Bouncing Kernel

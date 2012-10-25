@@ -19,3 +19,12 @@ To be able to handle task related activities processor needs
 3- TSS descriptor
 4- Task register
 5- NT Flag in EFLAGS
+
+
+**Initializing TSS**
+although we won't ues TSS in task managment to be able to support ia64 task managment which doesnt support tss, we'll initialize TSS once we've done initializing IDT.
+
+
+In order to apply a soft task managment unit we are going to immitate and understand some of the TSS features.
+
+**Task Switching**
