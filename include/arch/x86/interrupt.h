@@ -91,6 +91,7 @@ extern gatedesc idt[];
 
 #define GP	13
 #define PF	14
+#define SYSCALL 0x30
 /* PAGE FAULT ERROR CODE */
 #define PF_VIOLATION	0x1
 #define PF_NOT_PRESENT	~PF_VIOLATION
