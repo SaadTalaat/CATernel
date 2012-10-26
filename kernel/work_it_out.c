@@ -37,6 +37,7 @@ work_it_out(void)
 	console_clear();
 	console_init();
 	printk("CATernel is booting up...\n");
+	i8259_init();
 	bootup();
 }
 
