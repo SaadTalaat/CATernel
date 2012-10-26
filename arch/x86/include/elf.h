@@ -5,7 +5,7 @@
 
 /**
  * @file elf.h
- * @Author Saad Talaat 
+ * @author Saad Talaat 
  * @date 22/10/2011
  * @brief Elf binary structures and constants, for parsing binaries.
  *

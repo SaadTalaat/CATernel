@@ -5,7 +5,7 @@
  * @addtogroup Drivers
  * @{
  * @file cmos.c
- * @Author Menna Essa
+ * @author Menna Essa
  * @date 31/10/2011
  * @brief CMOS Driver.
  * @name CMOS Driver.

@@ -1,6 +1,6 @@
  /** 
  * @file cmos.h
- * @Author Menna Essa , Saad Talaat
+ * @author Menna Essa , Saad Talaat
  * @date 29/10/2011
  * @brief defines constants for RTC 
  * http://catreloaded.net

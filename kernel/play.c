@@ -4,7 +4,7 @@
 
 /**
  * @file kernel/play.c
- * @Author Saad Talaat
+ * @author Saad Talaat
  * @date 12/9/2011
  * @brief kernel main file
  *

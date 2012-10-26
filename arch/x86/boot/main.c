@@ -6,7 +6,7 @@
  */
 /**
  * @file main.c
- * @Author Saad Talaat 
+ * @author Saad Talaat 
  * @date 26/10/2011
  * @brief Elf binary structures and constants, for parsing binaries.
  *

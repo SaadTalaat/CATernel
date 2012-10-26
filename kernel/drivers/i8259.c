@@ -66,7 +66,7 @@ i8259_init(void)
 
 /**
  * @fn void i8259_disable(void);
- * @breif Disables the PIC IRQs.
+ * @brief Disables the PIC IRQs.
  * @details
  * This function is mostly used before setting up APIC to usage.
  */

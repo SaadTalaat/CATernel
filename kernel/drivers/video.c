@@ -4,7 +4,7 @@
  */ 
 /**
  * @file video.c
- * @Author Saad Talaat
+ * @author Saad Talaat
  * @date Sunday 30/10/2011
  * @brief Color Graphics Adapter (CGA) driver.
  * @name CGA Driver
