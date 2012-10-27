@@ -2,7 +2,12 @@
  * CATReloaded (C) Copyrights 2011
  * http://catreloaded.net
  */
-
+/**
+ * @file page.h 
+ * @date Wednesday 19/09/2012
+ * @brief Intel Paging.
+ * @author Saad Talaat
+ */
 #ifndef _CATERNEL_X86_PAGE_H_
 #define _CATERNEL_X86_PAGE_H_
 
@@ -23,6 +28,11 @@
 }__attribute__((packed)) pde_t;
 */
 typedef uint32_t pde_t;
+/**
+ * @typedef pte_t
+ * @brief page table entry.
+ * @details the fields are explained into main documentation.
+ */
 typedef struct {
 	unsigned present:1;
 	unsigned writable:1;
@@ -96,7 +106,7 @@ typedef struct {
 	m_va - KERNEL_ADDR;\
 })
 
-/* 
+/** 
  * This Macro returns paddr of page containing
  * the given virtual address
  *
@@ -114,6 +124,9 @@ typedef struct {
 })
 */
 extern size_t page_count;
+/**
+ * @brief searches a page directory for a virtual address and returns refering page. 
+ */
 static inline paddr_t
 va2pa(pde_t *pgdir, void *va){
 	uint32_t *pte;
@@ -179,6 +192,10 @@ char *next_free;
 LIST_HEAD(PageList, Page);
 typedef LIST_ENTRY(Page) page_entry_t;
 
+/**
+ * @struct Page
+ * @brief a page list entry, used to hold info about pages.
+ */
 struct Page{
 
 	page_entry_t link;	// the link structure
@@ -190,8 +207,8 @@ struct Page{
  * I hope you know what is inline functions.
  */
 
-/*
- * Get Page number
+/**
+ * @brief Get Page number
  */
 static inline uint32_t
 pagetoppn(struct Page *p)
@@ -199,8 +216,8 @@ pagetoppn(struct Page *p)
 	return p-pages;
 }
 
-/*
- * get a page refering to a paddr
+/**
+ * @brief get a page refering to a paddr
  */
 static inline void*
 patopage(paddr_t p)
@@ -212,8 +229,8 @@ patopage(paddr_t p)
 	}
 	return &pages[PGPN(p)];
 }
-/*
- * get a paddr a page refering to
+/**
+ * @brief get a paddr a page refering to
  */
 static inline paddr_t
 pagetopa(struct Page *p)

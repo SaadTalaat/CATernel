@@ -1,4 +1,10 @@
-
+/**
+ * @file segdesc.h
+ * @date Tuesday 18/09/2012
+ * @author Saad Talaat
+ * @brief Segment offset constants
+ * 
+ */
 
 #ifndef _CATERNEL_X86_SEGDESC_H_
 #define _CATERNEL_X86_SEGDESC_H_

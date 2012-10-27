@@ -1,9 +1,12 @@
-/** include/arch/x86/interrupt.h
- * CATReloaded (C) Copyrights 2011
- * http://catreloaded.net
- *
+/**
+ * @addtogroup Interrupts-and-Syscalls
+ * @{
+ * @file interrupt.h
+ * @author Saad Talaat
  * @date 27 Sept, 2012
- *
+ * @brief Interrupt and fault handling
+ * @name Interrupts Initialization
+ * @{
  */
 #include <types.h>
 #include <test.h>
@@ -14,10 +17,14 @@
 #include <arch/x86/mm/segdesc.h>
 #include <arch/x86/cpu_state.h>
 #include <syscalls/syscalls.h>
-/*
- * Declare our IDT with 255 width interrupts.
+/**
+ * @brief Declare IDT with 255 width interrupts.
  */
 gatedesc idt[64];
+
+/**
+ * @brief Fault names.
+ */
 char *x86_exception_names[] ={
 	"Divide Error #DE",
 	"Debug",
@@ -41,18 +48,21 @@ char *x86_exception_names[] ={
 	"SIMD exception"
 	};
 extern int_generic;
+
 void
 trap(void){
 	printk("[*] Trap issued \n");
 	return;
 }
 
-/*
+/**
+ * @brief Initializing Interrupt Descriptor table
+ * @details
  * the idt init fills the idt table with generic
  * interrupt vector which actually does nothing.
  * later on interrupt initialization we'll set
  * specific interrupt numbers to specific vectors
- * int_generic is independent proc, that doesn't
+ * [vector_X] is independent proc, that does
  * rely on interrupt number, which is a drawback
  * indeed but it's fixable later on.
  *
@@ -151,6 +161,13 @@ idt_init(void){
 
 }
 
+/**
+ * @param index of the interrupt OR interrupt offset in IDT
+ * @param *name the name to be attached to interrupt.
+ * @param either interrupt is present or not.
+ * @param interrupt handler.
+ * @brief register an interrupt handling procedure
+ */
 void
 register_exception(uint32_t index, char *name, uint16_t present, void (handler)(void)){
 
@@ -163,6 +180,13 @@ interrupt_init(void){
 
 }
 
+/**
+ * @brief maps an exception/interrupt to it's handler
+ * @details
+ * This function is called by the vector_x procedure and
+ * used to map faults to handler function like page fault
+ * handler and system call handler and zero division handler..etc.
+ */
 void
 map_exception(uint32_t int_index, cpu_state_t *cpu_state){
 #ifdef	_SYSDBG_
@@ -190,9 +214,13 @@ map_exception(uint32_t int_index, cpu_state_t *cpu_state){
 	return;
 }
 
-/*
- * Page Fault Handler
- *	1- Check if proc is accessing kernel space and not kernel mode	
+/**
+ * @brief Page Fault Handler
+ * @details Page fault handler \n
+ *  Check if proc is accessing kernel space and not kernel mode. \n
+ * If from kernel, The kernel panics. if from user space, stack is extended
+ * if needed or proc is killed.
+ * 
  */
 uint32_t
 page_fault_handler(cpu_state_t *cpu_state)
@@ -241,3 +269,7 @@ page_fault_handler(cpu_state_t *cpu_state)
 
 	}
 }
+
+/**
+ * @} @}
+ */

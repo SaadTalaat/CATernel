@@ -1,3 +1,14 @@
+/**
+ * @addtogroup Process-Management
+ * @{
+ * @file proc.c
+ * @author Saad Talaat
+ * @date Tuesday 16/10/2012
+ * @brief Process Manager.
+ * @name Process Manager.
+ * @{
+ *
+ */
 #include <types.h>
 #include <memvals.h>
 #include <proc/proc.h>
@@ -13,6 +24,14 @@ struct Proc_List	empty_procs;
 proc_t *proc_table;
 struct Proc_Lifo	running_procs;
 
+/**
+ * @brief Initialize the proc array
+ * @details
+ * Initializes all the procs data structures, Proc table, empty proc list
+ * and the scheduling process queues.
+ * All proc entries are set to 0's. and empty proc list is fill. and
+ * proc binary loader is mapped.
+ */
 void
 init_proc_table(void){
 	/*
@@ -51,7 +70,13 @@ init_proc_table(void){
 
 }
 
-
+/**
+ * @param proc_t proc pointer reference to store created proc in.
+ * @return 0 if success
+ * @brief Initialize and create a proc information block.
+ * @details a proc address space is initialized and
+ * segment desciptors are set, and the Stack is also set.
+ */
 uint32_t
 create_proc(proc_t **proc_s)
 {
@@ -80,6 +105,15 @@ create_proc(proc_t **proc_s)
 	*proc_s = proc;
 	return 0;
 }
+
+/**
+ * @param proc_t proc reference to allocate memory for
+ * @param void* the base address of memory needed to be allocated.
+ * @param uint32_t  the size of segment.
+ * @return 0 if success
+ * @brief allocates memory thunk for a proc.
+ *
+ */
 uint32_t
 proc_alloc_mem(proc_t *proc, void *va, uint32_t len){
 	uint32_t base, thunk;
@@ -97,6 +131,11 @@ proc_alloc_mem(proc_t *proc, void *va, uint32_t len){
 
 
 }
+
+/**
+ * @brief loads and initiated the proc0(first proc)
+ * from image.
+ */
 uint32_t
 init_proc0()
 {
@@ -108,6 +147,10 @@ init_proc0()
 
 	/* Not reachable */
 }
+
+/**
+ * @brief initiates the process table and tests queues and initates proc0
+ */
 void
 init_proc(void)
 {
@@ -115,6 +158,10 @@ init_proc(void)
 	test_lifo();
 	init_proc0();
 }
+
+/**
+ * @brief Tests the LIFO queues data structure functionality.
+ */
 void
 test_lifo(void){
 	proc_t *proc_out;
@@ -134,6 +181,16 @@ test_lifo(void){
 	return;
 
 }
+
+/**
+ * @brief switches between the kernel and a given proc
+ * @details switching to a proc is made from a calling proc
+ * which is the kernel to a given proc address space.
+ * switching is done by Fooling the x86 into beleiving
+ * that it is coming back from an interrupt by setting
+ * the hardware interrupt stack frame and issuing an iret
+ * switching can also be made by SYSENTER/SYSEXIT.
+ */ 
 void
 switch_address_space(proc_t *proc_to_run){
 	/*
@@ -159,4 +216,6 @@ switch_address_space(proc_t *proc_to_run){
 
 	while(1);
 }
-
+/**
+ * @} @}
+ */

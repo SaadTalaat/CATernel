@@ -1,3 +1,12 @@
+/**
+ * @file processor.h
+ * @author Saad Talaat
+ * @date Thursday 24/11/2011
+ * @brief contains constants that are used by Intel x86
+ * @details
+ * The header contains Control registers constants and 
+ * EFLAGS masks.
+ */
 #ifndef _CATERNEL_PROCESSOR_H_
 #define _CATERNEL_PROCESSOR_H_
 

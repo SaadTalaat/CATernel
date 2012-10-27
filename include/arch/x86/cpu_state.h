@@ -1,9 +1,8 @@
-/** include/arch/x86/cpu_state.h
- * CATReloaded (C) Copyrights 2011
- * http://catreloaded.net
- *
+/** 
+ * @file include/arch/x86/cpu_state.h
  * @date 28 Sept, 2012
- *
+ * @brief structures and constants used in storing and determining cpu state.
+ * @author Saad Talaat
  */
 
 #ifndef _CATERNEL_CPU_STATE_H_
@@ -15,8 +14,13 @@
  */
 #include <types.h>
 
-/*
- * Interaupt/Trap cpu state-
+/**
+ * @brief Interaupt/Trap cpu state.
+ * @details
+ * the cpu_state structure extends the default
+ * intel hardware interrupt/trap frame stored
+ * into stack. More detailed than the hardware
+ * frame.
  */
 typedef struct{
 
@@ -35,7 +39,8 @@ typedef struct{
 
 	/*
 	 * GP registers
-	 */
+	 
+*/
 	reg_t	edi;
 	reg_t	esi;
 	reg_t	o_ebp;
@@ -60,9 +65,11 @@ typedef struct{
 } cpu_state_t;
 
 
-/*
- * Task-State Segment 
- * packed to avoid #PF during switching
+/**
+ * @brief General purpose registers 
+ * @details gpr registers structure contains
+ * general purpose register. ordered to be filled
+ * by a single PUSHAD/PUSHAL
  */
 typedef struct{
 
@@ -77,6 +84,12 @@ typedef struct{
 
 } gpr_regs_t;
 
+/**
+ * @brief Segment registers.
+ * @details the structure contains segment registers
+ * except for SP and CS since they are stored by the
+ * hardware into the structure.
+ */
 typedef struct{
 	reg_t   gs;
 	reg_t   fs;
@@ -85,6 +98,14 @@ typedef struct{
 
 } seg_regs_t;
 
+/**
+ * @brief Task State segment
+ * @details
+ * The Task state segment entry fields, merely used
+ * into the kernel.\n
+ * TSS is only used to support interrupts from user
+ * space. other than that soft task switching is used.
+ */
 typedef struct{
 	uint16_t prelink, _rsrvd1;
 	reg_t esp0;
@@ -116,6 +137,11 @@ typedef struct{
 
 } __attribute__((packed)) tss_t;
 
+/**
+ * @brief Task state segment descirptor.
+ * @details TSS desciptor is somehow a child
+ * of a gate desciptor and similar to segment selectors.
+ */
 typedef struct {
 
 	uint16_t limit_0_15;

@@ -1,9 +1,8 @@
-/** inclede/arch/x86/interrupt.h
- * CATReloaded (C) Copyrights 2011
- * http:/ecatreloaded.net
- *
+/**
+ * @file proc.h
+ * @author Saad Talaat
  * @date 4 Oct, 2012
- *
+ * @brief Process manager header file
  */
 
 

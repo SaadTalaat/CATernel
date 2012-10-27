@@ -2,7 +2,19 @@
  * CATReloaded (C) Copyrights 2011
  * http://catreloaded.net
  */
-
+/**
+ * @addtogroup Memory-Management
+ * @{
+ * @file page.c
+ * @date Wednesday 19/09/2012
+ * @brief Intel Paging.
+ * @name Paging.
+ * @{
+ * @details Programming the hardware support, Initially 32-bit paging is used.
+ * and Segment register refer to the whole memory since we'll be operating on
+ * protected paging memory mode. and Kernel is mapped to Virtual address 0xF0000000.
+ * Paging is set recursively by making cr3 refer to the paging directory.
+ */
 #include <types.h>
 #include <arch/x86/x86.h>
 #include <memvals.h>
@@ -19,8 +31,14 @@ struct Page *pages;
 static struct PageList free_pages;
 
 
-/*
- * Initiate global pages
+/**
+ * 
+ * @brief Initiate global pages
+ * @details 1-initalize the global free pages, since they
+ * all free at the start. whatever that means.\n
+ * 2- Loop around the page list and map it to the free
+ * pages.\n
+ * 3- Remove I/O Hub Mapping.
  */
 void
 x86_paging_init(void){
@@ -28,19 +46,9 @@ x86_paging_init(void){
 	extern char end[];
 	struct Page *io_start, *io_end;
 
-	/*
-	 * newly paged nervousness, initalize 
-	 * the global free pages, since they
-	 * all free at the start. whatever that
-	 * means.
-	 */
 	LIST_INIT(&free_pages);
 
-	/*
-	 * Loop around the free memory
-	 * and map it to the free pages
-	 * Just set the whole fucking memory paged!
-	 */
+
 	for(count =0; count< page_count; count++)
 	{
 		// since they're newly paged, they refer to nothing
@@ -49,7 +57,7 @@ x86_paging_init(void){
 		LIST_INSERT_HEAD(&free_pages, &pages[count], link);
 	}
 
-	/*
+	/**
 	 * we need to remove the io hole from pages
 	 */
 	LIST_REMOVE(&pages[0], link);
@@ -69,15 +77,23 @@ x86_paging_init(void){
 
 }
 
-/* Initiate a page entry */
+/**
+ * @param struct Page*, reference to page that to be initialized.
+ * @brief Initiate a page entry.
+ * @details Page memory is set to Zeros.
+ */
 void
 x86_page_init(struct Page *page)
 {
 	memset(page,0, sizeof(page));
 }
 
-/* 
- * Allocate a page
+/**
+ * @param struct Page** reference to page pointer.
+ * @return 0 if success, -1 if fails 
+ * @brief Allocate a page
+ * @detials page is removed from the free pages list
+ * and initiated.
  */
 int
 x86_page_alloc(struct Page **page_byref){
@@ -96,6 +112,12 @@ x86_page_alloc(struct Page **page_byref){
 	return 0;
 }
 
+/**
+ * @param struct Page*, the page to free
+ * @brief given page is freed.
+ * @details A page is freed by inserting it into the
+ * free pages list.
+ */
 void
 x86_page_free(struct Page *page)
 {
@@ -105,8 +127,9 @@ x86_page_free(struct Page *page)
 	LIST_INSERT_HEAD(&free_pages, page, link);
 }
 
-/*
- * when [un]refering a page, ref member is decremented
+/**
+ * @param struct Page* page to detach from calling execusion stream.
+ * @brief when [un]refering a page, ref member is decremented.
  */
 void
 x86_page_detach(struct Page *page)
@@ -121,7 +144,18 @@ x86_page_detach(struct Page *page)
 	return;
 }
 
-/* find a page, if doesn't exist allocate it */
+/**
+ * @param pde_t Page directory to search into.
+ * @param const void* virtual address to allocate pages for.
+ * @param int allocation flag, if set allocate a page.
+ * @return pte_t* page table containing the created or existing page.
+ * @brief find a page, if doesn't exist allocate it
+ * @details
+ * the function searches for the page table containing the page that
+ * refers to a given virtual address, if it doesn't exist and allocate
+ * flag is unset, NULL is returned. If it doesn't exist and allocate
+ * flag is set, page is created and it's parent page table is returned.
+ */
 pte_t*
 x86_pgdir_find(pde_t *pgdir, const void *va, int allocate)
 {
@@ -141,14 +175,23 @@ x86_pgdir_find(pde_t *pgdir, const void *va, int allocate)
 		pgdir[PGDIRX(va)] = pagetopa(p) | PAGE_PRESENT | PAGE_USER | PAGE_WRITABLE;
 		return &((pte_t *) (PA2KA(PTD_ADDR(pgdir[PGDIRX(va)]))))[PGTBLX(va)];
 	}
-	panic("Page find couldn't nor find, or allocate a page\n");
+	panic("Page find couldn't page, or allocate a page\n");
 	return NULL;
 
 	
 }
 
-/*
- * looks up a page refers to vaddr
+/**
+ * @param pde_t page directory to search.
+ * @param void* virtual address of desired page.
+ * @param pte_t** page table reference to set.
+ * @return the found page.
+ * @brief looks up a page refers to vaddr.
+ * @details
+ * the functions looks up for a page into a page directory
+ * and return back to values in two different manner.\n
+ * it returns the desired page address if found. and the page
+ * table address is set to a given paramter.
  */
 struct Page*
 x86_page_lookup(pde_t *pgdir, void *va, pte_t **pte)
@@ -166,6 +209,14 @@ x86_page_lookup(pde_t *pgdir, void *va, pte_t **pte)
 	return NULL;
 }
 
+/**
+ * @param pde_t* page directory to remove page from.
+ * @param void* virtual address the page refers to.
+ * @brief removes a page that refers to a given Virtual address from a page directory.
+ * @details
+ * a virtual address is looked up in a page directory and detached. then the
+ * TLB (Translate Lookaside Buffer) is updated to avoid misbehaviour or page faults.
+ */
 void
 x86_page_remove(pde_t* pgdir, void* va)
 {
@@ -180,6 +231,19 @@ x86_page_remove(pde_t* pgdir, void* va)
 	invlpg(va);
 	return;
 }
+
+/**
+ * @param pde_t* page directory to insert page into.
+ * @param struct Page*, the page to insert.
+ * @param void* Virtual address to use.
+ * @param uint32_t permissions on a page.
+ * @return 0 if success, -1 if fail.
+ * @brief inserts a page that refers to a given va, into a given page directory.
+ * @details
+ * a previously set page is inserted into a page directory and refer to
+ * a given virtual address no matter what physical address is, and permission
+ * flags are set on a page.
+ */
 int
 x86_page_insert(pde_t *pgdir, struct Page *page, void* va, uint32_t perm)
 {
@@ -227,6 +291,14 @@ x86_page_insert(pde_t *pgdir, struct Page *page, void* va, uint32_t perm)
 */
 }
 
+/**
+ * @param pde_t* page directory to use.
+ * @param vaddr_t virtual address to use.
+ * @param size_t segment size.
+ * @param paddr_t physical address of segment start.
+ * @param int page permissions.
+ * @brief maps a segment to a virtual address on a specific page directory.
+ */
 void
 map_segment_page(pde_t *pgdir, vaddr_t linear, size_t size, 
 			paddr_t physical, int perm)
@@ -243,7 +315,7 @@ map_segment_page(pde_t *pgdir, vaddr_t linear, size_t size,
 
 
 }
-/*
+/**
  * test the global page directory
  */
 void
@@ -325,3 +397,7 @@ x86_test_pgdir(void){
 	printk("[*] TEST: Page directory test passed!\n");
 }
 
+/**
+ * @}
+ * @}
+ */

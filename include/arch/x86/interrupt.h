@@ -1,8 +1,8 @@
-/** include/arch/x86/interrupt.h
- * CATReloaded (C) Copyrights 2011
- * http://catreloaded.net
- *
+/** 
+ * @file interrupt.h
+ * @author Saad Talaat.
  * @date 27 Sept, 2012
+ * @brief Interrupt structures and constants.
  *
  */
 
@@ -13,10 +13,11 @@
 #include <memvals.h>
 #include <arch/x86/cpu_state.h>
 
-/* Gate descriptors as defined by
+#ifndef __ASSEMBLER__
+/**
+ * Gate descriptors as defined by
  * Intel Manuals.
  */
-#ifndef __ASSEMBLER__
 typedef struct {
 	uint16_t offset_0_15;		// offset low 16 bit
 	uint16_t  segment_s;		// segment selector value

@@ -2,6 +2,21 @@
  * CATReloaded (C) Copyrights 2011
  * http://catreloaded.net
  */
+/**
+ * @addtogroup Memory-Management
+ * @{
+ * @file init_mem.c
+ * @author Saad Talaat
+ * @date Monday 17/09/2012
+ * @brief Virtual Memory initialization.
+ * @name Virtual Memory Initialization.
+ * @{
+ * @details
+ * Memory size is read and segmentation is reset.
+ * and kernel page directory is initialized and mapped.
+ * also other segments are initialized and mapped.
+ *
+ */
 
 #include <types.h>
 #include <arch/x86/x86.h>
@@ -25,15 +40,20 @@ extern struct Page *pages;
 extern proc_t *proc_table;
 
 //extern struct proc *proc_table;
-/*
- * New global descriptor table
- * Since paging is on, 
+
+/**
+ * @brief New global descriptor table
+ * @details Since paging is on, 
  * Discard segment registers, and refer
  * to full memory, with different DPL
- * values.
+ * values. Segments are.\n
+ * 1- Kernel code segment.\n
+ * 2- Kernel Data segment.\n
+ * 3- User code segment.\n
+ * 4- User Data segment.\n
+ * 5- TSS empty segment.
  *
  */
-
 struct Segdesc catgdt[] = {
 	// NULL Segment
 	SEG_NULL,
@@ -58,6 +78,9 @@ struct Gdtdesc gdtdesc ={
 
 };
 
+/**
+ * @brief Interrupt descriptor table descriptor.
+ */
 Idtdesc idtdesc = {
 	(256*sizeof(gatedesc))-1,
 	(unsigned long) idt
@@ -66,11 +89,19 @@ Idtdesc idtdesc = {
 
 tss_t	tss;
 
+/**
+ * @brief Reading memory size using the CMOS RAM/RTC device.
+ * @param int the memory range to read, either base memory or extended.
+ * @return memory size.
+ */
 static uint32_t
 x86_read_mem_size(int x){
 	return cmos_get_reg(x) | (cmos_get_reg(x+1) << 8);
 }
 
+/**
+ * @brief Reads memory size and determine the pages count needed to map it.
+ */
 void
 scan_memory(void){
 
@@ -92,6 +123,14 @@ scan_memory(void){
 	printk("[*] Addressable pages = 0x%x pages\n", page_count);
 	alloc_lock = 0;
 }
+
+
+/**
+ * @brief a boot time allocation function, allocate heaps.
+ * @details kernel code has an 'end' symbol inserted into
+ * its code, it's externed and allocation starts from the end
+ * of kernel code.
+ */
 static void*
 allocate(uint32_t n,uint32_t align){
 	/* since we'll start allocating pages
@@ -114,6 +153,11 @@ allocate(uint32_t n,uint32_t align){
 	return v;
 }
 
+/**
+ * @brief sets up the Task state segment and task register.
+ * @details sets the TSS according to the base envirnoment to
+ * carry out successful interrupt handling from user space.
+ */
 void
 init_tss(void){
 	tss_t *ltss = &tss;
@@ -127,6 +171,16 @@ init_tss(void){
 	write_tr(0x2B);	
 
 }
+
+/**
+ * @brief main memory initialization function.
+ * @details
+ * this function carries out paging initialization and
+ * Interrupt handling initialization. and maps kernel
+ * important segments into page directory before refetching
+ * execusion after activating CR0.PG.
+ *
+ */
 void
 x86_setup_memory(void)
 {
@@ -284,3 +338,8 @@ x86_setup_memory(void)
 //	asm("ljmp %0, $2f\n 2:\n" :: "i" (0x18));
 //	asm volatile("INT %0" :: "i" (0xe));
 }
+
+/**
+ * @}
+ * @}
+ */

@@ -1,9 +1,29 @@
+/**
+ * @addtogroup Process-Management
+ * @{
+ * @file load_elf.c
+ * @author Saad Talaat
+ * @date Tuesday 16/10/2012
+ * @brief Elf binary loader
+ * @name Binary Loader.
+ * @{
+ */
 #include <types.h>
 #include <arch/x86/elf.h>
 #include <memvals.h>
 #include <proc/proc.h>
 #include <rdisk.h>
 
+/**
+ * @brief loads a binary into a proc from an offset into image.
+ * @param proc_t* proc to load binary into
+ * @param uint32_t offset of the binary into image
+ * @return 0 if success
+ * @details
+ * The binary loader loads a binary image into the 0xA000000 VA
+ * where all procs elf are loaded.\n
+ * Program headers are loaded into proc page directory and eip is set.
+ */
 uint32_t
 elf_load_to_proc(proc_t *proc, uint32_t offset)
 {
@@ -35,3 +55,7 @@ elf_load_to_proc(proc_t *proc, uint32_t offset)
 	map_segment_page(proc->page_directory, USERSTACK_TOP - PAGESZ, PAGESZ, 0x22000000, PAGE_USER | PAGE_PRESENT | PAGE_WRITABLE);
 	write_cr3(global_cr3);
 }
+
+/**
+ * @} @}
+ */
