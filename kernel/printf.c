@@ -1,12 +1,30 @@
+/**
+ * @addtogroup Main
+ * @{
+ * @file printf.c
+ * @author Saad Talaat
+ * @brief a printf family like functions
+ * @name Printing
+ * @{
+ */
 #include <types.h>
 #include <stdio.h>
 
+
 #define hex2ascii(x)("0123456789ABCDEF"[x])
+
+/**
+ * @fn static void putch(int, int*);
+ * @param int character to write.
+ * @param int* reference of count variable to increment per print.
+ * @brief prints a character at a time.
+ */
 static void
 putch(int c,int *count){
 	putchr(c);
 	*count++;
 }
+
 void ksprintkn(void (*func)(int,int *),int *count,uintmax_t num,int base,int width,int padc){
 	int c;
 	if( num >= base)
@@ -17,6 +35,16 @@ void ksprintkn(void (*func)(int,int *),int *count,uintmax_t num,int base,int wid
 	c = hex2ascii(num%base);
 	func(c,count);
 }
+/**
+ * @fn int getint(va_list *, int);
+ * @param va_list* the list of parameters passed by printk
+ * @param int the long flag.
+ * @return the passed number.
+ * @brief gets the number of the va_list on a printk.
+ * @details this function is issued everytime a number
+ * flag in the format string is found to fetch a number
+ * from the va_list passed.
+ */
 int
 getint(va_list *ap,int lflag){
 	if(lflag >= 2)
@@ -27,6 +55,13 @@ getint(va_list *ap,int lflag){
 		return va_arg(*ap,int);
 
 }
+/**
+ * @fn int getuint(va_list*, int);
+ * @param va_list* the list of parameters passed by printk
+ * @param int the long flag.
+ * @return the passed number.
+ * @brief same as getint except for the signed nature of getint. 
+ */
 int
 getuint(va_list *ap,int lflag){
 
@@ -173,3 +208,8 @@ printk(const char *format, ...){
 
 	return count;
 }
+
+/**
+ * @}
+ * @}
+ */

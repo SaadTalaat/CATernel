@@ -1,3 +1,13 @@
+/**
+ * @addtogroup Main
+ * @{
+ * @file string.c
+ * @brief String and memory operations, originally from linux.
+ * @name Strings and Memory.
+ * @{
+ * @details
+ * Basic copying and sizing and setting operations.
+ */
 #include <string.h>
 
 
@@ -28,3 +38,8 @@ memset(void *ptr,int c,uint32_t count){
 		*ptr2++ =c;
 	return ptr;
 }
+
+/**
+ * @}
+ * @}
+ */

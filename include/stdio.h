@@ -27,6 +27,44 @@ void	putchr(int);
 int	getchar(void);
 
 
+/**
+ * @fn int printk(const char*, ...)
+ * @param const char* format string, an ideal format string.
+ * @param stdarg argument list, variable referenced.
+ * @return int number of chars written.
+ * @brief An ideal printing function.
+ * @details
+ * A printk function is simply a wrapper to the vprintk function.
+ * It reads the paramter list and pass it to vprintk.
+ *
+ *
+ * @fn int vprintk(const char*, va_list);
+ * @param const char* format string.
+ * @param va_list paramter list.
+ * @return int number of chars written.
+ * @brief passes arugments to kvprintk after tokenizing them
+ *
+ *
+ * @fn int kvprintk(const char*, void (*)(int,int*), int *, va_list);
+ * @param const char* format string.
+ * @param void (*)(int,int*) a char printing function.
+ * @param int* reference of count variable, to store count in.
+ * @param va_list the list of paramters passed by printk->vprintk
+ * @return count of chars written
+ * @brief A BSD like printing function.
+ *
+ *
+ * @fn void ksprintkn(void (*func)(int,int *),int *count,uintmax_t num,int base,int width,int padc)
+ * @param void (*)(int, int*) a char printing function.
+ * @param int* reference of the count variable, to store new count in.
+ * @param uintmax_t the number to print
+ * @param int base of the number.
+ * @param int digit width to print according to.
+ * @param int the padding character to print to pad a number.
+ * @brief Prints numbers.
+ * @details this function converts numbers into their character representation
+ * the function recursively calls itself to print lower digits first.
+ */
 int printk(const char*,...);
 int vprintk(const char*,va_list);
 int kvprintk(const char*,void (*func)(int,int*),int *count,va_list ap);

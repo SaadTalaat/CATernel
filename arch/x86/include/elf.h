@@ -116,6 +116,10 @@ typedef struct elfhdr{
 	uint16_t shrstrtbl;
 } elfhdr;
 
+/**
+ * @struct proghdr
+ * @brief An ELF program header structure.
+ */
 typedef struct proghdr{
 	uint32_t type;
 	uint32_t offset;
@@ -127,6 +131,10 @@ typedef struct proghdr{
 	uint32_t align;
 } prohdr;
 
+/**
+ * @struct sechdr
+ * @brief An ELF section header structure.
+ */
 typedef struct sechdr{
 	uint32_t name;
 	uint32_t type;
