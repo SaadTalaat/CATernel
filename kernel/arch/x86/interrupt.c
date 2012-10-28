@@ -1,7 +1,7 @@
 /**
  * @addtogroup Interrupts-and-Syscalls
  * @{
- * @file interrupt.h
+ * @file interrupt.c
  * @author Saad Talaat
  * @date 27 Sept, 2012
  * @brief Interrupt and fault handling
@@ -271,5 +271,6 @@ page_fault_handler(cpu_state_t *cpu_state)
 }
 
 /**
- * @} @}
+ * @}
+ * @}
  */
