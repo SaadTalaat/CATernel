@@ -1,0 +1,25 @@
+3.3 PS/2 Keyboard
+=================
+Unlike video driver, CATernel's keyboard driver is similar to every kernel's keyboard support. However, since Keyboard is a serial device It uses almost a unified interface like any other PS/2 device. CATernel keyboard driver supports only one function which is a keyboard interrupt handler, Of course at this point a keyboard interrupt does not occur since CATernel busy wait on any I/O device.
+Like any other device Keyboard commands are passed through I/O ports. In CATernel we barely make use of the keyboard controller, the only two operations are made through the status and data port. First operation is to check the keyboard data register, second one is two read that character from the data port.
+-----------------------------------------
+0064	r	KB controller read status (ISA, EISA)
+		 bit 7 = 1 parity error on transmission from keyboard
+		 bit 6 = 1 receive timeout
+		 bit 5 = 1 transmit timeout
+		 bit 4 = 0 keyboard inhibit
+		 bit 3 = 1 data in input register is command
+			 0 data in input register is data
+		 bit 2	 system flag status: 0=power up or reset  1=selftest OK
+		 bit 1 = 1 input buffer full (input 60/64 has data for 8042)
+		 bit 0 = 1 output buffer full (output 60 has data for system)}
+
+-------------------------------------------
+Listing 3.7 Keyboard Status port
+
+There's three different scan code sets, CATernel uses the first scan code set. a scan code determine what key is pressed and three keyboard maps are provided, the first is a character map on normal case, second is a character map of keyboard on shift case and third is a character map of keyboard once a toggle button is on.
+A keyboard interrupt handler reads the scan code and starts determining what key was pressed and then it is returned to interrupt issuer.
+
+Console dependency
+==================
+Console uses keyboard controller as an input device, a wrapper function called console_getc issues a keyboard interrupt and and index that char to a screen position(but char is not printed).

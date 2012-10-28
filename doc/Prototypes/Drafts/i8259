@@ -1,0 +1,99 @@
+3.4 Intel 8259 PIC(Programmable Interrupt Controller)
+======================================================
+
+As mentioned before on CATernel we tend to support legacy and old devices first, therefore we choosed to support Intel 8259 PIC before APIC(Advanced PIC) and IOAPIC are supported. Interrupts are the only way to manage execusion over x86 machines since Intel is an interrupt driven ISA. on old machines when only real mode was used PIC was the controller for interrupts and interrupts were handled by what is called vector store in an Interrupt vector table. An interrupt vector table is similar to the modern interrupt decriptor table except that IVT has the vectors already stored on the BIOS. PIC consists of two chip (Master/Slave) each has 8 interrupts which makes the total interrupts 16. an PIC interrupt is called IRQ(interrupt request) since an interrupt can be blocked when a higher priority interrupt handler is currently executing.
+
+[IMAGE OF IVT TABLE]
+
+3.4.1 Master and Slave PIC
+==========================
+To handle all the 16 we must be able to index the right interrupt to the right PIC and when an EOI is issued we should be able to determine which PIC should handle the EOI. Master PIC and slave PIC have their own ports, Master has 0x20/0x21 and Slave has 0xA0/0xA1. the functionality is similar except for the interrupt types they handle.
+----------------------
+1- Intel i8253 PIT
+2- Keyboard
+3- Video Interrupt
+4- Serial port 2
+5- Serial port 1
+6- Fixed Disk
+7- Floppy disk
+8- Parallel printer
+9- Real time clock (RTC)
+10- Cascade Redirect
+13- Mouse interrupt
+14- Coprocessor exception
+15- Primary Hard disk
+16- Secondary Hard disk
+-------------------------
+ Listing XXX - Interrupts
+
+PIC I/O is a little different that former devices we dealt with in CATerenl. PICs adopt a terminology called ICW(Initialization command word) and OCW(Operation command word). Intel 8259 manual defines ICW that It is used before any normal operation. as for OCW it can be executed at any point after initialization. 
+
+--------------------------------------------------------
+
+0020	w	PIC initialization command word ICW1
+		 bit 7-5 = 0  only used in 80/85 mode
+		 bit 4	 = 1  ICW1 is being issued
+		 bit 3	 = 0  edge triggered mode
+			 = 1  level triggered mode
+		 bit 2	 = 0  successive interrupt vectors use 8 bytes
+			 = 1  successive interrupt vectors use 4 bytes
+		 bit 1	 = 0  cascade mode
+			 = 1  single mode, no ICW3 needed
+		 bit 0	 = 0  no ICW4 needed
+			 = 1  ICW4 needed
+---------------------------------------------------------
+	Listing XXX Port 0x20 flags for ICW1
+
+3.4.2 PIC in protected mode
+===========================
+In x86 protected mode interrupts are only handled by the IDT and the IVT is omitted. such a case will put us in a problem whenever an IRQ is issued since it will conflict with Intel default 0~32 exceptions, therefore we won't be able to distinguish an exception from an IRQ. Luckily, Offsetting the IRQ indexes is a functionality can be performed through PIC ICWs. This is done through ICW2 in particular.
+
+3.4.2.1 Initializing PICs
+=========================
+PIC initialization is done once the kernel have reached protected mode mainflow execusion. It enables IRQs to be handled using IDT after ofsetting them so CATernel would be able to use PIC in protected mode. this is done on four steps
+First Step, ICW1 is passed a value with Flags ICW4 needed and ICW1 issued flags.
+Second Step, ICW2 is passed a value with the base offset desired to IRQs, and Since we do this step for both PICs the slave PIC base offset is passed as master PIC offset plus 8.
+Third Step, ICW3 is passed a value that holds one shifted by the interrupt pin of the slave PIC. and slave PIC ICW3 takes slave PIC index.
+Fourth Step, ICW4 takes a value with 8088/8086 mode flag set.
+
+
+3.4.3 Masked Interrupts
+=======================
+Masked interrupts is another terminology an i8256 adopts, since it supports enabling and disabling interrupts through setting masks holds flags of desired interrupts and undesired. an interrupt could be disabled by setting its corresponding flag. Interrupt masks are held in a PIC register called IMR(Interrupt Mask Register). each PIC has its own IMR since each PIC has its own type of interrupts.
+
+-----------------------------------
+0021	r/w	PIC master interrupt mask register
+		OCW1:
+		 bit 7 = 0  enable parallel printer interrupt
+		 bit 6 = 0  enable diskette interrupt
+		 bit 5 = 0  enable fixed disk interrupt
+		 bit 4 = 0  enable serial port 1 interrupt
+		 bit 3 = 0  enable serial port 2 interrupt
+		 bit 2 = 0  enable video interrupt
+		 bit 1 = 0  enable keyboard, mouse, RTC interrupt
+		 bit 0 = 0  enable timer interrupt
+------------------------------------
+Listing XXX IMR in Master PIC
+
+Such a functionality gives the ability to disable the whole PIC by setting all flags on both master and slave PICs.
+
+
+3.4.4 EOI End Of Interrupt
+==========================
+EOI must be used by an IRQ handler since it notifies the PIC that issued an interrupt that the interrupt handler has finished its execusion, so the PIC should insert its blocked interrupt (if exists) to processor.
+
+----------------------------------------------
+0020	w	OCW2:
+		 bit 7-5 = 000	rotate in auto EOI mode (clear)
+			 = 001	nonspecific EOI
+			 = 010	no operation
+			 = 011	specific EOI
+			 = 100	rotate in auto EOI mode (set)
+			 = 101	rotate on nonspecific EOI command
+			 = 110	set priority command
+			 = 111	rotate on specific EOI command
+		 bit 4	 = 0	reserved
+		 bit 3	 = 0	reserved
+		 bit 2-0	interrupt request to which the command applies
+-----------------------------------------------
+Listing XXX EOI using OCW2
