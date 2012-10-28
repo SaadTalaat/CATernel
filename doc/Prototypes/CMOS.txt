@@ -1,0 +1,126 @@
+CMOS/RTC 
+
+CMOS Complementary metal–oxide–semiconductor , including the RTC -Real time clock- is responsible for saving 50 or 114 bytes of setup information for the BIOS , it includes a battery that keeps the clock active.
+
+CMOS is accessed through I/O ports 0x70 and 0x71 , the ports sepcifications are as follows : 
+not that indexing is little endian [RTL]
+<listing 1-1>
+{
+a)
+0070	w	CMOS RAM index register port (ISA, EISA)
+		 bit 7	 = 1  NMI disabled
+			 = 0  NMI enabled
+		 bit 6-0      CMOS RAM index (64 bytes, sometimes 128 bytes)
+
+		any write to 0070 should be followed by an action to 0071
+		or the RTC wil be left in an unknown state.
+
+b) 
+0071	r/w	CMOS RAM data port (ISA, EISA)
+		RTC registers:
+		00    current second in BCD
+		01    alarm second   in BCD
+		02    current minute in BCD
+		03    alarm minute   in BCD
+		04    current hour in BCD
+		05    alarm hour   in BCD
+		06    day of week  in BCD
+		07    day of month in BCD
+		08    month in BCD
+		09    year  in BCD (00-99)
+		0A    status register A
+		       bit 7 = 1  update in progress
+		       bit 6-4 divider that identifies the time-based
+				frequency
+		       bit 3-0 rate selection output  frequency and int. rate
+		0B    status register B
+		       bit 7 = 0  run
+			     = 1  halt
+		       bit 6 = 1  enable periodic interrupt
+		       bit 5 = 1  enable alarm interrupt
+		       bit 4 = 1  enable update-ended interrupt
+		       bit 3 = 1  enable square wave interrupt
+		       bit 2 = 1  calendar is in binary format
+			     = 0  calendar is in BCD format
+		       bit 1 = 1  24-hour mode
+			     = 0  12-hour mode
+		       bit 0 = 1  enable daylight savings time. only in USA.
+				  useless in Europe. Some DOS versions clear
+				  this bit when you use the DAT/TIME command. 
+			.
+			.
+			.
+} a) I/O Port 0x70 , b) I/O Port 0x71 [1]
+
+CMOS values are accessed one byte at a time so we refer to each byte as a CMOS Register, The first 14 CMOS registers access and control the Real-Time Clock.
+
+In port 0x70 -CMOS RAM index register port- as it's name suggests saves the CMOS RAM index which is a Nonvolatile BIOS memory refers to a small memory on PC motherboards that is used to store BIOS settings , Also the last bit in the register indicates whether the NMI -non maskable interrupts-[2] are enabled (0) or disabled (1). 
+
+So port 0x70 is used to select the CMOS Register to read , so if you want to read register 0A which holds Status A register you simply do this : 
+code 
+{
+outb(0xA,0x70);
+}
+
+For making things readable , we define all the indexes and constants in cmos.h headers 
+<code>
+{
+/* CMOS Registers */
+#define CMOS_INDEXPORT 	0x70	/* the CMOS/RTC index register port */
+#define CMOS_DATAPORT 	0x71	/* the CMOS/RTC data register port */
+
+/* RTC Registers */
+#define	RTC_SECONDS	0x0
+#define RTC_ALRMSECOND	0x1
+#define RTC_MINUTES	0x2
+	.
+	.
+	.
+}cmos.h 
+
+<code> 
+{
+outb(RTC_STATUS_A,CMOS_INDEXPORT);
+}reading status A register.
+
+From here we can introduce the first CMOS function , <i>cmos_get_reg</i> ; which will take the register the needs to be read as an input
+, offset the index register and read it.
+to expalin the procedure in more details , if you see the code in listing [x-y] you'll see that we first read Status A register if bit 7 is 1 , that is the register = "10000000" = 0x80 , means that the CMOS is being updated and you can't use it now so the function busy waits and keeps reading the register until it's free .
+Then it offsets the index register to the desired register to read held in the parameter "value" , finally reads it from the Data port(0x71) and return it.
+
+<code>
+{
+uint32_t cmos_get_reg(uint8_t value){
+	uint32_t val;
+	uint8_t update;
+	//check status
+	while(update == 0x80){
+		outb(RTC_STATUS_A,CMOS_INDEXPORT);
+		update = inb(CMOS_DATAPORT);
+	}
+	cli();
+	//get the value 
+	outb(value,CMOS_INDEXPORT);
+	val = inb(CMOS_DATAPORT);
+	return val;
+}cmos.c , reading cmos registers.
+
+Next function is cmos_get_time which is similar to cmos_get_reg which deals only with time -register 0:9- //why does it even exist xD
+Finally , cmos_set_power_stat is responsible for supporting status B register which includes the power options and status It follows the same sequence as the previous methods but sets the register to the values mentioned in status B described in listing [x-y] .
+<code>
+{
+
+/*those 3 sets the respective bit to zero so we mask with AND*/
+ 	if(stat==STAT_RUN || stat==STAT_CAL_BCD || stat==STAT_CAL_HR12) 
+	  New_Stat &= stat;
+ 	else
+	  New_Stat |= stat;
+}setting status b.
+
+The rest of the registers are not yet used hence not yet supported.
+
+-----------------------------------------------------------------------
+
+
+[1]: The full detailed prots description can be found at http://bochs.sourceforge.net/techspec/PORTS.LST
+[2]: Refer to interrupts for more details.
