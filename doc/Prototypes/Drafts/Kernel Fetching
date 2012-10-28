@@ -1,0 +1,40 @@
+2. Establishing envirnoment.
+=============================
+
+After kernel is fetched from boot loader, envirnoment is reset and memory thunks and segments are remapped. Serveral components are set before running the kernel:-
+1- Kernel stack.
+2- Segmentation and GDT.
+3- Page tables and directories.
+
+
+2.1 Kernel Stack
+=================
+Since execusion stream is now in the kernel(0x100000) and not the boot sector(0x7c00). stack must be reset in order to carry on healthy execusion we must reset. Kernel stack is paged size memory thunk which we set to global to be able to refer to once we set up paging.
+----------------------------------------------------------------------------------
+	.p2align	PAGELG		# Will pad allocation to 0x1000 byte
+	.global		kernel_stack
+kernel_stack:
+	.space		KERNEL_STACK
+	.global		kernel_stack_end
+kernel_stack_end:
+-----------------------------------------------------------------------------------
+			Listing 2.1 - Kernel stack thunk.
+
+2.2 Segmentation and GDT
+========================
+while initializing the kernel it is needed to keep in mind the Virtual memory addressing. Thus, Global descriptor table and segmentation is reset to generate new virtual addresses, new kernel segments are 0x10000000 long. Kernel virtual base address is 0xF0000000 which puts the kernel code base address to 0xF0100000. At this point it is important to notice that there's only two segments selectors set.
+------------------------------------------------------------------------------------
+gdt:
+	.long 0,0
+	SEGMENT(0xffffffff,-KERNEL_ADDR, SEGACS_RW|SEGACS_X)	# code seg
+	SEGMENT(0xffffffff,-KERNEL_ADDR, SEGACS_RW)	# data seg
+gdt_end:
+------------------------------------------------------------------------------------
+		Listing 2.2 - Kernel Initial Global descriptor table.
+CATernel adpots a memory map that is not like any *nix system. Kernel is mapped to high memory addresses like windows. However we are not planning to be a unix like operating system.
+
+2.3 - Page tables and directories
+==================================
+Before setting up kernel the virtual page tables and page directories are set which will be needed for paging later. We shall touch this point later on on a seperate chapter.
+
+
