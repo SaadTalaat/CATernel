@@ -1,0 +1,97 @@
+4. Memory Management
+=====================
+On kernel level, Memory management and allocation is a very crucial and critical part that composes an efficent performance and protection. Dealing with memory on kernel level has to be very careful and clever since kernel doesn't have the user space luxuries like memory allocation errors.
+Unlike Linux, BSD and Spartan kernels, CATernel doesn't yet contain any /Zone terminology/ although there's different thunks of memory CATernel doesn't make use of the whole memory. Only two thunks of memory are used, Base and extended memory. and allocation on kernel level is done by manually allocating a memory unit which here is Paging.
+
+4.1 Paging
+===========
+A page is the smallest unit of memory in CATernel. Although a page is considerably huge comparing to processor smallest unit of memory which is a byte the Intel MMU deals with pages as the basic unit of virtual memory. IA32 has different types of paging methods called "Paging Modes", First is 32-bit paging which addresses 32-bit physical addresses to 32-bit virtual addresses, Second is PAE Paging which is used to translate 52-bit Physical addresses to 32-bit Virtual addresses and the third mode is called IA32e Paging which is used to translate same size of former physical addresses to 48-bit virtual addresses.
+Since we're applying a minimal implementation for paging in CATernel we are only making use of 32-bit paging which has two types of daat structures Page tables and page directories and two modes each has a different page size.
+
+4.1.1 32-bit Paging structures
+======================
+Two types of Data structures exist to index a page in 32-bit mode. It can be considered a two dimensional page array with the higher level is the page directory. Page directory contains page tables addresses and several flags, each member of page directory is called PDE(Page Directory Entry). Page table contains the addresses of physical pages and serveral flags, each member of page table is called PTE(Page Table Entry).
+----------------------------------------------------------------
+a 32-bit KByte Paging PDE would be like this.
+		[0,11] Page Table Permissions and Ignored bits.
+		[12,31] Page Table address.
+a 32-bit KByte Paging PTE would be like this.
+		[0,11] Page permissions
+		[12,31] Page physical address
+the permissions of the PDE is almost the same of the permissons of the PTE. PDE Permissons:
+		[0]	First bit must be always 1 which marks page as (Present), if it's not set the entry is ignored.
+		[1] R/W permissions, If bit is cleared no write operations are allowed
+		[2]	U/S, it indicates whether the page/page table belongs to user of supervisor (ring 0,3). if it's 
+			cleared, it means it belongs to supervisor which forbids access from CPL =3
+		[3] WT, Write through flag it indicates the memory type used to access this page either
+			write back caching or write through caching.
+		[4] CD, it indicates if this page is cachable or not, if set it's not cachable.
+		[5] A, Accessed flag refers to whether a software accessed this page or not.
+		[6] D, Dirty flag is set if a software did a write operation to this page.
+		[7] PS, Page size flags if set it means we're using 4MByte paging, if not it's 4KB paging
+		[8] G, if set it means that the directory translation is Global. we shall refer to it later.
+
+------------------------------------------------------------------
+	Listing 4.1 Paging structures entries
+
+4.1.2 32-bit Paging Modes
+=========================
+First is 4Kbyte page 32-bit Paging, It uses two data structures to index a page (Page Directory - Page Table), Second type is 4Mbyte page 32-bit paging, which uses only one data structure to index a page (Page Directory). In CATernel the first mode is used since it will enable smaller pages hence, smaller basic memory units. A smaller memory unit has some advantages and disadvantages. having a 4Kbyte page as a virtual memory smallest unit will provide less fragmentation. on the other hand, a bigger memory size will be used to store paging data structures.
+[Linear address Image]
+A linear address in 4Kbyte 32-bit paging mode contains three fields, Linear address offset, Page table entry index and page directory entry index. in 4KByte Paging, and since we refer to 4Kbyte sized page which is 2^13 it means we can offset with FFF into the page. from 
+0xFFFFF000 to 0xFFFFFFFF for example. the other [12,21] bits indicate the index of the page in the page table. and If I havent
+mentioned.
+
+4.1.3 Initializing paging
+=========================
+*Allocating/Clearing Page Directory*
+
+we use the boot time allocation scheme to allocate 4096 bytes of memory right after the kernel LOAD segment and clear it. and to provide access to page table for both user and supervisor to access the page directory by making it recursively refernce itself when a virtual page table address is used. in our case, VIRTPGT, USERVIRTPGT. which lie in 0xEFC00000 , 0xEF400000 repectively. So for those page numbers/linear addreses to refer to page directory itself we map it to itself
+by this line.
+	pgdir[PGDIRX(VIRTPGT)] = KA2PA(VIRTPGT) | PAGE_PRESENT | PAGE_WRITABLE;
+and the index of this entry is 3BF. it looks in bochs like this.
+[IMAGE]
+
+Pages data structure
+What first comes in your mind if you need to detect whether there's a free page or not is to scan the page directory and table and detect free pages and search whether the page you want to map lies between those free pages or not. this would create a MASSIVE overhead. But a better way to do this is to create a linked lists, of Pages structures or whatever it might be called, it's not actually page structures but it's a (struct Page list) this is a simple backward linkedlist entry with a pointer to previous element and a value field, in our case this field is called ref which indicates how many pointers or procs refer to that page of course if it's allocated. if this ref field is 0 it makes this page free to use. and this is how it looks in memory.
+[IMAGE]
+
+Initalizing structures.
+
+after setting up the environment, we start to initalize page directories and tables. and since we need to be still operating after paging activation we need to put entries for both Kernel code and stack so after paging is active the same addresses would be translated to same physical position.
+in steps,
+we map the whole memory into pages and start filling out the free pages list. this can be done by a loop. but there's a memory we need to mark used that has the ACPI system calls and Memory mapped I/O [Section 6.1] plus the kernel code/stack segments are also in use, so those we need to mark used as well. after filling the free pages list. memory mapping procedure should be supported to map physical segments to virtual addresses in runtime. This is the map_segment_page function. to provide such a function we need other functionalities, Like the ability to find and create a page table at a specific position, and insert or remove a page. and allocate a page. a simple page allocation and freeing functions is to simply remove and add a page member to the free pages global list.
+
+to insert and remove pages you need to be able to locate and create new Page dir Entries that are dependent on the virtual address. for this x86_pgdir_find function is defined, it takes the virtual address which's PDE is desired to be found or created. the function first checks if this entry already exist, if yes a PDE is returned. (it is refered in the code as PTE since it references the table, however it's called PDE in intel manuals) if not it is created if desired.
+
+to remove or insert a page directory entry to a page directory other two functions were defined, removal function uses a lookup function to determine the existance of PDE, then it executes a detach funtion that determine whether there's processes that are still using this page or not, if not page is freed. then the pte is set to NULL or 0 and TLB is updated. to insert a page, the function first checks if there's a PDE/PTE refering to this page or the creatability of PDE/PTE refering to this page, if the page already is refered. if yes it's freed and reallocated. but we won't be using these functions ATM.
+
+At this point mapping a segment of memory to virtual memory is trivial, for each page of the segment you insert a PDE and and a PTE that refer to this VA and an opposing PA, this makes the PTE random.
+
+4.1.4 Triggering paging
+=======================
+to activate paging we need to first map the pages array so we can still access it via the same virtual address, also we need to map the kernel stack and the kernel code. a kernel code mapping for instance looks like this:-
+	map_segment_page(pgdir,  KERNEL_ADDR, 0x10000000, 0, PAGE_PRESENT | PAGE_WRITABLE);
+
+this maps virtual address 0xF0000000 to 0xFFFFFFFF to the pages from 0 to 0xFFFFFFF. let's do this manually we're not treating the 0xF0000000 anymore as segment base, but as a page number. which's PDE Index = 3C0 which means the entry's offset from pgdir base is 3C0*4 = F00, let's check that in the bochs debugger.
+[Image]
+It is noticable that the PDE is marked Accessed since it's already executing. now let's read the Page table, 
+the 0x03ffdXXX refer to the physical address of page table, and since it's in the 0 ~ 0x10000000 kernel addr
+space we'll just add a FXXXXXXX to it.
+[Image]
+as you see pages are sequentially ordered in page table as PTEs.
+evantually, we load pgdir address to cr3 and trigger paging on CR0. after we set the first PDE as the Kernel codes PE.
+since after paging the 1st PDE is loaded. then we reset segment table to full 4GB memory since we're able to
+convert 4GB of linear addresses to physical addresses. and a far jump is done to the same code it perserve
+the excusion of the code after removing the page directory[0]. and for the CS to get updated.
+
+4.1.3 Allocation
+================
+CATernel uses a weak memory allocation schemes, First is used on boot time which allocates memory heaps after kernel code section. Second is used by paging manager which allocates one page at a time. However, that's a subject to be looked in later, Zoning and slab allocators might be used.
+
+
+
+4.2 Segmentation
+================
+In CATernel we use segmentation effectively on pure segmentation. and we only use the Global descriptor table. We use segmentation in re-mapping the kernel physical address into a virtual address, and maintain the 32-bit addresses.
+A global descriptor table is used for the OS level/ring 0 to locate its Code/Data/TSS segments. other tasks use the Local descriptor Table [LDT] which differs from a task to another. Like *Nix and WinXP we only use Paging to have protection and addresses virtualization. once paging is activated, we set GDT selectors base address to 0 with MAX memory limit. since we don't need longer addresses like protected mode. But, It's intended to have full power of Intel memory management like in OS/2.
