@@ -67,7 +67,7 @@ uint32_t cmos_get_reg(uint8_t value){
 	//get the value 
 	outb(value,CMOS_INDEXPORT);
 	val = inb(CMOS_DATAPORT);
-//	sti();
+	sti();
 	return val;
 }
 
@@ -81,17 +81,17 @@ uint32_t cmos_get_reg(uint8_t value){
  */
 
 uint32_t cmos_set_reg(uint8_t index, uint8_t value){
-        uint32_t val;
-        uint8_t update;
-        //check status
-        cli();
-        //get the value
-       outb(index | 0x80,CMOS_INDEXPORT);
+	uint32_t val;
+	uint8_t update;
+	//check status
+	cli();
+	//get the value
+	outb(index | 0x80,CMOS_INDEXPORT);
 	update = inb(CMOS_DATAPORT);
 	outb(index  | 0x80 ,CMOS_INDEXPORT);
-        outb(value | update,CMOS_DATAPORT);
-//        sti();
-        return val;
+	outb(value | update,CMOS_DATAPORT);
+	sti();
+	return val;
 }
 
 
@@ -112,6 +112,7 @@ uint8_t cmos_get_time(uint8_t value) //value holds whether it's day,month,second
 	//get the value 
 	outb(value,CMOS_INDEXPORT);
 	time = inb(CMOS_DATAPORT);
+	sti();
 	return time;
 }
 
