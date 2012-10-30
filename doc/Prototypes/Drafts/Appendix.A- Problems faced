@@ -1,0 +1,21 @@
+**EARLIER PROBLEM***
+
+4th of October 2012
+On User envirnoment initialization:-
+====================================
+Mainly we initialize a user envirnoment at this point to test how effective interrupts are when issued from a user space. the way we did a user space is to simply put another elf image on the disk shifted by several sectors from kernel and load it into memory and jump to it just like we did on boot sector. a far jump with user code segment. But we faced several problems.
+
+	10-We forgot to put a writable permission on the page to be able to load data from disk to memory. But such a behaviour is not acceptable. since a code segment shouldn't be writable.
+	2- We forgot to provide a Ring 3 (SEG|3) Or to a user segment
+	3- We did depend on a staticly compiled/linked elf as user env.
+	
+	Goals are:
+		1- to be able to load code into memory without writeable permission, ofc this can be done by disabling writing to page after 
+		loading the code, but this should be the role of LDT later.
+		2- to be able to switch to user mode. which can be done only by "Fooling the x86 cpu"
+		3- Provide a data structure with processes operating.
+		
+On scheduling
+===============
+to schedule we need a kernel clock to issue interrupts. scheduling can be based on two criterias (time slicing, cycle slicing). however	we choosed to support time slicing scheduling first by using RTC(which is very naive but we choosed to support legacy first). and we faced a problem that the RTC interrupt doesn't occur on protected mode. unlike the Intel 8253 PIT interrupt which does happen on protected mode. However, Some RTC timer code may not work on some real machines. The  observed problem is a timer tick happened about once every second. I'm not sure why this is, and am trying to find a  solution. This Makes RTC is not a serious solution for real life cases. However, on Bochs emulator an RTC interrupt occur from the slave PIC, But sadly Slave PIC doesn't support auto EOI like the master PIC therefore a handler has to issue an EOI once interrupt is handled which we did. But there was never a second interrupt from Slave PIC.
+
