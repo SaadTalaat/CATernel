@@ -19,6 +19,7 @@
 #include <cpuid.h>
 #include <proc/proc.h>
 #include <test.h>
+#include <drivers/i8259.h>
 /**
  * @fn void play(void);
  * @brief this function holds initializations and setting up facilities
