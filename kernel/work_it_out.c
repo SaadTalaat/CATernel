@@ -34,10 +34,11 @@ void
 work_it_out(void)
 {
 //	console_init();
-	console_clear();
-	console_init();
-	printk("CATernel is booting up...\n");
+	i8259_disable();
 	i8259_init();
+	console_init();
+	console_clear();
+	printk("CATernel is booting up...\n");
 	bootup();
 }
 

@@ -134,7 +134,7 @@ vector_\i:
 	# Once we popad %esp should be restored and we shall lose
 	# the whole cpu_state
 	popal
-
+	addl $4,%esp
 	iret
 .endm
 
