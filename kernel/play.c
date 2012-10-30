@@ -57,15 +57,15 @@ time_print(void){
 	char *Day[7]={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
 	char* month_result;
 	uint8_t month= 0x0;
-	month = cmos_get_time(RTC_MONTH);
+	month = cmos_get_reg(RTC_MONTH);
 	if((month & ~0xf)){
 		month = (month & 0xf)+10;
 	}
         printk("Date: ");
-        printk("20%x",(uint32_t) cmos_get_time(RTC_YEAR));
+        printk("20%x",(uint32_t) cmos_get_reg(RTC_YEAR));
         printk(" %d",month);
-        printk(", %x",(uint32_t) cmos_get_time(RTC_DAY_MONTH));
-	printk(" %s\n",Day[cmos_get_time(RTC_DAY_WEEK)-1]);
+        printk(", %x",(uint32_t) cmos_get_reg(RTC_DAY_MONTH));
+	printk(" %s\n",Day[cmos_get_reg(RTC_DAY_WEEK)-1]);
 
 }
 void

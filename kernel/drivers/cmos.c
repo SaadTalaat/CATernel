@@ -26,13 +26,13 @@
 uint8_t cmos_set_power_stat(uint8_t stat)
 {
 	uint8_t update , New_Stat;
-	 /*Wait until CMOS is free , that is it's not being updated "0x80 status A" */
- 	while(update == 0x80){
+       /*Wait until CMOS is free , that is it's not being updated "0x80 status A" */
+ 	do{
 		outb(RTC_STATUS_A,CMOS_INDEXPORT);
 		update = inb(CMOS_DATAPORT);
-	}	
+	}while(update == 0x80);
 	cli();	
- 	outb(RTC_STATUS_B,CMOS_INDEXPORT);
+ 	outb(RTC_STATUS_B | 0x80,CMOS_INDEXPORT);
 	/*read the initial CMOS state*/
 	New_Stat=inb(CMOS_DATAPORT); 
  	/*those 3 sets the respective bit to zero so we mask with AND*/
@@ -40,7 +40,7 @@ uint8_t cmos_set_power_stat(uint8_t stat)
 	  New_Stat &= stat;
  	else
 	  New_Stat |= stat;
- 	outb(RTC_STATUS_B,CMOS_INDEXPORT);
+ 	outb(RTC_STATUS_B | 0x80 ,CMOS_INDEXPORT);
  	/*write the new status to the port.*/
  	outb(New_Stat,CMOS_DATAPORT);
  	return New_Stat;	
@@ -92,28 +92,6 @@ uint32_t cmos_set_reg(uint8_t index, uint8_t value){
 	outb(value | update,CMOS_DATAPORT);
 	sti();
 	return val;
-}
-
-
-/**
- * @fn uint8_t cmos_get_time(uint8_t value);
- * @brief Gets time.
- * @param uint8_t value , holds whether it's day,month,seconds..etc 
-			  as defined in include/cmos.h.
- * @return uint8_t time , the time in the format requested.
- *
- */
-uint8_t cmos_get_time(uint8_t value) //value holds whether it's day,month,seconds,etc..
-{
-	uint8_t time;
-	uint8_t update;
-	//check status
-	cli();
-	//get the value 
-	outb(value,CMOS_INDEXPORT);
-	time = inb(CMOS_DATAPORT);
-	sti();
-	return time;
 }
 
 /**
