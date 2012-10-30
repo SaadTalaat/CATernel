@@ -1,0 +1,58 @@
+5. Interrupts and system calls
+===============================
+
+5.1 Interrupts
+=================
+According to Intel Software developer manual Vol 3 [Chp.6 Interrupts and Exception Handling]
+an Interrupt can be defined as follows:-
+Interrupts occur in random times during execution, and they are invoked by hardware. Hardware uses interrupts to handle events that are external to the processor such as request to service a device. software can generate an interrupt also by instruction
+INT <interrupt_number> also according to varying soruces interrupt numbers break into the following.
+
+IRQ [Interrupt ReQuest]:
+Interrupt requests are from 0 to 16
+
+Interrupts:
+Interrupts are from 0~31, 8~16, 70h~78h
+
+PIC/Keyboard Ports
+Programmable Interrupt controller and keyboard ports.
+
+an Exception can be defined as follows:-
+	Exception occurs when a processor detects an error during trying to execute an instruction
+	like devision by 0. the intel processor detects many error conditions including protection
+	violation as page faults.
+
+[Listing interrupts]
+
+5.1.1 Dummy interrupts
+=======================
+
+For the sake of prototyping, There was a dummy exception and interrupts handler created under a generic name for both as Interrupt. However this still stands till now, but few modifications was mode which will be mentioned later on the document.
+an interrupt occurance causes an interrupt handler to be executed from the protected mode Interrupt Descriptor Table. the indexed function that matches interrupt number will be executed. To do that we must first initialize the IDT by filling the first 64 interrupt by a semi interrupt handler and filling the rest 196 interrupt with a dummy iret. Once an interrupt occur the execusion is altered to kernel space and starts executing the interrupt handler. Before an interrupt handler executes by default there's a stack frame storing the previous cpu state (the interrupt issuer) to be able to return to it, however this is not enough for us. In CATernel we define a soft cpu state structure holding all general purpose and segment registers and address space of the current environment.
+
+Since there's no interrupts (not exceptions) that are yet handled through CATernel except for RTC periodic interrupts and system calls, any other interrupt once issued from user it goes through the interrupt mapping function and returns to user if no handler exists. yet there's illegal interrupts to be issued by user like the RTC which is used in scheduling.
+
+5.1.2 Backend
+=============
+The gatedesc structure
+Our initial gate descriptor structure is more like the one in HelenOS, although i find it to be almost useless, since We won't be really using the args, reserved. And it's time consuming executing an assignment statement for every member of type,dpl and present bit. such a structure is implemented in both Linux/Minix as a one type_dpl_present field. We shall save this for later.
+
+cpu state frames
+to provide an informative and effective switching between caller and interrupt vector, cpu state frame holds info about variants of caller environment. such a frame in Minix for instance holds( vector, error code, eip, cs, eflags, esp, ss) in Linux all resgisters exist which is the same as HelenOS, although order is different.
+
+
+
+5.1.3 Page faults
+=================
+To this point we have a minimal user space, and poor scheduling mechanism and no signaling since we busy wait on resources. This simplifies the page fault handling for us in CATernel. Page fault handler checks if a page fault came from kernel mode, If so kernel is paniced. If it came from user space by user trying to access kernel space, the exception issuer proc is killed. If a page fault is done by user by jumping to wrong address (by instruction fetch) issuer proc is killed. if the issuer proc did issue a page fault by exceeding the stack, the proc stack is increased if it didn't reach max size for a user space stack.
+[page fault handling chart]
+
+5.1.4 RTC periodic interrupts
+=============================
+
+TODO
+
+5.2 System calls
+================
+
+TODO
