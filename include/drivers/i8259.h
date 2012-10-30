@@ -74,18 +74,19 @@
 
 
 // OCW1 Constants
-#define OCW1_TIMER	0x1	// valid for Both RTC and PIT
+#define OCW1_PIT	0x1	// valid for Both RTC and PIT
+#define OCW1_RTC	(OCW1_PIT << 8)	// valid for Both RTC and PIT
 #define OCW1_KYBRD	0x2	// reserved on SLAVE
 #define OCW1_VIDEO	0x4	// reserved on SLAVE
 #define OCW1_SERI2	0x8	// reserved on SLAVE
 #define OCW1_SERI1	0x10
-#define OCW1_MOUSE	0x10
+#define OCW1_MOUSE	(OCW1_SERI1 << 8)
 #define OCW1_FDISK	0x20
-#define OCW1_FPU	0x20
+#define OCW1_FPU	(OCW1_FDISK << 8)
 #define OCW1_FLPPY	0x40
-#define OCW1_PRIHD	0x40
+#define OCW1_PRIHD	(OCW1_FLPPY << 8)
 #define OCW1_SECHD	0x80
-#define OCW1_PPRNT	0x80
+#define OCW1_PPRNT	(OCW1_SECHD << 8)
 #define OCW1_INTRS_OFF	0xFF
 
 // OCW3 Constants
@@ -99,8 +100,8 @@
 
 void i8259_init(void);
 void i8259_disable(void);
-void i8259_mask_irq(uint8_t);
-void i8259_unmask_irq(uint8_t);
+void i8259_mask_irq(uint16_t);
+void i8259_unmask_irq(uint16_t);
 uint16_t i8259_read_isr(void);
 uint16_t i8259_read_irr(void);
 void i8259_eoi(uint8_t eoi);

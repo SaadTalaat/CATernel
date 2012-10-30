@@ -53,15 +53,17 @@ i8259_init(void)
 	/**
 	 * Output flags to PICs
 	 */
+
 	outb(micw1, PIC_MASTER_ICW);
 	outb(micw2, PIC_MASTER_OCW);
 	outb(micw3, PIC_MASTER_OCW);
-	outb(micw4, PIC_MASTER_OCW);
+	outb(micw4| 2, PIC_MASTER_OCW);
 	
 	outb(sicw1, PIC_SLAVE_ICW);
 	outb(sicw2, PIC_SLAVE_OCW);
 	outb(sicw3, PIC_SLAVE_OCW);
 	outb(sicw4, PIC_SLAVE_OCW);
+
 }
 
 /**
@@ -85,7 +87,7 @@ i8259_disable(void)
  * 
  */
 void
-i8259_mask_irq(uint8_t irq)
+i8259_mask_irq(uint16_t irq)
 {
 	uint8_t old_mask;
 	if(irq >= (1<<8))
@@ -107,18 +109,20 @@ i8259_mask_irq(uint8_t irq)
  *
  */
 void
-i8259_unmask_irq(uint8_t irq)
+i8259_unmask_irq(uint16_t irq)
 {
 	uint8_t old_mask;
 	if(irq >= (1<<8))
 	{
 		old_mask = inb(PIC_SLAVE_OCW);
 		outb( ~(irq >> 8) & old_mask, PIC_SLAVE_OCW);
+		printk("[*] IRQ %x: enabled. [slave]\n",irq >> 8);
 	}
 	else
 	{
 		old_mask = inb(PIC_MASTER_OCW);
 		outb( ~(irq) & old_mask, PIC_MASTER_OCW);
+		printk("[*] IRQ %x: enabled.[master]\n",irq);
 	}
 }
 
@@ -165,7 +169,10 @@ i8259_eoi(uint8_t irq)
 {
 	
 	if(irq >= 8 && irq < 16)
+	{
 		outb(PIC_EOI, PIC_SLAVE_ICW);
+		outb(PIC_EOI, PIC_MASTER_ICW);
+	}
 	else
 		outb(PIC_EOI, PIC_MASTER_ICW);
 }

@@ -59,16 +59,41 @@ uint32_t cmos_get_reg(uint8_t value){
 	uint32_t val;
 	uint8_t update;
 	//check status
-	while(update == 0x80){
+	do {
 		outb(RTC_STATUS_A,CMOS_INDEXPORT);
 		update = inb(CMOS_DATAPORT);
-	}
+	}while (update == 0x80);
 	cli();
 	//get the value 
 	outb(value,CMOS_INDEXPORT);
 	val = inb(CMOS_DATAPORT);
+//	sti();
 	return val;
 }
+
+/**
+ * @fn uint32_t cmos_set_reg(uint8_t index, uint8_t value);
+ * @brief set RTC registers values.
+ * @param uint8_t value , the value to set register to.
+ * @param uint8_t index,  index of the register.
+ * @return uint32_t val , the value of the register.
+ *
+ */
+
+uint32_t cmos_set_reg(uint8_t index, uint8_t value){
+        uint32_t val;
+        uint8_t update;
+        //check status
+        cli();
+        //get the value
+       outb(index | 0x80,CMOS_INDEXPORT);
+	update = inb(CMOS_DATAPORT);
+	outb(index  | 0x80 ,CMOS_INDEXPORT);
+        outb(value | update,CMOS_DATAPORT);
+//        sti();
+        return val;
+}
+
 
 /**
  * @fn uint8_t cmos_get_time(uint8_t value);
@@ -83,10 +108,6 @@ uint8_t cmos_get_time(uint8_t value) //value holds whether it's day,month,second
 	uint8_t time;
 	uint8_t update;
 	//check status
-	while(update == 0x80){
-		outb(RTC_STATUS_A,CMOS_INDEXPORT);
-		update = inb(CMOS_DATAPORT);
-	}
 	cli();
 	//get the value 
 	outb(value,CMOS_INDEXPORT);
