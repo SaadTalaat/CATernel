@@ -24,6 +24,9 @@
 
 #define LIFO_FIRST(h)	\
 	((h)->first)
+#define LIFO_EMPTY(h)	\
+	LIST_EMPTY((h))
+
 #define LIFO_INIT(h)	\
 	LIFO_FIRST((h)) = NULL
 

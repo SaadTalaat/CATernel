@@ -18,6 +18,7 @@
 #define LIST_HEAD(Instance, Type)\
 	struct Instance{\
 		struct Type *first;\
+		struct Type *tail;\
 	}
 
 #define LIST_HEAD_INIT(head){NULL}

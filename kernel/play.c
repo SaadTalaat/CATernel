@@ -76,12 +76,7 @@ bootup(void){
 	 *** INITIATION OF BATCH USERMODE!!
 	 *** THIS IS TEMPORARY
 	 ***********************************/
-	proc_t *trial;
-	
-
 	time_print();
-//	scan_memory();
-//	setup_mem_x86_32();
 	scan_memory();
 	x86_setup_memory();
 	init_proc();
@@ -89,12 +84,13 @@ bootup(void){
 }
 void
 play(){
-	i8254_init();
+	
 	const char *buf;
 	printk("Welcome to CatOS!\n");
 	printk("For Commands type help\n");
 	printk("This was developed by CATReloaded team: http://catreloaded.net\n\n");
 	cga_set_attr(COLOR_RED|COLOR_GREEN);
+	sched_init();
 	while(1){
 		buf = readline("CatOS(@) ");
 		if (buf!=NULL){

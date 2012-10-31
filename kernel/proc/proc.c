@@ -1,4 +1,6 @@
 /**
+odefine FIFO_EXTERN(nme, member)\
+	extern struct fifo name;
  * @addtogroup Process-Management
  * @{
  * @file proc.c
@@ -17,6 +19,7 @@
 #include <string.h>
 #include <init.h>
 #include <rdisk.h>
+#include <drivers/i8254.h>
 
 extern pde_t *global_pgdir;
 struct Proc_List	empty_procs;
@@ -142,11 +145,15 @@ uint32_t
 init_proc0()
 {
 	proc_t *proc0;
+	uint32_t status;
 	create_proc(&proc0);
-	elf_load_to_proc(proc0, 512*127);
-	//write_cr3(proc0->cr3);
-	//switch_address_space(proc0);
-
+	printk("proc is %d\n", proc0->proc_id);
+	status = elf_load_to_proc(proc0, 512*127);
+	if(status == -1)
+	{
+		panic("SHIT");
+	}
+	FIFO_PUSH(&ready_procs, proc0);
 	/* Not reachable */
 }
 
@@ -229,7 +236,7 @@ switch_address_space(proc_t *proc_to_run){
 	proc_to_run->seg_regs.ds = 0x23;
 	asm("xchg %bx,%bx");
 //	asm volatile("cli");
-	LIFO_PUSH(&running_procs, proc_to_run, q_link);
+	write_cr3(proc_to_run->cr3);
 	asm volatile("movl %0,%%esp":: "g" (proc_to_run) : "memory");
 
 	asm volatile("popal");
@@ -240,6 +247,33 @@ switch_address_space(proc_t *proc_to_run){
 
 	while(1);
 }
+
+void
+sched_init(void)
+{
+	i8254_init();
+
+}
+void
+schedule(void)
+{
+	uint32_t idx= 0;
+	proc_t *proc, *pproc;
+	if(!LIFO_EMPTY(&running_procs))
+	{
+		
+		asm("xchg %bx,%bx");
+		pproc = LIFO_POP(&running_procs, q_link);
+	}
+	proc = FIFO_POP(&ready_procs);
+	if(!LIFO_EMPTY(&running_procs))
+		FIFO_PUSH(&ready_procs, pproc);
+	LIFO_PUSH(&running_procs, proc ,q_link);
+	printk("[*] Scheduling to process: %d\n", proc->proc_id);
+	switch_address_space(proc);
+	/** UNREACHABLE **/
+}
+
 /**
  * @} @}
  */

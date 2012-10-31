@@ -168,7 +168,7 @@ init_tss(void){
 						TSS_AVL | TSS_GRANULARITY);
 	ltss->iomap_base = TSS_SIZE;
 	ltss->esp0	= read_esp();
-	write_tr(0x2B);	
+	write_tr(0x28);	
 
 }
 

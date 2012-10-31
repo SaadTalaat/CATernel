@@ -208,8 +208,22 @@ map_exception(uint32_t int_index, cpu_state_t *cpu_state){
 	printk("Current Instruction:-\n");
 	printk("\tEIP=%p\n",cpu_state->eip);
 #endif
-//	printk(".");
-	if(int_index == PF)
+	printk("[*] INT : %d\n", int_index);
+	switch(int_index)
+	{
+		case PF:
+			page_fault_handler(cpu_state);
+			break;
+		case SYSCALL:
+			map_syscall(cpu_state);
+			break;
+		case SCHED:
+			schedule();
+			break;
+		default:
+			return;
+	}
+/*	if(int_index == PF)
 		page_fault_handler(cpu_state);
 	if(int_index == SYSCALL)
 		map_syscall(cpu_state);
@@ -218,6 +232,7 @@ map_exception(uint32_t int_index, cpu_state_t *cpu_state){
 		asm("xchg %bx,%bx");
 		i8259_eoi(int_index-32);
 	}
+*/	
 	return;
 }
 
