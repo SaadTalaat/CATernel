@@ -56,4 +56,5 @@ void switch_address_space(proc_t*);
 uint32_t proc_setup(proc_t **);
 uint32_t proc_setup_mem(proc_t *);
 void test_lifo(void);
+void test_fifo(void);
 #endif

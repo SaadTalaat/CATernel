@@ -85,11 +85,11 @@ bootup(void){
 	scan_memory();
 	x86_setup_memory();
 	init_proc();
-	printk("Playing\n");
 	play();
 }
 void
 play(){
+	i8254_init();
 	const char *buf;
 	printk("Welcome to CatOS!\n");
 	printk("For Commands type help\n");

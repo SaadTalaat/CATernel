@@ -23,6 +23,7 @@ struct Proc_List	empty_procs;
 
 proc_t *proc_table;
 struct Proc_Lifo	running_procs;
+FIFO_HEAD(ready_procs, proc,256);
 
 /**
  * @brief Initialize the proc array
@@ -43,6 +44,7 @@ init_proc_table(void){
 	proc_t	*i_proc;
 	LIST_INIT(&empty_procs);
 	LIFO_INIT(&running_procs);
+	FIFO_INIT(&ready_procs);
 
 	/*
 	 * Initate all processes slots to empty.
@@ -156,6 +158,7 @@ init_proc(void)
 {
 	init_proc_table();
 	test_lifo();
+	test_fifo();
 	init_proc0();
 }
 
@@ -182,6 +185,27 @@ test_lifo(void){
 
 }
 
+/**
+ * @brief Tests the FIFO queue data structure
+ */
+void
+test_fifo(void){
+	proc_t *proc_out;
+	FIFO_PUSH(&ready_procs, &proc_table[0]);
+	FIFO_PUSH(&ready_procs, &proc_table[1]);
+	FIFO_PUSH(&ready_procs, &proc_table[2]);
+	FIFO_PUSH(&ready_procs, &proc_table[3]);
+	proc_out = FIFO_POP(&ready_procs);
+	assert(proc_out->proc_id == 0);
+	proc_out = FIFO_POP(&ready_procs);
+	assert(proc_out->proc_id == 1);
+	proc_out = FIFO_POP(&ready_procs);
+	assert(proc_out->proc_id == 2);
+	proc_out = FIFO_POP(&ready_procs);
+	assert(proc_out->proc_id == 3);
+	printk("[*] TEST : LIFO Queue test passed..\n");
+	return;
+}
 /**
  * @brief switches between the kernel and a given proc
  * @details switching to a proc is made from a calling proc

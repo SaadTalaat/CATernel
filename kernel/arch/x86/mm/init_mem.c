@@ -131,7 +131,7 @@ scan_memory(void){
  * its code, it's externed and allocation starts from the end
  * of kernel code.
  */
-static void*
+void*
 allocate(uint32_t n,uint32_t align){
 	/* since we'll start allocating pages
 	 * from the end of the kernel, check
