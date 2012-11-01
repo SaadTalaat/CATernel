@@ -83,6 +83,8 @@ idt_init(void){
 	gate->type = GATE_INT32;
 	gate->s	= 0;
 	gate->dpl = 0;
+	if(count == SYSCALL || count == SCHED || count == PF)
+		gate->dpl = 3;
 	gate->p	= 1;
 	//gate->offset_16_31 = (uint16_t) (offset >> 16);
 

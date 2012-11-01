@@ -64,7 +64,7 @@ init_proc_table(void){
 		i_proc->cs	= 0;
 		i_proc->ss	= 0;
 		i_proc->esp	= 0;
-		i_proc->eflags	= 0;
+		i_proc->eflags	= 0 | FLAG_IF;
 		
 		LIST_INSERT_HEAD(&empty_procs, &proc_table[count], link);
 	}
@@ -202,6 +202,7 @@ test_fifo(void){
 	FIFO_PUSH(&ready_procs, &proc_table[1]);
 	FIFO_PUSH(&ready_procs, &proc_table[2]);
 	FIFO_PUSH(&ready_procs, &proc_table[3]);
+	assert(!FIFO_EMPTY(&ready_procs));
 	proc_out = FIFO_POP(&ready_procs);
 	assert(proc_out->proc_id == 0);
 	proc_out = FIFO_POP(&ready_procs);
@@ -210,7 +211,7 @@ test_fifo(void){
 	assert(proc_out->proc_id == 2);
 	proc_out = FIFO_POP(&ready_procs);
 	assert(proc_out->proc_id == 3);
-	printk("[*] TEST : LIFO Queue test passed..\n");
+	printk("[*] TEST: FIFO Queue test passed..\n");
 	return;
 }
 /**
@@ -234,8 +235,6 @@ switch_address_space(proc_t *proc_to_run){
 	proc_to_run->seg_regs.es = 0x23;
 	proc_to_run->seg_regs.gs = 0x23;
 	proc_to_run->seg_regs.ds = 0x23;
-	asm("xchg %bx,%bx");
-//	asm volatile("cli");
 	write_cr3(proc_to_run->cr3);
 	asm volatile("movl %0,%%esp":: "g" (proc_to_run) : "memory");
 
@@ -261,15 +260,30 @@ schedule(void)
 	proc_t *proc, *pproc;
 	if(!LIFO_EMPTY(&running_procs))
 	{
-		
-		asm("xchg %bx,%bx");
 		pproc = LIFO_POP(&running_procs, q_link);
+		printk("[*] Proc running: %d\n",pproc->proc_id);
 	}
-	proc = FIFO_POP(&ready_procs);
+	else
+		printk("[*] No running procs\n");
+
+	if(!FIFO_EMPTY(&ready_procs))
+	{
+		proc = FIFO_POP(&ready_procs);
+		printk("[*] Ready proc: %d\n",proc->proc_id);
+	}
+	else
+	{
+		printk("[*] No ready procs found\n");
+		proc = pproc;
+	}
+
 	if(!LIFO_EMPTY(&running_procs))
 		FIFO_PUSH(&ready_procs, pproc);
+
 	LIFO_PUSH(&running_procs, proc ,q_link);
+
 	printk("[*] Scheduling to process: %d\n", proc->proc_id);
+
 	switch_address_space(proc);
 	/** UNREACHABLE **/
 }

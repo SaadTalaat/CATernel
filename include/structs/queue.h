@@ -57,8 +57,8 @@
 
 #define FIFO_FIRST(h)   \
         ((h)->first)
-
-
+#define FIFO_EMPTY(h)	\
+	(((h)->head == (h)->tail))
 #define FIFO_INIT(h)    \
         FIFO_FIRST(h) = allocate( sizeof(*(h)->first) * (h)->items, 0x400)
 
@@ -66,5 +66,5 @@
 	FIFO_FIRST(h)[(h)->tail = ((h)->tail +1) < (h)->items ? ((h)->tail+1): 0] = *(element)
 
 #define FIFO_POP(h)\
-	&FIFO_FIRST(h)[(h)->head = ((h)->head +1) < (h)->items ? ((h)->head +1) : 0]
+	&FIFO_FIRST(h)[(h)->head = ((h)->head +1) < (h)->items ? ((h)->head +1) : 0];
 #endif
