@@ -64,6 +64,7 @@ i8259_init(void)
 	outb(sicw3, PIC_SLAVE_OCW);
 	outb(sicw4, PIC_SLAVE_OCW);
 
+	i8259_disable();
 }
 
 /**

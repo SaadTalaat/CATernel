@@ -33,7 +33,7 @@ elf_load_to_proc(proc_t *proc, uint32_t offset)
 	int count;
 	struct Page *page;
 	x86_page_alloc(&page);
-
+	asm("xchg %bx,%bx");
 //	x86_pgdir_find(proc->page_directory, (void *)(0xA0000000), 1);
 	x86_page_insert(proc->page_directory, page, (void *) 0xA0000000, PAGE_USER | PAGE_WRITABLE); 
 	write_cr3(proc->cr3);
@@ -52,8 +52,11 @@ elf_load_to_proc(proc_t *proc, uint32_t offset)
 		}
 	}
 	proc->eip = elf_hdr->entry;
+	printk("entry[%p]\n",proc->eip);
 	map_segment_page(proc->page_directory, USERSTACK_TOP - PAGESZ, PAGESZ, 0x22000000, PAGE_USER | PAGE_PRESENT | PAGE_WRITABLE);
+	asm("xchg %bx,%bx");
 	write_cr3(global_cr3);
+	return 0;
 }
 
 /**

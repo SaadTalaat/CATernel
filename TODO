@@ -1,2 +1,20 @@
+Prototype 2.0 design considerations
+===================================
+
+- Runnable entity is a thread
+- more strict address spaces and page structures
+- Unified driver interface [for IRQs as a start]
+- Supporting IPC
+- Support SMP
+- extend and enhance Data structures
+
+
+
+
+
+
+
+
+
 Just to remind us to try to implement that once we reach such a level 
 http://en.wikipedia.org/wiki/9P

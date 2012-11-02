@@ -83,6 +83,8 @@ idt_init(void){
 	gate->type = GATE_INT32;
 	gate->s	= 0;
 	gate->dpl = 0;
+	if(count == SYSCALL || count == SCHED || count == PF)
+		gate->dpl = 3;
 	gate->p	= 1;
 	//gate->offset_16_31 = (uint16_t) (offset >> 16);
 
@@ -208,8 +210,22 @@ map_exception(uint32_t int_index, cpu_state_t *cpu_state){
 	printk("Current Instruction:-\n");
 	printk("\tEIP=%p\n",cpu_state->eip);
 #endif
-	printk("int %d\n", int_index);
-	if(int_index == PF)
+	printk("[*] INT : %d\n", int_index);
+	switch(int_index)
+	{
+		case PF:
+			page_fault_handler(cpu_state);
+			break;
+		case SYSCALL:
+			map_syscall(cpu_state);
+			break;
+		case SCHED:
+			schedule();
+			break;
+		default:
+			return;
+	}
+/*	if(int_index == PF)
 		page_fault_handler(cpu_state);
 	if(int_index == SYSCALL)
 		map_syscall(cpu_state);
@@ -218,6 +234,7 @@ map_exception(uint32_t int_index, cpu_state_t *cpu_state){
 		asm("xchg %bx,%bx");
 		i8259_eoi(int_index-32);
 	}
+*/	
 	return;
 }
 

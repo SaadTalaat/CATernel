@@ -1,4 +1,6 @@
 /**
+odefine FIFO_EXTERN(nme, member)\
+	extern struct fifo name;
  * @addtogroup Process-Management
  * @{
  * @file proc.c
@@ -17,12 +19,14 @@
 #include <string.h>
 #include <init.h>
 #include <rdisk.h>
+#include <drivers/i8254.h>
 
 extern pde_t *global_pgdir;
 struct Proc_List	empty_procs;
 
 proc_t *proc_table;
 struct Proc_Lifo	running_procs;
+FIFO_HEAD(ready_procs, proc,256);
 
 /**
  * @brief Initialize the proc array
@@ -43,6 +47,7 @@ init_proc_table(void){
 	proc_t	*i_proc;
 	LIST_INIT(&empty_procs);
 	LIFO_INIT(&running_procs);
+	FIFO_INIT(&ready_procs);
 
 	/*
 	 * Initate all processes slots to empty.
@@ -59,7 +64,7 @@ init_proc_table(void){
 		i_proc->cs	= 0;
 		i_proc->ss	= 0;
 		i_proc->esp	= 0;
-		i_proc->eflags	= 0;
+		i_proc->eflags	= 0 | FLAG_IF;
 		
 		LIST_INSERT_HEAD(&empty_procs, &proc_table[count], link);
 	}
@@ -140,11 +145,15 @@ uint32_t
 init_proc0()
 {
 	proc_t *proc0;
+	uint32_t status;
 	create_proc(&proc0);
-	elf_load_to_proc(proc0, 512*127);
-	//write_cr3(proc0->cr3);
-	//switch_address_space(proc0);
-
+	printk("proc is %d\n", proc0->proc_id);
+	status = elf_load_to_proc(proc0, 512*127);
+	if(status == -1)
+	{
+		panic("SHIT");
+	}
+	FIFO_PUSH(&ready_procs, proc0);
 	/* Not reachable */
 }
 
@@ -156,6 +165,7 @@ init_proc(void)
 {
 	init_proc_table();
 	test_lifo();
+	test_fifo();
 	init_proc0();
 }
 
@@ -183,6 +193,28 @@ test_lifo(void){
 }
 
 /**
+ * @brief Tests the FIFO queue data structure
+ */
+void
+test_fifo(void){
+	proc_t *proc_out;
+	FIFO_PUSH(&ready_procs, &proc_table[0]);
+	FIFO_PUSH(&ready_procs, &proc_table[1]);
+	FIFO_PUSH(&ready_procs, &proc_table[2]);
+	FIFO_PUSH(&ready_procs, &proc_table[3]);
+	assert(!FIFO_EMPTY(&ready_procs));
+	proc_out = FIFO_POP(&ready_procs);
+	assert(proc_out->proc_id == 0);
+	proc_out = FIFO_POP(&ready_procs);
+	assert(proc_out->proc_id == 1);
+	proc_out = FIFO_POP(&ready_procs);
+	assert(proc_out->proc_id == 2);
+	proc_out = FIFO_POP(&ready_procs);
+	assert(proc_out->proc_id == 3);
+	printk("[*] TEST: FIFO Queue test passed..\n");
+	return;
+}
+/**
  * @brief switches between the kernel and a given proc
  * @details switching to a proc is made from a calling proc
  * which is the kernel to a given proc address space.
@@ -203,9 +235,7 @@ switch_address_space(proc_t *proc_to_run){
 	proc_to_run->seg_regs.es = 0x23;
 	proc_to_run->seg_regs.gs = 0x23;
 	proc_to_run->seg_regs.ds = 0x23;
-	asm("xchg %bx,%bx");
-//	asm volatile("cli");
-	LIFO_PUSH(&running_procs, proc_to_run, q_link);
+	write_cr3(proc_to_run->cr3);
 	asm volatile("movl %0,%%esp":: "g" (proc_to_run) : "memory");
 
 	asm volatile("popal");
@@ -216,6 +246,48 @@ switch_address_space(proc_t *proc_to_run){
 
 	while(1);
 }
+
+void
+sched_init(void)
+{
+	i8254_init();
+
+}
+void
+schedule(void)
+{
+	uint32_t idx= 0;
+	proc_t *proc, *pproc;
+	if(!LIFO_EMPTY(&running_procs))
+	{
+		pproc = LIFO_POP(&running_procs, q_link);
+		printk("[*] Proc running: %d\n",pproc->proc_id);
+	}
+	else
+		printk("[*] No running procs\n");
+
+	if(!FIFO_EMPTY(&ready_procs))
+	{
+		proc = FIFO_POP(&ready_procs);
+		printk("[*] Ready proc: %d\n",proc->proc_id);
+	}
+	else
+	{
+		printk("[*] No ready procs found\n");
+		proc = pproc;
+	}
+
+	if(!LIFO_EMPTY(&running_procs))
+		FIFO_PUSH(&ready_procs, pproc);
+
+	LIFO_PUSH(&running_procs, proc ,q_link);
+
+	printk("[*] Scheduling to process: %d\n", proc->proc_id);
+
+	switch_address_space(proc);
+	/** UNREACHABLE **/
+}
+
 /**
  * @} @}
  */

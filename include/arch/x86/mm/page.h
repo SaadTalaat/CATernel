@@ -260,5 +260,5 @@ void map_segment_page(pde_t*, vaddr_t, size_t, paddr_t, int);
 void x86_test_pgdir(void);
 void x86_test_paging(void);
 static void x86_test_page_alloc(void);
-
+void *allocate(uint32_t, uint32_t);
 #endif	/* _CATERNEL_X86_PAGE_H_ */
