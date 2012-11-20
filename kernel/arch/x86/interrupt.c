@@ -55,7 +55,17 @@ trap(void){
 	printk("[*] Trap issued \n");
 	return;
 }
+void
+interrupt_printinfo(void)
+{
+	printk("[*] Interrupts Handlers\n\t");
+	printk("IDT	  : %p\n\t", idt);
+	printk("Page Fault: %p\n\t", page_fault_handler);
+	printk("Scheduler : %p\n\t", schedule);
+	printk("Syscalls  : %p\n\t", map_syscall);
+	printk("Else      : %p\n", map_exception);
 
+}
 /**
  * @brief Initializing Interrupt Descriptor table
  * @details

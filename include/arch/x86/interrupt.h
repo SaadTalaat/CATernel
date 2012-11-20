@@ -112,4 +112,5 @@ extern gatedesc idt[];
 void idt_init(void);
 void map_exception(uint32_t, cpu_state_t *);
 uint32_t page_fault_handler(cpu_state_t *);
+void interrupt_printinfo(void);
 #endif

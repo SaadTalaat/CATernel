@@ -123,10 +123,6 @@ read_cr4(void)
         asm volatile("movl %%cr4,%0":"=r" (value));
         return value;
 }
-static inline void cpuid()
-{
-	asm("CPUID");
-}
 static inline void
 invlpg(void *addr)
 {
@@ -144,5 +140,21 @@ read_esp(void)
 	uint32_t value;
 	asm volatile("movl %%esp,%0":"=r" (value));
 	return value;
+}
+/**
+ * @param ecx the MSR index
+ * @param edx the high msr value
+ * @param eax the low msr value
+ * @return none
+ */
+static inline void
+read_msr(uint32_t ecx, uint32_t *edx, uint32_t *eax)
+{
+	asm volatile("rdmsr": "=d" (*edx), "=a" (*eax) : "c" (ecx));
+}
+static inline void
+write_msr(uint32_t ecx, uint32_t edx, uint32_t eax)
+{
+	asm volatile("wrmsr" :: "d" (edx), "a" (eax), "c"(ecx));
 }
 #endif

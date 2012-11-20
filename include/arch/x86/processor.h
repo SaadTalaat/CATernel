@@ -9,7 +9,8 @@
  */
 #ifndef _CATERNEL_PROCESSOR_H_
 #define _CATERNEL_PROCESSOR_H_
-
+#include <types.h>
+#include <cpuid.h>
 /* Control Register 0 flags */
 #define X86_CR0_PE	0x00000001	/* Protection Enable */
 #define X86_CR0_MP	0x00000002	/* Monitor Coprocessor */
@@ -65,5 +66,95 @@
 #define FLAG_VIP 0x40000
 #define FLAG_ID	0x80000
 
+/* Vendors */
+#define VENDOR_INTEL 0x1
+#define VENDOR_AMD 0x2
+struct cpu_version{
+	struct {
+		unsigned stepping:4;
+		unsigned model:4;
+		unsigned family:4;
+		unsigned type:2;
+		unsigned ss:2;
+		unsigned exmodel:4;
+		unsigned exfamily:8;
+		unsigned sss:4;
+		} fms;
+	struct{
+		char brand;
+		char cache;
+		char max_id;
+		char id;
+		} generic;
+	struct{
+		unsigned sse3:1;
+		unsigned :4;
+		unsigned vmx:1;
+		unsigned smx:1;
+		unsigned est:1;
+		unsigned tm2:1;
+		unsigned ssse3:1;
+		unsigned :7;
+		unsigned pcid:1;
+		unsigned dca:1;
+		unsigned sse4_1:1;
+		unsigned sse4_2:1;
+		unsigned x2apic:1;
+		unsigned :10;
+		} __attribute__((packed)) featured_ecx;
+	struct {
+		unsigned fpu:1;
+		unsigned vme:1;
+		unsigned de:1;
+		unsigned pse:1;
+		unsigned :2;
+		unsigned pae:1;
+		unsigned :2;
+		unsigned apic:1;
+		unsigned :1;
+		unsigned sep:1;
+		unsigned pge:1;
+		unsigned mca:1;
+		unsigned cmov:1;
+		unsigned pat:1;
+		unsigned :5;
+		unsigned acpi:1;
+		unsigned mmx:1;
+		unsigned fxsr:1;
+		unsigned sse:1;
+		unsigned sse2:1;
+		unsigned ss:1;
+		unsigned htt:1;
+		unsigned tm:1;
+		unsigned :1;
+		unsigned pbe:1;
+		} __attribute__((packed)) featured_edx;
+	
+}__attribute__((packed));
+struct cpu_cache{
+	uint32_t eax;
+	struct {
+		unsigned line_size:12;
+		unsigned phy_line :10;
+		unsigned assoc:10;
+		} __attribute__((packed)) lpw;
+	uint32_t sets;
+	struct {
+		unsigned write_back:1;
+		unsigned inclusive:1;
+		unsigned indexing:1;
+		unsigned :29;
+		} __attribute__((packed)) wcc;
+	
 
+
+};
+typedef struct{
+        uint32_t vendor;
+        struct cpu_version version;
+        struct cpu_cache cache;
+} cpu_t;
+
+extern char *cpu_vendors[];
+extern cpu_t *cpu;
 #endif /* _CATERNEL_PROCESSOR_H_ */

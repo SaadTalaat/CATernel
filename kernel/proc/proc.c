@@ -37,6 +37,16 @@ FIFO_HEAD(ready_procs, proc,256);
  * proc binary loader is mapped.
  */
 void
+proc_printinfo(void)
+{
+	printk("[*] Proc Info:\n\t");
+	printk("Max Processes : %d\n\t", MAX_PROCS);
+	printk("Free Table    : %p\n\t", &empty_procs);
+	printk("Running Queue : %p\n\t",&running_procs);
+	printk("Ready Queue   : %p\n" , &ready_procs);
+	return;
+}
+void
 init_proc_table(void){
 	/*
 	 * In Memory Map, Processes Table takes places after
@@ -146,9 +156,18 @@ init_proc0()
 {
 	proc_t *proc0;
 	uint32_t status;
+	int i;
 	create_proc(&proc0);
 	printk("proc is %d\n", proc0->proc_id);
-	status = elf_load_to_proc(proc0, 512*127);
+	for( i =0; i< 20; i++)
+	{
+		status = elf_load_to_proc(proc0, 512*(127+i));
+		if(status == 0)
+		{
+			printk("[*] PROC0: found at sector %d\n", 127+i);
+			break;
+		}
+	}
 	if(status == -1)
 	{
 		panic("SHIT");

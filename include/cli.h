@@ -36,6 +36,7 @@
  *
  */
 void	console_init(void);
+void	console_clear(void);
 void	console_interrupt(int (*intr)(void));
 int	console_getc(void);
 void	console_putc(int c);
