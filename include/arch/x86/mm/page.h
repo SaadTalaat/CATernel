@@ -261,4 +261,5 @@ void x86_test_pgdir(void);
 void x86_test_paging(void);
 static void x86_test_page_alloc(void);
 void *allocate(uint32_t, uint32_t);
+void memory_printinfo(void);
 #endif	/* _CATERNEL_X86_PAGE_H_ */

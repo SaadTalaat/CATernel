@@ -27,6 +27,7 @@
 #include <arch/x86/mm/page.h>
 #include <arch/x86/interrupt.h>
 #include <arch/x86/cpu_state.h>
+#include <arch/x86/mp/apic.h>
 #include <proc/proc.h>
 
 /*
@@ -102,6 +103,20 @@ x86_read_mem_size(int x){
 /**
  * @brief Reads memory size and determine the pages count needed to map it.
  */
+void
+memory_printinfo(void)
+{
+	printk("[*] Memory Info:\n\t");
+	printk("Memory size: %p\n\t", max_addr);
+	printk("Max Pages  : %d\n\t", page_count);
+	printk("Page dir   : %p\n\t", global_pgdir);
+	printk("GDT        : %p\n\t", catgdt);
+	printk("Proc List  : %p\n\t", proc_table);
+	printk("Kern base  : %p\n\t", KERNEL_ADDR);
+	printk("Kern stack : %p\n\t", kernel_stack);
+	printk("APIC	   : %p\n", 0xfee00000);
+	return;
+}
 void
 scan_memory(void){
 
@@ -256,8 +271,7 @@ x86_setup_memory(void)
 	printk("[*] Mapped segment [%p, %p] to virtual segment %p\n",
 			0x0, 0x10000000,
 			KERNEL_ADDR);
-
-	printk("[8888] STACK START %p STACK END %p\n", USERSTART , USERSTART - PAGETSZ);
+	map_segment_page(pgdir, (vaddr_t) 0xfee00000, PAGESZ, 0xfee00000, PAGE_PRESENT | PAGE_WRITABLE);
 /*	map_segment_page(pgdir, (vaddr_t) USERSTART - PAGESZ, 2*PAGETSZ,
 			0x19000000, PAGE_PRESENT | PAGE_USER | PAGE_WRITABLE);
 

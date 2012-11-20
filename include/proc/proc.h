@@ -57,4 +57,7 @@ uint32_t proc_setup(proc_t **);
 uint32_t proc_setup_mem(proc_t *);
 void test_lifo(void);
 void test_fifo(void);
+void sched_init(void);
+void schedule(void);
+void proc_printinfo(void);
 #endif

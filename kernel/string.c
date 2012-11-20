@@ -39,6 +39,19 @@ memset(void *ptr,int c,uint32_t count){
 	return ptr;
 }
 
+int
+strcmp( const char * s1, const char *s2)
+{
+	unsigned int x,y;
+	do{
+		x= *s1++;
+		y= *s2++;
+		if ( x!=y)
+			return x-y;
+
+	} while(x != '\0');
+	return 0;
+}
 /**
  * @}
  * @}
