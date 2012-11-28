@@ -80,8 +80,8 @@ bootup(void){
 	 ***********************************/
 	time_print();
 	bios_init();
-	find_set_fps();
 	scan_memory();
+	find_set_fps();
 	x86_setup_memory();
 	processor_identify();
 	lapic_init();
