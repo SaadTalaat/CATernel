@@ -16,7 +16,7 @@
 #define BUS 	  	1
 #define IO_APIC   	2
 #define IO_INTRPT_ASS   3
-#define LCL_INTRPT_ASS  4 
+#define LOC_INTRPT_ASS  4 
 /*Processors Signatures*/
 #define INVALID		000000000000
 #define INTEL486DX  	010000000001
@@ -33,7 +33,7 @@
 #define EXTINT  3
 
 typedef struct {
-  	char Signature[4];
+  	uint32_t Signature;
 	uintptr_t config_addr;
 	uint8_t len;
 	uint8_t version;
@@ -45,7 +45,7 @@ typedef struct {
 }__attribute__((packed)) fpstruct_t;
 
 typedef struct {
-	char Signature[4];
+	uint32_t Signature;
 	uint16_t base_table_len;
 	uint8_t	 spec_ver;
 	uint8_t  checksum;
@@ -56,7 +56,11 @@ typedef struct {
 	uint16_t entry_count;
 	uint32_t lapic_addr;
 	uint16_t extnd_table_len;
-	uint8_t  extnd_table_checksum;	
+	uint8_t  extnd_table_checksum;
+	//is intel trolling ?
+	uint8_t reserved;
+	uint8_t base_table[0];
+;	
 }__attribute__((packed)) ct_hdr;
 
 typedef struct{
@@ -110,7 +114,13 @@ typedef struct {
 
 
 extern fpstruct_t * fs;
+extern  ct_hdr * ct;
 
-
+uint8_t fps_check(uint8_t *base);
+uint8_t ct_check(void);
+void fsp_print(fpstruct_t * fs);
+void ct_read_hdr(void);
+static void ct_entries(void);
+void find_set_fps(void);
 
 #endif

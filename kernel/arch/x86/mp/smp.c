@@ -4,6 +4,17 @@
 #include <arch/x86/mm/page.h>
 
 fpstruct_t * fs;
+ct_hdr * ct;
+
+//keep pointer to collect entries.
+ct_proc_entry * processor_entries = NULL;
+ct_bus_entry * bus_entries = NULL;
+ct_io_apic_entry * io_apic_entries = NULL;
+ct_io_intr_entry *io_intr_entries = NULL;
+ct_loc_intr_entry *loc_intr_entries = NULL;
+
+//why do global variables freak out ? C trolling..
+uint32_t processors_count=0;
 
 uint8_t fps_check(uint8_t *base)
 {
@@ -16,10 +27,33 @@ uint8_t fps_check(uint8_t *base)
 	else
 	return 1;
 }
-
+uint8_t ct_check(void)
+//<3 helenOS ; return 0 if succeeded 
+{
+	uint8_t *base = (uint8_t *) ct;
+	uint8_t *ext = base + ct->base_table_len;
+	uint8_t sum;
+	uint16_t i;
+	
+	/*checksum for the base table */
+	for (i = 0, sum = 0; i < ct->base_table_len; i++)
+		sum = (uint8_t) (sum + base[i]);
+	
+	if (sum)
+		return 1;
+	
+	/*checksum for the extended table */
+	for (i = 0, sum = 0; i < ct->extnd_table_len; i++)
+		sum = (uint8_t) (sum + ext[i]);
+	
+	if(sum) 
+		return 1;
+	else
+		return 0;
+}
 void fsp_print(fpstruct_t * fs)
 {
-	printk("Signature %s \n " , fs->Signature);
+	printk("Signature %x \n " , fs->Signature);
 	printk("Configuration Table paddr %x \n", fs->config_addr);
 	printk("Table Lenght %x \n" , fs->len);
 	printk("Version %x \n" , fs->version);
@@ -27,6 +61,96 @@ void fsp_print(fpstruct_t * fs)
 	printk("Feature2 %x \n" , fs->feature2);
 }
 
+void ct_read_hdr(void)
+{	
+	printk("[*]Checking Configuration table integrity..");
+	if(ct_check()==0)
+		printk("Success!\n");
+	else{ printk("Failed!\n");return; }      
+	printk("[*]Reading Configuration table.. \n");
+	printk("ct Signature %x\n" , ct->Signature);
+	printk("ct Base table Length %x\n" , ct->base_table_len);
+	printk("ct Version %x\n" , ct->spec_ver);
+	printk("ct oem_id %s\n" , ct->oem_id);
+	printk("ct product id %s\n" , ct->product_id);
+	printk("ct oem table pointer %p\n" , ct->oem_table_pointer);
+	printk("ct oem table size %x\n" , ct->oem_table_size);
+	printk("ct Entry count %x\n" , ct->entry_count);
+	printk("ct L APIC address %x\n" , ct->lapic_addr);
+	printk("ct Extended table length %x\n" , ct->extnd_table_len);
+	printk("ct Extended table checksum %x\n" , ct->extnd_table_checksum);
+	
+}
+
+static void ct_entries(void)
+{
+	uintptr_t l_apic;
+	int32_t io_apic_cnt = 0;
+	//int32_t processor_entry_cnt = 0;
+	int32_t bus_entry_cnt = 0;
+	int32_t io_apic_entry_cnt = 0;
+	int32_t io_intr_entry_cnt = 0;
+	int32_t loc_intr_entry_cnt = 0;
+
+	if (ct->Signature != CT_SIGNATURE) {
+		printk("[*]Bad Config table signature ; Aborting ..\n");
+		return;
+	}
+	
+	if (ct_check()) {
+		printk("[*]Bad checksum , Config table maybe be corrupted; Aborting ..\n");
+		return;
+	}
+	l_apic = (uintptr_t) ct->lapic_addr;	
+	uint8_t *cur = &ct->base_table[0];
+	uint16_t i;
+	for (i = 0; i < ct->entry_count; i++) {
+		switch (*cur) {
+		case PROCESSOR: 
+			processor_entries = processor_entries ?
+			    processor_entries :
+			    (ct_proc_entry*) cur;
+			processors_count++;
+			printk("[*] Processor [%d] detected\n" , processors_count);
+			cur += 20;
+			break;
+		case BUS:
+			bus_entries = bus_entries ?
+			    bus_entries : (ct_bus_entry *) cur;
+			bus_entry_cnt++;
+			printk("[*] Bus [%d] detected\n" , bus_entry_cnt);
+			cur += 8;
+			break;
+		case IO_APIC: 
+			io_apic_entries = io_apic_entries ?
+			    io_apic_entries : (ct_io_apic_entry *) cur;
+			io_apic_entry_cnt++;
+			printk("[*] IO APIC [%d] detected\n" ,io_apic_entry_cnt);
+			cur += 8;
+			break;
+		case IO_INTRPT_ASS:  
+			io_intr_entries = io_intr_entries ?
+			    io_intr_entries : (ct_io_intr_entry *) cur;
+			io_intr_entry_cnt++;
+	                printk("[*] IO INTERRUPT APIC [%d] detected\n" ,io_intr_entry_cnt);
+			cur += 8;
+			break;
+		case LOC_INTRPT_ASS: 
+			loc_intr_entries = loc_intr_entries ?
+			    loc_intr_entries : (ct_loc_intr_entry *) cur;
+			loc_intr_entry_cnt++;
+	                printk("[*] IO INTERRUPT APIC [%d] detected\n" ,io_intr_entry_cnt);
+			cur += 8;
+			break;
+		default:
+			printk("[*] Bad CT Entry \n");
+			return;
+		}
+		
+	}
+	//processors_count=processor_entry_cnt;
+	printk("[*] Detected total of %d processors" , processors_count);
+}
 /**
  * @fn void find_set_fps(void);
  * @brief Searches and Sets the global Floating pointer structure.
@@ -56,9 +180,14 @@ void find_set_fps(void)
 	return;	
 	fs_found:
 	printk("[*] Located Floating point structure at %x \n" , fs);
+	ct=(ct_hdr *)PA2KA((uint32_t)fs->config_addr);
 	fsp_print(fs);
+	ct_read_hdr();
+	ct_entries();
 	asm("xchg %bx,%bx");
 }
+
+
 
 
 
