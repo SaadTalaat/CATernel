@@ -79,6 +79,8 @@ bootup(void){
 	 *** THIS IS TEMPORARY
 	 ***********************************/
 	time_print();
+	bios_init();
+	find_set_fps();
 	scan_memory();
 	x86_setup_memory();
 	processor_identify();
