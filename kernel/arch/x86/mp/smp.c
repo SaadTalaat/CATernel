@@ -14,7 +14,12 @@ ct_io_intr_entry *io_intr_entries = NULL;
 ct_loc_intr_entry *loc_intr_entries = NULL;
 
 //why do global variables freak out ? C trolling..
-uint32_t processors_count=0;
+uint32_t processors_count;
+uint32_t io_apic_cnt;
+uint32_t bus_entry_cnt;
+uint32_t io_apic_entry_cnt;
+uint32_t io_intr_entry_cnt;
+uint32_t loc_intr_entry_cnt;
 
 uint8_t fps_check(uint8_t *base)
 {
@@ -28,7 +33,7 @@ uint8_t fps_check(uint8_t *base)
 	return 1;
 }
 uint8_t ct_check(void)
-//<3 helenOS ; return 0 if succeeded 
+//<3 helenOS return 0 if succeeded 
 {
 	uint8_t *base = (uint8_t *) ct;
 	uint8_t *ext = base + ct->base_table_len;
@@ -82,23 +87,22 @@ void ct_read_hdr(void)
 	
 }
 
-static void ct_entries(void)
+void ct_entries(void)
 {
 	uintptr_t l_apic;
-	int32_t io_apic_cnt = 0;
-	//int32_t processor_entry_cnt = 0;
-	int32_t bus_entry_cnt = 0;
-	int32_t io_apic_entry_cnt = 0;
-	int32_t io_intr_entry_cnt = 0;
-	int32_t loc_intr_entry_cnt = 0;
-
+        io_apic_cnt = 0;
+	bus_entry_cnt = 0;
+	io_apic_entry_cnt = 0;
+	io_intr_entry_cnt = 0;
+	loc_intr_entry_cnt = 0;
+	processors_count=0;
 	if (ct->Signature != CT_SIGNATURE) {
 		printk("[*]Bad Config table signature ; Aborting ..\n");
 		return;
 	}
 	
 	if (ct_check()) {
-		printk("[*]Bad checksum , Config table maybe be corrupted; Aborting ..\n");
+		printk("[*]Bad checksum , Config table maybe corrupted; Aborting ..\n");
 		return;
 	}
 	l_apic = (uintptr_t) ct->lapic_addr;	
