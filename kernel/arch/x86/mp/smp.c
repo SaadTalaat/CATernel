@@ -95,7 +95,7 @@ void ct_entries(void)
 	io_apic_entry_cnt = 0;
 	io_intr_entry_cnt = 0;
 	loc_intr_entry_cnt = 0;
-	processors_count=0;
+	processors_count=0U;
 	if (ct->Signature != CT_SIGNATURE) {
 		printk("[*]Bad Config table signature ; Aborting ..\n");
 		return;
