@@ -37,6 +37,7 @@ typedef struct proc {
 //	char 		proc_name[MAX_PROC_NAME];
 	LIST_ENTRY(proc)	link;
 	LIFO_ENTRY(proc)	q_link;
+	uint32_t	timer;
 } proc_t;
 
 #define PROC_TABLE_SIZE	ROUND_UP(MAX_PROCS * sizeof(struct proc), PAGESZ)
@@ -50,7 +51,6 @@ LIFO_HEAD(Proc_Lifo, proc);
 /* Process Table */
 extern proc_t *proc_table;
 extern struct Proc_Lifo running_procs;
-
 void init_proc_table(void);
 void switch_address_space(proc_t*);
 uint32_t proc_setup(proc_t **);
@@ -60,4 +60,5 @@ void test_fifo(void);
 void sched_init(void);
 void schedule(void);
 void proc_printinfo(void);
+void proc_ready(proc_t *);
 #endif

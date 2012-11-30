@@ -27,7 +27,6 @@ struct Proc_List	empty_procs;
 proc_t *proc_table;
 struct Proc_Lifo	running_procs;
 FIFO_HEAD(ready_procs, proc,256);
-
 /**
  * @brief Initialize the proc array
  * @details
@@ -75,7 +74,7 @@ init_proc_table(void){
 		i_proc->ss	= 0;
 		i_proc->esp	= 0;
 		i_proc->eflags	= 0 | FLAG_IF;
-		
+		i_proc->timer 	= 0;
 		LIST_INSERT_HEAD(&empty_procs, &proc_table[count], link);
 	}
 	// Setup user space 16 Megs are enough..
@@ -120,7 +119,11 @@ create_proc(proc_t **proc_s)
 	*proc_s = proc;
 	return 0;
 }
-
+void
+proc_ready(proc_t *proc)
+{
+	FIFO_PUSH(&ready_procs, proc);
+}
 /**
  * @param proc_t proc reference to allocate memory for
  * @param void* the base address of memory needed to be allocated.
