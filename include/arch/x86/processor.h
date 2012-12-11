@@ -69,6 +69,7 @@
 /* Vendors */
 #define VENDOR_INTEL 0x1
 #define VENDOR_AMD 0x2
+
 struct cpu_version{
 	struct {
 		unsigned stepping:4;
@@ -157,4 +158,12 @@ typedef struct{
 
 extern char *cpu_vendors[];
 extern cpu_t *cpu;
+
+
+
+/* ============================ */
+/** MEMORY**/
+#define MFENCE	asm volatile("mfence");
+#define LFENCE	asm volatile("lfence");
+#define SFENCE	asm volatile("sfence");
 #endif /* _CATERNEL_PROCESSOR_H_ */
