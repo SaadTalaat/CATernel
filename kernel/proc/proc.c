@@ -65,8 +65,8 @@ init_proc_table(void){
 
 		i_proc->gpr_regs = (gpr_regs_t){0,0,0,0,0,0,0,0};
 		i_proc->seg_regs = (seg_regs_t){0,0,0,0};
-		i_proc->proc_status = PROC_EMPTY;
-		i_proc->proc_id	= count;
+		i_proc->status = PROC_EMPTY;
+		i_proc->id	= count;
 		i_proc->preempted = 0;
 		i_proc->dequeqed = 0;
 		i_proc->eip	= 0;
@@ -114,7 +114,7 @@ create_proc(proc_t **proc_s)
 	proc->esp	=	USERSTACK_TOP - 50;
 	proc->cs	=	SEG_USERCODE | 3;
 	proc->ss	=	SEG_USERDATA | 3;
-	proc->proc_id	= proc- proc_table;
+	proc->id	= proc- proc_table;
 	LIST_REMOVE(proc,link);
 	*proc_s = proc;
 	return 0;
@@ -122,6 +122,7 @@ create_proc(proc_t **proc_s)
 void
 proc_ready(proc_t *proc)
 {
+	assert(proc->status == RUNNABLE);
 	FIFO_PUSH(&ready_procs, proc);
 }
 /**
@@ -161,7 +162,7 @@ init_proc0()
 	uint32_t status;
 	int i;
 	create_proc(&proc0);
-	printk("proc is %d\n", proc0->proc_id);
+	printk("proc is %d\n", proc0->id);
 	for( i =0; i< 20; i++)
 	{
 		status = elf_load_to_proc(proc0, 512*(127+i));
@@ -202,13 +203,13 @@ test_lifo(void){
 	LIFO_PUSH(&running_procs, &proc_table[2], q_link);
 	LIFO_PUSH(&running_procs, &proc_table[3], q_link);
 	proc_out = LIFO_POP(&running_procs, q_link);
-	assert(proc_out->proc_id == 3);
+	assert(proc_out->id == 3);
 	proc_out = LIFO_POP(&running_procs, q_link);
-	assert(proc_out->proc_id == 2);
+	assert(proc_out->id == 2);
 	proc_out = LIFO_POP(&running_procs, q_link);
-	assert(proc_out->proc_id == 1);
+	assert(proc_out->id == 1);
 	proc_out = LIFO_POP(&running_procs, q_link);
-	assert(proc_out->proc_id == 0);
+	assert(proc_out->id == 0);
 	printk("[*] TEST: LIFO Queue test passed..\n");
 	return;
 
@@ -226,13 +227,13 @@ test_fifo(void){
 	FIFO_PUSH(&ready_procs, &proc_table[3]);
 	assert(!FIFO_EMPTY(&ready_procs));
 	proc_out = FIFO_POP(&ready_procs);
-	assert(proc_out->proc_id == 0);
+	assert(proc_out->id == 0);
 	proc_out = FIFO_POP(&ready_procs);
-	assert(proc_out->proc_id == 1);
+	assert(proc_out->id == 1);
 	proc_out = FIFO_POP(&ready_procs);
-	assert(proc_out->proc_id == 2);
+	assert(proc_out->id == 2);
 	proc_out = FIFO_POP(&ready_procs);
-	assert(proc_out->proc_id == 3);
+	assert(proc_out->id == 3);
 	printk("[*] TEST: FIFO Queue test passed..\n");
 	return;
 }
@@ -283,7 +284,7 @@ schedule(void)
 	if(!LIFO_EMPTY(&running_procs))
 	{
 		pproc = LIFO_POP(&running_procs, q_link);
-		printk("[*] Proc running: %d\n",pproc->proc_id);
+		printk("[*] Proc running: %d\n",pproc->id);
 	}
 	else
 		printk("[*] No running procs\n");
@@ -291,7 +292,7 @@ schedule(void)
 	if(!FIFO_EMPTY(&ready_procs))
 	{
 		proc = FIFO_POP(&ready_procs);
-		printk("[*] Ready proc: %d\n",proc->proc_id);
+		printk("[*] Ready proc: %d\n",proc->id);
 	}
 	else
 	{
@@ -300,11 +301,12 @@ schedule(void)
 	}
 
 	if(!LIFO_EMPTY(&running_procs))
-		FIFO_PUSH(&ready_procs, pproc);
+		if(pproc->status == RUNNABLE)
+			FIFO_PUSH(&ready_procs, pproc);
 
 	LIFO_PUSH(&running_procs, proc ,q_link);
 
-	printk("[*] Scheduling to process: %d\n", proc->proc_id);
+	printk("[*] Scheduling to process: %d\n", proc->id);
 
 	switch_address_space(proc);
 	/** UNREACHABLE **/

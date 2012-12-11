@@ -19,16 +19,17 @@
 #define RUNNABLE	0
 #define PROC_EMPTY	0x1
 #define NON_RUNNABLE	0x2
+#define BLOCKED		0x3
 typedef struct proc {
 	gpr_regs_t 	gpr_regs;
 	seg_regs_t 	seg_regs;
 	reg_t		eip;
-	uint32_t		cs;
+	uint32_t	cs;
 	reg_t		eflags;
 	reg_t		esp;
-	uint32_t		ss;
-	uint32_t	proc_id;
-	uint32_t	proc_status;
+	uint32_t	ss;
+	uint32_t	id;
+	uint32_t	status;
 	
 	pde_t		*page_directory;
 	uint32_t	cr3;
@@ -37,7 +38,10 @@ typedef struct proc {
 //	char 		proc_name[MAX_PROC_NAME];
 	LIST_ENTRY(proc)	link;
 	LIFO_ENTRY(proc)	q_link;
+	
+	// waiting/blocking
 	uint32_t	timer;
+	LIST_ENTRY(proc)	wait_link;
 } proc_t;
 
 #define PROC_TABLE_SIZE	ROUND_UP(MAX_PROCS * sizeof(struct proc), PAGESZ)

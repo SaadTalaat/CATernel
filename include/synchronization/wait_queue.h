@@ -13,6 +13,12 @@ typedef struct waiting_proc{
 	proc_t	*proc;
 } waiting_t;
 
-//LIST_HEAD(Wait_queue,);
+LIST_HEAD(Wait_list, waiting_proc);
 //extern struct Wait_queue waiting_procs;
+void wait_init(struct Proc_List *);
+void wait_sleep(struct Proc_List *, proc_t *,  uint32_t);
+void wait_update(void) __attribute__((unused));
+void wait_wakeup(struct Proc_List *list);
+
+
 #endif
