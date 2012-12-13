@@ -209,7 +209,20 @@ void find_set_fps(void)
 	asm("xchg %bx,%bx");
 }
 
-
+uint8_t cpu_is_bootstrap(ct_proc_entry * processor_entry)
+{
+	if((processor_entry->cpu_flags & 0x2) == 0x2)
+		return 1;
+	else
+		return 0;
+}
+uint8_t cpu_is_enabled(ct_proc_entry * processor_entry)
+{
+	if((processor_entry->cpu_flags & 0x1) == 0x1)
+		return 1;
+	else
+		return 0;
+}
 void ap_init(void)
 {
 	find_set_fps();
@@ -219,19 +232,19 @@ void ap_init(void)
 	uint32_t i;
 	printk("\n\nprocessor entry : %p \n" , processor_entries ) ;
 	asm("xchg %bx,%bx");
-	ct_proc_entry * processor_entry = processor_entries;
+	uint8_t * processor_entry = (uint8_t *) processor_entries;
 	for(i=0 ; i < processors_count ; i++ )
 	{	
 		printk("Attempting to boot up processor [%x] : addr %p \n" , i , processor_entry );
 		//print_proc_entry(processor_entry);
 		//asm("xchg %bx,%bx");
-		if((processor_entry->cpu_flags & 0x1)==0x1)
+		if(!cpu_is_enabled((ct_proc_entry *)processor_entry))
 			{
 				printk("Processor disabled , Skipping \n");
-				processor_entry+=20; 
+				processor_entry+=20;
 				continue;
 			}
-		if( (processor_entry->cpu_flags & 0x2 ) == 0x2)
+		if(cpu_is_bootstrap((ct_proc_entry *)processor_entry))
 			{
 				printk("Boot strap already up , Skipping \n");	
 				processor_entry+=20;
