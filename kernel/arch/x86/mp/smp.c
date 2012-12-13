@@ -1,17 +1,19 @@
 #include <types.h>
 #include <arch/x86/mp/smp.h>
+#include <arch/x86/mp/apic.h>
 #include <arch/x86/bios/bios.h>
 #include <arch/x86/mm/page.h>
+#include <arch/x86/mp/ap.h>
 
 fpstruct_t * fs;
 ct_hdr * ct;
 
 //keep pointer to collect entries.
-ct_proc_entry * processor_entries = NULL;
-ct_bus_entry * bus_entries = NULL;
-ct_io_apic_entry * io_apic_entries = NULL;
-ct_io_intr_entry *io_intr_entries = NULL;
-ct_loc_intr_entry *loc_intr_entries = NULL;
+static ct_proc_entry * processor_entries;
+ct_bus_entry * bus_entries;
+ct_io_apic_entry * io_apic_entries;
+ct_io_intr_entry *io_intr_entries;
+ct_loc_intr_entry *loc_intr_entries;
 
 //why do global variables freak out ? C trolling..
 uint32_t processors_count;
@@ -87,9 +89,26 @@ void ct_read_hdr(void)
 	
 }
 
+void print_proc_entry(ct_proc_entry * processor_entry)
+{
+	printk("entry addr : %p \n" , processor_entry);
+	printk("Entry type : %x \n" , processor_entry->entry_type);
+	printk("LAPIC ID : %x \n" , processor_entry->lapic_id);
+	printk("LAPIC Version : %x \n" , processor_entry->lapic_version);
+	printk("CPU Flags : %x\n" , processor_entry->cpu_flags);
+	printk("CPU Signature : %x \n" , processor_entry->cpu_signature);
+	printk("Feature flags : %x \n", processor_entry->feature_flags);
+}
 void ct_entries(void)
 {
 	uintptr_t l_apic;
+
+	processor_entries=NULL;
+	bus_entries=NULL;
+	io_apic_entries=NULL;
+	io_intr_entries=NULL;
+	loc_intr_entries=NULL;
+
         io_apic_cnt = 0;
 	bus_entry_cnt = 0;
 	io_apic_entry_cnt = 0;
@@ -112,10 +131,11 @@ void ct_entries(void)
 		switch (*cur) {
 		case PROCESSOR: 
 			processor_entries = processor_entries ?
-			    processor_entries :
-			    (ct_proc_entry*) cur;
+			processor_entries :(ct_proc_entry*) cur;		    
 			processors_count++;
 			printk("[*] Processor [%d] detected\n" , processors_count);
+			print_proc_entry((ct_proc_entry*) cur);
+			asm("xchg %bx,%bx");		
 			cur += 20;
 			break;
 		case BUS:
@@ -153,7 +173,8 @@ void ct_entries(void)
 		
 	}
 	//processors_count=processor_entry_cnt;
-	printk("[*] Detected total of %d processors" , processors_count);
+	printk("[*] Detected total of %d processors ; Entries starting at %p \n" , processors_count , processor_entries);
+	asm("xchg %bx,%bx");
 }
 /**
  * @fn void find_set_fps(void);
@@ -185,12 +206,42 @@ void find_set_fps(void)
 	fs_found:
 	printk("[*] Located Floating point structure at %x \n" , fs);
 	ct=(ct_hdr *)PA2KA((uint32_t)fs->config_addr);
-	fsp_print(fs);
-	ct_read_hdr();
-	ct_entries();
 	asm("xchg %bx,%bx");
 }
 
+
+void ap_init(void)
+{
+	find_set_fps();
+	fsp_print(fs);
+	ct_read_hdr();
+	ct_entries();
+	uint32_t i;
+	printk("\n\nprocessor entry : %p \n" , processor_entries ) ;
+	asm("xchg %bx,%bx");
+	ct_proc_entry * processor_entry = processor_entries;
+	for(i=0 ; i < processors_count ; i++ )
+	{	
+		printk("Attempting to boot up processor [%x] : addr %p \n" , i , processor_entry );
+		//print_proc_entry(processor_entry);
+		//asm("xchg %bx,%bx");
+		if((processor_entry->cpu_flags & 0x1)==0x1)
+			{
+				printk("Processor disabled , Skipping \n");
+				processor_entry+=20; 
+				continue;
+			}
+		if( (processor_entry->cpu_flags & 0x2 ) == 0x2)
+			{
+				printk("Boot strap already up , Skipping \n");	
+				processor_entry+=20;
+				continue;
+			}
+		processor_entry+=20;
+
+	}	
+	//apic_init_ipi();
+}
 
 
 
