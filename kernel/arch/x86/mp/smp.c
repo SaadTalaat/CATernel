@@ -229,10 +229,12 @@ void ap_init(void)
 	fsp_print(fs);
 	ct_read_hdr();
 	ct_entries();
+	vector_test();
 	uint32_t i;
 	printk("\n\nprocessor entry : %p \n" , processor_entries ) ;
 	asm("xchg %bx,%bx");
 	uint8_t * processor_entry = (uint8_t *) processor_entries;
+	ct_proc_entry * p;
 	for(i=0 ; i < processors_count ; i++ )
 	{	
 		printk("Attempting to boot up processor [%x] : addr %p \n" , i , processor_entry );
@@ -250,10 +252,12 @@ void ap_init(void)
 				processor_entry+=20;
 				continue;
 			}
+		p=(ct_proc_entry *)processor_entry;
+	        apic_init_ipi(p->lapic_id);
 		processor_entry+=20;
 
 	}	
-	//apic_init_ipi();
+	
 }
 
 

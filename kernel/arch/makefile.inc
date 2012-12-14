@@ -11,6 +11,8 @@ ARCH_SOURCES = \
 	kernel/arch/$(KARCH)/interrupt.c\
 	kernel/arch/$(KARCH)/processor.c\
 	kernel/arch/$(KARCH)/bios/bios.c\
+	kernel/arch/$(KARCH)/mp/delay.c\
+	kernel/arch/$(KARCH)/mp/ap.S\
 	kernel/arch/$(KARCH)/mp/apic.c\
 	kernel/arch/$(KARCH)/mp/smp.c\
 	kernel/arch/$(KARCH)/mm/init_mem.c

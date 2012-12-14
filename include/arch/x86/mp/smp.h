@@ -114,13 +114,13 @@ typedef struct {
 
 
 extern fpstruct_t * fs;
-extern  ct_hdr * ct;
-
+extern ct_hdr * ct;
+extern uint32_t processors_count;
 uint8_t fps_check(uint8_t *base);
 uint8_t ct_check(void);
 void fsp_print(fpstruct_t * fs);
 void ct_read_hdr(void);
-static void ct_entries(void);
+void ct_entries(void);
 void find_set_fps(void);
 
 #endif

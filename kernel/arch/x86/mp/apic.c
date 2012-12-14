@@ -11,7 +11,11 @@
 #include <arch/x86/x86.h>
 #include <arch/x86/processor.h>
 #include <arch/x86/mp/apic.h>
+#include <arch/x86/mm/page.h>
+#include <memvals.h>
+#include <arch/x86/mp/delay.h>
 
+uint32_t vector_addr = 0x00022000;
 uint32_t *lapic = (uint32_t *)(0xfee00000);
 void
 lapic_init(void)
@@ -72,6 +76,78 @@ msr_lapic_enable(void)
 	}
 	
 }
+
+void vector(void){asm("jmp %0"::"a"(0x7c00));}
+
+void vector_test(void)
+{
+	map_segment_page(global_pgdir,vector_addr, PAGESZ, 
+			0x22500000, PAGE_PRESENT|PAGE_WRITABLE);
+}
+
+void apic_s_ipi(icr_t icr , uint8_t lapicid)
+{
+	uint32_t k;//stupid iterations sake
+	icr.delivery_mode = ICR_INIT;
+	icr.dest_mode = PHYSICAL;
+	icr.level = LEVEL_ASSERT;
+	icr.shorthand = NO_SH;
+	icr.trigger_mode = TRIGMOD_LEVEL;
+	icr.vector = 0;
+	icr.dest= lapicid;
+	lapic[ICR_LOW] = icr.lo;
+	//Wait 10ms 
+	delay(10000);
+	uint8_t j;
+	if (!is_82489DX_apic(lapic[LAVR])) 
+		{ j=1;} else {j=2;}
+	unsigned int i;
+	for (i = 0; i < j; i++) {
+	icr.lo = lapic[ICR_LOW];
+	icr.vector = (vector_addr >> 12 ) ;//trampoline function needs to be here
+	icr.delivery_mode = ICR_SIPI;
+	icr.dest_mode = PHYSICAL;
+	icr.level = LEVEL_ASSERT;
+	icr.shorthand = NO_SH;
+	icr.trigger_mode = TRIGMOD_LEVEL;
+	icr.dest=lapicid;
+	lapic[ICR_LOW] = icr.lo;
+	//Wait 200 us
+	delay(200);
+	apic_read_errors();
+	asm("xchg %bx,%bx");
+
+	}
+}
+
+void apic_init_ipi(uint8_t lapicid)
+{
+	icr_t icr;
+	icr.lo = lapic[ICR_LOW];
+	icr.hi = lapic[ICR_HIGH];	
+	icr.delivery_mode = ICR_INIT;
+	icr.dest_mode = PHYSICAL;
+	icr.level = LEVEL_ASSERT;
+	icr.trigger_mode = TRIGMOD_LEVEL;
+	icr.shorthand = NO_SH;
+	icr.vector = 0;
+	icr.dest =lapicid; //broadcast? 0xFH for Pentium and P6 0xFFH for Pentium 4 and Intel Xeon processors.
+	lapic[ICR_LOW] = icr.hi;
+	lapic[ICR_HIGH] = icr.lo;	
+	//According to MP Specification, 20us should be enough to deliver the IPI.
+	uint32_t i;
+	delay(20);
+	apic_read_errors();
+	asm("xchg %bx,%bx");
+	apic_s_ipi(icr ,lapicid);
+}
+
+void apic_read_errors(void)
+{
+	uint32_t error = lapic[ERR];
+	printk("[*] APIC Error : %x \n" , error); 
+}
+
 /**
  * @}
  * @}
