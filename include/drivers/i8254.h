@@ -30,5 +30,5 @@
 #define SELECT_CNT0	0x0
 #define SELECT_CNT1	0x40
 #define SELECT_CNT2	0x80
-
+extern uint32_t delay_loop_const;
 #endif
