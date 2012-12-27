@@ -104,5 +104,5 @@ void msr_lapic_enable(void);
 void apic_init_ipi(uint8_t lapicid);
 void apic_s_ipi(icr_t icr , uint8_t lapicid);
 void apic_read_errors(void);
-void vector_test(void);
+//void vector_test(void);
 #endif /* _CATERNEL_X86_MP_APIC_H_ */

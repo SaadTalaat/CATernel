@@ -1,6 +1,6 @@
 /**
  * @file smp.h
- * @author Saad Talaat
+ * @author Saad Talaat , Menna Essa
  * @date 19 November, 2012
  * @brief Multiprocessor support header
  *

@@ -34,11 +34,17 @@ i8254_init(void)
 
 }
 
+/**
+ * @brief calibrates the number of loops per 1 ms
+ * @param none
+ * @return none
+ */ 
+
 void i8254_calibrate_delay_loop(void)
 {
 	/*
 	 * One-shot timer. Count-down from 0xffff at 1193180Hz
-	 * MAGIC_NUMBER is the magic value for 1ms. kudos to helenOS
+	 * MAGIC_NUMBER is the magic value for 1us. kudos to helenOS
 	 */
 	outb(LATCH_ALL,PIT_MODE);
 	outb(0xff,PIT_CHANNEL0);

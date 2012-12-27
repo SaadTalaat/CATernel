@@ -1,6 +1,6 @@
 /**
  * @file i8254.h
- * @author Saad Talaat
+ * @author Saad Talaat , Menna Essa
  * @brief Intel 8254 PIT
  */
 
@@ -31,4 +31,7 @@
 #define SELECT_CNT1	0x40
 #define SELECT_CNT2	0x80
 extern uint32_t delay_loop_const;
+void i8254_init(void);
+void i8254_calibrate_delay_loop(void);
+
 #endif

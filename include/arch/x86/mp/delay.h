@@ -1,9 +1,9 @@
 /**
- * @{
+ * 
  * @file delay.h
  * @author Menna Essa
  * @brief Simple delay functions headers
- * @{
+ * 
  */ 
 
 #ifndef _CATERNEL_DELAY_H_

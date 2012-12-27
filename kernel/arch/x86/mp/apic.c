@@ -2,7 +2,7 @@
  * @addtogroup Multiprocessors
  * @{
  * @file apic.c
- * @author Saad Talaat
+ * @author Saad Talaat , Menna Essa
  * @date 18 November, 2012
  * @brief supporting xAPIC for MPs
  * @name APIC
@@ -17,16 +17,28 @@
 
 uint32_t vector_addr = 0x00022000;
 uint32_t *lapic = (uint32_t *)(0xfee00000);
+
+/**
+ * @brief Soft Initiates the LAPIC  
+ * @param none
+ * @return none
+ */
 void
 lapic_init(void)
 {
 	printk("[*] APIC: Local ID %x\n", lapic[LAID]);
 	msr_lapic_enable();
 	soft_lapic_enable();
-	asm("xchg %bx,%bx");
+	//asm("xchg %bx,%bx");
 }
 
 /** Enabling LAPIC */
+
+/**
+ * @brief Soft To enable the Local APIC to receive interrupts you also have to set bit 8 in the Spurious Interrupt Vector Register 
+ * @param none
+ * @return none
+ */
 void
 soft_lapic_enable(void)
 {
@@ -51,6 +63,12 @@ soft_lapic_enable(void)
 		return;
 	}
 }
+
+/**
+ * @brief APIC setting IA32_APIC_BASE Model Specific Register (MSR) 
+ * @param none
+ * @return none
+ */
 void
 msr_lapic_enable(void)
 {
@@ -77,6 +95,7 @@ msr_lapic_enable(void)
 	
 }
 
+/*
 void vector(void){asm("jmp %0"::"a"(0x7c00));}
 
 void vector_test(void)
@@ -84,10 +103,17 @@ void vector_test(void)
 	map_segment_page(global_pgdir,vector_addr, PAGESZ, 
 			0x22500000, PAGE_PRESENT|PAGE_WRITABLE);
 }
+*/
+
+/**
+ * @brief Sending Startup IPI to processor speicified with lapicid
+ * @param icr Interrupt control register structure to set the options for the interrupt
+ * @param lapicid the processors lapic id         
+ * @return none
+ */
 
 void apic_s_ipi(icr_t icr , uint8_t lapicid)
 {
-	uint32_t k;//stupid iterations sake
 	icr.delivery_mode = ICR_INIT;
 	icr.dest_mode = PHYSICAL;
 	icr.level = LEVEL_ASSERT;
@@ -104,7 +130,7 @@ void apic_s_ipi(icr_t icr , uint8_t lapicid)
 	unsigned int i;
 	for (i = 0; i < j; i++) {
 	icr.lo = lapic[ICR_LOW];
-	icr.vector = (vector_addr >> 12 ) ;//trampoline function needs to be here
+	icr.vector = 0 ;//trampoline function needs to be here
 	icr.delivery_mode = ICR_SIPI;
 	icr.dest_mode = PHYSICAL;
 	icr.level = LEVEL_ASSERT;
@@ -115,11 +141,16 @@ void apic_s_ipi(icr_t icr , uint8_t lapicid)
 	//Wait 200 us
 	delay(200);
 	apic_read_errors();
-	asm("xchg %bx,%bx");
+	//asm("xchg %bx,%bx");
 
 	}
 }
 
+/**
+ * @brief Sending INIT IPI to processor speicified with lapicid
+ * @param lapicid the processors lapic id         
+ * @return none
+ */
 void apic_init_ipi(uint8_t lapicid)
 {
 	icr_t icr;
@@ -142,10 +173,16 @@ void apic_init_ipi(uint8_t lapicid)
 	apic_s_ipi(icr ,lapicid);
 }
 
+/**
+ * @brief Reads error field in lapic 
+ * @param none
+ * @return none
+ */ 
+
 void apic_read_errors(void)
 {
 	uint32_t error = lapic[ERR];
-	printk("[*] APIC Error : %x \n" , error); 
+	printk("[*] APIC Error [%p] : %x \n" ,lapic, error); 
 }
 
 /**
