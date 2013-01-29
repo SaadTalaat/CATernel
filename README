@@ -1,33 +1,26 @@
-CATernel
--=-=-=-=-
-	CATernel is a 32-bit protected mode functioning Kernel. so far for the x86 archs.
+#CATernel#
+	CATernel is research purpose uKernel using IA ISA, so far..
 
-How is it built
--=-=-=-=-=-=-=-=-
-	CATernel's BootLoader is in arch/x86/boot/ directory. more archs should be supported as soon as the kernel is fully functional. the true kernel code is supposed to be in the kernel directory.
-	
-How to Contribute
--=-=-=-=-=-=-=-=-=-
-	If you need to contribute on this project there is some stuff you need to know before.
-	- Assembly (GAS is preferred) for low level operations like coding a boot manager
-	- C Programming Language for higher level kernel coding
-	- Familiarity with kernel development
-	- Emulators like bochs and qemu (We use bochs for logging the kernel messages and testing it and qemu for debugging the kernel using gdb)
-	- Familarity with GNU debugger and GNU C Compiler
-	- Familarity with GNU Make tool if you're ever planning to write you're on code and modifying or writing Makefiles
-	- and Git of course
-	- familarity with intel arch is preferred
+#How is it built#
+	$ make image
+		outputs image into 'kern/kernel/CATernel.img'
+	$ make clean
+		removes the kern output directory.
 
-To be supported
--=-=-=-=-=-=-=-=-
-	- Kernel not yet written you may browse the code
+#How to Contribute#
+	Contribution requires good familarity with OS concepts and implementation. Documentation available on CATernel-Doc repo, you can contribute as far as you can understand the project structure. You'll be using:-
+	- Git [Obviously]
+	- x86 emulator (bochs/qemu)
+	- gnu autotools, binutils
+	 
+#To be supported#
+	- Refer to TODO
 
-Notes
--=-=-=-=-=-=-=-=-
-	- Please use a high descriptive commit messages
-	- This is a CATReloaded Software Project
-	- http://catreloaded.net/projects/caternel <- Project Documentation
-	- http://catreloaded.net
+#Notes#
+	- Please make your commits descriptive.
+	- http://github.com/SaadTalaat/CATernel-Doc [Documentation]
+	- http://catreloaded.net [ Organization ]
 	- http://twitter.com/catreloaded
-	- if you faced any problem in the code or whatever you can get on IRC (Freenode) channel #CATReloaded and ask
+	- http://facebook.com/catreloaded.team
+	- if you are facing any problem get on IRC (Freenode) channel #CATReloaded.
 
