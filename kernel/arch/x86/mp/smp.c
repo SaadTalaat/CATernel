@@ -1,11 +1,27 @@
+/**
+ * @addtogroup MultiProcessors
+ * @{
+ * @file smp.c
+ * @author Menna Essa
+ * @brief SMP Support functions
+ * @name Delay 
+ * @{
+ */ 
+
 #include <types.h>
 #include <arch/x86/mp/smp.h>
 #include <arch/x86/mp/apic.h>
 #include <arch/x86/bios/bios.h>
 #include <arch/x86/mm/page.h>
+#include <memvals.h>
 #include <arch/x86/mp/ap.h>
-
+/**
+ * @brief floating point structure
+ */
 fpstruct_t * fs;
+/**
+ * @brief configuration table.
+ */
 ct_hdr * ct;
 
 //keep pointer to collect entries.
@@ -23,6 +39,11 @@ uint32_t io_apic_entry_cnt;
 uint32_t io_intr_entry_cnt;
 uint32_t loc_intr_entry_cnt;
 
+/**
+ * @brief checks if floating point structure is valid , the sum of all elements must be 0 
+ * @param base base of table
+ * @return 0 if true 1 if false
+ */ 
 uint8_t fps_check(uint8_t *base)
 {
 	uint32_t i;
@@ -34,6 +55,12 @@ uint8_t fps_check(uint8_t *base)
 	else
 	return 1;
 }
+/**
+ * @brief checks if configuration is valid , the sum of all elements must be 0 
+ * @param base base of table
+ * @return 0 if true 1 if false
+ */ 
+
 uint8_t ct_check(void)
 //<3 helenOS return 0 if succeeded 
 {
@@ -58,6 +85,11 @@ uint8_t ct_check(void)
 	else
 		return 0;
 }
+/**
+ * @brief parses the floating point structure
+ * @param fs pointer to structure
+ * @return none
+ */ 
 void fsp_print(fpstruct_t * fs)
 {
 	printk("Signature %x \n " , fs->Signature);
@@ -67,13 +99,14 @@ void fsp_print(fpstruct_t * fs)
 	printk("Feature1 %x \n" , fs->feature1);
 	printk("Feature2 %x \n" , fs->feature2);
 }
-
+/**
+ * @brief parses the configuration table structure
+ * @param none
+ * @return none
+ */ 
 void ct_read_hdr(void)
 {	
-	printk("[*]Checking Configuration table integrity..");
-	if(ct_check()==0)
-		printk("Success!\n");
-	else{ printk("Failed!\n");return; }      
+    
 	printk("[*]Reading Configuration table.. \n");
 	printk("ct Signature %x\n" , ct->Signature);
 	printk("ct Base table Length %x\n" , ct->base_table_len);
@@ -88,7 +121,11 @@ void ct_read_hdr(void)
 	printk("ct Extended table checksum %x\n" , ct->extnd_table_checksum);
 	
 }
-
+/**
+ * @brief parses the cpu entry
+ * @param processor_entry pointer to ct_proc_entry structure
+ * @return none
+ */ 
 void print_proc_entry(ct_proc_entry * processor_entry)
 {
 	printk("entry addr : %p \n" , processor_entry);
@@ -99,6 +136,11 @@ void print_proc_entry(ct_proc_entry * processor_entry)
 	printk("CPU Signature : %x \n" , processor_entry->cpu_signature);
 	printk("Feature flags : %x \n", processor_entry->feature_flags);
 }
+/**
+ * @brief parses the config table and sets the entries pointers
+ * @param none
+ * @return none
+ */ 
 void ct_entries(void)
 {
 	uintptr_t l_apic;
@@ -134,8 +176,8 @@ void ct_entries(void)
 			processor_entries :(ct_proc_entry*) cur;		    
 			processors_count++;
 			printk("[*] Processor [%d] detected\n" , processors_count);
-			print_proc_entry((ct_proc_entry*) cur);
-			asm("xchg %bx,%bx");		
+			//print_proc_entry((ct_proc_entry*) cur);
+			//asm("xchg %bx,%bx");		
 			cur += 20;
 			break;
 		case BUS:
@@ -173,8 +215,8 @@ void ct_entries(void)
 		
 	}
 	//processors_count=processor_entry_cnt;
-	printk("[*] Detected total of %d processors ; Entries starting at %p \n" , processors_count , processor_entries);
-	asm("xchg %bx,%bx");
+	//printk("[*] Detected total of %d processors ; Entries starting at %p \n" , processors_count , processor_entries);
+	//asm("xchg %bx,%bx");
 }
 /**
  * @fn void find_set_fps(void);
@@ -186,7 +228,7 @@ void ct_entries(void)
 void find_set_fps(void)
 {
 	printk("[*] Searching for FPS...\n");
-	asm("xchg %bx,%bx");
+	//asm("xchg %bx,%bx");
 	uint8_t * addr[2] = { NULL, (uint8_t *) PA2KA(0xf0000) };
 	uint32_t i;
 	uint32_t j;
@@ -206,9 +248,13 @@ void find_set_fps(void)
 	fs_found:
 	printk("[*] Located Floating point structure at %x \n" , fs);
 	ct=(ct_hdr *)PA2KA((uint32_t)fs->config_addr);
-	asm("xchg %bx,%bx");
+	//asm("xchg %bx,%bx");
 }
-
+/**
+ * @brief checks if cpu is bootstrap
+ * @param processory_entry pointer to processor structure in config table
+ * @return 1 if bootstrap 0 if not
+ */ 
 uint8_t cpu_is_bootstrap(ct_proc_entry * processor_entry)
 {
 	if((processor_entry->cpu_flags & 0x2) == 0x2)
@@ -216,6 +262,11 @@ uint8_t cpu_is_bootstrap(ct_proc_entry * processor_entry)
 	else
 		return 0;
 }
+/**
+ * @brief checks if cpu is enabled 
+ * @param processory_entry pointer to processor structure in config table
+ * @return 1 if enabled 0 if not
+ */ 
 uint8_t cpu_is_enabled(ct_proc_entry * processor_entry)
 {
 	if((processor_entry->cpu_flags & 0x1) == 0x1)
@@ -223,18 +274,30 @@ uint8_t cpu_is_enabled(ct_proc_entry * processor_entry)
 	else
 		return 0;
 }
+
+/**
+ * @brief Initializes application processors
+ * @param void
+ * @return void
+ */ 
 void ap_init(void)
 {
 	find_set_fps();
+	if(fs==NULL) return;
 	fsp_print(fs);
+	printk("[*]Checking Configuration table integrity..");
+	if(ct_check()==0)
+		printk("Success!\n");
+	else{ printk("Failed!\n");return; }  
 	ct_read_hdr();
 	ct_entries();
-	vector_test();
+	//vector_test();
 	uint32_t i;
-	printk("\n\nprocessor entry : %p \n" , processor_entries ) ;
-	asm("xchg %bx,%bx");
+	//printk("\n\nprocessor entry : %p \n" , processor_entries ) ;
+	//asm("xchg %bx,%bx");
 	uint8_t * processor_entry = (uint8_t *) processor_entries;
 	ct_proc_entry * p;
+	//map_AP_startup();
 	for(i=0 ; i < processors_count ; i++ )
 	{	
 		printk("Attempting to boot up processor [%x] : addr %p \n" , i , processor_entry );
@@ -259,7 +322,10 @@ void ap_init(void)
 	}	
 	
 }
-
+/**
+ * @}
+ * @}
+ */
 
 
 

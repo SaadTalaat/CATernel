@@ -81,10 +81,11 @@ bootup(void){
 	time_print();
 	bios_init();
 	scan_memory();
-	find_set_fps();
-	x86_setup_memory();
 	processor_identify();
 	lapic_init();
+	i8254_calibrate_delay_loop();
+	ap_init();
+	x86_setup_memory();
 	init_proc();
 	kconsole_init();
 	play();

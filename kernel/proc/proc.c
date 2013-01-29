@@ -163,7 +163,7 @@ init_proc0()
 	int i;
 	create_proc(&proc0);
 	printk("proc is %d\n", proc0->id);
-	for( i =0; i< 20; i++)
+	for( i =0; i< 30; i++)
 	{
 		status = elf_load_to_proc(proc0, 512*(127+i));
 		if(status == 0)
@@ -174,7 +174,7 @@ init_proc0()
 	}
 	if(status == -1)
 	{
-		panic("SHIT");
+		panic("Couldn't locate PROC0.");
 	}
 	FIFO_PUSH(&ready_procs, proc0);
 	/* Not reachable */

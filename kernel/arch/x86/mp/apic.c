@@ -13,6 +13,7 @@
 #include <arch/x86/mp/apic.h>
 #include <arch/x86/mm/page.h>
 #include <memvals.h>
+#include <arch/x86/mp/ap.h>
 #include <arch/x86/mp/delay.h>
 
 uint32_t vector_addr = 0x00022000;
@@ -116,7 +117,7 @@ void apic_s_ipi(icr_t icr , uint8_t lapicid)
 {
 	icr.delivery_mode = ICR_INIT;
 	icr.dest_mode = PHYSICAL;
-	icr.level = LEVEL_ASSERT;
+	icr.level = LEVEL_DEASSERT;
 	icr.shorthand = NO_SH;
 	icr.trigger_mode = TRIGMOD_LEVEL;
 	icr.vector = 0;
@@ -130,7 +131,9 @@ void apic_s_ipi(icr_t icr , uint8_t lapicid)
 	unsigned int i;
 	for (i = 0; i < j; i++) {
 	icr.lo = lapic[ICR_LOW];
-	icr.vector = 0 ;//trampoline function needs to be here
+	icr.vector=0x10;
+	//icr.vector = KA2PA(trampoline) >> 12 ;//trampoline function needs to be here
+	//printk("tramp %x",KA2PA(trampoline));
 	icr.delivery_mode = ICR_SIPI;
 	icr.dest_mode = PHYSICAL;
 	icr.level = LEVEL_ASSERT;

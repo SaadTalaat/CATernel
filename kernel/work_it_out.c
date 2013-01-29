@@ -25,7 +25,7 @@
 #include <stdio.h>
 #include <test.h>
 #include <init.h>
-
+#include <arch/x86/bios/bios.h>
 /**
  * @fn void work_it_out(void);
  * @brief initializes screen and starts the bootup_process
