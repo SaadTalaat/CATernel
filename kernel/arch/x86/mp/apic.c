@@ -13,7 +13,8 @@
 #include <arch/x86/mp/apic.h>
 #include <arch/x86/mm/page.h>
 #include <memvals.h>
-#include <arch/x86/mp/ap.h>
+#include <arch/x86/mp/smp.h>
+//#include <arch/x86/mp/ap.h>
 #include <arch/x86/mp/delay.h>
 
 uint32_t vector_addr = 0x00022000;
@@ -131,8 +132,7 @@ void apic_s_ipi(icr_t icr , uint8_t lapicid)
 	unsigned int i;
 	for (i = 0; i < j; i++) {
 	icr.lo = lapic[ICR_LOW];
-	icr.vector=0x10;
-	//icr.vector = KA2PA(trampoline) >> 12 ;//trampoline function needs to be here
+	icr.vector = (SMPBOOT_START) >> 12 ;//trampoline function needs to be here
 	//printk("tramp %x",KA2PA(trampoline));
 	icr.delivery_mode = ICR_SIPI;
 	icr.dest_mode = PHYSICAL;
@@ -166,10 +166,9 @@ void apic_init_ipi(uint8_t lapicid)
 	icr.shorthand = NO_SH;
 	icr.vector = 0;
 	icr.dest =lapicid; //broadcast? 0xFH for Pentium and P6 0xFFH for Pentium 4 and Intel Xeon processors.
-	lapic[ICR_LOW] = icr.hi;
-	lapic[ICR_HIGH] = icr.lo;	
+	lapic[ICR_LOW] = icr.lo;
+	lapic[ICR_HIGH] = icr.hi;	
 	//According to MP Specification, 20us should be enough to deliver the IPI.
-	uint32_t i;
 	delay(20);
 	apic_read_errors();
 	asm("xchg %bx,%bx");

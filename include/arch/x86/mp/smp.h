@@ -8,6 +8,9 @@
 
 #ifndef _CATERNEL_X86_MP_SMP_H_
 #define _CATERNEL_X86_MP_SMP_H_
+
+#define SMPBOOT_START		0xBD000
+#define TRAMPOLINE_START	PA2KA(SMPBOOT_START)
 #define NCPUS 4
 #define FS_SIGNATURE  0x5f504d5f // _MP_ Signature
 #define CT_SIGNATURE  0x504d4350 // PCMP Singature 
