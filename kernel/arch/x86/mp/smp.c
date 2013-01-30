@@ -14,7 +14,10 @@
 #include <arch/x86/bios/bios.h>
 #include <arch/x86/mm/page.h>
 #include <memvals.h>
-#include <arch/x86/mp/ap.h>
+//#include <arch/x86/mp/ap.h>
+
+extern const char trampoline[];
+extern const char trampoline_end[];
 /**
  * @brief floating point structure
  */
@@ -280,6 +283,11 @@ uint8_t cpu_is_enabled(ct_proc_entry * processor_entry)
  * @param void
  * @return void
  */ 
+void map_AP_Startup(void)
+{
+	
+	memcopy(TRAMPOLINE_START, trampoline, trampoline_end - trampoline);	
+}
 void ap_init(void)
 {
 	find_set_fps();
@@ -302,7 +310,7 @@ void ap_init(void)
 	{	
 		printk("Attempting to boot up processor [%x] : addr %p \n" , i , processor_entry );
 		//print_proc_entry(processor_entry);
-		//asm("xchg %bx,%bx");
+		asm("xchg %bx,%bx");
 		if(!cpu_is_enabled((ct_proc_entry *)processor_entry))
 			{
 				printk("Processor disabled , Skipping \n");
