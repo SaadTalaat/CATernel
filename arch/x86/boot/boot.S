@@ -15,14 +15,41 @@
 .global start
 start:
 	.code16
+
 	cli
 	cld
 	xorw %ax,%ax
 	movw %ax,%ds
+	xchg %bx,%bx
 	movw %ax,%es
 	movw %ax,%ss
-
 	movw $start,%sp
+
+	.equ drive, (0xe00 + 8 ) - 0x7c00
+	movb %dl,(drive)
+	
+	movb $2, %ah
+	movb $96, %al
+	movw $2, %cx
+	movb $0, %dh
+	movb (drive), %dl
+	movw $0xf000, %bx
+	int $0x13
+	jc spin
+	xchg %bx,%bx
+
+	jmp A20.1
+.align 4
+disk_address:
+	.byte 0x10
+	.byte 0
+sectors_n:
+	.word 10
+buffer:
+	.word 0x0000
+	.word 0x1000
+sector:
+	.quad 0x1
 #	movw %si,%sp
 #	movw $start,%di
 #	movw $0x100,%cx
@@ -45,7 +72,7 @@ A20.2:
 	jnz 	A20.2
 	movb 	$0xdf,%al
 	outb	%al,$0x60
-switch_mode:
+#switch_mode:
 	lgdt 	gdt_table
 	mov 	%cr0,%eax
 	orl 	$1,%eax
@@ -61,6 +88,11 @@ protseg:
 	movw %ax,%fs
 	movw %ax,%gs
 	xor %eax,%eax
+	mov $0xf000,%esi
+	mov $0x10000,%edi
+	mov $0x3c00,%ecx
+	xchg %bx,%bx
+	rep movsb
 #	mov $0x1, %eax
 #	CPUID
 #	jmp spin

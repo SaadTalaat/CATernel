@@ -75,7 +75,7 @@ cmain(void)
 {	
 	struct proghdr *p,*p2;	// program headers;
 	
-	readseg((uint32_t) ELFHDR,SECTOR*8,0); // Load kernel from disk to memory
+//	readseg((uint32_t) ELFHDR,SECTOR*8,0); // Load kernel from disk to memory
 	/**
 	 * initialize magic to the first for characters of ELF MAGIC signature 
 	 */
