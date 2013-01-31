@@ -33,9 +33,15 @@ $(OBJDIR):
 	@echo [*] Setting up directory tree.
 	@mkdir $@	
 	@mkdir -p $(OBJDIRS)
-.PHONY: clean all image
+.PHONY: clean all image iso
 image:$(OBJDIR)/kernel/CATernel.img
-
+iso:image
+	@echo [*] Building ISO image at $(OBJDIR)/iso..
+	@mkdir -p $(OBJDIR)/iso/boot/grub
+	@cp arch/$(KARCH)/grub/grub.cfg $(OBJDIR)/iso/boot/grub/
+	@cp $(KERNDIR)/kernel $(OBJDIR)/iso/boot/kern.bin
+	@grub-mkrescue -o $(OBJDIR)/CATernel.iso $(OBJDIR)/iso
+	@echo [*] ISO Image at $(OBJDIR)/CATernel.iso
 clean:
 	@echo [*] Generated files removed.
 	@rm -rf $(OBJDIR)

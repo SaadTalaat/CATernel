@@ -8,7 +8,7 @@ ENTRY(_start)
 SECTIONS
 {
 	. = 0xF0100000;
-	.text : {
+	.text : AT(0x100000){
 		*(.text .stub .text.* .gnu.linkonce.t.*)
 	}
 	PROVIDE(etext = .);
