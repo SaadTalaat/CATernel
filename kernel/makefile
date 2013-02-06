@@ -8,10 +8,11 @@ OBJDIRS += $(OBJDIR)/kernel \
 		$(OBJDIR)/kernel/drivers\
 		$(OBJDIR)/kernel/synchronization\
 		$(OBJDIR)/kernel/time\
+		$(OBJDIR)/kernel/generic\
 		$(OBJDIR)/kernel/structs\
 		$(OBJDIR)/kernel/syscalls
 
-KERN_CFILES = $(wildcard kernel/*.c)
+KERN_CFILES = $(wildcard kernel/generic/*.c)
 KERN_CFILES += $(wildcard kernel/proc/*.c)
 KERN_CFILES += $(wildcard kernel/drivers/*.c)
 KERN_CFILES += $(wildcard kernel/syscalls/*.c)
@@ -54,7 +55,7 @@ $(OBJDIR)/kernel/arch/$(KARCH)/%.o:kernel/arch/$(KARCH)/%.c
 $(OBJDIR)/kernel/arch/$(KARCH)/%.o:kernel/arch/$(KARCH)/%.S
 	@$(CC) -nostdinc $(CC_OPTIONS) -c -o $@ $<
 
-$(OBJDIR)/kernel/Reattach.o:kernel/Reattach.S
+$(OBJDIR)/kernel/Reattach.o:kernel/generic/Reattach.S
 	@$(CC) -nostdinc $(CC_OPTIONS) -c -o $@ $<
 
 $(OBJDIR)/kernel/kernel:$(OBJDIR)/kernel/Reattach.o $(KERN_OBJFILES) $(ARCH_OBJS) 

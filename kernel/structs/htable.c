@@ -37,11 +37,13 @@ early_htable_init(htable_t *table, uint32_t buckets_count, uint32_t bucket_lengt
 	table->destroy 	= destroy;
 	table->table 	= allocate(table_size, table_size);
 	table->bucket_size = allocate(table_size, table_size);
+
 	for(count = 0; count < buckets_count; count ++)
 		table->table[count] = allocate(bucket_size,bucket_size);
 
-	for(count = 0; count < buckets_count; count++)
+	for(count = 0; count < bucket_length*2; count++)
 		table->bucket_size[count] = 0;
+	return;
 }
 
 /**

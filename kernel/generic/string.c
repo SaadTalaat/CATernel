@@ -1,0 +1,58 @@
+/**
+ * @addtogroup Main
+ * @{
+ * @file string.c
+ * @brief String and memory operations, originally from linux.
+ * @name Strings and Memory.
+ * @{
+ * @details
+ * Basic copying and sizing and setting operations.
+ */
+#include <string.h>
+
+
+uint32_t strnlen(const char* str, uint32_t count){
+	int n;
+	for (n=0;count > 0 && *str != '\0';str++,count--){
+		n++;
+	}
+	return n;
+}
+void *
+memcopy(void *dst, const void *src, uint32_t count){
+	const char *src2;
+	char *dst2;
+	src2=src;
+	dst2=dst;
+	while(count-- > 0){
+		*dst2++=*src2++;
+	}
+	return dst2;
+
+}
+void*
+memset(void *ptr,int c,uint32_t count){
+	char *ptr2;
+	ptr2 = ptr;
+	while(count--)
+		*ptr2++ =c;
+	return ptr;
+}
+
+int
+strcmp( const char * s1, const char *s2)
+{
+	unsigned int x,y;
+	do{
+		x= *s1++;
+		y= *s2++;
+		if ( x!=y)
+			return x-y;
+
+	} while(x != '\0');
+	return 0;
+}
+/**
+ * @}
+ * @}
+ */

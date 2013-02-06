@@ -33,6 +33,7 @@ $(OBJDIR):
 	@echo [*] Setting up directory tree.
 	@mkdir $@	
 	@mkdir -p $(OBJDIRS)
+
 .PHONY: clean all image iso
 image:$(OBJDIR)/kernel/CATernel.img
 iso:image
