@@ -1,8 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2012-09-20T20:35:35+02:00
-
-====== 3.1.3 - Protected Mode ======
-Created Thursday 20 September 2012
-
-Doing a far jump using ljmp and using the code segment value as a segment and next procedure as an offset modified the CS value to the one in our GDT table. after doing this we set the value of data,stack,extra,f,g segments to the one in the GDT. Now we are fully working on protected mode. **#WIN!**

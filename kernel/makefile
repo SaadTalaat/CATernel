@@ -8,7 +8,8 @@ OBJDIRS += $(OBJDIR)/kernel \
 		$(OBJDIR)/kernel/drivers\
 		$(OBJDIR)/kernel/synchronization\
 		$(OBJDIR)/kernel/time\
-		$(OBJDIR)/kernel/syscalls/
+		$(OBJDIR)/kernel/structs\
+		$(OBJDIR)/kernel/syscalls
 
 KERN_CFILES = $(wildcard kernel/*.c)
 KERN_CFILES += $(wildcard kernel/proc/*.c)
@@ -16,6 +17,7 @@ KERN_CFILES += $(wildcard kernel/drivers/*.c)
 KERN_CFILES += $(wildcard kernel/syscalls/*.c)
 KERN_CFILES += $(wildcard kernel/synchronization/*.c)
 KERN_CFILES += $(wildcard kernel/time/*.c)
+KERN_CFILES += $(wildcard kernel/structs/*.c)
 #KERN_OBJFILES = $(($(OBJDIR)/$(KERN_CFILES)):%.c=%.o)
 KERN_OBJFILES = $(foreach obj,$(KERN_CFILES),$(OBJDIR)/$(obj:%.c=%.o))
 #$(KERN_OBJFILES):$(KERN_CFILES)

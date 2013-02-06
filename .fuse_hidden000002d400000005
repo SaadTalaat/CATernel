@@ -1,4 +1,0 @@
-Next at t=0
-(0) [0x00000000fffffff0] f000:fff0 (a DATA_SEG+fffe0): jmp far f000:e05b         ; ea5be000f0
-c
-(0).[3681356000] [0x000000000010021a] 0008:00000000f010021a (T kbc_data+6): mov ebp, esp              ; 89e5
