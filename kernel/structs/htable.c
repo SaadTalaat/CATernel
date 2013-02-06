@@ -127,6 +127,7 @@ htable_insert(htable_t* table, uint32_t key, uint32_t value)
 	(&((htable_node_t *) table->table[bucket_index])[slot_index])->key = key;
 	(&((htable_node_t *) table->table[bucket_index])[slot_index])->value = value;
 	table->bucket_size[bucket_index]++;
+	table->size++;
 	return 0;
 }
 
@@ -149,6 +150,7 @@ htable_remove(htable_t* table, uint32_t key)
 	value = (&((htable_node_t *)table->table[bucket_index])[slot_index])->value;
 	(&((htable_node_t *)table->table[bucket_index])[slot_index])->value = 0;
 	table->bucket_size[bucket_index]--;
+	table->size--;
 	return value;
 }
 
