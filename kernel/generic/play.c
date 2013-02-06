@@ -21,7 +21,7 @@
 #include <test.h>
 #include <drivers/i8259.h>
 #include <kconsole.h>
-
+#include <mm/mm.h>
 /**
  * @fn void play(void);
  * @brief this function holds initializations and setting up facilities
@@ -86,6 +86,7 @@ bootup(void){
 	i8254_calibrate_delay_loop();
 	x86_setup_memory();
         ap_init();
+	mm_init();
 	init_proc();
 	kconsole_init();
 	play();

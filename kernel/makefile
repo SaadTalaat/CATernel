@@ -8,12 +8,14 @@ OBJDIRS += $(OBJDIR)/kernel \
 		$(OBJDIR)/kernel/drivers\
 		$(OBJDIR)/kernel/synchronization\
 		$(OBJDIR)/kernel/time\
+		$(OBJDIR)/kernel/mm\
 		$(OBJDIR)/kernel/generic\
 		$(OBJDIR)/kernel/structs\
 		$(OBJDIR)/kernel/syscalls
 
 KERN_CFILES = $(wildcard kernel/generic/*.c)
 KERN_CFILES += $(wildcard kernel/proc/*.c)
+KERN_CFILES += $(wildcard kernel/mm/*.c)
 KERN_CFILES += $(wildcard kernel/drivers/*.c)
 KERN_CFILES += $(wildcard kernel/syscalls/*.c)
 KERN_CFILES += $(wildcard kernel/synchronization/*.c)

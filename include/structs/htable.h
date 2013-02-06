@@ -32,6 +32,7 @@ typedef struct {
 	uint32_t (*hash)(uint32_t);
 	uint32_t (*destroy)(uint32_t);
 	uint32_t size;
+	uint32_t bucket_length;
 } htable_t;
 
 
@@ -41,7 +42,7 @@ typedef struct {
  */
 extern void htable_init(htable_t *, uint32_t, uint32_t (*hash)(uint32_t), uint32_t (*destroy)(uint32_t));
 extern void htable_destroy(htable_t *);
-extern void htable_insert(htable_t *, uint32_t key, uint32_t value);
+extern uint32_t htable_insert(htable_t *, uint32_t key, uint32_t value);
 extern uint32_t htable_remove(htable_t *, uint32_t key);
 extern uint32_t table_lookup(htable_t *, uint32_t value);
 

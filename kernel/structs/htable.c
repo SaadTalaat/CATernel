@@ -32,6 +32,7 @@ early_htable_init(htable_t *table, uint32_t buckets_count, uint32_t bucket_lengt
 	table_size 	= buckets_count*sizeof(uint32_t);
 	bucket_size 	= bucket_length*sizeof(htable_node_t);
 	table->buckets 	= buckets_count;
+	table->bucket_length = bucket_length;
 	table->size 	= 0;	// actual inserted values
 	table->hash 	= hash;
 	table->destroy 	= destroy;
@@ -110,21 +111,23 @@ htable_destroy(htable_t* table)
  * @param uint32_t the value to be stored.
  * @brief Inserts value into the hash table
  */
-void
+uint32_t
 htable_insert(htable_t* table, uint32_t key, uint32_t value)
 {
 
 	uint32_t bucket_index, slot_index;
 
 	if(table == NULL)
-		return;
+		return -1;
 	
 	bucket_index = table->hash(key) % table->buckets;
 	slot_index = table->bucket_size[bucket_index];
+	if (slot_index >= table->bucket_length)
+		return -1;
 	(&((htable_node_t *) table->table[bucket_index])[slot_index])->key = key;
 	(&((htable_node_t *) table->table[bucket_index])[slot_index])->value = value;
 	table->bucket_size[bucket_index]++;
-	return;
+	return 0;
 }
 
 /**
