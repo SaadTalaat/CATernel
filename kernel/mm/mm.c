@@ -103,25 +103,8 @@ kmalloc_test(void)
 {
 	void *v= NULL;
 	printk("[*] MM: Testing kmalloc\n");
-	printk("[*] Memory allocated %p\n", v);
 	v = kmalloc(16);
-	printk("[*] Memory allocated %p\n", v);
-	v = kmalloc(200);
-	printk("[*] Memory allocated %p\n", v);
-
-	v = kmalloc(500);
-	printk("[*] Memory allocated %p\n", v);
-
-	v = kmalloc(300);
-	printk("[*] Memory allocated %p\n", v);
 	kfree(v);
-	v = kmalloc(800);
-	printk("[*] Memory allocated %p\n", v);
-	v = kmalloc(192);
-	printk("[*] Memory allocated %p\n", v);
-	v = kmalloc(111);
-	printk("[*] Memory allocated %p\n", v);
-	v = kmalloc(50);
 	printk("[*] Memory allocated %p\n", v);
 	return;
 }
