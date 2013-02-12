@@ -305,7 +305,8 @@ void ap_init(void)
 	//asm("xchg %bx,%bx");
 	uint8_t * processor_entry = (uint8_t *) processor_entries;
 	ct_proc_entry * p;
-	//map_AP_startup();
+	map_AP_Startup();
+	/*
 	for(i=0 ; i < processors_count ; i++ )
 	{	
 		printk("Attempting to boot up processor [%x] : addr %p \n" , i , processor_entry );
@@ -327,7 +328,8 @@ void ap_init(void)
 	        apic_init_ipi(p->lapic_id);
 		processor_entry+=20;
 
-	}	
+	}	*/
+	apic_init_ipi(0);
 	
 }
 /**

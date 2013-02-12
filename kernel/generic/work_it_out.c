@@ -25,20 +25,21 @@
 #include <stdio.h>
 #include <test.h>
 #include <init.h>
+#include <multiboot.h>
 #include <arch/x86/bios/bios.h>
 /**
  * @fn void work_it_out(void);
  * @brief initializes screen and starts the bootup_process
  */
 void
-work_it_out(void)
+work_it_out(uint32_t mboot_ptr)
 {
 //	console_init();
 	i8259_init();
 	console_init();
 	console_clear();
 	printk("CATernel is booting up...\n");
-	bootup();
+	bootup(mboot_ptr);
 }
 
 /**

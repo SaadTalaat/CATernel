@@ -1,18 +1,19 @@
 #include <memvals.h>
-
 #define	RELOC(x) ((x) - KERNEL_ADDR)
 .set CODE_SEG,0x8
 .set DATA_SEG,0x10
 #define FLAGS ((1<<0) | (1<<1))
+#define STACK_SIZE 0x4000
 #define CHECKSUM (-( 0x1BADB002 + FLAGS))
 
 .text
 jmp _start
 # The Multiboot header
 .align 4
-.long 0x1BADB002
-.long FLAGS
-.long CHECKSUM
+ multiboot_header:
+	.long 0x1BADB002
+	.long FLAGS
+	.long CHECKSUM
 
 .global		_start
 _start:
@@ -27,7 +28,10 @@ _start:
 boot_setup_stack:
 	xor	%ebp,%ebp			# Clear the frame pointer
 	movl	$(kernel_stack_end),%esp		# Load the stack into the stack pointer
-	call	work_it_out
+multiboot_entry:
+             #Push the pointer to the Multiboot information structure
+        pushl   %ebx
+	call work_it_out
 
 spin:	
 	jmp	spin

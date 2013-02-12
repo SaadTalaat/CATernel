@@ -8,7 +8,7 @@ OBJDIRS := kern/boot
 OBJDIRS2 := kern/boot
 KERNDIR := kern/kernel
 OBJS := $(OBJDIR)/boot/boot.o $(OBJDIR)/boot/main.o
-CC_OPTIONS = -I include -Wformat -Werror -Wunreachable-code
+CC_OPTIONS = -I include -Wformat -Werror -Wunreachable-code -fno-stack-protector 
 KERN_CFILES = $(wildcard kernel/*.c)
 KARCH = x86
 #KERN_OBJFILES = $($(KERN_CFILES):.c=.o)
@@ -39,8 +39,10 @@ image:$(OBJDIR)/kernel/CATernel.img
 iso:image
 	@echo [*] Building ISO image at $(OBJDIR)/iso..
 	@mkdir -p $(OBJDIR)/iso/boot/grub
+	#@mkdir $(OBJDIR)/iso/initrd
 	@cp arch/$(KARCH)/grub/grub.cfg $(OBJDIR)/iso/boot/grub/
 	@cp $(KERNDIR)/kernel $(OBJDIR)/iso/boot/kern.bin
+	@cp tools/initrd.img $(OBJDIR)/iso/
 	@grub-mkrescue -o $(OBJDIR)/CATernel.iso $(OBJDIR)/iso
 	@echo [*] ISO Image at $(OBJDIR)/CATernel.iso
 clean:

@@ -116,18 +116,20 @@ void vector_test(void)
 
 void apic_s_ipi(icr_t icr , uint8_t lapicid)
 {
+         
 	icr.delivery_mode = ICR_INIT;
 	icr.dest_mode = PHYSICAL;
 	icr.level = LEVEL_DEASSERT;
 	icr.shorthand = NO_SH;
 	icr.trigger_mode = TRIGMOD_LEVEL;
 	icr.vector = 0;
-	icr.dest= lapicid;
+	//icr.dest= lapicid;
+	icr.dest=ALL_X_SELF;
 	lapic[ICR_LOW] = icr.lo;
 	//Wait 10ms 
 	delay(10000);
 	uint8_t j;
-	if (!is_82489DX_apic(lapic[LAVR])) 
+	if (is_82489DX_apic(lapic[LAVR])) 
 		{ j=1;} else {j=2;}
 	unsigned int i;
 	for (i = 0; i < j; i++) {
@@ -139,7 +141,8 @@ void apic_s_ipi(icr_t icr , uint8_t lapicid)
 	icr.level = LEVEL_ASSERT;
 	icr.shorthand = NO_SH;
 	icr.trigger_mode = TRIGMOD_LEVEL;
-	icr.dest=lapicid;
+	//icr.dest=lapicid;
+	icr.dest=ALL_X_SELF;
 	lapic[ICR_LOW] = icr.lo;
 	//Wait 200 us
 	delay(200);
@@ -165,7 +168,8 @@ void apic_init_ipi(uint8_t lapicid)
 	icr.trigger_mode = TRIGMOD_LEVEL;
 	icr.shorthand = NO_SH;
 	icr.vector = 0;
-	icr.dest =lapicid; //broadcast? 0xFH for Pentium and P6 0xFFH for Pentium 4 and Intel Xeon processors.
+	//icr.dest =lapicid; //broadcast? 0xFH for Pentium and P6 0xFFH for Pentium 4 and Intel Xeon processors.
+	icr.dest =ALL_X_SELF;
 	lapic[ICR_LOW] = icr.lo;
 	lapic[ICR_HIGH] = icr.hi;	
 	//According to MP Specification, 20us should be enough to deliver the IPI.
