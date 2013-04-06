@@ -33,14 +33,15 @@ CATernel could work either on emulators or x86 Hardware
 ---
 
 ### How to Contribute ###
-Contribution requires good familarity with OS concepts and implementation. Documentation available on CATernel-Doc repo, you can contribute as far as you can understand the project structure. You'll be using:-
-     - Git [Obviously]
-     - x86 emulator (bochs/qemu)
-     - gnu autotools, binutils
+* Contribution:
+requires good familarity with OS concepts and implementation. Documentation available on CATernel-Doc repo, you can contribute as far as you can understand the project structure. You'll be using:-
+    - Git [Obviously]
+    - x86 emulator (bochs/qemu)
+    - gnu autotools, binutils
 ---
 	 
 ### To be supported ###
-     Refer to TODO
+    Refer to TODO
 ---
 
 ### Notes ###
@@ -53,5 +54,6 @@ Contribution requires good familarity with OS concepts and implementation. Docum
 ---
 
 ### Authors ###
-     Saad Talaat <saadtalaat[at]gmail[dot]com>
-     Menna Essa
+* Authors
+    - Saad Talaat <saadtalaat[at]gmail[dot]com>
+    - Menna Essa
