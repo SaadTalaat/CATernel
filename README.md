@@ -59,5 +59,5 @@ requires good familarity with OS concepts and implementation. Documentation avai
 ---
 
 ### Authors ###
-* Saad Talaat <saadtalaat[at]gmail[dot]com>
-* Menna Essa
+* Saad Talaat  saadtalaat[at]gmail[dot]com
+* Menna Essa   http://twitter.com/MennaEssa
