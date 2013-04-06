@@ -15,6 +15,7 @@
     removes the kern output directory.
     - `$ make iso`
     generates iso image of the kernel
+
 ---
 
 ### Usage ###
@@ -30,6 +31,7 @@ CATernel could work either on emulators or x86 Hardware
    - `qemu-system-i386 -cdrom kern/CATernel.iso`
 * VirtualBox
    CATernel can be ran over VirtualBox only using cd iso image, set it as CD Drive and start live session
+
 ---
 
 ### How to Contribute ###
@@ -38,10 +40,12 @@ requires good familarity with OS concepts and implementation. Documentation avai
 * Git [Obviously]
 * x86 emulator (bochs/qemu)
 * gnu autotools, binutils
+
 ---
 	 
 ### To be supported ###
 * Refer to TODO
+
 ---
 
 ### Notes ###
@@ -51,6 +55,7 @@ requires good familarity with OS concepts and implementation. Documentation avai
 * http://twitter.com/catreloaded
 * http://facebook.com/catreloaded.team
 * if you are facing any problem get on IRC (Freenode) channel #CATReloaded.
+
 ---
 
 ### Authors ###
