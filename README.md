@@ -35,25 +35,24 @@ CATernel could work either on emulators or x86 Hardware
 ### How to Contribute ###
 * Contribution:
 requires good familarity with OS concepts and implementation. Documentation available on CATernel-Doc repo, you can contribute as far as you can understand the project structure. You'll be using:-
-    - Git [Obviously]
-    - x86 emulator (bochs/qemu)
-    - gnu autotools, binutils
+    * Git [Obviously]
+    * x86 emulator (bochs/qemu)
+    * gnu autotools, binutils
 ---
 	 
 ### To be supported ###
-    Refer to TODO
+    * Refer to TODO
 ---
 
 ### Notes ###
-     Please make your commits descriptive.
-     http://github.com/SaadTalaat/CATernel-Doc [Documentation]
-     http://catreloaded.net [ Organization ]
-     http://twitter.com/catreloaded
-     http://facebook.com/catreloaded.team
-     if you are facing any problem get on IRC (Freenode) channel #CATReloaded.
+    * Please make your commits descriptive.
+    * http://github.com/SaadTalaat/CATernel-Doc [Documentation]
+    * http://catreloaded.net [ Organization ]
+    * http://twitter.com/catreloaded
+    * http://facebook.com/catreloaded.team
+    * if you are facing any problem get on IRC (Freenode) channel #CATReloaded.
 ---
 
 ### Authors ###
-* Authors
-    - Saad Talaat <saadtalaat[at]gmail[dot]com>
-    - Menna Essa
+* Saad Talaat <saadtalaat[at]gmail[dot]com>
+* Menna Essa
