@@ -20,16 +20,16 @@
 
 ### Usage ###
 CATernel could work either on emulators or x86 Hardware
-* Bochs
-   If you are in source directory, you only need to run bochs
+* Bochs: 
    - `bochs`
+   If you are in source directory, you only need to run bochs
    If you are on independent directory make sure you copy bochsrc or use it as configuration file
-* Qemu
-   Run as hard disk image
+* Qemu: 
    - `qemu-system-i386 -hda kern/kernel/CATernel.img`
-   Run as iso
+   Run as hard disk image
    - `qemu-system-i386 -cdrom kern/CATernel.iso`
-* VirtualBox
+   Run as iso
+* VirtualBox: 
    CATernel can be ran over VirtualBox only using cd iso image, set it as CD Drive and start live session
 
 ---
