@@ -202,7 +202,7 @@ interrupt_init(void){
  */
 void
 map_exception(uint32_t int_index, cpu_state_t *cpu_state){
-#ifdef	_SYSDBG_
+#ifdef _SYSDBG_
 	printk("================= Exception =================\n");
 	printk("%s of index %d\n", x86_exception_names[int_index], int_index);
 	printk("Error Code = %x\n", cpu_state->error_code);
@@ -219,11 +219,13 @@ map_exception(uint32_t int_index, cpu_state_t *cpu_state){
 	printk("\tEFLAGS = %p\n", cpu_state->eflags);
 	printk("Current Instruction:-\n");
 	printk("\tEIP=%p\n",cpu_state->eip);
+	while(1);
 #endif
 	printk("[*] INT : %d\n", int_index);
 	switch(int_index)
 	{
 		case PF:
+			while(1);
 			page_fault_handler(cpu_state);
 			break;
 		case SYSCALL:

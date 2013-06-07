@@ -15,7 +15,7 @@ kcommand_t *kconsole_commands;
 void
 kconsole_init(void)
 {
-	kconsole_commands = allocate(KCONSOLE_MAX_CMDS*sizeof(kcommand_t) , PAGESZ);
+	kconsole_commands = kmalloc(KCONSOLE_MAX_CMDS*sizeof(kcommand_t));
 	int i;
 	for(i=0; i<KCONSOLE_MAX_CMDS; i++)
 	{

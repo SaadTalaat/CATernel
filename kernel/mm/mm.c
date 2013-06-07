@@ -106,5 +106,6 @@ kmalloc_test(void)
 	v = kmalloc(16);
 	kfree(v);
 	printk("[*] Memory allocated %p\n", v);
+	asm("xchg %bx,%bx");
 	return;
 }

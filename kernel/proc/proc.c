@@ -111,7 +111,7 @@ create_proc(proc_t **proc_s)
 	proc->page_directory[PGDIRX(VIRTPGT)] = proc->cr3 | PAGE_PRESENT | PAGE_WRITABLE;
 	proc->page_directory[PGDIRX(USERVIRTPGT)] = proc->cr3 | PAGE_PRESENT | PAGE_USER;
 
-	proc->esp	=	USERSTACK_TOP - 50;
+	proc->esp	=	USERSTACK_TOP - 100;
 	proc->cs	=	SEG_USERCODE | 3;
 	proc->ss	=	SEG_USERDATA | 3;
 	proc->id	= proc- proc_table;
@@ -165,13 +165,15 @@ init_proc0()
 	printk("proc is %d\n", proc0->id);
 	for( i =0; i< 30; i++)
 	{
-		status = elf_load_to_proc(proc0, 512*(127+i));
+		status = elf_load_to_proc(proc0, 512*(146+i));
 		if(status == 0)
 		{
 			printk("[*] PROC0: found at sector %d\n", 127+i);
 			break;
 		}
 	}
+	printk("PROC FRAME:\n");
+	printk("CR3: %x\n", proc0->cr3);
 	if(status == -1)
 	{
 		panic("Couldn't locate PROC0.");
@@ -254,16 +256,40 @@ switch_address_space(proc_t *proc_to_run){
 	 *      2- set the cpu state to what the proc indicates
 	 *      3- issue an iret
 	 */
+	printk("CR3: %x\n", proc_to_run->cr3);
+	printk("proc @[%x]\n", proc_to_run);
 	proc_to_run->seg_regs.fs = 0x23;
 	proc_to_run->seg_regs.es = 0x23;
 	proc_to_run->seg_regs.gs = 0x23;
 	proc_to_run->seg_regs.ds = 0x23;
+//	asm volatile("movl %0,%%esp":: "g" (proc_to_run) : "memory");
+	
+//	write_cr3(proc_to_run->cr3);
+	map_segment_page(proc_to_run->page_directory, (vaddr_t) proc_to_run, sizeof(proc_to_run), (paddr_t) va2pa(global_pgdir,proc_to_run), PAGE_USER| PAGE_PRESENT);
+	asm ("xchg %bx,%bx");
 	write_cr3(proc_to_run->cr3);
-	asm volatile("movl %0,%%esp":: "g" (proc_to_run) : "memory");
+	asm volatile("pushl %0":: "g"(proc_to_run->ss));
+	asm volatile("pushl %0":: "g"(proc_to_run->esp));
+	asm volatile("pushl %0":: "g"(proc_to_run->eflags));
+	asm volatile("pushl %0":: "g"(proc_to_run->cs));
+	asm volatile("pushl %0":: "g"(proc_to_run->eip));
 
+	asm volatile("pushl %0":: "g"(proc_to_run->seg_regs.ds));
+	asm volatile("pushl %0":: "g"(proc_to_run->seg_regs.es));
+	asm volatile("pushl %0":: "g"(proc_to_run->seg_regs.fs));
+	asm volatile("pushl %0":: "g"(proc_to_run->seg_regs.gs));
+	asm volatile("pushl %0":: "g"(proc_to_run->gpr_regs.eax));
+	asm volatile("pushl %0":: "g"(proc_to_run->gpr_regs.ecx));
+	asm volatile("pushl %0":: "g"(proc_to_run->gpr_regs.edx));
+	asm volatile("pushl %0":: "g"(proc_to_run->gpr_regs.ebx));
+	asm volatile("pushl %esp");
+	asm volatile("pushl %0":: "g"(proc_to_run->gpr_regs.ebp));
+	asm volatile("pushl %0":: "g"(proc_to_run->gpr_regs.esi));
+	asm volatile("pushl %0":: "g"(proc_to_run->gpr_regs.edi));
 	asm volatile("popal");
 	asm volatile("popl %gs\npopl %fs\npopl %es");
 	asm volatile("popl %ds");
+//	asm volatile("movl %0,%%cr3":: "m"(proc_to_run->cr3));
 //	asm volatile("movl $5f,0(%esp)\n");
 	asm volatile("iret\n5:\n");
 
@@ -281,6 +307,7 @@ schedule(void)
 {
 	uint32_t idx= 0;
 	proc_t *proc, *pproc;
+	write_cr3(global_cr3);
 	if(!LIFO_EMPTY(&running_procs))
 	{
 		pproc = LIFO_POP(&running_procs, q_link);
@@ -300,11 +327,14 @@ schedule(void)
 		proc = pproc;
 	}
 
+	printk("Here\n");
 	if(!LIFO_EMPTY(&running_procs))
 		if(pproc->status == RUNNABLE)
 			FIFO_PUSH(&ready_procs, pproc);
-
+	printk("Here\n");
+	printk("Procs %p\tProc %p\n", &running_procs, proc);
 	LIFO_PUSH(&running_procs, proc ,q_link);
+	printk("Here2\n");
 
 	printk("[*] Scheduling to process: %d\n", proc->id);
 
