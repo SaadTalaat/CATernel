@@ -19,7 +19,8 @@
  * passed on inialization time, same as destroy function.
  * the overall size which is used to determine the overall inserted values count.
  */
-
+#ifndef _CATERNEL_STRUCTS_HTABLE_H_
+#define _CATERNEL_STRUCTS_HTABLE_H_
 typedef struct {
 	uint32_t key;
 	uint32_t value;
@@ -45,4 +46,5 @@ extern void htable_destroy(htable_t *);
 extern uint32_t htable_insert(htable_t *, uint32_t key, uint32_t value);
 extern uint32_t htable_remove(htable_t *, uint32_t key);
 extern uint32_t table_lookup(htable_t *, uint32_t value);
-
+extern uint32_t early_htable_init(htable_t *, uint32_t, uint32_t, uint32_t (*hash)(uint32_t), uint32_t (*destroy)(uint32_t));
+#endif
