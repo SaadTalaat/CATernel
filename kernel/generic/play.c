@@ -84,9 +84,11 @@ bootup(void){
 	processor_identify();
 	lapic_init();
 	i8254_calibrate_delay_loop();
+	initrd_init();
 	x86_setup_memory();
         ap_init();
 	mm_init();
+	asm("xchg %bx,%bx");
 	init_proc();
 	kconsole_init();
 	play();
