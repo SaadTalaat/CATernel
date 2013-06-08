@@ -10,6 +10,8 @@
 #define _CATERNEL_BOOT_QUEUE_H_
 #include <structs/linkedlist.h>
 #include <arch/x86/mm/page.h>
+#include <mm/mm.h>
+
 /** LIFO QUEUE **/
 #define	LIFO_HEAD(name, member)\
 	struct name{		\
@@ -60,7 +62,7 @@
 #define FIFO_EMPTY(h)	\
 	(((h)->head == (h)->tail))
 #define FIFO_INIT(h)    \
-        FIFO_FIRST(h) = allocate( sizeof(*(h)->first) * (h)->items, 0x400)
+        FIFO_FIRST(h) = kmalloc( sizeof(*(h)->first) * (h)->items )
 
 #define FIFO_PUSH(h, element)     \
 	FIFO_FIRST(h)[(h)->tail = ((h)->tail +1) < (h)->items ? ((h)->tail+1): 0] = *(element)

@@ -19,12 +19,12 @@
  * Early Hash Table initalization function is used to initalize structures that 
  * take place in memory before MM inialization.
  */
-void
+uint32_t
 early_htable_init(htable_t *table, uint32_t buckets_count, uint32_t bucket_length,
 			uint32_t (*hash)(uint32_t),
 			uint32_t (*destroy)(uint32_t))
 {
-	int count,table_size,bucket_size;
+	int count,table_size,bucket_size,total_size;
 
 	if(table == NULL)
 		return;
@@ -38,13 +38,18 @@ early_htable_init(htable_t *table, uint32_t buckets_count, uint32_t bucket_lengt
 	table->destroy 	= destroy;
 	table->table 	= allocate(table_size, table_size);
 	table->bucket_size = allocate(table_size, table_size);
+	total_size = table_size*bucket_size;
+	total_size += table_size;
 
 	for(count = 0; count < buckets_count; count ++)
+	{
 		table->table[count] = allocate(bucket_size,bucket_size);
-
+	}
 	for(count = 0; count < bucket_length*2; count++)
+	{
 		table->bucket_size[count] = 0;
-	return;
+	}
+	return total_size;
 }
 
 /**

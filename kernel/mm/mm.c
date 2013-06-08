@@ -43,13 +43,13 @@ mm_destroy(uint32_t destroy)
 void
 mm_init(void)
 {
-	htable_t table;
-	mm_table = &table;
-	early_htable_init(mm_table, page_count,0x400, mm_hash, mm_destroy);
+	int size;
+	mm_table = allocate( sizeof(htable_t), sizeof(htable_t));
+	size = early_htable_init(mm_table, page_count,0x200, mm_hash, mm_destroy);
 	printk("[*] MM: Hash Table initalized\n");
+	map_segment_page(global_pgdir, (vaddr_t)mm_table, size + sizeof(htable_t), (paddr_t)KA2PA(mm_table), PAGE_WRITABLE);
 	mm_va_base = cur_bucket  = 0x80000000;
 	kmalloc_test();
-	while(1);
 }
 
 static uint32_t
@@ -106,5 +106,6 @@ kmalloc_test(void)
 	v = kmalloc(16);
 	kfree(v);
 	printk("[*] Memory allocated %p\n", v);
+	asm("xchg %bx,%bx");
 	return;
 }

@@ -32,14 +32,20 @@ elf_load_to_proc(proc_t *proc, uint32_t offset)
 	struct proghdr	*p1,*p2;
 	int count;
 	struct Page *page;
+
+
 	x86_page_alloc(&page);
 	asm("xchg %bx,%bx");
 //	x86_pgdir_find(proc->page_directory, (void *)(0xA0000000), 1);
 	x86_page_insert(proc->page_directory, page, (void *) 0xA0000000, PAGE_USER | PAGE_WRITABLE); 
 	write_cr3(proc->cr3);
 	readseg( (uint32_t) elf_hdr, SECTOR*8, offset);
+
 	if( elf_hdr->magic != ELF_MAGIC )
+	{
+		write_cr3(global_cr3);
 		return -1;
+	}
 	p1 = (struct proghdr *) ( (uint8_t *) elf_hdr + elf_hdr->phroff);
 	p2 = p1 + elf_hdr->phrnum;
 	/* Change address space */
@@ -53,9 +59,13 @@ elf_load_to_proc(proc_t *proc, uint32_t offset)
 	}
 	proc->eip = elf_hdr->entry;
 	printk("entry[%p]\n",proc->eip);
-	map_segment_page(proc->page_directory, USERSTACK_TOP - PAGESZ, PAGESZ, 0x22000000, PAGE_USER | PAGE_PRESENT | PAGE_WRITABLE);
+	map_segment_page(proc->page_directory, USERSTACK_TOP - PAGESZ, PAGESZ, 0x2200000, PAGE_USER | PAGE_PRESENT | PAGE_WRITABLE);
+	printk("Allocating Stack: Start->[%x] End->[%x]\n",USERSTACK_TOP - PAGESZ, USERSTACK_TOP );
+	printk("size %x\n", sizeof(proc_t));
+	map_segment_page(proc->page_directory, (vaddr_t) proc, sizeof(proc_t), (paddr_t) KA2PA(proc), PAGE_USER | PAGE_PRESENT);
 	asm("xchg %bx,%bx");
 	write_cr3(global_cr3);
+	printk("mapped PEB[%x] to proc\n",proc);
 	return 0;
 }
 
