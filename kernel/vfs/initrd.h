@@ -22,13 +22,13 @@ typedef struct
 typedef struct
 {
     uint8_t magic;       //for error checking.
-    uint32_t name[64];  
+    char name[64];  
     uint32_t offset;   // Offset in the initrd that the file starts.
     uint32_t size;   
 } initrd_file_header_t;
-
-// Initialises the initial ramdisk. It gets passed the address of the multiboot module,
+            
+// Initialises the initial ramdisk. pass the address of the multiboot module,
 // and returns a completed filesystem node.
 vfs_node_t *initialise_initrd(uint32_t location);
-
+uint32_t initrd_read(vfs_node_t *node, uint32_t offset, uint32_t size, uint8_t *buffer);
 #endif

@@ -34,12 +34,12 @@ typedef struct vfs_node * (*finddir_type_t)(struct vfs_node*,char *name);
 
 typedef struct vfs_node
 {
-   char name[128];     
+   char name[128]; 
+   uint32_t inode;       // This is device-specific - provides a way for a filesystem to identify files.    
    uint32_t mask;        //permissions mask.
    uint32_t uid;        
    uint32_t gid;         
    uint32_t flags;       //the node type (file , dir , etc).
-   uint32_t inode;       // This is device-specific - provides a way for a filesystem to identify files.
    uint32_t size;        // Size of the file, in bytes.
    uint32_t impl;        //impl dependent;the driver can set to track which filesystem instance it belongs to .
    read_type_t read;
@@ -51,7 +51,7 @@ typedef struct vfs_node
    struct fs_node *ptr; // Used by mountpoints and symlinks.
 } vfs_node_t; 
 
-typedef vfs_node_t * (*finddir_type_t)(vfs_node_t*,char *name); 
+//typedef vfs_node_t * (*finddir_type_t)(vfs_node_t*,char *name); 
 
 
 

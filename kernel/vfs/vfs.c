@@ -6,13 +6,17 @@
  */
 
 #include "vfs.h"
+#include "initrd.h"
 #include <types.h>
 vfs_node_t *fs_root = 0; // The root of the filesystem.
 
-//this is a stupid prototype , plain standards ; 
+//plain standards ; 
 //to be edited when fs implementations come to life
+
+
 uint32_t read_fs(vfs_node_t *node, uint32_t offset, uint32_t size, uint8_t *buffer)
 {
+
     if (node->read != 0)
         return node->read(node, offset, size, buffer);
     else
