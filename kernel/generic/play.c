@@ -164,6 +164,9 @@ bootup(uint32_t mboot_ptr){
 	}
 	//init_proc();
 	//kconsole_init();
+	asm("xchg %bx,%bx");
+	init_proc();
+	kconsole_init();
 	play();
 }
 
