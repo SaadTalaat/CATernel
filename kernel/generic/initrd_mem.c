@@ -9,13 +9,13 @@
  * @{
  *
  */
-#include <initrd.h>
+#include <initrd_mem.h>
 
 void*
-initrd_init()
+initrd_mem()
 {
 	void *initrd_start;
-	initrd_start = allocate( 2*PAGESZ, PAGESZ);
+	initrd_start = allocate( 3*PAGESZ, PAGESZ);
 	return initrd_start;
 }
 /**

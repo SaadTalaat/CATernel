@@ -22,6 +22,7 @@
 #include <multiboot.h>
 #include "../vfs/vfs.h"
 #include "../vfs/initrd.h"
+#include "initrd_mem.h"
 #include <drivers/i8259.h>
 #include <kconsole.h>
 #include <mm/mm.h>
@@ -37,6 +38,8 @@
  */
 void play(void);
 static const char* error_panic = NULL;
+
+
 
 void
 _panic_(const char *file, int nline, const char *fmt, ...){
@@ -79,12 +82,11 @@ uint8_t initrd(multiboot_info_t * mboot_ptr , uint32_t *  initrd_location_ptr , 
 
 	multiboot_mod_t * mod_ptr;
 	printk("[*] Modules loaded-> %d \n" , mboot_ptr->mods_count);
-	asm("xchg %bx,%bx");
  	if(mboot_ptr->mods_count > 0){
 	mod_ptr= PA2KA(mboot_ptr->mods_addr);
 	*initrd_location_ptr=(uint32_t)PA2KA(mod_ptr->mod_start);
 	*initrd_end_ptr=(uint32_t)PA2KA(mod_ptr->mod_end);
-	printk("initrd image loaded at : %x " , *initrd_location_ptr);
+	//printk("initrd image loaded at : %x " , *initrd_location_ptr);
 	return 0;
 	}
 	else 
@@ -93,9 +95,8 @@ uint8_t initrd(multiboot_info_t * mboot_ptr , uint32_t *  initrd_location_ptr , 
 	return 1;
 	}
 }
-void initrd_test(multiboot_info_t * mboot_ptr , uint32_t initrd_location , uint32_t initrd_end)
+void initrd_test(uint32_t initrd_location)
 {
-	asm("xchg %bx,%bx");
 	vfs_node_t * fs_root;
 	uint32_t i= 0;
     	direntry_t *node = 0;
@@ -103,30 +104,27 @@ void initrd_test(multiboot_info_t * mboot_ptr , uint32_t initrd_location , uint3
 	fs_root = initialise_initrd(initrd_location);
  	while ( (node = readdir_fs(fs_root, i)) != 0)
    	 {
-		printk("node [%d] ",i);
-		asm("xchg %bx,%bx");
-        	//printk("[initrd]: Found node ");
-		//%s \n",node->name);
-       		vfs_node_t *fsnode = finddir_fs(fs_root, node->name);
+		
+		printk("\tnode [%d] \n",i);
+       		vfs_node_t * fsnode = finddir_fs(fs_root, node->name);
         	if ((fsnode->flags & 0x7) == FS_DIRECTORY)
         	{   
-          	    printk("(directory) %s \n", node->name);
+          	    printk("\t(directory) %s \n", fsnode->name);
       	        }
         	else
         	{
-		    asm("xchg %bx,%bx");
-                    printk("contents:\n");
-                    char * buf = (char *)kmalloc(32);
-		    asm("xchg %bx,%bx");
-                    uint32_t sz = read_fs(fsnode, 0, 32, buf);
-	            printk("read_fs\n");
-		    asm("xchg %bx,%bx");
-            	    int j;
-          	    for (j = 0; j < sz; j++)
-                    printk("%s\n",buf+j);  
+
+		    // the pointer falls , I can't find fix it..
+		    fsnode->read=&initrd_read; //temp fix.
+		    printk("\t(file)%s \n" , fsnode->name );
+                    printk("\t\tcontents:\n");
+                    char * buf = (char *) kmalloc(32);
+		    uint32_t sz = read_fs(fsnode, 0, 31, buf );
+                    printk("\t\t %s\n",buf);
         	}
         	i++;
    	 }
+	asm("xchg %bx,%bx");  
 	
 }
 
@@ -139,6 +137,7 @@ bootup(uint32_t mboot_ptr){
 	multiboot_info_t * mboot_info_ptr;
 	uint32_t initrd_location;
 	uint32_t initrd_end;
+	initrd_header_t * initrd_header;
 	uint8_t fail;
 	/***********************************
 	 *** INITIATION OF BATCH USERMODE!!
@@ -147,24 +146,24 @@ bootup(uint32_t mboot_ptr){
 	time_print();
 	bios_init();
 	scan_memory();
-	mboot_info_ptr = (multiboot_info_t *)PA2KA(mboot_ptr);
-	fail=initrd( mboot_info_ptr , &initrd_location , &initrd_end);
-	//initrd_location= (uint32_t) PA2KA(initrd_location);
-	asm("xchg %bx,%bx");
 	processor_identify();
 	lapic_init();
 	i8254_calibrate_delay_loop();
+	initrd_mem();
+	mboot_info_ptr = (multiboot_info_t *)PA2KA(mboot_ptr);
+	fail=initrd( mboot_info_ptr , &initrd_location , &initrd_end);
+	//for debugging sake .. the headers die after this
+   	initrd_header = (initrd_header_t *)initrd_location;
+   	//printk("Header base at %x intird header -> nfiles = %d \n" , initrd_header , initrd_header->nfiles);
 	x86_setup_memory();
         //ap_init();
 	mm_init();
-	printk("haz we failed?");
-	asm("xchg %bx,%bx");
 	if(!fail)
 	{
-	initrd_test(mboot_info_ptr , initrd_location , initrd_end);
+	initrd_test(initrd_location);
 	}
-	init_proc();
-	kconsole_init();
+	//init_proc();
+	//kconsole_init();
 	play();
 }
 
