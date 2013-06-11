@@ -1,11 +1,11 @@
-/** @addtogroup Main
- * @{
- */
-
 /**
+ * @addtogroup VFS
+ * @{
  * @file vfs/initrd.c
  * @author Menna Essa
- * @brief initrd fs operations
+ * @brief Initrd file system operations specifications and implementation
+ * @name Initrd
+ * @{
  */
 
 #include <mm/mm.h>
@@ -19,6 +19,16 @@ static vfs_node_t *root_nodes=NULL;
 int nroot_nodes;                    
 direntry_t dirent;
 
+
+/**
+ * @brief Read operation implementation , reads the offset from the node structure , Reads
+	  data of size specified by the call ; after checking that the file is legal.
+ * @param vfs_node_t *node the file's node to be read.
+ * @param uint32_t offset where to start reading ( 0 for beggining of the file).
+ * @param uint32_t size  size of data to read.
+ * @param uint8_t *buffer buffer to be read into.
+ * @return uint32_t : 0 is failed , size of data read if succeeded .
+ */
 uint32_t initrd_read(vfs_node_t *node, uint32_t offset, uint32_t size, uint8_t *buffer)
 {
     initrd_file_header_t * hdr=	file_headers;
@@ -31,10 +41,18 @@ uint32_t initrd_read(vfs_node_t *node, uint32_t offset, uint32_t size, uint8_t *
     return size;
 }
 
+
+
+
+/**
+ * @brief Directory traversal , reads next directory ; still immature
+ * @param vfs_node_t *node the directory node to be read.
+ * @param uint32_t directory index.
+ * @return uint32_t : pointer to directory entry if succeeded , 0 if failed.
+ */ 
+
 static  direntry_t * initrd_readdir(vfs_node_t *node, uint32_t index)
 {
-   //printk("calling initrd_readdir\n");	
-   //asm("xchg %bx,%bx");
     if (node == initrd_root && index == 0)
     {
       memcopy(dirent.name, "dev\0" , 4);
@@ -45,12 +63,18 @@ static  direntry_t * initrd_readdir(vfs_node_t *node, uint32_t index)
     if (index-1 >= nroot_nodes){
         return 0;
 	}
-    memcopy(dirent.name, root_nodes[index-1].name,126); //strcpy , want!
+    memcopy(dirent.name, root_nodes[index-1].name,126); //I need strcpy..
     memcopy(dirent.name+126 , "\0",1);
     dirent.inode_n = root_nodes[index-1].inode;
     return &dirent;
 }
 
+/**
+ * @brief Directory traversal , searches for a direcotry , very Immature.
+ * @param vfs_node_t *node head to start from.
+ * @param uint32_t char * name name of the directory to search for.
+ * @return uint32_t : pointer to directory entry if succeeded , 0 if failed.
+ */ 
 static vfs_node_t *initrd_finddir(vfs_node_t *node, char *name)
 {
     if (node == initrd_root &&
@@ -58,6 +82,14 @@ static vfs_node_t *initrd_finddir(vfs_node_t *node, char *name)
         return initrd_dev;
 	/*TODO , Continue traversal when i get strcmp!*/
 }
+
+
+/**
+ * @brief Initializes file systems structures (root directory , /dev direcotry and file nodes)
+		      to be able to preform files system operations.
+ * @param uint32_t location : pointer to the start of the initrd image.
+ * @return vfs_node_t* initrd filesystem root node.
+ */ 
 
 vfs_node_t *initialise_initrd(uint32_t location)//from the multiboot_info structure
 {
@@ -118,10 +150,11 @@ vfs_node_t *initialise_initrd(uint32_t location)//from the multiboot_info struct
         root_nodes[i].open = 0;
         root_nodes[i].close = 0;
         root_nodes[i].impl = 0;
-	//	    printk("fsnode info : name : %s , mask %d , uid:%d ,gid : %d \n\n " , root_nodes[i].name , root_nodes[i].mask , 		//			root_nodes[i].uid , root_nodes[i].gid);
-	//asm("xchg %bx,%bx");
     }
     return initrd_root;
 }
 
-
+/**
+ * @}
+ * @}
+ */

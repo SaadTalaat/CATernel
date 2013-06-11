@@ -1,10 +1,12 @@
  /** 
- * @file vfs.h
- * @author Menna Essa 
- * @brief basic VFS Structures , operations definitions.
- * http://catreloaded.net
+ * @addtogroup VFS
+ * @{
+ * @file vfs/vfs.h
+ * @author Menna Essa
+ * @brief Standardized file system structures and constants.
+ * @name Initrd
+ * @{
  */
-
 #include <types.h>
 #ifndef _CATERNEL_VFS_H_
 #define _CATERNEL_VFS_H_
@@ -22,8 +24,8 @@ struct vfs_node;
 //POSIX Standard
 typedef uint32_t (*read_type_t)( struct vfs_node *,uint32_t,uint32_t,uint8_t*);
 typedef uint32_t (*write_type_t)(struct vfs_node *,uint32_t,uint32_t,uint8_t*);
-typedef void (*open_type_t)(struct vfs_node*);
-typedef void (*close_type_t)(struct vfs_node *);
+typedef uint8_t (*open_type_t)(struct vfs_node* , uint32_t , uint32_t);
+typedef uint8_t (*close_type_t)(struct vfs_node *);
 typedef struct {
   char name[128]; 
   uint32_t inode_n; 
@@ -53,15 +55,18 @@ typedef struct vfs_node
 
 //typedef vfs_node_t * (*finddir_type_t)(vfs_node_t*,char *name); 
 
-
+/**
+ * @}
+ * @}
+ */
 
 // The root of the filesystem.
 extern vfs_node_t *fs_root; 
 // Standard read/write/open/close functions.
 uint32_t read_fs(vfs_node_t *node, uint32_t  offset, uint32_t size, uint8_t  *buffer);
 uint32_t write_fs(vfs_node_t *node, uint32_t  offset, uint32_t size, uint8_t *buffer);
-void open_fs(vfs_node_t *node, uint8_t read, uint8_t write);
-void close_fs(vfs_node_t *node);
+uint8_t open_fs(vfs_node_t *node, uint8_t read, uint8_t write);
+uint8_t close_fs(vfs_node_t *node);
 direntry_t *readdir_fs(vfs_node_t *node, uint32_t  index);
 vfs_node_t *finddir_fs(vfs_node_t *node, char *name);
 
