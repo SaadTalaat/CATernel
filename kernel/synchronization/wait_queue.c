@@ -1,8 +1,21 @@
+/**
+ * @addtogroup Synchronization
+ * @{
+ * @file wait_queue.c
+ * @author Saad Talaat
+ * @name Wait queues
+ * @brief Wait queues
+ */
+
 #include <structs/linkedlist.h>
 #include <synchronization/wait_queue.h>
 #include <arch/x86/mm/page.h>
 
-
+/**
+ * @param waiting_procs , list to hold waiting procs pointer
+ * @return nothing
+ * @brief Waiting procs linked list initialization function
+ */
 void
 wait_init(struct Proc_List *waiting_procs){
 	LIST_INIT(waiting_procs);
@@ -10,6 +23,12 @@ wait_init(struct Proc_List *waiting_procs){
 }
 
 /**
+ * @param list, the sleeping processes list
+ * @param proc, the process to put to sleep
+ * @param ticks, number of ticks before wake-up
+ * @return void
+ * @brief function that blocks a process
+ * @details
  * Generally, a sleep is done on an I/O or race conditions
  * Here, a sleep is done either timed out or forever..relatively.
  * and proc status is changed into blocked, inserted into waiting
@@ -34,6 +53,10 @@ wait_sleep(struct Proc_List *list, proc_t *proc,  uint32_t ticks)
 }
 
 /**
+ * @param nothing
+ * @return nothing
+ * @brief blocked process updating function
+ * @details
  * For each timer tick/interrupt a wait_update is made
  * to wake up timed out procs and update other waiting
  * procs timers.
@@ -58,6 +81,10 @@ wait_update(void)
 }
 
 /**
+ * @param list , the blocked processes list
+ * @return nothing
+ * @brief wakes up a proccess once timeout or resource free
+ * @details
  * Basically, This function serves procs blocked due
  * to a lock or semaphore..etc
  * the first proc is marked as ready and pushed into ready procs
@@ -95,3 +122,8 @@ wait_wakeup(struct Proc_List *list)
 	return;
 */
 }
+
+
+/**
+ * @}
+ */

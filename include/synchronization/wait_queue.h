@@ -1,4 +1,6 @@
 /**
+ * @addtogroup Synchronization
+ * @{
  * @file waitq.h
  * @brief Wait queue structures and headers
  * @author Saad Talaat
@@ -22,3 +24,6 @@ void wait_wakeup(struct Proc_List *list);
 
 
 #endif
+/**
+ * @}
+ */

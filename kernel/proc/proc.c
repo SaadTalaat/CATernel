@@ -45,6 +45,14 @@ proc_printinfo(void)
 	printk("Ready Queue   : %p\n" , &ready_procs);
 	return;
 }
+
+/**
+ * @param nothing
+ * @return nothing
+ * @details
+ * Commits process holding structures (LIST/LIFO/FIFO)
+ * initalizes PEBs and address spaces.
+ */
 void
 init_proc_table(void){
 	/*
@@ -119,6 +127,15 @@ create_proc(proc_t **proc_s)
 	*proc_s = proc;
 	return 0;
 }
+
+/**
+ * @param proc_t* proc, process to use
+ * @return nothing
+ * @details
+ * this small process is used by scheduler to set
+ * a process as ready and push it into ready procs
+ * to be scheduled into ready_procs FIFO
+ */
 void
 proc_ready(proc_t *proc)
 {
@@ -302,6 +319,16 @@ sched_init(void)
 	i8254_init();
 
 }
+
+/**
+ * @param nothing
+ * @return nothing
+ * @brief main scheduling function
+ * @details
+ * a very basic RR scheduling function which detach
+ * running procs and push them into ready procs then
+ * fetch them.
+ */
 void
 schedule(void)
 {
