@@ -2,7 +2,8 @@
 ## CATernel is research purpose uKernel using IA ISA, so far.. ##
 ---
 
-![My image](https://pbs.twimg.com/media/BDEaTlsCEAEfcI7.png:large)
+![Logo](https://pbs.twimg.com/media/BDEaTlsCEAEfcI7.png:large)
+![Screenshot](http://www.mediafire.com/convkey/d335/7ybghgqedh812qefg.jpg?size_id=5)
 ---
 
 ### How is it built ###
