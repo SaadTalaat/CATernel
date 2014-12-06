@@ -1,5 +1,5 @@
 # CATernel #
-## CATernel is research purpose uKernel using IA ISA, so far.. ##
+## CATernel is research purpose uKernel over x86 Architecture, so far.. ##
 ---
 
 ![Logo](https://pbs.twimg.com/media/BDEaTlsCEAEfcI7.png:large)
