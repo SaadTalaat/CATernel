@@ -21,7 +21,7 @@
 /**
  * @brief Declare IDT with 255 width interrupts.
  */
-gatedesc idt[64];
+gatedesc idt[255];
 
 /**
  * @brief Fault names.
