@@ -2,7 +2,6 @@
 ## CATernel is research purpose uKernel over x86 Architecture, so far.. ##
 ---
 
-![Logo](https://pbs.twimg.com/media/BDEaTlsCEAEfcI7.png:large)
 ![Screenshot](http://www.mediafire.com/convkey/d335/7ybghgqedh812qefg.jpg?size_id=5)
 ---
 
